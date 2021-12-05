@@ -1,4 +1,5 @@
-﻿using MLicencas.FormViews.Usuarios;
+﻿using MLicencas.FormViews.Login;
+using MLicencas.FormViews.Usuarios;
 
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,15 @@ namespace MLicencas
     {
         public MainView()
         {
+            LoadLogin();
             InitializeComponent();
+            
+        }
+
+        private void LoadLogin()
+        {
+            Login login = new Login();
+            login.ShowDialog();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)

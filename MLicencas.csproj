@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormViews\Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Usuarios\UsuariosFormView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="UCViews\Usuarios\UsuariosListUC.Designer.cs">
       <DependentUpon>UsuariosListUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormViews\Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Usuarios\UsuariosFormView.resx">
       <DependentUpon>UsuariosFormView.cs</DependentUpon>
     </EmbeddedResource>
