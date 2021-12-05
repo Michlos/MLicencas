@@ -29,9 +29,9 @@ namespace InfraStructure.Repository.Usuarios
 
         public IUsuarioModel Add(IUsuarioModel usuario)
         {
-            _query = "INSERT INTO Usuarios (Login, Nome, Cpf, Cargo) " +
+            _query = "INSERT INTO Usuarios (Login, Nome, Cpf, Cargo, Senha, GrupoId, AlteraSenha) " +
                     " OUTPUT INSERTED.Id " +
-                    " VALUES (@Login, @Nome, @Cpf, @Cargo)";
+                    " VALUES (@Login, @Nome, @Cpf, @Cargo, @Senha, @GrupoId, @AlteraSenha)";
             int idREturned;
             usuariosListModel = new List<IUsuarioModel>();
             using (SqlConnection connection  = new SqlConnection(_connectionString))
@@ -47,6 +47,9 @@ namespace InfraStructure.Repository.Usuarios
                         cmd.Parameters.AddWithValue("@Nome", usuario.Nome);
                         cmd.Parameters.AddWithValue("@Cpf", usuario.Cpf);
                         cmd.Parameters.AddWithValue("@Cargo", usuario.Cargo);
+                        cmd.Parameters.AddWithValue("@Senha", usuario.Senha);
+                        cmd.Parameters.AddWithValue("@GrupoId", usuario.GrupoId);
+                        cmd.Parameters.AddWithValue("@AlteraSenha", usuario.AlteraSenha);
 
                         idREturned = (int)cmd.ExecuteScalar();
                         usuariosListModel = GetAll();
@@ -125,6 +128,8 @@ namespace InfraStructure.Repository.Usuarios
                                 usuario.Login = reader["Login"].ToString();
                                 usuario.Cpf = reader["Cpf"].ToString();
                                 usuario.Nome = reader["Nome"].ToString();
+                                usuario.Cargo = reader["Cargo"].ToString();
+                                usuario.Senha = (byte[])reader["Senha"];
                                 usuario.GrupoId = string.IsNullOrEmpty(reader["GrupoId"].ToString()) ? 0 : int.Parse(reader["GrupoId"].ToString());
                                 usuario.Ativo = bool.Parse(reader["Ativo"].ToString());
 

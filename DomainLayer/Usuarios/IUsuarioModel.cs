@@ -9,5 +9,7 @@
         string Login { get; set; }
         string Nome { get; set; }
         bool Ativo { get; set; }
+        byte[] Senha { get; set; }
+        bool AlteraSenha { get; set; }
     }
 }

@@ -13,8 +13,10 @@ namespace DomainLayer.Usuarios
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Cargo { get; set; }
-        public bool Ativo { get; set; }
+        public Byte[] Senha { get; set; }
         public int GrupoId { get; set; }
+        public bool Ativo { get; set; }
+        public bool AlteraSenha { get; set; }
 
 
     }

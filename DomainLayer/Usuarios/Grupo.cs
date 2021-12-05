@@ -10,6 +10,6 @@ namespace DomainLayer.Usuarios
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int Classe { get; set; }
+        public bool Ativo { get; set; }
     }
 }
