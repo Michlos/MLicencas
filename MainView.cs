@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MLicencas.FormViews.Usuarios;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,12 @@ namespace MLicencas
         public MainView()
         {
             InitializeComponent();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuariosFormView usu = new UsuariosFormView();
+            usu.Show();
         }
     }
 }

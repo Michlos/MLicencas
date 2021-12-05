@@ -8,11 +8,11 @@ namespace ServiceLayer.CommonServices
 {
     public interface IQueryStringRepository
     {
-        string GetQuery();
+        //string GetQuery();
 
         string GetQueryApp();
 
-        string GetQueryAccessApp();
+        string GetRemoteLicence();
 
     }
 }

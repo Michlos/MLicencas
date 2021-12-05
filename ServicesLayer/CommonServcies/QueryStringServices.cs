@@ -9,14 +9,14 @@
             _queryStringRepository = queryStringRepository;
         }
 
-        public string GetQuery()
-        {
-            return _queryStringRepository.GetQuery();
-        }
+        //public string GetQuery()
+        //{
+        //    return _queryStringRepository.GetQuery();
+        //}
 
-        public string GetQueryAccessApp()
+        public string GetRemoteLicence()
         {
-            return _queryStringRepository.GetQueryAccessApp();
+            return _queryStringRepository.GetRemoteLicence();
         }
 
         public string GetQueryApp()

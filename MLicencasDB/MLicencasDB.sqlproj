@@ -66,4 +66,11 @@
     <Build Include="Tables\Modulos\Modulos.sql" />
     <Build Include="Tables\Usuarios\Permissoes.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.Post.SeedDB.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MLicencasDB.publish.xml" />
+    <None Include="MLicencasDB_1.publish.xml" />
+  </ItemGroup>
 </Project>

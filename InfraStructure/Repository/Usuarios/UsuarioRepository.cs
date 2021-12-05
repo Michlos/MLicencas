@@ -17,7 +17,8 @@ namespace InfraStructure.Repository.Usuarios
     {
         private string _connectionString;
         private string _query;
-        private IEnumerable<IUsuarioModel> usuariosListModel;
+        private IUsuarioModel usuarioModel;
+        private List<IUsuarioModel> usuariosListModel;
         private DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
         public UsuarioRepository(){}
@@ -33,7 +34,7 @@ namespace InfraStructure.Repository.Usuarios
                     " OUTPUT INSERTED.Id " +
                     " VALUES (@Login, @Nome, @Cpf, @Cargo, @Senha, @GrupoId, @AlteraSenha)";
             int idREturned;
-            usuariosListModel = new List<IUsuarioModel>();
+            usuarioModel = new UsuarioModel();
             using (SqlConnection connection  = new SqlConnection(_connectionString))
             {
                 try
@@ -52,7 +53,7 @@ namespace InfraStructure.Repository.Usuarios
                         cmd.Parameters.AddWithValue("@AlteraSenha", usuario.AlteraSenha);
 
                         idREturned = (int)cmd.ExecuteScalar();
-                        usuariosListModel = GetAll();
+                        usuarioModel = GetAll().Where(userId => userId.Id == idREturned).FirstOrDefault();
 
 
 
@@ -69,7 +70,7 @@ namespace InfraStructure.Repository.Usuarios
                 }
             }
 
-            return usuariosListModel.Where(userId => userId.Id == idREturned).FirstOrDefault();
+            return usuarioModel;
         }
 
         public void Edit(IUsuarioModel usuario)
@@ -133,7 +134,7 @@ namespace InfraStructure.Repository.Usuarios
                                 usuario.GrupoId = string.IsNullOrEmpty(reader["GrupoId"].ToString()) ? 0 : int.Parse(reader["GrupoId"].ToString());
                                 usuario.Ativo = bool.Parse(reader["Ativo"].ToString());
 
-                                usuariosListModel.Append<IUsuarioModel>(usuario);
+                                usuariosListModel.Add(usuario);
                             }
                         }
                     }

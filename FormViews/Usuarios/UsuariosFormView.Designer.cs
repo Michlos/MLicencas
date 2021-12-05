@@ -31,6 +31,8 @@ namespace MLicencas.FormViews.Usuarios
         {
             this.panelUsuariosList = new System.Windows.Forms.Panel();
             this.panelAccessList = new System.Windows.Forms.Panel();
+            this.usuariosListUC = new MLicencas.UCViews.Usuarios.UsuariosListUC();
+            this.panelUsuariosList.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelUsuariosList
@@ -38,6 +40,7 @@ namespace MLicencas.FormViews.Usuarios
             this.panelUsuariosList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelUsuariosList.Controls.Add(this.usuariosListUC);
             this.panelUsuariosList.Location = new System.Drawing.Point(12, 12);
             this.panelUsuariosList.Name = "panelUsuariosList";
             this.panelUsuariosList.Size = new System.Drawing.Size(507, 426);
@@ -50,6 +53,16 @@ namespace MLicencas.FormViews.Usuarios
             this.panelAccessList.Size = new System.Drawing.Size(263, 426);
             this.panelAccessList.TabIndex = 1;
             // 
+            // usuariosListUC
+            // 
+            this.usuariosListUC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.usuariosListUC.Location = new System.Drawing.Point(3, 3);
+            this.usuariosListUC.Name = "usuariosListUC";
+            this.usuariosListUC.Size = new System.Drawing.Size(501, 392);
+            this.usuariosListUC.TabIndex = 0;
+            // 
             // UsuariosFormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -59,6 +72,7 @@ namespace MLicencas.FormViews.Usuarios
             this.Controls.Add(this.panelUsuariosList);
             this.Name = "UsuariosFormView";
             this.Text = "Gestão de Usuários";
+            this.panelUsuariosList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -67,5 +81,6 @@ namespace MLicencas.FormViews.Usuarios
 
         private System.Windows.Forms.Panel panelUsuariosList;
         private System.Windows.Forms.Panel panelAccessList;
+        private UCViews.Usuarios.UsuariosListUC usuariosListUC;
     }
 }
