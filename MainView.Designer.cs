@@ -84,8 +84,8 @@ namespace MLicencas
             // statusUsuario
             // 
             this.statusUsuario.Name = "statusUsuario";
-            this.statusUsuario.Size = new System.Drawing.Size(118, 17);
-            this.statusUsuario.Text = "toolStripStatusLabel1";
+            this.statusUsuario.Size = new System.Drawing.Size(80, 17);
+            this.statusUsuario.Text = "NomeUsuario";
             // 
             // MainView
             // 
