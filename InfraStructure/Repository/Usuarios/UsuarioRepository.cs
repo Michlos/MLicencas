@@ -183,6 +183,7 @@ namespace InfraStructure.Repository.Usuarios
                                 usuario.Senha =  reader["Senha"].ToString();
                                 usuario.GrupoId = string.IsNullOrEmpty(reader["GrupoId"].ToString()) ? 0 : int.Parse(reader["GrupoId"].ToString());
                                 usuario.Ativo = bool.Parse(reader["Ativo"].ToString());
+                                usuario.AlteraSenha = bool.Parse(reader["AlteraSenha"].ToString());
 
                                 usuariosListModel.Add(usuario);
                             }

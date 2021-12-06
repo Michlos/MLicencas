@@ -20,5 +20,5 @@ GO
 
 INSERT INTO Usuarios (Login, Nome, Cpf, Cargo, Senha, GrupoId, Ativo, AlteraSenha)
 VALUES
-('administrador', 'Michlos Administrador', '71031111115','Proprietario', 'S$f1@154alfa', 1, 1, 1)
+('administrador', 'Michlos Administrador', '71031111115','Proprietario', '1473c62d264962b684a3dfa919ffbdab', 1, 1, 1)  --By2
 GO

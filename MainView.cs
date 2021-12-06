@@ -22,7 +22,14 @@ namespace MLicencas
         {
             LoadLogin();
             InitializeComponent();
+            LoadStatusBarr();
+
             
+        }
+
+        private void LoadStatusBarr()
+        {
+            statusUsuario.Text = _UsuarioModel.Nome;
         }
 
         private void LoadLogin()
