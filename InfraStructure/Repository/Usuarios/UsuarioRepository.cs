@@ -73,12 +73,60 @@ namespace InfraStructure.Repository.Usuarios
             return usuarioModel;
         }
 
+        public bool CheckLogin(string usuario, string senha)
+        {
+            _query = "SELECT * FROM Usuarios WHERE Login = @Login AND Senha = @Senha";
+            usuarioModel = new UsuarioModel();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Login", usuario));
+                        cmd.Parameters.Add(new SqlParameter("@Senha", GetHashSenha.GetSenha(senha)));
+                        //cmd.Parameters.Add(new SqlParameter("@Senha", senha));
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                usuarioModel.Id = int.Parse(reader["Id"].ToString());
+                                usuarioModel.Login = reader["Login"].ToString();
+                                usuarioModel.Cpf = reader["Cpf"].ToString();
+                                usuarioModel.Nome = reader["Nome"].ToString();
+                                usuarioModel.Cargo = reader["Cargo"].ToString();
+                                usuarioModel.Senha = reader["Senha"].ToString();
+                                usuarioModel.GrupoId = string.IsNullOrEmpty(reader["GrupoId"].ToString()) ? 0 : int.Parse(reader["GrupoId"].ToString());
+                                usuarioModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                                usuarioModel.AlteraSenha = bool.Parse(reader["AlteraSenha"].ToString());
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar o usuário para login.", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+                if (usuarioModel.Id != 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
         public void Edit(IUsuarioModel usuario)
         {
-            int idToEdit = usuario.Id;
 
-            _query = "UPDATE Usuarios SET @Nome = Nome, @Cargo = Cargo, @GrupoId = GrupoId, @Ativo = Ativo " +
-                    " WHERE Id = idToEdit";
+            _query = "UPDATE Usuarios SET Nome = @Nome, Cargo = @Cargo, GrupoId = @GrupoId, Ativo = @Ativo, Senha = @Senha, AlteraSenha = @AlteraSenha " +
+                    " WHERE Id = @Id";
             
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -88,11 +136,13 @@ namespace InfraStructure.Repository.Usuarios
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         cmd.Prepare();
-
+                        cmd.Parameters.AddWithValue("@Id", usuario.Id);
                         cmd.Parameters.AddWithValue("@Nome", usuario.Nome);
                         cmd.Parameters.AddWithValue("@Cargo", usuario.Cargo);
                         cmd.Parameters.AddWithValue("@GrupoId", usuario.GrupoId);
                         cmd.Parameters.AddWithValue("@Ativo", usuario.Ativo);
+                        cmd.Parameters.AddWithValue("@Senha", usuario.Senha);
+                        cmd.Parameters.AddWithValue("@AlteraSenha", usuario.AlteraSenha);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -130,7 +180,7 @@ namespace InfraStructure.Repository.Usuarios
                                 usuario.Cpf = reader["Cpf"].ToString();
                                 usuario.Nome = reader["Nome"].ToString();
                                 usuario.Cargo = reader["Cargo"].ToString();
-                                usuario.Senha = (byte[])reader["Senha"];
+                                usuario.Senha =  reader["Senha"].ToString();
                                 usuario.GrupoId = string.IsNullOrEmpty(reader["GrupoId"].ToString()) ? 0 : int.Parse(reader["GrupoId"].ToString());
                                 usuario.Ativo = bool.Parse(reader["Ativo"].ToString());
 
@@ -150,6 +200,52 @@ namespace InfraStructure.Repository.Usuarios
                 }
             }
             return usuariosListModel;
+        }
+
+        public IUsuarioModel GetByLogin(string login)
+        {
+            
+            IUsuarioModel usuario = new UsuarioModel();
+            _query = "SELECT * FROM Usuarios WHERE Login = @Login";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Login", login));
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                usuario.Id = int.Parse(reader["Id"].ToString());
+                                usuario.Login = reader["Login"].ToString();
+                                usuario.Cpf = reader["Cpf"].ToString();
+                                usuario.Nome = reader["Nome"].ToString();
+                                usuario.Cargo = reader["Cargo"].ToString();
+                                usuario.Senha = reader["Senha"].ToString();
+                                usuario.GrupoId = string.IsNullOrEmpty(reader["GrupoId"].ToString()) ? 0 : int.Parse(reader["GrupoId"].ToString());
+                                usuario.Ativo = bool.Parse(reader["Ativo"].ToString());
+                                usuario.AlteraSenha = bool.Parse(reader["AlteraSenha"].ToString());
+
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Nâo foi possível carregar a lista de Usuários.", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return usuario;
         }
     }
 }

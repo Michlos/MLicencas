@@ -1,4 +1,6 @@
-﻿using MLicencas.FormViews.Login;
+﻿using DomainLayer.Usuarios;
+
+using MLicencas.FormViews.Login;
 using MLicencas.FormViews.Usuarios;
 
 using System;
@@ -15,6 +17,7 @@ namespace MLicencas
 {
     public partial class MainView : Form
     {
+        public static IUsuarioModel _UsuarioModel = new UsuarioModel();
         public MainView()
         {
             LoadLogin();

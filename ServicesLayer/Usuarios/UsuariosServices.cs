@@ -26,6 +26,11 @@ namespace ServicesLayer.Usuarios
             return _usuarioRepository.Add(usuario);
         }
 
+        public bool CheckLogin(string usuario, string senha)
+        {
+            return _usuarioRepository.CheckLogin(usuario, senha);
+        }
+
         public void Edit(IUsuarioModel usuario)
         {
             _usuarioRepository.Edit(usuario);
@@ -34,6 +39,11 @@ namespace ServicesLayer.Usuarios
         public IEnumerable<IUsuarioModel> GetAll()
         {
             return _usuarioRepository.GetAll();
+        }
+
+        public IUsuarioModel GetByLogin(string login)
+        {
+            return _usuarioRepository.GetByLogin(login);
         }
 
         public void ValidateModel(IUsuarioModel usuario)

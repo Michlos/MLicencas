@@ -20,5 +20,5 @@ GO
 
 INSERT INTO Usuarios (Login, Nome, Cpf, Cargo, Senha, GrupoId, Ativo, AlteraSenha)
 VALUES
-('administrador', 'Michlos Administrador', '71031111115','Proprietario',CONVERT(VARBINARY(256),pwdencrypt('S$f1@154alfa')), 1, 1, 0)
+('administrador', 'Michlos Administrador', '71031111115','Proprietario', 'S$f1@154alfa', 1, 1, 1)
 GO

@@ -71,6 +71,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MLicencasDB.publish.xml" />
-    <None Include="MLicencasDB_1.publish.xml" />
   </ItemGroup>
 </Project>
