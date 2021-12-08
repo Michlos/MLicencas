@@ -30,6 +30,8 @@ namespace MLicencas.UCViews.Usuarios
         private QueryStringServices _queryString;
         private UsuariosServices _usuariosServices;
 
+        private int indexDgv;
+
         public UsuariosListUC()
         {
 
@@ -102,6 +104,20 @@ namespace MLicencas.UCViews.Usuarios
         {
             _queryString = new QueryStringServices(new QueryString());
             _usuariosServices = new UsuariosServices(new UsuarioRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+        }
+
+        private void dgvUsuarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                indexDgv = e.RowIndex;
+                contextMenuStripUsuarioDGV.Show(MousePosition);
+            }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

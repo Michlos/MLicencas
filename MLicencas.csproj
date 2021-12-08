@@ -73,6 +73,12 @@
     <Compile Include="FormViews\Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Usuarios\UsuarioEditFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Usuarios\UsuarioEditFormView.Designer.cs">
+      <DependentUpon>UsuarioEditFormView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Usuarios\UsuariosFormView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Usuarios\UsuarioEditFormView.resx">
+      <DependentUpon>UsuarioEditFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Usuarios\UsuariosFormView.resx">
       <DependentUpon>UsuariosFormView.cs</DependentUpon>

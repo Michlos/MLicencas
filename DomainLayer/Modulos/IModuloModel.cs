@@ -4,6 +4,7 @@
     {
         int Id { get; set; }
         string Nome { get; set; }
+        string Nivel { get; set; }
         string Ativo { get; set; }
     }
 }

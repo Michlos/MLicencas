@@ -16,5 +16,10 @@ namespace MLicencas.FormViews.Usuarios
         {
             InitializeComponent();
         }
+
+        private void usuariosListUC_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+        }
     }
 }

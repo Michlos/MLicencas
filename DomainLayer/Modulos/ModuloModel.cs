@@ -10,6 +10,7 @@ namespace DomainLayer.Modulos
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Nivel { get; set; }
         public string Ativo { get; set; }
 
     }

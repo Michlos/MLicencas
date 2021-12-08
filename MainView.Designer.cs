@@ -61,14 +61,14 @@ namespace MLicencas
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "&Usuários";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem
             // 
             this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
-            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gruposToolStripMenuItem.Text = "&Grupos";
             // 
             // statusStripMain
@@ -84,8 +84,8 @@ namespace MLicencas
             // statusUsuario
             // 
             this.statusUsuario.Name = "statusUsuario";
-            this.statusUsuario.Size = new System.Drawing.Size(80, 17);
-            this.statusUsuario.Text = "NomeUsuario";
+            this.statusUsuario.Size = new System.Drawing.Size(99, 17);
+            this.statusUsuario.Text = "NomeUsuarioTXT";
             // 
             // MainView
             // 
