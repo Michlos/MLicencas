@@ -45,6 +45,7 @@
     <Compile Include="QueryString.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
     <Compile Include="Repository\Usuarios\GrupoRepository.cs" />
+    <Compile Include="Repository\Usuarios\PermissaoRepository.cs" />
     <Compile Include="Repository\Usuarios\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>

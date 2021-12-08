@@ -2,6 +2,8 @@
 
 using ServiceLayer.CommonServices;
 
+using System.Collections.Generic;
+
 namespace ServicesLayer.Usuarios
 {
     public class PersmissoesServices : IPermissoesRepository, IPermissoesServices
@@ -28,6 +30,16 @@ namespace ServicesLayer.Usuarios
         public void Enable(int permissaoId)
         {
             _permissoesRepository.Enable(permissaoId);
+        }
+
+        public IEnumerable<IPermissaoModel> GetAll()
+        {
+            return _permissoesRepository.GetAll();
+        }
+
+        public IEnumerable<IPermissaoModel> GetAllByGrupo(int grupoId)
+        {
+            return _permissoesRepository.GetAllByGrupo(grupoId);
         }
 
         public bool GetPermissao(IPermissaoModel permissao)
