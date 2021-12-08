@@ -27,7 +27,6 @@ namespace MLicencas.FormViews.Usuarios
         private void UsuariosFormView_Load(object sender, EventArgs e)
         {
             LoadUsuariosUserControl();
-            //LoadPermissoesUserControl();
         }
 
         public void LoadPermissoesUserControl(int usuarioId)
@@ -45,6 +44,11 @@ namespace MLicencas.FormViews.Usuarios
             panelUsuariosList.Controls.Add(usuariosListUC);
             usuariosListUC.Dock = DockStyle.Fill;
             
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

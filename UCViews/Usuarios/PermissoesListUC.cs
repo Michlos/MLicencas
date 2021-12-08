@@ -59,19 +59,19 @@ namespace MLicencas.UCViews.Usuarios
 
         private void ConfiguraDataGridView()
         {
-            dgvPermissoes.Columns[0].Visible = false;
-            dgvPermissoes.Columns[0].HeaderText = "Id";
-            dgvPermissoes.Columns[1].Visible = false;
-            dgvPermissoes.Columns[1].HeaderText = "ModuloId";
-            dgvPermissoes.Columns[2].Visible = false;
-            dgvPermissoes.Columns[2].HeaderText = "GrupoId";
+            dgvPermissoes.Columns["Id"].Visible = false;
+            dgvPermissoes.Columns["ModuloId"].Visible = false;
+            dgvPermissoes.Columns["GrupoId"].Visible = false;
 
-            dgvPermissoes.Columns[3].Width = 150;
-            dgvPermissoes.Columns[3].HeaderText = "Descrição";
-            dgvPermissoes.Columns[4].Width = 40;
-            dgvPermissoes.Columns[4].HeaderText = "Nível";
-            dgvPermissoes.Columns[5].Width = 50;
-            dgvPermissoes.Columns[5].HeaderText = "Permite";
+            dgvPermissoes.Columns["Descricao"].Width = 150;
+            dgvPermissoes.Columns["Descricao"].HeaderText = "Descrição";
+            dgvPermissoes.Columns["Descricao"].ReadOnly = true;
+            dgvPermissoes.Columns["Nivel"].Width = 40;
+            dgvPermissoes.Columns["Nivel"].HeaderText = "Nível";
+            dgvPermissoes.Columns["Nivel"].ReadOnly = true;
+            dgvPermissoes.Columns["Permite"].Width = 50;
+            dgvPermissoes.Columns["Permite"].HeaderText = "Permite";
+            dgvPermissoes.Columns["Permite"].ReadOnly = false;
         }
 
         private DataRow ModelaRowTable(DataTable table, List<IPermissaoModel> lista)

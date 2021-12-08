@@ -21,7 +21,8 @@ namespace MLicencas
         public static IUsuarioModel _UsuarioModel = new UsuarioModel();
         public static IEnumerable<IModuloModel> _ModulosListModel = new List<IModuloModel>();
         public static IEnumerable<IPermissaoModel> _PermissaoListModel = new List<IPermissaoModel>();
-        
+        private MainView _obj;
+
         public MainView()
         {
             LoadLogin();
@@ -31,6 +32,19 @@ namespace MLicencas
             CheckPermissoes();
 
             
+        }
+
+        public MainView Instance
+        {
+            get
+            {
+                if (_obj == null)
+                {
+                    _obj = new MainView();
+                }
+                return _obj;
+            }
+
         }
 
         private void CheckPermissoes()
@@ -62,6 +76,8 @@ namespace MLicencas
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UsuariosFormView usu = new UsuariosFormView();
+            usu.WindowState = FormWindowState.Normal;
+            usu.MdiParent = this;
             usu.Show();
         }
     }
