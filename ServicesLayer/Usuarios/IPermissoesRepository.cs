@@ -11,6 +11,7 @@ namespace ServicesLayer.Usuarios
         void Enable(int permissaoId);
         void Desable(int permissaoId);
         bool GetPermissao(IPermissaoModel permissao);
+        IPermissaoModel GetById(int permissaoId);
         IEnumerable<IPermissaoModel> GetAll();
         IEnumerable<IPermissaoModel> GetAllByGrupo(int grupoId);
 

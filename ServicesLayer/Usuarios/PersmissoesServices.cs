@@ -42,6 +42,11 @@ namespace ServicesLayer.Usuarios
             return _permissoesRepository.GetAllByGrupo(grupoId);
         }
 
+        public IPermissaoModel GetById(int permissaoId)
+        {
+            return _permissoesRepository.GetById(permissaoId);
+        }
+
         public bool GetPermissao(IPermissaoModel permissao)
         {
             return _permissoesRepository.GetPermissao(permissao);
