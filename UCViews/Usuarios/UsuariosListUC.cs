@@ -3,6 +3,8 @@
 using InfraStructure;
 using InfraStructure.Repository.Usuarios;
 
+using MLicencas.FormViews.Usuarios;
+
 using ServiceLayer.CommonServices;
 
 using ServicesLayer.Usuarios;
@@ -23,18 +25,19 @@ namespace MLicencas.UCViews.Usuarios
     {
         //MODELS AND LISTMODELS
         private IEnumerable<IUsuarioModel> usuarioListModel;
-        private PermissoesListUC permissoes = new PermissoesListUC();
+
 
 
         //SERVICES
         private QueryStringServices _queryString;
         private UsuariosServices _usuariosServices;
 
+        private UsuariosFormView UsuariosFormView;
         private int indexDgv;
 
-        public UsuariosListUC()
+        public UsuariosListUC(UsuariosFormView usuariosFormView)
         {
-
+            this.UsuariosFormView = usuariosFormView;
             LoadServices();
             InitializeComponent();
             LoadModels();
@@ -110,7 +113,7 @@ namespace MLicencas.UCViews.Usuarios
         {
             //dgvProdutos.CurrentRow.Cells[0].Value.ToString()
             indexDgv = e.RowIndex;
-//            permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == dgvUsuarios.curre );
+            //            permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == dgvUsuarios.curre );
             if (e.Button == MouseButtons.Right)
             {
                 contextMenuStripUsuarioDGV.Show(MousePosition);
@@ -126,9 +129,13 @@ namespace MLicencas.UCViews.Usuarios
         private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
         {
             int idUsuario = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+            
             if (idUsuario != 0)
             {
-                permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == idUsuario).FirstOrDefault();
+                this.UsuariosFormView.LoadPermissoesUserControl(idUsuario);
+                //PermissoesListUC permissoes = new PermissoesListUC(idUsuario);
+                //permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == idUsuario).FirstOrDefault();
+                
             }
         }
     }

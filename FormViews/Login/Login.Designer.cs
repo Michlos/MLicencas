@@ -61,6 +61,7 @@ namespace MLicencas.FormViews.Login
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(100, 20);
             this.txbUsuario.TabIndex = 0;
+            this.txbUsuario.Text = "administrador";
             // 
             // txbSenha
             // 
@@ -69,6 +70,7 @@ namespace MLicencas.FormViews.Login
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(100, 20);
             this.txbSenha.TabIndex = 1;
+            this.txbSenha.Text = "By2@fi46";
             // 
             // btnLogin
             // 

@@ -141,6 +141,7 @@ namespace InfraStructure.Repository.Usuarios
             {
                 try
                 {
+                    connection.Open();
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         cmd.Prepare();
@@ -161,6 +162,10 @@ namespace InfraStructure.Repository.Usuarios
                     dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar o Grupo pelo Id", e.HelpLink, e.ErrorCode, e.StackTrace);
 
                     throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return grupoModel;

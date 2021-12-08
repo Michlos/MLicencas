@@ -29,22 +29,9 @@ namespace MLicencas.FormViews.Usuarios
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelUsuariosList = new System.Windows.Forms.Panel();
             this.panelAccessList = new System.Windows.Forms.Panel();
-            this.usuariosListUC = new MLicencas.UCViews.Usuarios.UsuariosListUC();
-            this.panelUsuariosList.SuspendLayout();
+            this.panelUsuariosList = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // panelUsuariosList
-            // 
-            this.panelUsuariosList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelUsuariosList.Controls.Add(this.usuariosListUC);
-            this.panelUsuariosList.Location = new System.Drawing.Point(12, 12);
-            this.panelUsuariosList.Name = "panelUsuariosList";
-            this.panelUsuariosList.Size = new System.Drawing.Size(507, 426);
-            this.panelUsuariosList.TabIndex = 0;
             // 
             // panelAccessList
             // 
@@ -53,34 +40,30 @@ namespace MLicencas.FormViews.Usuarios
             this.panelAccessList.Size = new System.Drawing.Size(263, 426);
             this.panelAccessList.TabIndex = 1;
             // 
-            // usuariosListUC
+            // panelUsuariosList
             // 
-            this.usuariosListUC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.usuariosListUC.Location = new System.Drawing.Point(3, 3);
-            this.usuariosListUC.Name = "usuariosListUC";
-            this.usuariosListUC.Size = new System.Drawing.Size(501, 392);
-            this.usuariosListUC.TabIndex = 0;
+            this.panelUsuariosList.Location = new System.Drawing.Point(12, 12);
+            this.panelUsuariosList.Name = "panelUsuariosList";
+            this.panelUsuariosList.Size = new System.Drawing.Size(507, 426);
+            this.panelUsuariosList.TabIndex = 1;
             // 
             // UsuariosFormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelAccessList);
             this.Controls.Add(this.panelUsuariosList);
+            this.Controls.Add(this.panelAccessList);
             this.Name = "UsuariosFormView";
             this.Text = "Gestão de Usuários";
-            this.panelUsuariosList.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.UsuariosFormView_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelUsuariosList;
         private System.Windows.Forms.Panel panelAccessList;
         private UCViews.Usuarios.UsuariosListUC usuariosListUC;
+        private System.Windows.Forms.Panel panelUsuariosList;
     }
 }

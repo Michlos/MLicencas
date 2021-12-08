@@ -37,6 +37,11 @@ namespace ServicesLayer.Usuarios
             return _usuarioRepository.GetAll();
         }
 
+        public IUsuarioModel GetById(int usuarioId)
+        {
+            return _usuarioRepository.GetById(usuarioId);
+        }
+
         public IUsuarioModel GetByLogin(string login)
         {
             return _usuarioRepository.GetByLogin(login);
