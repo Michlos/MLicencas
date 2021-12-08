@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Usuarios
 {
-    public class Grupo : IGrupo
+    public class GrupoModel : IGrupoModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }

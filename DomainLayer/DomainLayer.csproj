@@ -44,8 +44,8 @@
     <Compile Include="Modulos\IModuloModel.cs" />
     <Compile Include="Modulos\ModuloModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuarios\Grupo.cs" />
-    <Compile Include="Usuarios\IGrupo.cs" />
+    <Compile Include="Usuarios\GrupoModel.cs" />
+    <Compile Include="Usuarios\IGrupoModel.cs" />
     <Compile Include="Usuarios\IPermissaoModel.cs" />
     <Compile Include="Usuarios\IUsuarioModel.cs" />
     <Compile Include="Usuarios\PermissaoModel.cs" />

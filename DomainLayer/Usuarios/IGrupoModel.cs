@@ -1,6 +1,6 @@
 ﻿namespace DomainLayer.Usuarios
 {
-    public interface IGrupo
+    public interface IGrupoModel
     {
         int Id { get; set; }
         string Nome { get; set; }
