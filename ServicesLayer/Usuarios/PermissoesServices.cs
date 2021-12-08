@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace ServicesLayer.Usuarios
 {
-    public class PersmissoesServices : IPermissoesRepository, IPermissoesServices
+    public class PermissoesServices : IPermissoesRepository, IPermissoesServices
     {
         private IPermissoesRepository _permissoesRepository;
         private IModelDataAnnotationCheck _modelDataAnnotationCheck;
 
-        public PersmissoesServices(IPermissoesRepository permissoesRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
+        public PermissoesServices(IPermissoesRepository permissoesRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
         {
             _permissoesRepository = permissoesRepository;
             _modelDataAnnotationCheck = modelDataAnnotationCheck;

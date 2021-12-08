@@ -28,16 +28,14 @@ namespace MLicencas.FormViews.Login
         private QueryStringServices _queryString;
         private UsuariosServices _usuariosServices;
         private ModulosServices _modulosServices;
-        private GruposServices _gruposServices;
-        private PersmissoesServices _persmissoesServices;
+        //private GruposServices _gruposServices;
+        private PermissoesServices _persmissoesServices;
 
         //MODELS LISTMODELS
         public IUsuarioModel usuarioModel;
-        private IGrupoModel grupoModel;
         
         private IEnumerable<IUsuarioModel> usuarioListModel;
         private IEnumerable<IModuloModel> modulosListModel;
-        private IEnumerable<IPermissaoModel> permissaoListModel;
 
         public Login()
         {
@@ -58,8 +56,8 @@ namespace MLicencas.FormViews.Login
             _queryString = new QueryStringServices(new QueryString());
             _usuariosServices = new UsuariosServices(new UsuarioRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
             _modulosServices = new ModulosServices(new ModuloRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
-            _gruposServices = new GruposServices(new GrupoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
-            _persmissoesServices = new PersmissoesServices(new PermissaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            //_gruposServices = new GruposServices(new GrupoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _persmissoesServices = new PermissoesServices(new PermissaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
         }
 
         private void btnClose_Click(object sender, EventArgs e)

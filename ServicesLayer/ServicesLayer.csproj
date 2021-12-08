@@ -60,7 +60,7 @@
     <Compile Include="Usuarios\IPermissoesServices.cs" />
     <Compile Include="Usuarios\IUsuariosRepository.cs" />
     <Compile Include="Usuarios\IUsuariosServices.cs" />
-    <Compile Include="Usuarios\PersmissoesServices.cs" />
+    <Compile Include="Usuarios\PermissoesServices.cs" />
     <Compile Include="Usuarios\UsuariosServices.cs" />
   </ItemGroup>
   <ItemGroup>

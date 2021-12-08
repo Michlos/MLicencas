@@ -22,8 +22,8 @@ namespace MLicencas.UCViews.Usuarios
     public partial class UsuariosListUC : UserControl
     {
         //MODELS AND LISTMODELS
-        private IUsuarioModel usuario;
         private IEnumerable<IUsuarioModel> usuarioListModel;
+        private PermissoesListUC permissoes = new PermissoesListUC();
 
 
         //SERVICES
@@ -108,16 +108,28 @@ namespace MLicencas.UCViews.Usuarios
 
         private void dgvUsuarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            //dgvProdutos.CurrentRow.Cells[0].Value.ToString()
+            indexDgv = e.RowIndex;
+//            permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == dgvUsuarios.curre );
             if (e.Button == MouseButtons.Right)
             {
-                indexDgv = e.RowIndex;
                 contextMenuStripUsuarioDGV.Show(MousePosition);
             }
+
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
+        {
+            int idUsuario = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+            if (idUsuario != 0)
+            {
+                permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == idUsuario).FirstOrDefault();
+            }
         }
     }
 }
