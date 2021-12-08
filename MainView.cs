@@ -18,6 +18,7 @@ namespace MLicencas
     public partial class MainView : Form
     {
         public static IUsuarioModel _UsuarioModel = new UsuarioModel();
+        
         public MainView()
         {
             LoadLogin();

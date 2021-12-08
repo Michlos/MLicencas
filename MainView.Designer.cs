@@ -30,7 +30,7 @@ namespace MLicencas
         private void InitializeComponent()
         {
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
-            this.gestaoDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGestaoDeUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
@@ -42,21 +42,21 @@ namespace MLicencas
             // menuStripMain
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestaoDeUsuariosToolStripMenuItem});
+            this.menuGestaoDeUsuarios});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(800, 24);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
-            // gestaoDeUsuariosToolStripMenuItem
+            // menuGestaoDeUsuarios
             // 
-            this.gestaoDeUsuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuGestaoDeUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem,
             this.gruposToolStripMenuItem});
-            this.gestaoDeUsuariosToolStripMenuItem.Name = "gestaoDeUsuariosToolStripMenuItem";
-            this.gestaoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
-            this.gestaoDeUsuariosToolStripMenuItem.Text = "&Gestão de Usuários";
+            this.menuGestaoDeUsuarios.Name = "menuGestaoDeUsuarios";
+            this.menuGestaoDeUsuarios.Size = new System.Drawing.Size(119, 20);
+            this.menuGestaoDeUsuarios.Text = "&Gestão de Usuários";
             // 
             // usuariosToolStripMenuItem
             // 
@@ -112,7 +112,7 @@ namespace MLicencas
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStripMain;
-        private System.Windows.Forms.ToolStripMenuItem gestaoDeUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuGestaoDeUsuarios;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gruposToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStripMain;
