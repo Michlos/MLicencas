@@ -56,6 +56,7 @@ namespace MLicencas
             this.gruposToolStripMenuItem});
             this.menuGestaoDeUsuarios.Name = "menuGestaoDeUsuarios";
             this.menuGestaoDeUsuarios.Size = new System.Drawing.Size(119, 20);
+            this.menuGestaoDeUsuarios.Tag = "6";
             this.menuGestaoDeUsuarios.Text = "&Gestão de Usuários";
             // 
             // usuariosToolStripMenuItem

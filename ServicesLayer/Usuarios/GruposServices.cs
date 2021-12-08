@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace ServicesLayer.Usuarios
 {
-    class GruposServices : IGruposRepository, IGruposServices
+    public class GruposServices : IGruposRepository, IGruposServices
     {
         private IGruposRepository _grupoRepository;
         private IModelDataAnnotationCheck _modelDataAnnotationCheck;

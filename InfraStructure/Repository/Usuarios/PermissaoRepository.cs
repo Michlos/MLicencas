@@ -127,23 +127,36 @@ namespace InfraStructure.Repository.Usuarios
             _query = "SELECT * FROM Permissoes";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand(_query, connection))
+                try
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
-                        while (reader.Read())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            permissaoModel = new PermissaoModel();
+                            while (reader.Read())
+                            {
+                                permissaoModel = new PermissaoModel();
 
-                            permissaoModel.Id = int.Parse(reader["Id"].ToString());
-                            permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
-                            permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
-                            permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                                permissaoModel.Id = int.Parse(reader["Id"].ToString());
+                                permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
+                                permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
+                                permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
 
-                            perissaoListModel.Add(permissaoModel);
+                                perissaoListModel.Add(permissaoModel);
 
+                            }
                         }
                     }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar lista de permissões", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return perissaoListModel;
@@ -155,26 +168,41 @@ namespace InfraStructure.Repository.Usuarios
             _query = "SELECT * FROM Permissoes WHERE GrupoId = @GrupoId";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand(_query, connection))
+                try
                 {
-                    cmd.Prepare();
-                    cmd.Parameters.Add(new SqlParameter("@GrupoId", grupoId));
+                    connection.Open();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
-                        while (reader.Read())
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@GrupoId", grupoId));
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            permissaoModel = new PermissaoModel();
+                            while (reader.Read())
+                            {
+                                permissaoModel = new PermissaoModel();
 
-                            permissaoModel.Id = int.Parse(reader["Id"].ToString());
-                            permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
-                            permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
-                            permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                                permissaoModel.Id = int.Parse(reader["Id"].ToString());
+                                permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
+                                permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
+                                permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
 
-                            perissaoListModel.Add(permissaoModel);
+                                perissaoListModel.Add(permissaoModel);
 
+                            }
                         }
                     }
+
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Erro", false, e.Message, "Não foi possível recuperar lista de Permissões por Grupo", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return perissaoListModel;
@@ -186,21 +214,34 @@ namespace InfraStructure.Repository.Usuarios
             _query = "SELECT * FROM Permissoes WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand(_query, connection))
+                try
                 {
-                    cmd.Prepare();
-                    cmd.Parameters.Add(new SqlParameter("@Id", permissaoId));
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
-                        while (reader.Read())
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", permissaoId));
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            permissaoModel.Id = int.Parse(reader["Id"].ToString());
-                            permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
-                            permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
-                            permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                            while (reader.Read())
+                            {
+                                permissaoModel.Id = int.Parse(reader["Id"].ToString());
+                                permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
+                                permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
+                                permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                            }
                         }
                     }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar Permissão por Id", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return permissaoModel;
@@ -212,21 +253,34 @@ namespace InfraStructure.Repository.Usuarios
             _query = "SELECT * FROM Permissoes WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand(_query, connection))
+                try
                 {
-                    cmd.Prepare();
-                    cmd.Parameters.Add(new SqlParameter("@Id", permissao.Id));
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
-                        while (reader.Read())
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", permissao.Id));
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            permissaoModel.Id = int.Parse(reader["Id"].ToString());
-                            permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
-                            permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
-                            permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                            while (reader.Read())
+                            {
+                                permissaoModel.Id = int.Parse(reader["Id"].ToString());
+                                permissaoModel.GrupId = int.Parse(reader["GrupoId"].ToString());
+                                permissaoModel.ModuloId = int.Parse(reader["ModuloId"].ToString());
+                                permissaoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                            }
                         }
                     }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível pegar a permissão do usuário", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
             return permissaoModel.Ativo;

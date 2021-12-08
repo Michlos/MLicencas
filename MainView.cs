@@ -1,4 +1,5 @@
-﻿using DomainLayer.Usuarios;
+﻿using DomainLayer.Modulos;
+using DomainLayer.Usuarios;
 
 using MLicencas.FormViews.Login;
 using MLicencas.FormViews.Usuarios;
@@ -18,14 +19,33 @@ namespace MLicencas
     public partial class MainView : Form
     {
         public static IUsuarioModel _UsuarioModel = new UsuarioModel();
+        public static IEnumerable<IModuloModel> _ModulosListModel = new List<IModuloModel>();
+        public static IEnumerable<IPermissaoModel> _PermissaoListModel = new List<IPermissaoModel>();
         
         public MainView()
         {
             LoadLogin();
             InitializeComponent();
             LoadStatusBarr();
+            
+            CheckPermissoes();
 
             
+        }
+
+        private void CheckPermissoes()
+        {
+            //GESTÃO DE USUÁRIOS
+            //var permissao = _PermissaoListModel
+            menuGestaoDeUsuarios.Visible = _PermissaoListModel
+                .Where(modPer => modPer.ModuloId ==(
+                    (_ModulosListModel
+                        .Where(niv => niv.Nivel == 
+                            menuGestaoDeUsuarios.Tag.ToString()
+                        )
+                    ).Select(modId => modId.Id).FirstOrDefault())
+                ).Select(ena => ena.Ativo).FirstOrDefault();
+            //MessageBox.Show($"Permissão de acesso ao Modulo de Usuario\n{permissao}");
         }
 
         private void LoadStatusBarr()

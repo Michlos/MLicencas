@@ -1,10 +1,13 @@
-﻿using DomainLayer.Usuarios;
+﻿using DomainLayer.Modulos;
+using DomainLayer.Usuarios;
 
 using InfraStructure;
+using InfraStructure.Repository.Modulos;
 using InfraStructure.Repository.Usuarios;
 
 using ServiceLayer.CommonServices;
 
+using ServicesLayer.Modulos;
 using ServicesLayer.Usuarios;
 
 using System;
@@ -24,10 +27,17 @@ namespace MLicencas.FormViews.Login
         //SERVICES
         private QueryStringServices _queryString;
         private UsuariosServices _usuariosServices;
-        
+        private ModulosServices _modulosServices;
+        private GruposServices _gruposServices;
+        private PersmissoesServices _persmissoesServices;
+
         //MODELS LISTMODELS
         public IUsuarioModel usuarioModel;
+        private IGrupoModel grupoModel;
+        
         private IEnumerable<IUsuarioModel> usuarioListModel;
+        private IEnumerable<IModuloModel> modulosListModel;
+        private IEnumerable<IPermissaoModel> permissaoListModel;
 
         public Login()
         {
@@ -40,12 +50,16 @@ namespace MLicencas.FormViews.Login
         {
             usuarioListModel = new List<IUsuarioModel>();
             usuarioListModel = _usuariosServices.GetAll();
+            modulosListModel = _modulosServices.GetAll();
         }
 
         private void LoadServices()
         {
             _queryString = new QueryStringServices(new QueryString());
             _usuariosServices = new UsuariosServices(new UsuarioRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _modulosServices = new ModulosServices(new ModuloRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _gruposServices = new GruposServices(new GrupoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _persmissoesServices = new PersmissoesServices(new PermissaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -60,6 +74,9 @@ namespace MLicencas.FormViews.Login
             if (_usuariosServices.CheckLogin(txbUsuario.Text, txbSenha.Text))
             {
                 MainView._UsuarioModel = _usuariosServices.GetByLogin(txbUsuario.Text);
+                MainView._ModulosListModel = modulosListModel;
+                MainView._PermissaoListModel = _persmissoesServices.GetAllByGrupo(MainView._UsuarioModel.GrupoId);
+
                 if (MainView._UsuarioModel.AlteraSenha)
                 {
                     senhaAtual = MainView._UsuarioModel.Senha;
