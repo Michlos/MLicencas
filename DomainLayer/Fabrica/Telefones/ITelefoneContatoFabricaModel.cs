@@ -7,6 +7,6 @@
         string Numero { get; set; }
         string Operadora { get; set; }
         string Ramal { get; set; }
-        int TipoTelefonId { get; set; }
+        int TipoTelefoneId { get; set; }
     }
 }

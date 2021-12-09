@@ -55,6 +55,9 @@
     <Compile Include="CommonServcies\IQueryStringRepository.cs" />
     <Compile Include="CommonServcies\ModelDataAnnotationCheck.cs" />
     <Compile Include="CommonServcies\QueryStringServices.cs" />
+    <Compile Include="ContatosFabricaServices\ContatosFabricaServices.cs" />
+    <Compile Include="ContatosFabricaServices\IContatosFabricaRepository.cs" />
+    <Compile Include="ContatosFabricaServices\IContatosFabricaServices.cs" />
     <Compile Include="EnderecosFabricaServices\EnderecosFabricaServices.cs" />
     <Compile Include="EnderecosFabricaServices\IEnderecosFabricaRepository.cs" />
     <Compile Include="EnderecosFabricaServices\IEnderecosFabricaServices.cs" />
@@ -68,6 +71,9 @@
     <Compile Include="Modulos\IModulosServices.cs" />
     <Compile Include="Modulos\ModulosServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelefonesContatosFabricaServices\ITelefonesContatosFabricaServices.cs" />
+    <Compile Include="TelefonesContatosFabricaServices\ITelefonesContatosFabricaRepository.cs" />
+    <Compile Include="TelefonesContatosFabricaServices\TelefonesContatosFabricaServices.cs" />
     <Compile Include="TiposEnderecos\ITiposEnderecosRepository.cs" />
     <Compile Include="TiposEnderecos\ITiposEnderecosServices.cs" />
     <Compile Include="TiposEnderecos\TiposEnderecosServices.cs" />

@@ -35,6 +35,8 @@ namespace MLicencas
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +44,8 @@ namespace MLicencas
             // menuStripMain
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuGestaoDeUsuarios});
+            this.menuGestaoDeUsuarios,
+            this.sobreToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(800, 24);
@@ -62,14 +65,14 @@ namespace MLicencas
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "&Usuários";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem
             // 
             this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
-            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gruposToolStripMenuItem.Text = "&Grupos";
             // 
             // statusStripMain
@@ -87,6 +90,22 @@ namespace MLicencas
             this.statusUsuario.Name = "statusUsuario";
             this.statusUsuario.Size = new System.Drawing.Size(99, 17);
             this.statusUsuario.Text = "NomeUsuarioTXT";
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroDaEmpresaToolStripMenuItem});
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Text = "Sobr&e";
+            // 
+            // cadastroDaEmpresaToolStripMenuItem
+            // 
+            this.cadastroDaEmpresaToolStripMenuItem.Name = "cadastroDaEmpresaToolStripMenuItem";
+            this.cadastroDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.cadastroDaEmpresaToolStripMenuItem.Tag = "5";
+            this.cadastroDaEmpresaToolStripMenuItem.Text = "Cadastro da Empresa";
+            this.cadastroDaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDaEmpresaToolStripMenuItem_Click);
             // 
             // MainView
             // 
@@ -119,6 +138,8 @@ namespace MLicencas
         private System.Windows.Forms.ToolStripMenuItem gruposToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStripMain;
         private System.Windows.Forms.ToolStripStatusLabel statusUsuario;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDaEmpresaToolStripMenuItem;
     }
 }
 

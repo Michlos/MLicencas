@@ -45,10 +45,12 @@
     <Compile Include="QueryString.cs" />
     <Compile Include="Repository\Bairros\BairroRepository.cs" />
     <Compile Include="Repository\Cidades\CidadeRepository.cs" />
+    <Compile Include="Repository\ContatosFabrica\ContatoFabricaRepository.cs" />
     <Compile Include="Repository\EnderecosFabrica\EnderecoFabricaRepository.cs" />
     <Compile Include="Repository\Estados\EstadoRepository.cs" />
     <Compile Include="Repository\Fabrica\FabricaRepository.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
+    <Compile Include="Repository\TelefonesContatosFabrica\TelefoneContatoFabricaRepository.cs" />
     <Compile Include="Repository\TiposEnderecos\TipoEnderecoRepository.cs" />
     <Compile Include="Repository\TiposTelefones\TipoTelefoneRepository.cs" />
     <Compile Include="Repository\Usuarios\GrupoRepository.cs" />
@@ -69,5 +71,6 @@
       <Name>ServicesLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

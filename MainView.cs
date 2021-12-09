@@ -79,7 +79,13 @@ namespace MLicencas
 
         private void MainView_Load(object sender, EventArgs e)
         {
-            menuGestaoDeUsuarios.Visible = CheckPermissoes(menuGestaoDeUsuarios.Tag);
+            menuGestaoDeUsuarios.Enabled = CheckPermissoes(menuGestaoDeUsuarios.Tag);
+            cadastroDaEmpresaToolStripMenuItem.Enabled = CheckPermissoes(cadastroDaEmpresaToolStripMenuItem.Tag);
+        }
+
+        private void cadastroDaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
