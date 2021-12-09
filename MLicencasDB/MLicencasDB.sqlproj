@@ -63,6 +63,9 @@
     <Folder Include="Tables\Fabrica\Enderecos" />
     <Folder Include="Tables\Fabrica\Contatos" />
     <Folder Include="Tables\CommonTables" />
+    <Folder Include="Tables\Clientes" />
+    <Folder Include="Tables\Clientes\Contatos" />
+    <Folder Include="Tables\Clientes\Enderecos" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
@@ -78,6 +81,11 @@
     <Build Include="Tables\Fabrica\Fabrica.sql" />
     <Build Include="Tables\Fabrica\Contatos\ContatosFabrica.sql" />
     <Build Include="Tables\Fabrica\Contatos\TelefonesContatosFabrica.sql" />
+    <Build Include="Tables\CommonTables\Situacao.sql" />
+    <Build Include="Tables\Clientes\Clientes.sql" />
+    <Build Include="Tables\Clientes\Contatos\ContatosClientes.sql" />
+    <Build Include="Tables\Clientes\Contatos\TelefonesContatosClientes.sql" />
+    <Build Include="Tables\Clientes\Enderecos\EnderecosClientes.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

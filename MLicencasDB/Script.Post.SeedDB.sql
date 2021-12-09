@@ -5984,3 +5984,17 @@ INSERT INTO TiposTelefone (Tipo, Mascara) VALUES
 	('Celular', '(00) 0 0000-0000'),
 	('Fixo', '(00) 0000-0000')
 GO
+
+
+/*
+	Id			INT IDENTITY(1,1) NOT NULL,
+	Descricao	VARCHAR(100) NOT NULL,
+	CONSTRAINT PK_SITUACAO PRIMARY KEY (Id)
+*/
+INSERT INTO Situacao (Descricao) VALUES
+	('Ativo'),
+	('Suspenso'),
+	('Bloqueado'),
+	('Vencido'),
+	('Desativado')
+GO
