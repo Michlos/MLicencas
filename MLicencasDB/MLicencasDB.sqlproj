@@ -59,12 +59,25 @@
     <Folder Include="Tables" />
     <Folder Include="Tables\Usuarios" />
     <Folder Include="Tables\Modulos" />
+    <Folder Include="Tables\Fabrica" />
+    <Folder Include="Tables\Fabrica\Enderecos" />
+    <Folder Include="Tables\Fabrica\Contatos" />
+    <Folder Include="Tables\CommonTables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
     <Build Include="Tables\Usuarios\Grupos.sql" />
     <Build Include="Tables\Modulos\Modulos.sql" />
     <Build Include="Tables\Usuarios\Permissoes.sql" />
+    <Build Include="Tables\CommonTables\Estados.sql" />
+    <Build Include="Tables\CommonTables\Cidades.sql" />
+    <Build Include="Tables\CommonTables\Bairros.sql" />
+    <Build Include="Tables\CommonTables\TiposEndereco.sql" />
+    <Build Include="Tables\Fabrica\Enderecos\EnderecosFabrica.sql" />
+    <Build Include="Tables\CommonTables\TiposTelefone.sql" />
+    <Build Include="Tables\Fabrica\Fabrica.sql" />
+    <Build Include="Tables\Fabrica\Contatos\ContatosFabrica.sql" />
+    <Build Include="Tables\Fabrica\Contatos\TelefonesContatosFabrica.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />
