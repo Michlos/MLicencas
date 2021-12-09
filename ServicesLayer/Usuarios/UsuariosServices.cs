@@ -27,9 +27,21 @@ namespace ServicesLayer.Usuarios
             return _usuarioRepository.CheckLogin(usuario, senha);
         }
 
+
+
         public void Edit(IUsuarioModel usuario)
         {
             _usuarioRepository.Edit(usuario);
+        }
+
+        public void Enable(int usuarioId)
+        {
+            _usuarioRepository.Enable(usuarioId);
+        }
+
+        public void Desable(int usuarioId)
+        {
+            _usuarioRepository.Desable(usuarioId);
         }
 
         public IEnumerable<IUsuarioModel> GetAll()

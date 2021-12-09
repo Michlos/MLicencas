@@ -30,14 +30,14 @@ namespace MLicencas.UCViews.Usuarios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.contextMenuStripUsuarioDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alterarSenhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiEditarUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.atviarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desativarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alterarSenhaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarSenhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.contextMenuStripUsuarioDGV.SuspendLayout();
             this.SuspendLayout();
@@ -55,18 +55,18 @@ namespace MLicencas.UCViews.Usuarios
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUsuarios.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.PaleGreen;
             this.dgvUsuarios.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvUsuarios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -79,37 +79,42 @@ namespace MLicencas.UCViews.Usuarios
             // contextMenuStripUsuarioDGV
             // 
             this.contextMenuStripUsuarioDGV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editarToolStripMenuItem,
-            this.alterarSenhaToolStripMenuItem,
+            this.tsmiEditarUsuario,
+            this.atviarToolStripMenuItem,
             this.desativarToolStripMenuItem,
-            this.alterarSenhaToolStripMenuItem1});
+            this.alterarSenhaToolStripMenuItem});
             this.contextMenuStripUsuarioDGV.Name = "contextMenuStripUsuarioDGV";
-            this.contextMenuStripUsuarioDGV.Size = new System.Drawing.Size(146, 92);
+            this.contextMenuStripUsuarioDGV.Size = new System.Drawing.Size(181, 114);
             // 
-            // editarToolStripMenuItem
+            // tsmiEditarUsuario
             // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.editarToolStripMenuItem.Text = "Alterar Dados";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            this.tsmiEditarUsuario.Name = "tsmiEditarUsuario";
+            this.tsmiEditarUsuario.Size = new System.Drawing.Size(180, 22);
+            this.tsmiEditarUsuario.Tag = "6.2";
+            this.tsmiEditarUsuario.Text = "Alterar Dados";
+            this.tsmiEditarUsuario.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
-            // alterarSenhaToolStripMenuItem
+            // atviarToolStripMenuItem
             // 
-            this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.alterarSenhaToolStripMenuItem.Text = "Ativar";
+            this.atviarToolStripMenuItem.Name = "atviarToolStripMenuItem";
+            this.atviarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atviarToolStripMenuItem.Tag = "6.2";
+            this.atviarToolStripMenuItem.Text = "Ativar";
+            this.atviarToolStripMenuItem.Click += new System.EventHandler(this.atviarToolStripMenuItem_Click);
             // 
             // desativarToolStripMenuItem
             // 
             this.desativarToolStripMenuItem.Name = "desativarToolStripMenuItem";
-            this.desativarToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.desativarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desativarToolStripMenuItem.Tag = "6.2";
             this.desativarToolStripMenuItem.Text = "Desativar";
+            this.desativarToolStripMenuItem.Click += new System.EventHandler(this.desativarToolStripMenuItem_Click);
             // 
-            // alterarSenhaToolStripMenuItem1
+            // alterarSenhaToolStripMenuItem
             // 
-            this.alterarSenhaToolStripMenuItem1.Name = "alterarSenhaToolStripMenuItem1";
-            this.alterarSenhaToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
-            this.alterarSenhaToolStripMenuItem1.Text = "Alterar Senha";
+            this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
             // 
             // UsuariosListUC
             // 
@@ -118,6 +123,7 @@ namespace MLicencas.UCViews.Usuarios
             this.Controls.Add(this.dgvUsuarios);
             this.Name = "UsuariosListUC";
             this.Size = new System.Drawing.Size(401, 421);
+            this.Load += new System.EventHandler(this.UsuariosListUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.contextMenuStripUsuarioDGV.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -128,9 +134,9 @@ namespace MLicencas.UCViews.Usuarios
 
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripUsuarioDGV;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarSenhaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem desativarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem alterarSenhaToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem tsmiEditarUsuario;
+        public System.Windows.Forms.ToolStripMenuItem atviarToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem desativarToolStripMenuItem;
     }
 }

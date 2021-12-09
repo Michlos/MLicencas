@@ -21,7 +21,7 @@ namespace InfraStructure.Repository.Usuarios
         private List<IUsuarioModel> usuariosListModel;
         private DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
-        public UsuarioRepository(){}
+        public UsuarioRepository() { }
 
         public UsuarioRepository(string connectionString)
         {
@@ -35,7 +35,7 @@ namespace InfraStructure.Repository.Usuarios
                     " VALUES (@Login, @Nome, @Cpf, @Cargo, @Senha, @GrupoId, @AlteraSenha)";
             int idREturned;
             usuarioModel = new UsuarioModel();
-            using (SqlConnection connection  = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
                 {
@@ -43,7 +43,7 @@ namespace InfraStructure.Repository.Usuarios
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         cmd.Prepare();
-                        
+
                         cmd.Parameters.AddWithValue("@Login", usuario.Login);
                         cmd.Parameters.AddWithValue("@Nome", usuario.Nome);
                         cmd.Parameters.AddWithValue("@Cpf", usuario.Cpf);
@@ -122,12 +122,39 @@ namespace InfraStructure.Repository.Usuarios
             }
         }
 
+        public void Desable(int usuarioId)
+        {
+            _query = "UPDATE Usuarios SET Ativo = 0 WHERE Id = @Id";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", usuarioId));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível desativar o usuário", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         public void Edit(IUsuarioModel usuario)
         {
 
             _query = "UPDATE Usuarios SET Nome = @Nome, Cargo = @Cargo, GrupoId = @GrupoId, Ativo = @Ativo, Senha = @Senha, AlteraSenha = @AlteraSenha " +
                     " WHERE Id = @Id";
-            
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -159,10 +186,36 @@ namespace InfraStructure.Repository.Usuarios
             }
         }
 
+        public void Enable(int usuarioId)
+        {
+            _query = "UPDATE Usuarios SET Ativo = 1 WHERE Id = @Id";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", usuarioId));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível ativar a conta do usuário", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         public IEnumerable<IUsuarioModel> GetAll()
         {
             usuariosListModel = new List<IUsuarioModel>();
-            IUsuarioModel usuario = new UsuarioModel();
             _query = "SELECT * FROM Usuarios";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -175,12 +228,14 @@ namespace InfraStructure.Repository.Usuarios
                         {
                             while (reader.Read())
                             {
+                                IUsuarioModel usuario = new UsuarioModel();
+                                
                                 usuario.Id = int.Parse(reader["Id"].ToString());
                                 usuario.Login = reader["Login"].ToString();
                                 usuario.Cpf = reader["Cpf"].ToString();
                                 usuario.Nome = reader["Nome"].ToString();
                                 usuario.Cargo = reader["Cargo"].ToString();
-                                usuario.Senha =  reader["Senha"].ToString();
+                                usuario.Senha = reader["Senha"].ToString();
                                 usuario.GrupoId = string.IsNullOrEmpty(reader["GrupoId"].ToString()) ? 0 : int.Parse(reader["GrupoId"].ToString());
                                 usuario.Ativo = bool.Parse(reader["Ativo"].ToString());
                                 usuario.AlteraSenha = bool.Parse(reader["AlteraSenha"].ToString());
@@ -250,7 +305,7 @@ namespace InfraStructure.Repository.Usuarios
 
         public IUsuarioModel GetByLogin(string login)
         {
-            
+
             IUsuarioModel usuario = new UsuarioModel();
             _query = "SELECT * FROM Usuarios WHERE Login = @Login";
             using (SqlConnection connection = new SqlConnection(_connectionString))

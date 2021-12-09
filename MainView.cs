@@ -28,10 +28,6 @@ namespace MLicencas
             LoadLogin();
             InitializeComponent();
             LoadStatusBarr();
-            
-            CheckPermissoes();
-
-            
         }
 
         public MainView Instance
@@ -47,21 +43,21 @@ namespace MLicencas
 
         }
 
-        private void CheckPermissoes()
+        public static bool CheckPermissoes(object tag)
         {
-            //GESTÃO DE USUÁRIOS
-            //var permissao = _PermissaoListModel
-            menuGestaoDeUsuarios.Visible = _PermissaoListModel
-                .Where(modPer => modPer.ModuloId ==(
+            bool permite = false;
+            permite = _PermissaoListModel
+                .Where(modPer => modPer.ModuloId == (
                     (_ModulosListModel
-                        .Where(niv => niv.Nivel == 
-                            menuGestaoDeUsuarios.Tag.ToString()
+                        .Where(niv => niv.Nivel ==
+                            tag.ToString()
                         )
                     ).Select(modId => modId.Id).FirstOrDefault())
                 ).Select(ena => ena.Ativo).FirstOrDefault();
-            //MessageBox.Show($"Permissão de acesso ao Modulo de Usuario\n{permissao}");
-        }
 
+            return permite;
+
+        }
         private void LoadStatusBarr()
         {
             statusUsuario.Text = _UsuarioModel.Nome;
@@ -79,6 +75,11 @@ namespace MLicencas
             usu.WindowState = FormWindowState.Normal;
             usu.MdiParent = this;
             usu.Show();
+        }
+
+        private void MainView_Load(object sender, EventArgs e)
+        {
+            menuGestaoDeUsuarios.Visible = CheckPermissoes(menuGestaoDeUsuarios.Tag);
         }
     }
 }

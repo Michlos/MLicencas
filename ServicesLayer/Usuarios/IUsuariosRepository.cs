@@ -8,6 +8,8 @@ namespace ServicesLayer.Usuarios
     {
         IUsuarioModel Add(IUsuarioModel usuario);
         void Edit(IUsuarioModel usuario);
+        void Enable(int usuarioId);
+        void Desable(int usuarioId);
         IUsuarioModel GetByLogin(string login);
         IUsuarioModel GetById(int usuarioId);
         IEnumerable<IUsuarioModel> GetAll();

@@ -1,4 +1,6 @@
-﻿using DomainLayer.Usuarios;
+﻿using CommonComponents;
+
+using DomainLayer.Usuarios;
 
 using InfraStructure;
 using InfraStructure.Repository.Usuarios;
@@ -34,6 +36,7 @@ namespace MLicencas.UCViews.Usuarios
 
         private UsuariosFormView UsuariosFormView;
         private int indexDgv;
+        public int idUsuario;
 
         public UsuariosListUC(UsuariosFormView usuariosFormView)
         {
@@ -123,19 +126,79 @@ namespace MLicencas.UCViews.Usuarios
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            idUsuario = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+            if (idUsuario != 0)
+            {
+                IUsuarioModel usuario = new UsuarioModel();
+                usuario = usuarioListModel.Where(usuId => usuId.Id == idUsuario).FirstOrDefault();
+                UsuarioEditFormView usuarioEdit = new UsuarioEditFormView(usuario, RequestType.Type.Edit);
+                usuarioEdit.ShowDialog();
+                LoadDGVUsuarios();
+            }
         }
 
         private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
         {
-            int idUsuario = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
-            
+            idUsuario = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+
             if (idUsuario != 0)
             {
                 this.UsuariosFormView.LoadPermissoesUserControl(idUsuario);
                 //PermissoesListUC permissoes = new PermissoesListUC(idUsuario);
                 //permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == idUsuario).FirstOrDefault();
-                
+
+            }
+        }
+
+        private void UsuariosListUC_Load(object sender, EventArgs e)
+        {
+            tsmiEditarUsuario.Enabled = MainView.CheckPermissoes(tsmiEditarUsuario.Tag);
+            desativarToolStripMenuItem.Enabled = MainView.CheckPermissoes(desativarToolStripMenuItem.Tag);
+            atviarToolStripMenuItem.Enabled = MainView.CheckPermissoes(atviarToolStripMenuItem.Tag);
+            
+        }
+
+        private void atviarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Deseja realmente ativar a conta do usuário?", "Gestão de Usuários", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    _usuariosServices.Enable(idUsuario);
+                    MessageBox.Show("Conta Ativada com sucesso.", "Gestão de Usuários");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex.InnerException);
+                }
+                finally
+                {
+                    LoadModels();
+                    LoadDGVUsuarios();
+                }
+            }
+        }
+
+        private void desativarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Deseja realmente Destaviar a conta do usuário?", "Gestão de Usuários", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    _usuariosServices.Desable(idUsuario);
+                    MessageBox.Show("Conta Desativada com sucesso.", "Gestão de Usuários");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex.InnerException);
+                }
+                finally
+                {
+                    LoadModels();
+                    LoadDGVUsuarios();
+                }
             }
         }
     }

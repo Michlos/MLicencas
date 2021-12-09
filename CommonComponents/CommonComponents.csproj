@@ -47,5 +47,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestType.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+      <Project>{01cbffc4-c479-4c18-989d-aabc764b8731}</Project>
+      <Name>DomainLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicesLayer\ServicesLayer.csproj">
+      <Project>{03A5DF17-B12F-40C1-BCB2-AAD33D0BEAA8}</Project>
+      <Name>ServicesLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

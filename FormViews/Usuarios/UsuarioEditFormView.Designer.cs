@@ -101,6 +101,7 @@ namespace MLicencas.FormViews.Usuarios
             // 
             // txbId
             // 
+            this.txbId.Enabled = false;
             this.txbId.Location = new System.Drawing.Point(62, 6);
             this.txbId.Name = "txbId";
             this.txbId.Size = new System.Drawing.Size(37, 20);
@@ -136,6 +137,7 @@ namespace MLicencas.FormViews.Usuarios
             // 
             // cbGrupo
             // 
+            this.cbGrupo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbGrupo.FormattingEnabled = true;
             this.cbGrupo.Location = new System.Drawing.Point(62, 146);
             this.cbGrupo.Name = "cbGrupo";
@@ -144,27 +146,35 @@ namespace MLicencas.FormViews.Usuarios
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Location = new System.Drawing.Point(174, 186);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Salvar";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Location = new System.Drawing.Point(11, 186);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "Fechar";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // UsuarioEditFormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 240);
+            this.ClientSize = new System.Drawing.Size(262, 219);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbGrupo);
@@ -182,7 +192,8 @@ namespace MLicencas.FormViews.Usuarios
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UsuarioEditFormView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "UsuarioEditFormView";
+            this.Text = "Cadastro de Usuário";
+            this.Load += new System.EventHandler(this.UsuarioEditFormView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

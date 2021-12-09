@@ -61,6 +61,7 @@ namespace MLicencas.UCViews.Usuarios
             this.dgvPermissoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvPermissoes.Size = new System.Drawing.Size(263, 426);
             this.dgvPermissoes.TabIndex = 0;
+            this.dgvPermissoes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermissoes_CellValueChanged);
             // 
             // PermissoesListUC
             // 
