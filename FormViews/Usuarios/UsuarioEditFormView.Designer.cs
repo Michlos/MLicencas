@@ -123,7 +123,9 @@ namespace MLicencas.FormViews.Usuarios
             // 
             // mTxbCpf
             // 
+            this.mTxbCpf.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mTxbCpf.Location = new System.Drawing.Point(62, 90);
+            this.mTxbCpf.Mask = "000,000,000-00";
             this.mTxbCpf.Name = "mTxbCpf";
             this.mTxbCpf.Size = new System.Drawing.Size(100, 20);
             this.mTxbCpf.TabIndex = 10;
