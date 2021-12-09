@@ -85,4 +85,10 @@
   <ItemGroup>
     <None Include="MLicencasDB.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
 </Project>
