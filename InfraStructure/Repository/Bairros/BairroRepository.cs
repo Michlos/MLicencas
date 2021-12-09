@@ -1,35 +1,36 @@
 ﻿using CommonComponents;
 
-using DomainLayer.Modulos;
+using DomainLayer.Enderecos;
 
-using ServicesLayer.Modulos;
+using ServicesLayer.Bairros;
 
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace InfraStructure.Repository.Modulos
+namespace InfraStructure.Repository.Bairros
 {
-    public class ModuloRepository : IModulosRepository
+    public class BairroRepository : IBairrosRepository
     {
         private string _connectionString;
         private string _query;
-        private IModuloModel moduloModel;
-        private List<IModuloModel> modulosListModel;
+        private IBairroModel bairroModel;
+        private List<IBairroModel> bairroListModel;
         private DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
-        public ModuloRepository() { }
-
-        public ModuloRepository(string connectionString)
+        public BairroRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public IModuloModel Add(IModuloModel modulo)
+        public IBairroModel Add(IBairroModel bairroModel)
         {
-            _query = "INSERT INTO Modulos (Nome, Nivel, Ativo) " +
-                     " OUTPUT INSERTED.Id " +
-                     " VALUES (@Nome, @Nivel, @Ativo)";
             int returnedId;
+            this.bairroModel = new BairroModel();
+            _query = "INSERT INTO Bairros (Nome, CidadeId) OUTPUT INSERTED.Id VALUES (@Nome, @CidadeId)";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -39,15 +40,16 @@ namespace InfraStructure.Repository.Modulos
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         cmd.Prepare();
-                        cmd.Parameters.AddWithValue("@Nome", modulo.Nome);
-                        cmd.Parameters.AddWithValue("@Nivel", modulo.Nivel);
-                        cmd.Parameters.AddWithValue("@Ativo", modulo.Ativo);
+
+                        cmd.Parameters.AddWithValue("@Nome", bairroModel.Nome);
+                        cmd.Parameters.AddWithValue("@CidadeId", bairroModel.CidadeId);
+
                         returnedId = (int)cmd.ExecuteScalar();
                     }
                 }
                 catch (SqlException e)
                 {
-                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível adicionar o módulo", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    this.dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível adicionar o Bairro", e.HelpLink, e.ErrorCode, e.StackTrace);
                     throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
                 }
                 finally
@@ -55,20 +57,17 @@ namespace InfraStructure.Repository.Modulos
                     connection.Close();
                 }
             }
-            moduloModel = new ModuloModel();
+
             if (returnedId != 0)
             {
-                moduloModel = GetById(returnedId);
+                this.bairroModel = GetById(returnedId);
             }
-            return moduloModel;
+            return this.bairroModel;
         }
 
-        public IModuloModel Edit(IModuloModel modulo)
+        public void Edit(IBairroModel bairroModel)
         {
-            _query = " UPDATE Modulos " +
-                     " SET (Nome = @Nome, Nivel = @Nivel, Ativo = @Ativo) " +
-                     " WHERE Id = @Id";
-
+            _query = "UPDATE Bairros SET Nome = @Nome WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -77,16 +76,15 @@ namespace InfraStructure.Repository.Modulos
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         cmd.Prepare();
-                        cmd.Parameters.AddWithValue("@Id", modulo.Id);
-                        cmd.Parameters.AddWithValue("@Nome", modulo.Nome);
-                        cmd.Parameters.AddWithValue("@Nivel", modulo.Nivel);
-                        cmd.Parameters.AddWithValue("@Ativo", modulo.Ativo);
+                        cmd.Parameters.AddWithValue("@Id", bairroModel.Id);
+                        cmd.Parameters.AddWithValue("@Nome", bairroModel.Nome);
+
                         cmd.ExecuteNonQuery();
                     }
                 }
                 catch (SqlException e)
                 {
-                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível alterar o módulo", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    this.dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível alterar o nome do Bairro", e.HelpLink, e.ErrorCode, e.StackTrace);
                     throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
                 }
                 finally
@@ -94,14 +92,12 @@ namespace InfraStructure.Repository.Modulos
                     connection.Close();
                 }
             }
-
-            return modulo;
         }
 
-        public IEnumerable<IModuloModel> GetAll()
+        public IEnumerable<IBairroModel> GetAll()
         {
-            _query = " SELECT * FROM Modulos";
-            modulosListModel = new List<IModuloModel>();
+            this.bairroListModel = new List<IBairroModel>();
+            _query = "SELECT * FROM Bairros";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -113,20 +109,20 @@ namespace InfraStructure.Repository.Modulos
                         {
                             while (reader.Read())
                             {
-                                moduloModel = new ModuloModel();
-                                moduloModel.Id = int.Parse(reader["Id"].ToString());
-                                moduloModel.Nome = reader["Nome"].ToString();
-                                moduloModel.Nivel = reader["Nivel"].ToString();
-                                moduloModel.Ativo = bool.Parse(reader["Ativo"].ToString());
-                                modulosListModel.Add(moduloModel);
+                                this.bairroModel = new BairroModel();
 
+                                this.bairroModel.Id = int.Parse(reader["Id"].ToString());
+                                this.bairroModel.Nome = reader["Nome"].ToString();
+                                this.bairroModel.CidadeId = int.Parse(reader["CidadeId"].ToString());
+
+                                this.bairroListModel.Add(this.bairroModel);
                             }
                         }
                     }
                 }
                 catch (SqlException e)
                 {
-                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar a lista de módulos", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    this.dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar a Lista de Todos os Bairros", e.HelpLink, e.ErrorCode, e.StackTrace);
                     throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
                 }
                 finally
@@ -134,55 +130,13 @@ namespace InfraStructure.Repository.Modulos
                     connection.Close();
                 }
             }
-            return modulosListModel;
-
+            return this.bairroListModel;
         }
 
-        public IModuloModel GetByHieraquia(string nivel)
+        public IEnumerable<IBairroModel> GetAllByCidadeId(int cidadeId)
         {
-            _query = " SELECT * FROM Modulos WHERE Nivel = @Nivel";
-            moduloModel = new ModuloModel();
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using (SqlCommand cmd = new SqlCommand(_query, connection))
-                    {
-                        cmd.Prepare();
-                        cmd.Parameters.Add(new SqlParameter("@Nivel", nivel));
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                moduloModel.Id = int.Parse(reader["Id"].ToString());
-                                moduloModel.Nome = reader["Nome"].ToString();
-                                moduloModel.Nivel = reader["Nivel"].ToString();
-                                moduloModel.Ativo = bool.Parse(reader["Ativo"].ToString());
-                            }
-                        }
-                    }
-                }
-                catch (SqlException e)
-                {
-                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar os dados do Módulo pelo Nível", e.HelpLink, e.ErrorCode, e.StackTrace);
-                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-            return moduloModel;
-        }
-
-        public IModuloModel GetById(int moduloId)
-        {
-            _query = " SELECT * FROM Modulos WHERE Id = @Id";
-            moduloModel = new ModuloModel();
-
+            this.bairroListModel = new List<IBairroModel>();
+            _query = "SELECT * FROM Bairros WHERE CidadeId = @CidadeId";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -191,23 +145,25 @@ namespace InfraStructure.Repository.Modulos
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         cmd.Prepare();
-                        cmd.Parameters.Add(new SqlParameter("@Id", moduloId));
-
+                        cmd.Parameters.Add(new SqlParameter("@CidadeId", cidadeId));
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                moduloModel.Id = int.Parse(reader["Id"].ToString());
-                                moduloModel.Nome = reader["Nome"].ToString();
-                                moduloModel.Nivel = reader["Nivel"].ToString();
-                                moduloModel.Ativo = bool.Parse(reader["Ativo"].ToString());
+                                this.bairroModel = new BairroModel();
+
+                                this.bairroModel.Id = int.Parse(reader["Id"].ToString());
+                                this.bairroModel.Nome = reader["Nome"].ToString();
+                                this.bairroModel.CidadeId = int.Parse(reader["CidadeId"].ToString());
+
+                                this.bairroListModel.Add(this.bairroModel);
                             }
                         }
                     }
                 }
                 catch (SqlException e)
                 {
-                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar os dados do Módulo pelo Id", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    this.dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar a Lista de Bairros da Cidade Selecionada", e.HelpLink, e.ErrorCode, e.StackTrace);
                     throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
                 }
                 finally
@@ -215,7 +171,47 @@ namespace InfraStructure.Repository.Modulos
                     connection.Close();
                 }
             }
-            return moduloModel;
+            return this.bairroListModel;
+        }
+
+        public IBairroModel GetById(int bairroId)
+        {
+            this.bairroModel = new BairroModel();
+            _query = "SELECT * FROM Bairros WHERE Id = @Id";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", bairroId));
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                                this.bairroModel.Id = int.Parse(reader["Id"].ToString());
+                                this.bairroModel.Nome = reader["Nome"].ToString();
+                                this.bairroModel.CidadeId = int.Parse(reader["CidadeId"].ToString());
+
+                                this.bairroListModel.Add(this.bairroModel);
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    this.dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar os dados do Bairro", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return this.bairroModel;
         }
     }
 }
