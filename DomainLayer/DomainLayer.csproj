@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\ClienteModel.cs" />
+    <Compile Include="Clientes\Contatos\ContatoClienteModel.cs" />
+    <Compile Include="Clientes\Contatos\IContatoClienteModel.cs" />
+    <Compile Include="Clientes\Enderecos\EnderecoClienteModel.cs" />
+    <Compile Include="Clientes\Enderecos\IEnderecoClienteModel.cs" />
+    <Compile Include="Clientes\IClienteModel.cs" />
+    <Compile Include="Clientes\Telefones\ITelefoneContatoClienteModel.cs" />
+    <Compile Include="Clientes\Telefones\TelefoneContatoClienteModel.cs" />
     <Compile Include="Enderecos\BairroModel.cs" />
     <Compile Include="Enderecos\CidadeModel.cs" />
     <Compile Include="Enderecos\EstadoModel.cs" />
@@ -59,6 +67,8 @@
     <Compile Include="Modulos\ModuloModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fabrica\Telefones\ITelefoneContatoFabricaModel.cs" />
+    <Compile Include="Situacao\ISituacaoModel.cs" />
+    <Compile Include="Situacao\SituacaoModel.cs" />
     <Compile Include="Telefones\ITipoTelefoneModel.cs" />
     <Compile Include="Fabrica\Telefones\TelefoneContatoFabricaModel.cs" />
     <Compile Include="Telefones\TipoTelefoneModel.cs" />

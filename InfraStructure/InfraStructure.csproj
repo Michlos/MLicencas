@@ -45,11 +45,16 @@
     <Compile Include="QueryString.cs" />
     <Compile Include="Repository\Bairros\BairroRepository.cs" />
     <Compile Include="Repository\Cidades\CidadeRepository.cs" />
+    <Compile Include="Repository\Clientes\ClienteRepository.cs" />
+    <Compile Include="Repository\ContatosClientes\ContatoClienteRepository.cs" />
     <Compile Include="Repository\ContatosFabrica\ContatoFabricaRepository.cs" />
+    <Compile Include="Repository\EnderecosClientes\EnderecoClienteRepository.cs" />
     <Compile Include="Repository\EnderecosFabrica\EnderecoFabricaRepository.cs" />
     <Compile Include="Repository\Estados\EstadoRepository.cs" />
     <Compile Include="Repository\Fabrica\FabricaRepository.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
+    <Compile Include="Repository\Situacoes\SituacaoRepository.cs" />
+    <Compile Include="Repository\TelefonesContatosClientes\TelefoneContatoCliente.cs" />
     <Compile Include="Repository\TelefonesContatosFabrica\TelefoneContatoFabricaRepository.cs" />
     <Compile Include="Repository\TiposEnderecos\TipoEnderecoRepository.cs" />
     <Compile Include="Repository\TiposTelefones\TipoTelefoneRepository.cs" />
