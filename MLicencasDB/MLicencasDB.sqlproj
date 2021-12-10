@@ -66,6 +66,9 @@
     <Folder Include="Tables\Clientes" />
     <Folder Include="Tables\Clientes\Contatos" />
     <Folder Include="Tables\Clientes\Enderecos" />
+    <Folder Include="Tables\Software" />
+    <Folder Include="Tables\Contratos" />
+    <Folder Include="Tables\Contratos\Clausulas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
@@ -86,6 +89,11 @@
     <Build Include="Tables\Clientes\Contatos\ContatosClientes.sql" />
     <Build Include="Tables\Clientes\Contatos\TelefonesContatosClientes.sql" />
     <Build Include="Tables\Clientes\Enderecos\EnderecosClientes.sql" />
+    <Build Include="Tables\Software\Plataformas.sql" />
+    <Build Include="Tables\Software\SistemasOperacionais.sql" />
+    <Build Include="Tables\Software\Softwares.sql" />
+    <Build Include="Tables\Contratos\Contratos.sql" />
+    <Build Include="Tables\Contratos\Clausulas\Clausulas.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

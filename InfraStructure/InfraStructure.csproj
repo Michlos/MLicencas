@@ -45,9 +45,11 @@
     <Compile Include="QueryString.cs" />
     <Compile Include="Repository\Bairros\BairroRepository.cs" />
     <Compile Include="Repository\Cidades\CidadeRepository.cs" />
+    <Compile Include="Repository\Clausulas\ClausulaRepository.cs" />
     <Compile Include="Repository\Clientes\ClienteRepository.cs" />
     <Compile Include="Repository\ContatosClientes\ContatoClienteRepository.cs" />
     <Compile Include="Repository\ContatosFabrica\ContatoFabricaRepository.cs" />
+    <Compile Include="Repository\Contratos\ContratoRepository.cs" />
     <Compile Include="Repository\EnderecosClientes\EnderecoClienteRepository.cs" />
     <Compile Include="Repository\EnderecosFabrica\EnderecoFabricaRepository.cs" />
     <Compile Include="Repository\Estados\EstadoRepository.cs" />

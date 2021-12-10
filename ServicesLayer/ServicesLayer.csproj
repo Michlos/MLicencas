@@ -51,6 +51,9 @@
     <Compile Include="Cidades\CidadesServices.cs" />
     <Compile Include="Cidades\ICidadesServices.cs" />
     <Compile Include="Cidades\ICidadesRepository.cs" />
+    <Compile Include="Contratos\Clausulas\ClausulasServices.cs" />
+    <Compile Include="Contratos\Clausulas\IClausulasRepository.cs" />
+    <Compile Include="Contratos\Clausulas\IClausulasServices.cs" />
     <Compile Include="Clientes\ClientesServices.cs" />
     <Compile Include="Clientes\IClientesRepository.cs" />
     <Compile Include="Clientes\IClientesServices.cs" />
@@ -58,18 +61,21 @@
     <Compile Include="CommonServcies\IQueryStringRepository.cs" />
     <Compile Include="CommonServcies\ModelDataAnnotationCheck.cs" />
     <Compile Include="CommonServcies\QueryStringServices.cs" />
-    <Compile Include="ContatosClientes\ContatosClientesServices.cs" />
-    <Compile Include="ContatosClientes\IContatosClientesRepository.cs" />
-    <Compile Include="ContatosClientes\IContatosClientesServices.cs" />
-    <Compile Include="ContatosFabrica\ContatosFabricaServices.cs" />
-    <Compile Include="ContatosFabrica\IContatosFabricaRepository.cs" />
-    <Compile Include="ContatosFabrica\IContatosFabricaServices.cs" />
-    <Compile Include="EnderecosClientes\EnderecosClientesServices.cs" />
-    <Compile Include="EnderecosClientes\IEnderecosClientesRepository.cs" />
-    <Compile Include="EnderecosClientes\IEnderecosClientesServices.cs" />
-    <Compile Include="EnderecosFabrica\EnderecosFabricaServices.cs" />
-    <Compile Include="EnderecosFabrica\IEnderecosFabricaRepository.cs" />
-    <Compile Include="EnderecosFabrica\IEnderecosFabricaServices.cs" />
+    <Compile Include="Clientes\ContatosClientes\ContatosClientesServices.cs" />
+    <Compile Include="Clientes\ContatosClientes\IContatosClientesRepository.cs" />
+    <Compile Include="Clientes\ContatosClientes\IContatosClientesServices.cs" />
+    <Compile Include="Contratos\ContratosServices.cs" />
+    <Compile Include="Contratos\IContratosRepository.cs" />
+    <Compile Include="Contratos\IContratosServices.cs" />
+    <Compile Include="Fabrica\ContatosFabrica\ContatosFabricaServices.cs" />
+    <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaRepository.cs" />
+    <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaServices.cs" />
+    <Compile Include="Clientes\EnderecosClientes\EnderecosClientesServices.cs" />
+    <Compile Include="Clientes\EnderecosClientes\IEnderecosClientesRepository.cs" />
+    <Compile Include="Clientes\EnderecosClientes\IEnderecosClientesServices.cs" />
+    <Compile Include="Fabrica\EnderecosFabrica\EnderecosFabricaServices.cs" />
+    <Compile Include="Fabrica\EnderecosFabrica\IEnderecosFabricaRepository.cs" />
+    <Compile Include="Fabrica\EnderecosFabrica\IEnderecosFabricaServices.cs" />
     <Compile Include="Estados\EstadosServices.cs" />
     <Compile Include="Estados\IEstadosServices.cs" />
     <Compile Include="Estados\IEstadosRepository.cs" />
@@ -79,16 +85,25 @@
     <Compile Include="Modulos\IModulosRepository.cs" />
     <Compile Include="Modulos\IModulosServices.cs" />
     <Compile Include="Modulos\ModulosServices.cs" />
+    <Compile Include="Softwares\Plataformas\IPlataformasRepository.cs" />
+    <Compile Include="Softwares\Plataformas\IPlataformasServices.cs" />
+    <Compile Include="Softwares\Plataformas\PlataformasServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Softwares\SistemasOperacionais\ISistemasOperacionaisRepository.cs" />
+    <Compile Include="Softwares\SistemasOperacionais\ISistemasOperacionaisServices.cs" />
+    <Compile Include="Softwares\SistemasOperacionais\SistemasOperacionaisServices.cs" />
     <Compile Include="Situacoes\ISituacoesRepository.cs" />
     <Compile Include="Situacoes\ISituacoesServices.cs" />
     <Compile Include="Situacoes\SituacoesServices.cs" />
-    <Compile Include="TelefonesContatosClientes\ITelefonesContatosClientesRepository.cs" />
-    <Compile Include="TelefonesContatosClientes\ITelefonesContatosClientesServices.cs" />
-    <Compile Include="TelefonesContatosClientes\TelefonesContatosClientesServices.cs" />
-    <Compile Include="TelefonesContatosFabrica\ITelefonesContatosFabricaServices.cs" />
-    <Compile Include="TelefonesContatosFabrica\ITelefonesContatosFabricaRepository.cs" />
-    <Compile Include="TelefonesContatosFabrica\TelefonesContatosFabricaServices.cs" />
+    <Compile Include="Clientes\TelefonesContatosClientes\ITelefonesContatosClientesRepository.cs" />
+    <Compile Include="Clientes\TelefonesContatosClientes\ITelefonesContatosClientesServices.cs" />
+    <Compile Include="Clientes\TelefonesContatosClientes\TelefonesContatosClientesServices.cs" />
+    <Compile Include="Fabrica\TelefonesContatosFabrica\ITelefonesContatosFabricaServices.cs" />
+    <Compile Include="Fabrica\TelefonesContatosFabrica\ITelefonesContatosFabricaRepository.cs" />
+    <Compile Include="Fabrica\TelefonesContatosFabrica\TelefonesContatosFabricaServices.cs" />
+    <Compile Include="Softwares\ISoftwaresRepository.cs" />
+    <Compile Include="Softwares\ISoftwaresServices.cs" />
+    <Compile Include="Softwares\SoftwaresServices.cs" />
     <Compile Include="TiposEnderecos\ITiposEnderecosRepository.cs" />
     <Compile Include="TiposEnderecos\ITiposEnderecosServices.cs" />
     <Compile Include="TiposEnderecos\TiposEnderecosServices.cs" />
@@ -114,5 +129,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

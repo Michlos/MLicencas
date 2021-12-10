@@ -44,6 +44,10 @@
     <Compile Include="Clientes\ClienteModel.cs" />
     <Compile Include="Clientes\Contatos\ContatoClienteModel.cs" />
     <Compile Include="Clientes\Contatos\IContatoClienteModel.cs" />
+    <Compile Include="Clientes\Contratos\Clausulas\ClausulaModel.cs" />
+    <Compile Include="Clientes\Contratos\Clausulas\IClausulaModel.cs" />
+    <Compile Include="Clientes\Contratos\ContratoModel.cs" />
+    <Compile Include="Clientes\Contratos\IContratoModel.cs" />
     <Compile Include="Clientes\Enderecos\EnderecoClienteModel.cs" />
     <Compile Include="Clientes\Enderecos\IEnderecoClienteModel.cs" />
     <Compile Include="Clientes\IClienteModel.cs" />
@@ -69,6 +73,12 @@
     <Compile Include="Fabrica\Telefones\ITelefoneContatoFabricaModel.cs" />
     <Compile Include="Situacao\ISituacaoModel.cs" />
     <Compile Include="Situacao\SituacaoModel.cs" />
+    <Compile Include="Softwares\ISoftwareModel.cs" />
+    <Compile Include="Softwares\Plataformas\IPlataformaModel.cs" />
+    <Compile Include="Softwares\Plataformas\PlataformaModel.cs" />
+    <Compile Include="Softwares\SistemasOperacionais\ISistemaOperacionalModel.cs" />
+    <Compile Include="Softwares\SistemasOperacionais\SistemaOperacionalModel.cs" />
+    <Compile Include="Softwares\SoftwareModel.cs" />
     <Compile Include="Telefones\ITipoTelefoneModel.cs" />
     <Compile Include="Fabrica\Telefones\TelefoneContatoFabricaModel.cs" />
     <Compile Include="Telefones\TipoTelefoneModel.cs" />

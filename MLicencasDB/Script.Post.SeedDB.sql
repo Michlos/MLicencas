@@ -5998,3 +5998,27 @@ INSERT INTO Situacao (Descricao) VALUES
 	('Vencido'),
 	('Desativado')
 GO
+
+/*
+	Id		INT IDENTITY(1,1) NOT NULL,
+	Nome	VARCHAR(10) NOT NULL,
+	CONSTRAINT PK_PLATAFORMAS PRIMARY KEY NONCLUSTERED (Id)
+*/
+INSERT INTO Plataformas (Nome) VALUES
+	('Web'),
+	('Mobile'),
+	('Desktop')
+GO
+
+/*
+	Id		INT IDENTITY(1,1) NOT NULL,
+	Nome	VARCHAR(20) NOT NULL,
+	CONSTRAINT PK_SISTEMASOPERACIONAIS PRIMARY KEY NONCLUSTERED (Id)
+*/
+INSERT INTO SistemasOperacionais (Nome) VALUES
+	('Windows'),
+	('Android'),
+	('iOS'),
+	('Linux'),
+	('AnyOne')
+GO
