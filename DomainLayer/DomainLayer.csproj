@@ -48,6 +48,8 @@
     <Compile Include="Clientes\Contratos\Clausulas\IClausulaModel.cs" />
     <Compile Include="Clientes\Contratos\ContratoModel.cs" />
     <Compile Include="Clientes\Contratos\IContratoModel.cs" />
+    <Compile Include="Clientes\Contratos\Seriais\ISerialModel.cs" />
+    <Compile Include="Clientes\Contratos\Seriais\SerialModel.cs" />
     <Compile Include="Clientes\Enderecos\EnderecoClienteModel.cs" />
     <Compile Include="Clientes\Enderecos\IEnderecoClienteModel.cs" />
     <Compile Include="Clientes\IClienteModel.cs" />

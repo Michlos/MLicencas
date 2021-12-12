@@ -69,6 +69,7 @@
     <Folder Include="Tables\Software" />
     <Folder Include="Tables\Contratos" />
     <Folder Include="Tables\Contratos\Clausulas" />
+    <Folder Include="Tables\Contratos\Seriais" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
@@ -94,6 +95,7 @@
     <Build Include="Tables\Software\Softwares.sql" />
     <Build Include="Tables\Contratos\Contratos.sql" />
     <Build Include="Tables\Contratos\Clausulas\Clausulas.sql" />
+    <Build Include="Tables\Contratos\Seriais\Seriais.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

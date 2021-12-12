@@ -85,6 +85,9 @@
     <Compile Include="Modulos\IModulosRepository.cs" />
     <Compile Include="Modulos\IModulosServices.cs" />
     <Compile Include="Modulos\ModulosServices.cs" />
+    <Compile Include="Seriais\ISeriaisRepository.cs" />
+    <Compile Include="Seriais\ISeriaisServices.cs" />
+    <Compile Include="Seriais\SeriaisServices.cs" />
     <Compile Include="Softwares\Plataformas\IPlataformasRepository.cs" />
     <Compile Include="Softwares\Plataformas\IPlataformasServices.cs" />
     <Compile Include="Softwares\Plataformas\PlataformasServices.cs" />
