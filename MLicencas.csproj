@@ -170,10 +170,6 @@
       <Project>{93A7C86E-AE2E-4E4A-B251-4A9FC64EBB35}</Project>
       <Name>InfraStructure</Name>
     </ProjectReference>
-    <ProjectReference Include="ServicesLayer\ServicesLayer.csproj">
-      <Project>{03A5DF17-B12F-40C1-BCB2-AAD33D0BEAA8}</Project>
-      <Name>ServicesLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
