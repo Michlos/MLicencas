@@ -10,6 +10,13 @@ namespace ServicesLayer.TiposEnderecos
     {
         private ITiposEnderecosRepository _tiposEnderecosRepository;
         private IModelDataAnnotationCheck _modelDataAnnotationCheck;
+
+        public TiposEnderecosServices(ITiposEnderecosRepository tiposEnderecosRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
+        {
+            _tiposEnderecosRepository = tiposEnderecosRepository;
+            _modelDataAnnotationCheck = modelDataAnnotationCheck;
+        }
+
         public IEnumerable<ITipoEnderecoModel> GetAll()
         {
             return _tiposEnderecosRepository.GetAll();

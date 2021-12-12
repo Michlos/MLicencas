@@ -12,6 +12,12 @@ namespace ServicesLayer.Seriais
         private ISeriaisRepository _seriaisRepository;
         private IModelDataAnnotationCheck _modelDataAnnotationCheck;
 
+        public SeriaisServices(ISeriaisRepository seriaisRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
+        {
+            _seriaisRepository = seriaisRepository;
+            _modelDataAnnotationCheck = modelDataAnnotationCheck;
+        }
+
         public ISerialModel Add(ISerialModel serial)
         {
             return _seriaisRepository.Add(serial);
