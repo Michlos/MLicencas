@@ -8,5 +8,6 @@
         string HashCliente { get; set; }
         int Id { get; set; }
         int SoftwareId { get; set; }
+        int ClienteId { get; set; }
     }
 }

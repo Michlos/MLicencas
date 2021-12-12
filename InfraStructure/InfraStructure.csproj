@@ -55,6 +55,7 @@
     <Compile Include="Repository\Estados\EstadoRepository.cs" />
     <Compile Include="Repository\Fabrica\FabricaRepository.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
+    <Compile Include="Repository\Seriais\SerialRepository.cs" />
     <Compile Include="Repository\Situacoes\SituacaoRepository.cs" />
     <Compile Include="Repository\TelefonesContatosClientes\TelefoneContatoCliente.cs" />
     <Compile Include="Repository\TelefonesContatosFabrica\TelefoneContatoFabricaRepository.cs" />

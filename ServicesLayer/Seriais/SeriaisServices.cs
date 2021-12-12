@@ -3,6 +3,8 @@
 
 using ServiceLayer.CommonServices;
 
+using System.Collections.Generic;
+
 namespace ServicesLayer.Seriais
 {
     public class SeriaisServices : ISeriaisRepository, ISeriaisServices
@@ -15,19 +17,19 @@ namespace ServicesLayer.Seriais
             return _seriaisRepository.Add(serial);
         }
 
-        public string GenHashChave(ISerialModel serial)
+        public IEnumerable<ISerialModel> GetAllByClienteId(int clienteId)
         {
-            return _seriaisRepository.GenHashChave(serial);
+            return _seriaisRepository.GetAllByClienteId(clienteId);
         }
 
-        public string GenHashCliente(ISerialModel serial)
+        public ISerialModel GetByContratoId(int contratoId)
         {
-            return _seriaisRepository.GenHashCliente(serial);
+            return _seriaisRepository.GetByContratoId(contratoId);
         }
 
-        public string GenSerial(ISerialModel serial)
+        public ISerialModel GetById(int serialId)
         {
-            return _seriaisRepository.GenSerial(serial);
+            return _seriaisRepository.GetById(serialId);
         }
 
         public ISerialModel Renew(ISerialModel serial)
