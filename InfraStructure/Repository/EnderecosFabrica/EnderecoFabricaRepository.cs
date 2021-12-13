@@ -67,10 +67,37 @@ namespace InfraStructure.Repository.EnderecosFabrica
             return this.enderecoModel;
         }
 
+        public void Delete(int enderecoId)
+        {
+            _query = "DELETE FROM EnderecosFabrica WHERE Id = @Id";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", enderecoId));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException e)
+                {
+                    this.dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível apagar o Endereço selecionado", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         public void Edit(IEnderecoFabricaModel endereco)
         {
-            _query = "UPDATE EnderecosFabrica SET" +
-                     "Logradouro = @Logradouro, Complemento = @Complemento, Numero = @Numero, Cep = @Cep, UfId = @UfId, CidadeId = @CidadeId, BairroId = @BairroId, TipoEnderecoId = @TipoEnderecoId" +
+            _query = "UPDATE EnderecosFabrica SET " +
+                     "Logradouro = @Logradouro, Complemento = @Complemento, Numero = @Numero, Cep = @Cep, UfId = @UfId, CidadeId = @CidadeId, BairroId = @BairroId, TipoEnderecoId = @TipoEnderecoId " +
                      "WHERE Id = @Id ";
 
 

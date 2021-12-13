@@ -30,8 +30,8 @@ namespace MLicencas.FormViews.Fabrica
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txbId = new System.Windows.Forms.TextBox();
             this.txbRazaoSocial = new System.Windows.Forms.TextBox();
             this.txbNomeFantasia = new System.Windows.Forms.TextBox();
@@ -199,20 +199,21 @@ namespace MLicencas.FormViews.Fabrica
             this.dgvEnderecosFabrica.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEnderecosFabrica.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEnderecosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEnderecosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvEnderecosFabrica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEnderecosFabrica.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvEnderecosFabrica.Location = new System.Drawing.Point(3, 14);
             this.dgvEnderecosFabrica.Name = "dgvEnderecosFabrica";
             this.dgvEnderecosFabrica.ReadOnly = true;
             this.dgvEnderecosFabrica.RowHeadersVisible = false;
+            this.dgvEnderecosFabrica.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEnderecosFabrica.Size = new System.Drawing.Size(415, 177);
             this.dgvEnderecosFabrica.TabIndex = 1;
             this.dgvEnderecosFabrica.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEnderecosFabrica_CellContentDoubleClick);
@@ -244,20 +245,21 @@ namespace MLicencas.FormViews.Fabrica
             this.dgvContatosFabrica.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvContatosFabrica.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContatosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContatosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvContatosFabrica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContatosFabrica.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvContatosFabrica.Location = new System.Drawing.Point(3, 13);
             this.dgvContatosFabrica.Name = "dgvContatosFabrica";
             this.dgvContatosFabrica.ReadOnly = true;
             this.dgvContatosFabrica.RowHeadersVisible = false;
+            this.dgvContatosFabrica.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContatosFabrica.Size = new System.Drawing.Size(243, 178);
             this.dgvContatosFabrica.TabIndex = 1;
             this.dgvContatosFabrica.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContatosFabrica_CellContentDoubleClick);
@@ -316,6 +318,7 @@ namespace MLicencas.FormViews.Fabrica
             this.editarTSMIContatos.Size = new System.Drawing.Size(125, 22);
             this.editarTSMIContatos.Tag = "5.2";
             this.editarTSMIContatos.Text = "Editar";
+            this.editarTSMIContatos.Click += new System.EventHandler(this.editarTSMIContatos_Click);
             // 
             // removerTSMIContatos
             // 
@@ -416,6 +419,7 @@ namespace MLicencas.FormViews.Fabrica
             this.btnRemEnd.Text = "Rem Endereço";
             this.btnRemEnd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRemEnd.UseVisualStyleBackColor = false;
+            this.btnRemEnd.Click += new System.EventHandler(this.btnRemEnd_Click);
             // 
             // btnSave
             // 
@@ -423,7 +427,7 @@ namespace MLicencas.FormViews.Fabrica
             this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(462, 430);
+            this.btnSave.Location = new System.Drawing.Point(602, 430);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 27);
             this.btnSave.TabIndex = 1;
@@ -438,7 +442,7 @@ namespace MLicencas.FormViews.Fabrica
             this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(602, 430);
+            this.btnClose.Location = new System.Drawing.Point(12, 430);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(103, 27);
             this.btnClose.TabIndex = 14;
@@ -458,9 +462,10 @@ namespace MLicencas.FormViews.Fabrica
             // adicionarTSMIEndereco
             // 
             this.adicionarTSMIEndereco.Name = "adicionarTSMIEndereco";
-            this.adicionarTSMIEndereco.Size = new System.Drawing.Size(125, 22);
+            this.adicionarTSMIEndereco.Size = new System.Drawing.Size(180, 22);
             this.adicionarTSMIEndereco.Tag = "5.2";
             this.adicionarTSMIEndereco.Text = "Adicionar";
+            this.adicionarTSMIEndereco.Click += new System.EventHandler(this.adicionarTSMIEndereco_Click);
             // 
             // editarTSMIEndereco
             // 
@@ -468,6 +473,7 @@ namespace MLicencas.FormViews.Fabrica
             this.editarTSMIEndereco.Size = new System.Drawing.Size(125, 22);
             this.editarTSMIEndereco.Tag = "5.2";
             this.editarTSMIEndereco.Text = "Editar";
+            this.editarTSMIEndereco.Click += new System.EventHandler(this.editarTSMIEndereco_Click);
             // 
             // removerTSMIEndereco
             // 
@@ -521,9 +527,7 @@ namespace MLicencas.FormViews.Fabrica
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox mtxbCnpj;
-        private System.Windows.Forms.DataGridView dgvEnderecosFabrica;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dgvContatosFabrica;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAddCont;
         private System.Windows.Forms.Button btnRemCont;
@@ -543,5 +547,7 @@ namespace MLicencas.FormViews.Fabrica
         private System.Windows.Forms.ToolStripMenuItem editarTSMIEndereco;
         private System.Windows.Forms.ToolStripMenuItem removerTSMIEndereco;
         public System.Windows.Forms.Button btnClose;
+        public System.Windows.Forms.DataGridView dgvEnderecosFabrica;
+        public System.Windows.Forms.DataGridView dgvContatosFabrica;
     }
 }

@@ -92,7 +92,7 @@ namespace MLicencas.FormViews.Fabrica
                 foreach (var contato in contatosListModel)
                 {
                     row = tableContatos.NewRow();
-                    
+
                     row["Id"] = contato.Id;
                     row["Nome"] = contato.Nome;
                     row["Telefone"] = _telefoneContatos.GetAllByContatoId(contato.Id).FirstOrDefault().Numero;
@@ -128,6 +128,12 @@ namespace MLicencas.FormViews.Fabrica
                 MessageBox.Show("Usuário sem permissão para editar dados.", this.Text);
             }
         }
+        private void editarTSMIContatos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
         #endregion
 
@@ -166,7 +172,7 @@ namespace MLicencas.FormViews.Fabrica
                 foreach (var endereco in enderecosListModel)
                 {
                     row = tableEnderecos.NewRow();
-                    
+
                     row["Id"] = endereco.Id;
                     row["Logradouro"] = endereco.Logradouro;
                     row["Numero"] = endereco.Numero;
@@ -207,11 +213,71 @@ namespace MLicencas.FormViews.Fabrica
         {
             if (MainView.CheckPermissoes(editarTSMIEndereco.Tag))
             {
-
+                EditEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
             }
             else
             {
                 MessageBox.Show("Usuário sem permissão para editar dados.", this.Text);
+            }
+        }
+        private void btnAddEnd_Click(object sender, EventArgs e)
+        {
+            
+            AddEndereco(this.fabricaModel.Id);
+
+        }
+
+        private void AddEndereco(int fabricaId)
+        {
+            this.endFabModel.FabricaId = fabricaId;
+            EnderecoAddForm endForm = new EnderecoAddForm(0, this.endFabModel);
+            endForm.MdiParent = MainView;
+            endForm.ShowDialog();
+            LoadModels();
+            LoadDgvEnderecos();
+        }
+
+        private void adicionarTSMIEndereco_Click(object sender, EventArgs e)
+        {
+            AddEndereco(this.fabricaModel.Id);
+        }
+        private void editarTSMIEndereco_Click(object sender, EventArgs e)
+        {
+            EditEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
+        }
+
+        private void EditEndereco(int enderecoId)
+        {
+            this.endFabModel = _enderecoServices.GetById(enderecoId);
+            EnderecoAddForm endForm = new EnderecoAddForm(endFabModel.Id, endFabModel);
+            endForm.MdiParent = MainView;
+            endForm.ShowDialog();
+            LoadModels();
+            LoadDgvEnderecos();
+        }
+        private void btnRemEnd_Click(object sender, EventArgs e)
+        {
+            if (dgvContatosFabrica.CurrentRow != null)
+            {
+
+                this.endFabModel = _enderecoServices.GetById(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
+
+                var result = MessageBox.Show($"Tem certeza que quer apagar o registro \n{endFabModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question); ;
+                if (result == DialogResult.Yes)
+                {
+
+                    try
+                    {
+                        _enderecoServices.Delete(this.endFabModel.Id);
+                        MessageBox.Show("Registro apagado com sucesso.", this.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Não foi possível apagar o registro.\nMessageError: {ex.Message}\nInnerException: {ex.InnerException}\nStackTrace: {ex.StackTrace}", this.Text);
+                    }
+                }
+                LoadModels();
+                LoadDgvEnderecos();
             }
         }
 
@@ -360,14 +426,6 @@ namespace MLicencas.FormViews.Fabrica
             }
         }
 
-        private void btnAddEnd_Click(object sender, EventArgs e)
-        {
-            this.endFabModel.FabricaId = this.fabricaModel.Id;
-            EnderecoAddForm endForm = new EnderecoAddForm(0, this.endFabModel);
-            endForm.MdiParent = MainView;
-            endForm.Show();
-            LoadDgvEnderecos();
-        }
 
         private void dgvEnderecosFabrica_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -382,8 +440,9 @@ namespace MLicencas.FormViews.Fabrica
         {
             if (e.ColumnIndex == 2 && e.RowIndex != dgvContatosFabrica.NewRowIndex)
             {
-                e.Value = string.Format(@"{0:\(00\) 00000\-0000", Int64.Parse(e.Value.ToString())); 
+                e.Value = string.Format(@"{0:\(00\) 00000\-0000", Int64.Parse(e.Value.ToString()));
             }
         }
+
     }
 }

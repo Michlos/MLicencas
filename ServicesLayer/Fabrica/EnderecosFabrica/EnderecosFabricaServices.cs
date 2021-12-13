@@ -22,6 +22,11 @@ namespace ServicesLayer.EnderecosFabricaServices
             return _enderecosFabricaRepository.Add(endereco);
         }
 
+        public void Delete(int enderecoId)
+        {
+            _enderecosFabricaRepository.Delete(enderecoId);
+        }
+
         public void Edit(IEnderecoFabricaModel endereco)
         {
             _enderecosFabricaRepository.Edit(endereco);

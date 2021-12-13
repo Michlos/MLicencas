@@ -8,6 +8,7 @@ namespace ServicesLayer.EnderecosFabricaServices
     {
         IEnderecoFabricaModel Add(IEnderecoFabricaModel endereco);
         void Edit(IEnderecoFabricaModel endereco);
+        void Delete(int enderecoId);
         IEnderecoFabricaModel GetById(int enderecoId);
         IEnumerable<IEnderecoFabricaModel> GetAll();
 

@@ -203,7 +203,7 @@ namespace MLicencas.FormViews.Enderecos
             this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(235, 250);
+            this.btnClose.Location = new System.Drawing.Point(9, 250);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(103, 27);
             this.btnClose.TabIndex = 15;
@@ -217,7 +217,7 @@ namespace MLicencas.FormViews.Enderecos
             this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(19, 250);
+            this.btnSave.Location = new System.Drawing.Point(235, 250);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 27);
             this.btnSave.TabIndex = 8;
@@ -284,6 +284,7 @@ namespace MLicencas.FormViews.Enderecos
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EnderecoAddForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Endereço Fábrica";
             this.ResumeLayout(false);
             this.PerformLayout();
