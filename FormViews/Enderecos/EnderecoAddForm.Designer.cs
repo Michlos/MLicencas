@@ -1,7 +1,7 @@
 ﻿
-namespace MLicencas.FormViews.Fabrica.Endereco
+namespace MLicencas.FormViews.Enderecos
 {
-    partial class EnderecoFabricaAddFormView
+    partial class EnderecoAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,10 +49,12 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.btnSave = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txbComplemento = new System.Windows.Forms.TextBox();
+            this.lblAdd = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txbId
             // 
+            this.txbId.Enabled = false;
             this.txbId.Location = new System.Drawing.Point(80, 12);
             this.txbId.Name = "txbId";
             this.txbId.Size = new System.Drawing.Size(40, 20);
@@ -61,10 +63,10 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             // mtxbCep
             // 
             this.mtxbCep.Location = new System.Drawing.Point(251, 119);
-            this.mtxbCep.Mask = "00,000-00";
+            this.mtxbCep.Mask = "00,000-000";
             this.mtxbCep.Name = "mtxbCep";
             this.mtxbCep.Size = new System.Drawing.Size(66, 20);
-            this.mtxbCep.TabIndex = 1;
+            this.mtxbCep.TabIndex = 4;
             this.mtxbCep.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txbLogradouro
@@ -72,48 +74,56 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.txbLogradouro.Location = new System.Drawing.Point(80, 38);
             this.txbLogradouro.Name = "txbLogradouro";
             this.txbLogradouro.Size = new System.Drawing.Size(237, 20);
-            this.txbLogradouro.TabIndex = 0;
+            this.txbLogradouro.TabIndex = 1;
             // 
             // txbNumero
             // 
             this.txbNumero.Location = new System.Drawing.Point(80, 119);
             this.txbNumero.Name = "txbNumero";
             this.txbNumero.Size = new System.Drawing.Size(40, 20);
-            this.txbNumero.TabIndex = 0;
+            this.txbNumero.TabIndex = 3;
             // 
             // cbTipoEndereco
             // 
+            this.cbTipoEndereco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTipoEndereco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTipoEndereco.FormattingEnabled = true;
             this.cbTipoEndereco.Location = new System.Drawing.Point(196, 11);
             this.cbTipoEndereco.Name = "cbTipoEndereco";
             this.cbTipoEndereco.Size = new System.Drawing.Size(121, 21);
-            this.cbTipoEndereco.TabIndex = 2;
+            this.cbTipoEndereco.TabIndex = 0;
             // 
             // cbUf
             // 
+            this.cbUf.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbUf.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUf.FormattingEnabled = true;
             this.cbUf.Location = new System.Drawing.Point(80, 145);
             this.cbUf.Name = "cbUf";
             this.cbUf.Size = new System.Drawing.Size(40, 21);
-            this.cbUf.TabIndex = 2;
+            this.cbUf.TabIndex = 5;
             this.cbUf.SelectedIndexChanged += new System.EventHandler(this.cbUf_SelectedIndexChanged);
             // 
             // cbCidade
             // 
+            this.cbCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCidade.FormattingEnabled = true;
             this.cbCidade.Location = new System.Drawing.Point(80, 172);
             this.cbCidade.Name = "cbCidade";
             this.cbCidade.Size = new System.Drawing.Size(163, 21);
-            this.cbCidade.TabIndex = 2;
+            this.cbCidade.TabIndex = 6;
             this.cbCidade.SelectedIndexChanged += new System.EventHandler(this.cbCidade_SelectedIndexChanged);
             // 
             // cbBairro
             // 
+            this.cbBairro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBairro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBairro.FormattingEnabled = true;
             this.cbBairro.Location = new System.Drawing.Point(80, 199);
             this.cbBairro.Name = "cbBairro";
             this.cbBairro.Size = new System.Drawing.Size(163, 21);
-            this.cbBairro.TabIndex = 2;
+            this.cbBairro.TabIndex = 7;
             // 
             // label1
             // 
@@ -210,7 +220,7 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.btnSave.Location = new System.Drawing.Point(19, 250);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 27);
-            this.btnSave.TabIndex = 16;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Tag = "5.2";
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -231,13 +241,27 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.txbComplemento.Multiline = true;
             this.txbComplemento.Name = "txbComplemento";
             this.txbComplemento.Size = new System.Drawing.Size(237, 49);
-            this.txbComplemento.TabIndex = 0;
+            this.txbComplemento.TabIndex = 2;
             // 
-            // EnderecoFabricaAddFormView
+            // lblAdd
+            // 
+            this.lblAdd.AutoSize = true;
+            this.lblAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAdd.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdd.Location = new System.Drawing.Point(248, 202);
+            this.lblAdd.Name = "lblAdd";
+            this.lblAdd.Size = new System.Drawing.Size(13, 15);
+            this.lblAdd.TabIndex = 17;
+            this.lblAdd.Text = "+";
+            this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAdd.Click += new System.EventHandler(this.lblAdd_Click);
+            // 
+            // EnderecoAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 289);
+            this.Controls.Add(this.lblAdd);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label8);
@@ -259,8 +283,8 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "EnderecoFabricaAddFormView";
-            this.Text = "EnderecoFabricaAddFormView";
+            this.Name = "EnderecoAddForm";
+            this.Text = "Endereço Fábrica";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +312,6 @@ namespace MLicencas.FormViews.Fabrica.Endereco
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txbComplemento;
+        private System.Windows.Forms.Label lblAdd;
     }
 }

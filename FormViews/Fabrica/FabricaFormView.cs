@@ -9,7 +9,7 @@ using InfraStructure.Repository.Estados;
 using InfraStructure.Repository.Fabrica;
 using InfraStructure.Repository.TelefonesContatosFabrica;
 
-using MLicencas.FormViews.Fabrica.Endereco;
+using MLicencas.FormViews.Enderecos;
 
 using ServiceLayer.CommonServices;
 
@@ -50,6 +50,7 @@ namespace MLicencas.FormViews.Fabrica
 
         //MODELS
         private IFabricaModel fabricaModel;
+        private IEnderecoFabricaModel endFabModel = new EnderecoFabricaModel();
         private IEnumerable<IEnderecoFabricaModel> enderecosListModel;
         private IEnumerable<IContatoFabricaModel> contatosListModel;
 
@@ -347,9 +348,11 @@ namespace MLicencas.FormViews.Fabrica
 
         private void btnAddEnd_Click(object sender, EventArgs e)
         {
-            EnderecoFabricaAddFormView endForm = new EnderecoFabricaAddFormView(0, this.fabricaModel.Id);
+            this.endFabModel.FabricaId = this.fabricaModel.Id;
+            EnderecoAddForm endForm = new EnderecoAddForm(0, this.endFabModel);
             endForm.MdiParent = MainView;
             endForm.Show();
+            LoadDgvEnderecos();
         }
     }
 }
