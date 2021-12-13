@@ -292,9 +292,16 @@ namespace MLicencas.FormViews.Enderecos
             }
         }
 
-        private void lblAdd_Click(object sender, EventArgs e)
+        private void lblAddBairro_Click(object sender, EventArgs e)
         {
-
+            int ufId = (cbUf.SelectedItem as IEstadoModel).Id;
+            int cidadeId = (cbCidade.SelectedItem as ICidadeModel).Id;
+            
+            BairroAddForm bairroAdd = new BairroAddForm(ufId, cidadeId);
+            bairroAdd.ShowDialog();
+            LoadModels();
+            LoadComboBoxBairro(cbCidade.SelectedItem as ICidadeModel);            
+            
         }
     }
 }

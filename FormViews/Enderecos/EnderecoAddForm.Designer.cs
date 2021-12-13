@@ -49,7 +49,7 @@ namespace MLicencas.FormViews.Enderecos
             this.btnSave = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txbComplemento = new System.Windows.Forms.TextBox();
-            this.lblAdd = new System.Windows.Forms.Label();
+            this.lblAddBairro = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txbId
@@ -243,25 +243,25 @@ namespace MLicencas.FormViews.Enderecos
             this.txbComplemento.Size = new System.Drawing.Size(237, 49);
             this.txbComplemento.TabIndex = 2;
             // 
-            // lblAdd
+            // lblAddBairro
             // 
-            this.lblAdd.AutoSize = true;
-            this.lblAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblAdd.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdd.Location = new System.Drawing.Point(248, 202);
-            this.lblAdd.Name = "lblAdd";
-            this.lblAdd.Size = new System.Drawing.Size(13, 15);
-            this.lblAdd.TabIndex = 17;
-            this.lblAdd.Text = "+";
-            this.lblAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblAdd.Click += new System.EventHandler(this.lblAdd_Click);
+            this.lblAddBairro.AutoSize = true;
+            this.lblAddBairro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAddBairro.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddBairro.Location = new System.Drawing.Point(248, 202);
+            this.lblAddBairro.Name = "lblAddBairro";
+            this.lblAddBairro.Size = new System.Drawing.Size(13, 15);
+            this.lblAddBairro.TabIndex = 17;
+            this.lblAddBairro.Text = "+";
+            this.lblAddBairro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAddBairro.Click += new System.EventHandler(this.lblAddBairro_Click);
             // 
             // EnderecoAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 289);
-            this.Controls.Add(this.lblAdd);
+            this.Controls.Add(this.lblAddBairro);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label8);
@@ -313,6 +313,6 @@ namespace MLicencas.FormViews.Enderecos
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txbComplemento;
-        private System.Windows.Forms.Label lblAdd;
+        private System.Windows.Forms.Label lblAddBairro;
     }
 }

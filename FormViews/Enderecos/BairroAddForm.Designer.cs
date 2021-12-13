@@ -29,23 +29,23 @@ namespace MLicencas.FormViews.Enderecos
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbUf = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbCidade = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbBairro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txbUf
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(93, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(30, 20);
-            this.textBox1.TabIndex = 0;
+            this.txbUf.Enabled = false;
+            this.txbUf.Location = new System.Drawing.Point(93, 12);
+            this.txbUf.Name = "txbUf";
+            this.txbUf.Size = new System.Drawing.Size(30, 20);
+            this.txbUf.TabIndex = 0;
             // 
             // label1
             // 
@@ -56,13 +56,13 @@ namespace MLicencas.FormViews.Enderecos
             this.label1.TabIndex = 1;
             this.label1.Text = "UF:";
             // 
-            // textBox2
+            // txbCidade
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(93, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(203, 20);
-            this.textBox2.TabIndex = 0;
+            this.txbCidade.Enabled = false;
+            this.txbCidade.Location = new System.Drawing.Point(93, 38);
+            this.txbCidade.Name = "txbCidade";
+            this.txbCidade.Size = new System.Drawing.Size(203, 20);
+            this.txbCidade.TabIndex = 0;
             // 
             // label2
             // 
@@ -73,12 +73,12 @@ namespace MLicencas.FormViews.Enderecos
             this.label2.TabIndex = 1;
             this.label2.Text = "Cidade:";
             // 
-            // textBox3
+            // txbBairro
             // 
-            this.textBox3.Location = new System.Drawing.Point(93, 64);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(203, 20);
-            this.textBox3.TabIndex = 0;
+            this.txbBairro.Location = new System.Drawing.Point(93, 64);
+            this.txbBairro.Name = "txbBairro";
+            this.txbBairro.Size = new System.Drawing.Size(203, 20);
+            this.txbBairro.TabIndex = 0;
             // 
             // label3
             // 
@@ -116,6 +116,7 @@ namespace MLicencas.FormViews.Enderecos
             this.btnSave.Tag = "5.2";
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // BairroAddForm
             // 
@@ -124,9 +125,9 @@ namespace MLicencas.FormViews.Enderecos
             this.ClientSize = new System.Drawing.Size(306, 143);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbBairro);
+            this.Controls.Add(this.txbCidade);
+            this.Controls.Add(this.txbUf);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -142,11 +143,11 @@ namespace MLicencas.FormViews.Enderecos
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbUf;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbCidade;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbBairro;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;

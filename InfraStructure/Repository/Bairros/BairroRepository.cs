@@ -196,7 +196,6 @@ namespace InfraStructure.Repository.Bairros
                                 this.bairroModel.Nome = reader["Nome"].ToString();
                                 this.bairroModel.CidadeId = int.Parse(reader["CidadeId"].ToString());
 
-                                this.bairroListModel.Add(this.bairroModel);
                             }
                         }
                     }
