@@ -53,15 +53,15 @@ namespace MLicencas.FormViews.Fabrica
             this.btnRemCont = new System.Windows.Forms.Button();
             this.btnAddCont = new System.Windows.Forms.Button();
             this.cMenuContatos = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.adicionarTSMIContatos = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTSMIContatos = new System.Windows.Forms.ToolStripMenuItem();
             this.removerTSMIContatos = new System.Windows.Forms.ToolStripMenuItem();
-            this.adicionarTSMIContatos = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnRemEnd = new System.Windows.Forms.Button();
             this.btnAddEnd = new System.Windows.Forms.Button();
+            this.btnRemEnd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.cMenuEndereco = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -216,6 +216,7 @@ namespace MLicencas.FormViews.Fabrica
             this.dgvEnderecosFabrica.Size = new System.Drawing.Size(415, 177);
             this.dgvEnderecosFabrica.TabIndex = 1;
             this.dgvEnderecosFabrica.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEnderecosFabrica_CellContentDoubleClick);
+            this.dgvEnderecosFabrica.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEnderecosFabrica_CellFormatting);
             this.dgvEnderecosFabrica.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEnderecosFabrica_CellMouseClick);
             // 
             // label8
@@ -260,6 +261,7 @@ namespace MLicencas.FormViews.Fabrica
             this.dgvContatosFabrica.Size = new System.Drawing.Size(243, 178);
             this.dgvContatosFabrica.TabIndex = 1;
             this.dgvContatosFabrica.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContatosFabrica_CellContentDoubleClick);
+            this.dgvContatosFabrica.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvContatosFabrica_CellFormatting);
             this.dgvContatosFabrica.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContatosFabrica_CellMouseClick);
             // 
             // btnRemCont
@@ -301,6 +303,13 @@ namespace MLicencas.FormViews.Fabrica
             this.cMenuContatos.Name = "cMenuContatos";
             this.cMenuContatos.Size = new System.Drawing.Size(126, 70);
             // 
+            // adicionarTSMIContatos
+            // 
+            this.adicionarTSMIContatos.Name = "adicionarTSMIContatos";
+            this.adicionarTSMIContatos.Size = new System.Drawing.Size(125, 22);
+            this.adicionarTSMIContatos.Tag = "5.2";
+            this.adicionarTSMIContatos.Text = "Adicionar";
+            // 
             // editarTSMIContatos
             // 
             this.editarTSMIContatos.Name = "editarTSMIContatos";
@@ -314,13 +323,6 @@ namespace MLicencas.FormViews.Fabrica
             this.removerTSMIContatos.Size = new System.Drawing.Size(125, 22);
             this.removerTSMIContatos.Tag = "5.2";
             this.removerTSMIContatos.Text = "Remover";
-            // 
-            // adicionarTSMIContatos
-            // 
-            this.adicionarTSMIContatos.Name = "adicionarTSMIContatos";
-            this.adicionarTSMIContatos.Size = new System.Drawing.Size(125, 22);
-            this.adicionarTSMIContatos.Tag = "5.2";
-            this.adicionarTSMIContatos.Text = "Adicionar";
             // 
             // groupBox1
             // 
@@ -384,21 +386,6 @@ namespace MLicencas.FormViews.Fabrica
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
-            // btnRemEnd
-            // 
-            this.btnRemEnd.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.btnRemEnd.Enabled = false;
-            this.btnRemEnd.FlatAppearance.BorderSize = 0;
-            this.btnRemEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemEnd.Location = new System.Drawing.Point(3, 194);
-            this.btnRemEnd.Name = "btnRemEnd";
-            this.btnRemEnd.Size = new System.Drawing.Size(103, 22);
-            this.btnRemEnd.TabIndex = 14;
-            this.btnRemEnd.Tag = "5.2";
-            this.btnRemEnd.Text = "Rem Endereço";
-            this.btnRemEnd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRemEnd.UseVisualStyleBackColor = false;
-            // 
             // btnAddEnd
             // 
             this.btnAddEnd.BackColor = System.Drawing.Color.PaleGreen;
@@ -414,6 +401,21 @@ namespace MLicencas.FormViews.Fabrica
             this.btnAddEnd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddEnd.UseVisualStyleBackColor = false;
             this.btnAddEnd.Click += new System.EventHandler(this.btnAddEnd_Click);
+            // 
+            // btnRemEnd
+            // 
+            this.btnRemEnd.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRemEnd.Enabled = false;
+            this.btnRemEnd.FlatAppearance.BorderSize = 0;
+            this.btnRemEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemEnd.Location = new System.Drawing.Point(3, 194);
+            this.btnRemEnd.Name = "btnRemEnd";
+            this.btnRemEnd.Size = new System.Drawing.Size(103, 22);
+            this.btnRemEnd.TabIndex = 14;
+            this.btnRemEnd.Tag = "5.2";
+            this.btnRemEnd.Text = "Rem Endereço";
+            this.btnRemEnd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRemEnd.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
