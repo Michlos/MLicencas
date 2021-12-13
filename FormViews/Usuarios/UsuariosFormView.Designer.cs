@@ -134,6 +134,7 @@ namespace MLicencas.FormViews.Usuarios
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panelUsuariosList);
             this.Controls.Add(this.panelAccessList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "UsuariosFormView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

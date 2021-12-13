@@ -114,9 +114,7 @@ namespace MLicencas.UCViews.Usuarios
 
         private void dgvUsuarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //dgvProdutos.CurrentRow.Cells[0].Value.ToString()
             indexDgv = e.RowIndex;
-            //            permissoes.usuario = usuarioListModel.Where(usuId => usuId.Id == dgvUsuarios.curre );
             if (e.Button == MouseButtons.Right)
             {
                 contextMenuStripUsuarioDGV.Show(MousePosition);

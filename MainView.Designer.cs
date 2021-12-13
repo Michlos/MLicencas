@@ -33,10 +33,10 @@ namespace MLicencas
             this.menuGestaoDeUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStripMain = new System.Windows.Forms.StatusStrip();
-            this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStripMain = new System.Windows.Forms.StatusStrip();
+            this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +48,7 @@ namespace MLicencas
             this.sobreToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(800, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(784, 24);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -65,31 +65,15 @@ namespace MLicencas
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.usuariosToolStripMenuItem.Text = "&Usuários";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem
             // 
             this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
-            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.gruposToolStripMenuItem.Text = "&Grupos";
-            // 
-            // statusStripMain
-            // 
-            this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusUsuario});
-            this.statusStripMain.Location = new System.Drawing.Point(0, 428);
-            this.statusStripMain.Name = "statusStripMain";
-            this.statusStripMain.Size = new System.Drawing.Size(800, 22);
-            this.statusStripMain.TabIndex = 2;
-            this.statusStripMain.Text = "statusStrip1";
-            // 
-            // statusUsuario
-            // 
-            this.statusUsuario.Name = "statusUsuario";
-            this.statusUsuario.Size = new System.Drawing.Size(99, 17);
-            this.statusUsuario.Text = "NomeUsuarioTXT";
             // 
             // sobreToolStripMenuItem
             // 
@@ -107,11 +91,27 @@ namespace MLicencas
             this.cadastroDaEmpresaToolStripMenuItem.Text = "Cadastro da Empresa";
             this.cadastroDaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDaEmpresaToolStripMenuItem_Click);
             // 
+            // statusStripMain
+            // 
+            this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusUsuario});
+            this.statusStripMain.Location = new System.Drawing.Point(0, 539);
+            this.statusStripMain.Name = "statusStripMain";
+            this.statusStripMain.Size = new System.Drawing.Size(784, 22);
+            this.statusStripMain.TabIndex = 2;
+            this.statusStripMain.Text = "statusStrip1";
+            // 
+            // statusUsuario
+            // 
+            this.statusUsuario.Name = "statusUsuario";
+            this.statusUsuario.Size = new System.Drawing.Size(99, 17);
+            this.statusUsuario.Text = "NomeUsuarioTXT";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.statusStripMain);
             this.Controls.Add(this.menuStripMain);
             this.IsMdiContainer = true;
@@ -119,7 +119,6 @@ namespace MLicencas
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MLicenças - Sistema de Gerenciamento de Licenças de Software";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainView_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();

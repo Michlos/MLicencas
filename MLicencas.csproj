@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormViews\Fabrica\Endereco\EnderecoFabricaAddFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Fabrica\Endereco\EnderecoFabricaAddFormView.Designer.cs">
+      <DependentUpon>EnderecoFabricaAddFormView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Fabrica\FabricaFormView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <Compile Include="UCViews\Usuarios\UsuariosListUC.Designer.cs">
       <DependentUpon>UsuariosListUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormViews\Fabrica\Endereco\EnderecoFabricaAddFormView.resx">
+      <DependentUpon>EnderecoFabricaAddFormView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Fabrica\FabricaFormView.resx">
       <DependentUpon>FabricaFormView.cs</DependentUpon>
     </EmbeddedResource>

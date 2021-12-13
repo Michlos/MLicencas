@@ -1,6 +1,7 @@
 ﻿using DomainLayer.Modulos;
 using DomainLayer.Usuarios;
 
+using MLicencas.FormViews.Fabrica;
 using MLicencas.FormViews.Login;
 using MLicencas.FormViews.Usuarios;
 
@@ -85,7 +86,10 @@ namespace MLicencas
 
         private void cadastroDaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FabricaFormView fab = new FabricaFormView();
+            fab.WindowState = FormWindowState.Normal;
+            fab.MdiParent = this;
+            fab.Show();
         }
     }
 }

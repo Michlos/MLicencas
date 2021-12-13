@@ -129,6 +129,7 @@ namespace MLicencas.FormViews.Usuarios
             this.mTxbCpf.Name = "mTxbCpf";
             this.mTxbCpf.Size = new System.Drawing.Size(100, 20);
             this.mTxbCpf.TabIndex = 10;
+            this.mTxbCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txbCargo
             // 
