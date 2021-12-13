@@ -222,7 +222,7 @@ namespace MLicencas.FormViews.Fabrica
         }
         private void btnAddEnd_Click(object sender, EventArgs e)
         {
-            
+
             AddEndereco(this.fabricaModel.Id);
 
         }
@@ -259,26 +259,35 @@ namespace MLicencas.FormViews.Fabrica
         {
             if (dgvContatosFabrica.CurrentRow != null)
             {
-
-                this.endFabModel = _enderecoServices.GetById(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
-
-                var result = MessageBox.Show($"Tem certeza que quer apagar o registro \n{endFabModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question); ;
-                if (result == DialogResult.Yes)
-                {
-
-                    try
-                    {
-                        _enderecoServices.Delete(this.endFabModel.Id);
-                        MessageBox.Show("Registro apagado com sucesso.", this.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Não foi possível apagar o registro.\nMessageError: {ex.Message}\nInnerException: {ex.InnerException}\nStackTrace: {ex.StackTrace}", this.Text);
-                    }
-                }
-                LoadModels();
-                LoadDgvEnderecos();
+                RemoverEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
             }
+        }
+
+        private void RemoverEndereco(int enderecoId)
+        {
+            this.endFabModel = _enderecoServices.GetById(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
+
+            var result = MessageBox.Show($"Tem certeza que quer apagar o registro \n{endFabModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question); ;
+            if (result == DialogResult.Yes)
+            {
+
+                try
+                {
+                    _enderecoServices.Delete(this.endFabModel.Id);
+                    MessageBox.Show("Registro apagado com sucesso.", this.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Não foi possível apagar o registro.\nMessageError: {ex.Message}\nInnerException: {ex.InnerException}\nStackTrace: {ex.StackTrace}", this.Text);
+                }
+            }
+            LoadModels();
+            LoadDgvEnderecos();
+        }
+
+        private void removerTSMIEndereco_Click(object sender, EventArgs e)
+        {
+            RemoverEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
         }
 
         #endregion
