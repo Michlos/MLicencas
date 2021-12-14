@@ -59,6 +59,7 @@ namespace MLicencas.FormViews.Enderecos
         {
             LoadServices();
             InitializeComponent();
+            
             this.enderecoId = enderecoId;
             this.TModel = TModel;
             LoadModels();
@@ -90,20 +91,21 @@ namespace MLicencas.FormViews.Enderecos
 
         private void LoadModels()
         {
-            if (enderecoId != 0)
-            {
-                if (TModel.GetType() == endFabModel.GetType())
-                {
-                    TModel = _endFabServices.GetById(enderecoId);
+            //if (enderecoId != 0)
+            //{
+            //    if (TModel.GetType() == endFabModel.GetType())
+            //    {
+            //        TModel = _endFabServices.GetById(enderecoId);
 
-                }
-                else
-                {
-                    TModel = _endCliServces.GetById(enderecoId);
-                }
+            //    }
+            //    else
+            //    {
+            //        TModel = _endCliServces.GetById(enderecoId);
+            //    }
 
 
-            }
+            //}
+
             this.tipoEnderecoListModel = _tiposServices.GetAll();
             this.estadoListModel = _estadosServices.GetAll().OrderBy(uf => uf.Uf);
 

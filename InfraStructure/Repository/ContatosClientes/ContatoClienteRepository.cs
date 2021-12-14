@@ -44,7 +44,7 @@ namespace InfraStructure.Repository.ContatosClientes
                     {
                         cmd.Prepare();
 
-                        cmd.Parameters.AddWithValue("@Contato", contatoClienteModel.Contato);
+                        cmd.Parameters.AddWithValue("@Contato", contatoClienteModel.Nome);
                         cmd.Parameters.AddWithValue("@Cargo", contatoClienteModel.Cargo);
                         cmd.Parameters.AddWithValue("@Email", contatoClienteModel.Email);
                         cmd.Parameters.AddWithValue("@ClienteId", contatoClienteModel.ClienteId);
@@ -111,7 +111,7 @@ namespace InfraStructure.Repository.ContatosClientes
                         cmd.Prepare();
 
                         cmd.Parameters.AddWithValue("@Id", contatoModel.Id);
-                        cmd.Parameters.AddWithValue("@Contato", contatoModel.Contato);
+                        cmd.Parameters.AddWithValue("@Contato", contatoModel.Nome);
                         cmd.Parameters.AddWithValue("@Cargo", contatoModel.Cargo);
                         cmd.Parameters.AddWithValue("@Email", contatoModel.Email);
 
@@ -148,7 +148,7 @@ namespace InfraStructure.Repository.ContatosClientes
                                 this.contatoClienteModel = new ContatoClienteModel();
 
                                 this.contatoClienteModel.Id = int.Parse(reader["Id"].ToString());
-                                this.contatoClienteModel.Contato = reader["Contato"].ToString();
+                                this.contatoClienteModel.Nome = reader["Contato"].ToString();
                                 this.contatoClienteModel.Cargo = reader["Cargo"].ToString();
                                 this.contatoClienteModel.Email = reader["Email"].ToString();
                                 this.contatoClienteModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
@@ -192,7 +192,7 @@ namespace InfraStructure.Repository.ContatosClientes
                                 this.contatoClienteModel = new ContatoClienteModel();
 
                                 this.contatoClienteModel.Id = int.Parse(reader["Id"].ToString());
-                                this.contatoClienteModel.Contato = reader["Contato"].ToString();
+                                this.contatoClienteModel.Nome = reader["Contato"].ToString();
                                 this.contatoClienteModel.Cargo = reader["Cargo"].ToString();
                                 this.contatoClienteModel.Email = reader["Email"].ToString();
                                 this.contatoClienteModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
@@ -235,7 +235,7 @@ namespace InfraStructure.Repository.ContatosClientes
                             {
 
                                 this.contatoClienteModel.Id = int.Parse(reader["Id"].ToString());
-                                this.contatoClienteModel.Contato = reader["Contato"].ToString();
+                                this.contatoClienteModel.Nome = reader["Contato"].ToString();
                                 this.contatoClienteModel.Cargo = reader["Cargo"].ToString();
                                 this.contatoClienteModel.Email = reader["Email"].ToString();
                                 this.contatoClienteModel.ClienteId = int.Parse(reader["ClienteId"].ToString());

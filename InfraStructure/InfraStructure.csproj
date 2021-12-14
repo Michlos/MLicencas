@@ -57,7 +57,7 @@
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
     <Compile Include="Repository\Seriais\SerialRepository.cs" />
     <Compile Include="Repository\Situacoes\SituacaoRepository.cs" />
-    <Compile Include="Repository\TelefonesContatosClientes\TelefoneContatoCliente.cs" />
+    <Compile Include="Repository\TelefonesContatosClientes\TelefoneContatoClienteRepository.cs" />
     <Compile Include="Repository\TelefonesContatosFabrica\TelefoneContatoFabricaRepository.cs" />
     <Compile Include="Repository\TiposEnderecos\TipoEnderecoRepository.cs" />
     <Compile Include="Repository\TiposTelefones\TipoTelefoneRepository.cs" />

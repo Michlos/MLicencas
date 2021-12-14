@@ -4,7 +4,7 @@
     {
         string Cargo { get; set; }
         int ClienteId { get; set; }
-        string Contato { get; set; }
+        string Nome { get; set; }
         string Email { get; set; }
         int Id { get; set; }
     }

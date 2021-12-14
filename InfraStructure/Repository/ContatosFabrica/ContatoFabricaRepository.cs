@@ -28,9 +28,9 @@ namespace InfraStructure.Repository.ContatosFabrica
             this.contatoFabricaModel = new ContatoFabricaModel();
             int idReturned;
             _query = "INSERT INTO ContatosFabrica " +
-                     "(Nome, Cargo, Email, FabricaId)" +
-                     "OUTPUT INSERTED.Id" +
-                     "VALUES" +
+                     "(Nome, Cargo, Email, FabricaId) " +
+                     "OUTPUT INSERTED.Id " +
+                     "VALUES " +
                      "(@Nome, @Cargo, @Email, @FabricaId) ";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace InfraStructure.Repository.TelefonesContatosClientes
 {
-    public class TelefoneContatoCliente : ITelefonesContatosClientesRepository
+    public class TelefoneContatoClienteRepository : ITelefonesContatosClientesRepository
     {
         private string _connectionString;
         private string _query;
@@ -21,7 +21,7 @@ namespace InfraStructure.Repository.TelefonesContatosClientes
         private List<ITelefoneContatoClienteModel> telefoneContatoListModel;
         private DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
-        public TelefoneContatoCliente(string connectionString)
+        public TelefoneContatoClienteRepository(string connectionString)
         {
             _connectionString = connectionString;
         }

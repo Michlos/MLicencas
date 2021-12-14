@@ -9,6 +9,7 @@ using InfraStructure.Repository.Estados;
 using InfraStructure.Repository.Fabrica;
 using InfraStructure.Repository.TelefonesContatosFabrica;
 
+using MLicencas.FormViews.Contatos;
 using MLicencas.FormViews.Enderecos;
 
 using ServiceLayer.CommonServices;
@@ -51,8 +52,9 @@ namespace MLicencas.FormViews.Fabrica
         //MODELS
         private IFabricaModel fabricaModel;
         private IEnderecoFabricaModel endFabModel = new EnderecoFabricaModel();
+        private IContatoFabricaModel contFabModel = new ContatoFabricaModel();
         private IEnumerable<IEnderecoFabricaModel> enderecosListModel;
-        private IEnumerable<IContatoFabricaModel> contatosListModel;
+        private IEnumerable<IContatoFabricaModel> contatosListModel = new List<IContatoFabricaModel>();
 
         public FabricaFormView()
         {
@@ -67,46 +69,15 @@ namespace MLicencas.FormViews.Fabrica
 
 
         #region CONTATOS
-        private void LoadDgvContatos()
-        {
-            DataTable tableContatos = ModelaTableContatos();
-            DataRow row = ModelaRowContatos(tableContatos, contatosListModel);
-            dgvContatosFabrica.DataSource = tableContatos;
-            ConfigDGVContatos();
-        }
-        private DataTable ModelaTableContatos()
-        {
-            DataTable table = new DataTable();
 
-            table.Columns.Add("Id", typeof(int));
-            table.Columns.Add("Nome", typeof(int));
-            table.Columns.Add("Telefone", typeof(string));
-
-            return table;
-        }
-        private DataRow ModelaRowContatos(DataTable tableContatos, IEnumerable<IContatoFabricaModel> contatosListModel)
+        //EVENTOS DATA GRID
+        private void dgvContatosFabrica_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            DataRow row = null;
-            if (contatosListModel.Any())
+            if (e.ColumnIndex == 2 && e.RowIndex != dgvContatosFabrica.NewRowIndex)
             {
-                foreach (var contato in contatosListModel)
-                {
-                    row = tableContatos.NewRow();
 
-                    row["Id"] = contato.Id;
-                    row["Nome"] = contato.Nome;
-                    row["Telefone"] = _telefoneContatos.GetAllByContatoId(contato.Id).FirstOrDefault().Numero;
-
-                    tableContatos.Rows.Add(row);
-                }
+                e.Value = !string.IsNullOrEmpty(e.Value.ToString()) ? string.Format(@"{0:\(00\) 00000\-0000", Int64.Parse(e.Value.ToString())) : "";
             }
-            return row;
-        }
-        private void ConfigDGVContatos()
-        {
-            dgvContatosFabrica.Columns["Id"].Visible = false;
-            dgvContatosFabrica.Columns["Nome"].Width = 120;
-            dgvContatosFabrica.Columns["Telefone"].Width = 100;
         }
         private void dgvContatosFabrica_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -128,16 +99,139 @@ namespace MLicencas.FormViews.Fabrica
                 MessageBox.Show("Usuário sem permissão para editar dados.", this.Text);
             }
         }
+        
+        //EVENTOS TOOLSTRIPMENU
         private void editarTSMIContatos_Click(object sender, EventArgs e)
         {
 
         }
+        
+        //LOADS DATAGRID
+        private void LoadDgvContatos()
+        {
+            DataTable tableContatos = ModelaTableContatos();
+            DataRow row = ModelaRowContatos(tableContatos, contatosListModel);
+            dgvContatosFabrica.DataSource = tableContatos;
+            ConfigDGVContatos();
+        }
+        private DataTable ModelaTableContatos()
+        {
+            DataTable table = new DataTable();
+
+            table.Columns.Add("Id", typeof(int));
+            table.Columns.Add("Nome", typeof(string));
+            table.Columns.Add("Telefone", typeof(string));
+
+            return table;
+        }
+        private DataRow ModelaRowContatos(DataTable tableContatos, IEnumerable<IContatoFabricaModel> contatosListModel)
+        {
+            IEnumerable<ITelefoneContatoFabricaModel> telListModel = new List<ITelefoneContatoFabricaModel>();
+            
+            DataRow row = null;
+            if (contatosListModel.Any())
+            {
+                foreach (var contato in contatosListModel)
+                {
+                    telListModel = _telefoneContatos.GetAllByContatoId(contato.Id);
+                    row = tableContatos.NewRow();
+                    row["Id"] = contato.Id;
+                    row["Nome"] = contato.Nome;
+                    row["Telefone"] = telListModel.Any() ? telListModel.FirstOrDefault().Numero : string.Empty;
+
+                    tableContatos.Rows.Add(row);
+                }
+            }
+            return row;
+        }
+        private void ConfigDGVContatos()
+        {
+            dgvContatosFabrica.Columns["Id"].Visible = false;
+            dgvContatosFabrica.Columns["Nome"].Width = 120;
+            dgvContatosFabrica.Columns["Telefone"].Width = 100;
+        }
+
+        private void btnAddCont_Click(object sender, EventArgs e)
+        {
+            AddContato(fabricaModel.Id);
+        }
+
+        private void AddContato(int fabricaId)
+        {
+            contFabModel.FabricaId = this.fabricaModel.Id;
+            ContatoAddForm contatoForm = new ContatoAddForm(0, contFabModel);
+            contatoForm.ShowDialog();
+            LoadDgvContatos();
+        }
+
 
 
 
         #endregion
 
         #region ENDEREÇOS
+
+        //EVENTOS DATA GRID
+        private void dgvEnderecosFabrica_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            indexDgvEnderecos = e.RowIndex;
+            if (e.Button == MouseButtons.Right)
+            {
+                cMenuEndereco.Show(MousePosition);
+            }
+        }
+        private void dgvEnderecosFabrica_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MainView.CheckPermissoes(editarTSMIEndereco.Tag))
+            {
+                EditEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("Usuário sem permissão para editar dados.", this.Text);
+            }
+        }
+        private void dgvEnderecosFabrica_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            if ((e.ColumnIndex == 3) && (e.RowIndex != dgvEnderecosFabrica.NewRowIndex))
+            {
+                e.Value = string.Format(@"{0:00\.000\-000}", Int64.Parse(e.Value.ToString()));
+            }
+        }
+        
+        
+        //EVENTOS BUTTONS
+        private void btnAddEnd_Click(object sender, EventArgs e)
+        {
+
+            AddEndereco(this.fabricaModel.Id);
+
+        }
+        private void btnRemEnd_Click(object sender, EventArgs e)
+        {
+            if (dgvContatosFabrica.CurrentRow != null)
+            {
+                RemoverEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
+            }
+        }
+
+        
+        //EVENTOS TOOLSTRIPMENU
+        private void adicionarTSMIEndereco_Click(object sender, EventArgs e)
+        {
+            AddEndereco(this.fabricaModel.Id);
+        }
+        private void editarTSMIEndereco_Click(object sender, EventArgs e)
+        {
+            EditEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
+        }
+        private void removerTSMIEndereco_Click(object sender, EventArgs e)
+        {
+            RemoverEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
+        }
+
+        //LOADS DATAGRID
         private void LoadDgvEnderecos()
         {
 
@@ -201,32 +295,9 @@ namespace MLicencas.FormViews.Fabrica
             dgvEnderecosFabrica.Columns["UfId"].Visible = false;
 
         }
-        private void dgvEnderecosFabrica_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            indexDgvEnderecos = e.RowIndex;
-            if (e.Button == MouseButtons.Right)
-            {
-                cMenuEndereco.Show(MousePosition);
-            }
-        }
-        private void dgvEnderecosFabrica_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (MainView.CheckPermissoes(editarTSMIEndereco.Tag))
-            {
-                EditEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
-            }
-            else
-            {
-                MessageBox.Show("Usuário sem permissão para editar dados.", this.Text);
-            }
-        }
-        private void btnAddEnd_Click(object sender, EventArgs e)
-        {
 
-            AddEndereco(this.fabricaModel.Id);
-
-        }
-
+        
+        //MÉTODOS ENDEREÇOS
         private void AddEndereco(int fabricaId)
         {
             this.endFabModel.FabricaId = fabricaId;
@@ -236,16 +307,6 @@ namespace MLicencas.FormViews.Fabrica
             LoadModels();
             LoadDgvEnderecos();
         }
-
-        private void adicionarTSMIEndereco_Click(object sender, EventArgs e)
-        {
-            AddEndereco(this.fabricaModel.Id);
-        }
-        private void editarTSMIEndereco_Click(object sender, EventArgs e)
-        {
-            EditEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
-        }
-
         private void EditEndereco(int enderecoId)
         {
             this.endFabModel = _enderecoServices.GetById(enderecoId);
@@ -255,14 +316,6 @@ namespace MLicencas.FormViews.Fabrica
             LoadModels();
             LoadDgvEnderecos();
         }
-        private void btnRemEnd_Click(object sender, EventArgs e)
-        {
-            if (dgvContatosFabrica.CurrentRow != null)
-            {
-                RemoverEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
-            }
-        }
-
         private void RemoverEndereco(int enderecoId)
         {
             this.endFabModel = _enderecoServices.GetById(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
@@ -285,16 +338,7 @@ namespace MLicencas.FormViews.Fabrica
             LoadDgvEnderecos();
         }
 
-        private void removerTSMIEndereco_Click(object sender, EventArgs e)
-        {
-            RemoverEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
-        }
-
         #endregion
-
-
-
-
 
 
         private void LoadModels()
@@ -432,24 +476,6 @@ namespace MLicencas.FormViews.Fabrica
                 {
                     MessageBox.Show($"Não foi possível salvar os dados da fábria.\n{ex.Message}\n{ex.InnerException}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
-
-
-        private void dgvEnderecosFabrica_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-
-            if ((e.ColumnIndex == 3) && (e.RowIndex != dgvEnderecosFabrica.NewRowIndex))
-            {
-                e.Value = string.Format(@"{0:00\.000\-000}", Int64.Parse(e.Value.ToString()));
-            }
-        }
-
-        private void dgvContatosFabrica_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex == 2 && e.RowIndex != dgvContatosFabrica.NewRowIndex)
-            {
-                e.Value = string.Format(@"{0:\(00\) 00000\-0000", Int64.Parse(e.Value.ToString()));
             }
         }
 
