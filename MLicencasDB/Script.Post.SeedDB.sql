@@ -49,12 +49,18 @@ GO
 	Nivel	INT NOT NULL DEFAULT(0), (NÍVEL HIERÁRQUICO DO MÓDULO)
 	Ativo	BIT NOT NULL DEFAULT (1),
 */
+
+
 INSERT INTO Modulos (Nome, Nivel) VALUES
 	('Gestão de Clientes', '1'),
 	('Cadastro Novo Clientes', '1.1'),
 	('Edição de Clientes', '1.2'),
 	('Alterar Dados Cliente', '1.3'),
 	('Alterar Status Cliente', '1.4'),
+	('Gestão de Contatos Cliente', '1.5'),
+	('Adicionar Contatos', '1.5.1'),
+	('Editar Contatos', '1.5.2'),
+	('Remover Contatos', '1.5.3'),
 	('Gestão de Contratos', '2'),
 	('Cadastro Novo Contrato', '2.1'),
 	('Edição de Contrato', '2.2'),
@@ -70,6 +76,14 @@ INSERT INTO Modulos (Nome, Nivel) VALUES
 	('Gestão da Fábrica de Sofware', '5'),
 	('Cadastro da Fábrica', '5.1'),
 	('Edição da Fábrica', '5.2'),
+	('Gestão de Contatos Fábrica', '5.3'),
+	('Adicionar Contatos','5.3.1'),
+	('Editar Contatos', '5.3.2'),
+	('Remover Contatos', '5.3.3'),
+	('Gestão de Enderecos Fábrica', '5.4'),
+	('Adicionar Endereço','5.4.1'),
+	('Editar Endereço','5.4.2'),
+	('Remover Endereço','5.4.3'),
 	('Gestão de Usuários', '6'),
 	('Cadastro Novo Usuário', '6.1'),
 	('Edição de Usuário', '6.2'),

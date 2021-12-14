@@ -103,7 +103,7 @@ namespace MLicencas.FormViews.Fabrica
         //EVENTOS TOOLSTRIPMENU
         private void editarTSMIContatos_Click(object sender, EventArgs e)
         {
-
+            EditContato(int.Parse(dgvContatosFabrica.CurrentRow.Cells[0].Value.ToString()));
         }
         
         //LOADS DATAGRID
@@ -164,7 +164,15 @@ namespace MLicencas.FormViews.Fabrica
             LoadDgvContatos();
         }
 
-
+        private void EditContato(int contatoId)
+        {
+            this.contFabModel = _contatosServices.GetById(contatoId);
+            ContatoAddForm contatoForm = new ContatoAddForm(contatoId, contFabModel);
+            contatoForm.MdiParent = MainView;
+            contatoForm.ShowDialog();
+            LoadModels();
+            LoadDgvEnderecos();
+        }
 
 
         #endregion

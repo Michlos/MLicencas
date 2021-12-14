@@ -79,6 +79,12 @@
     <Compile Include="FormViews\Enderecos\EnderecoAddForm.Designer.cs">
       <DependentUpon>EnderecoAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Fabrica\Endereco\EndFabAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Fabrica\Endereco\EndFabAddForm.Designer.cs">
+      <DependentUpon>EndFabAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Fabrica\FabricaFormView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Enderecos\EnderecoAddForm.resx">
       <DependentUpon>EnderecoAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Fabrica\Endereco\EndFabAddForm.resx">
+      <DependentUpon>EndFabAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Fabrica\FabricaFormView.resx">
       <DependentUpon>FabricaFormView.cs</DependentUpon>
@@ -214,6 +223,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="FormViews\Fabrica\Contato\Telefone\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
