@@ -220,10 +220,7 @@ namespace MLicencas.FormViews.Fabrica
         }
         private void btnRemEnd_Click(object sender, EventArgs e)
         {
-            if (dgvContatosFabrica.CurrentRow != null)
-            {
                 RemoverEndereco(int.Parse(dgvEnderecosFabrica.CurrentRow.Cells[0].Value.ToString()));
-            }
         }
 
         

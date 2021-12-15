@@ -181,6 +181,7 @@ namespace MLicencas.FormViews.Fabrica.Endereco
 
             BairroAddForm bairroAdd = new BairroAddForm(ufId, cidadeId);
             bairroAdd.ShowDialog();
+            LoadModels();
             LoadCBBairros();
         }
 
