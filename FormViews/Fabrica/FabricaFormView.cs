@@ -310,8 +310,8 @@ namespace MLicencas.FormViews.Fabrica
         //MÉTODOS ENDEREÇOS
         private void AddEndereco(int fabricaId)
         {
-            this.endFabModel.FabricaId = fabricaId;
-            EndFabAddForm endForm = new EndFabAddForm(0, endFabModel.Id);
+            //this.endFabModel.FabricaId = fabricaId;
+            EndFabAddForm endForm = new EndFabAddForm(0, fabricaModel.Id);
             //EnderecoAddForm endForm = new EnderecoAddForm(0, this.endFabModel);
             endForm.MdiParent = MainView;
             endForm.ShowDialog();
@@ -322,7 +322,7 @@ namespace MLicencas.FormViews.Fabrica
         {
             this.endFabModel = _enderecoServices.GetById(enderecoId);
             //EnderecoAddForm endForm = new EnderecoAddForm(endFabModel.Id, endFabModel);
-            EndFabAddForm endForm = new EndFabAddForm(endFabModel.Id, endFabModel.Id);
+            EndFabAddForm endForm = new EndFabAddForm(endFabModel.Id, fabricaModel.Id);
             endForm.MdiParent = MainView;
             endForm.ShowDialog();
             LoadModels();
@@ -484,6 +484,7 @@ namespace MLicencas.FormViews.Fabrica
 
                     this.fabricaModel = _fabricaServices.Add(this.fabricaModel);
                     MessageBox.Show("Dados salvos com suceso", this.Text);
+                    
                     LoadFields();
                 }
                 catch (Exception ex)

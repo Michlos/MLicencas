@@ -106,92 +106,163 @@ GO
 
 INSERT INTO Permissoes (GrupoId, ModuloId, Ativo) VALUES
 --ADMINISTRADOR
-	(1, 1, 1), 
-	(1, 2, 1),
-	(1, 3, 1),
-	(1, 4, 1),
-	(1, 5, 1),
-	(1, 6, 1),
-	(1, 7, 1),
-	(1, 8, 1),
-	(1, 9, 1),
-	(1, 10, 1),
-	(1, 11, 1),
-	(1, 12, 1),
-	(1, 13, 1),
-	(1, 14, 1),
-	(1, 15, 1),
-	(1, 16, 1),
-	(1, 17, 1),
-	(1, 18, 1),
-	(1, 19, 1),
-	(1, 20, 1),
-	(1, 21, 1),
-	(1, 22, 1),
-	(1, 23, 1),
-	(1, 24, 1),
-	(1, 25, 1),
-	(1, 26, 1),
-	(1, 27, 1),
-	(1, 28, 1),
+
+(1,1,1),--1-Gestão de Clientes (1)
+(1,2,1),--1.1	Cadastro de Clientes (2)
+(1,3,1),--1.2	Edição de Clientes (3)
+(1,4,1),--1.3	Alterar Dados Cliente (4)
+(1,5,1),--1.4	Alterar Status Cliente (5)
+(1,6,1),--1.5 Edição de Contatos (Exibe)
+(1,7,1),--1.5.1 Adicionar Contatos
+(1,8,1),--1.5.2 Editar Contatos
+(1,9,1),--1.5.3 Remover Contatos
+(1,10,1),--2-Gestão de Contratos (6)
+(1,11,1),--2.1	Cadastro de Contratos (7)
+(1,12,1),--2.2	Edição de Contrato (8)
+(1,13,1),--2.3	Alterar Dados Contrato (9)
+(1,14,1),--2.4	Alterar Status Contrato (10)
+(1,15,1),--2.5	Vincluar Cliente ao Contrato (11)
+(1,16,1),--3-Gestão de Software (12)
+(1,17,1),--3.1	Cadastro de Software (13)
+(1,18,1),--4-Gestão de Licenças (14)
+(1,19,1),--4.1	Adicionar Licença (15)
+(1,20,1),--4.2	Vincular Contrato à Licença (16)
+(1,21,1),--4.3	Liberar Licença (17)
+(1,22,1),--5-Gestão da Fábrica (18)
+(1,23,1),--5.1	Cadasto da Fábrica (19)
+(1,24,1),--5.2	Edição da Fábrica (20)
+(1,25,1),--5.3 Gestão de Contatos (Exibe)
+(1,26,1),--5.3.1 Adicionar Contatos
+(1,27,1),--5.3.2 Editar Contatos
+(1,28,1),--5.3.3 Remover Contatos
+(1,29,1),--5.4 Gestão de Enderecos
+(1,30,1),--5.4.1 Adicionar Endereço
+(1,31,1),--5.4.2 Editar Endereço
+(1,32,1),--5.4.3 Remover Endereço
+(1,33,1),--6-Gestão de Usuários (21)
+(1,34,1),--6.1	Cadastro de Usuários (22)
+(1,35,1),--6.2	Edição de Usuário (23)
+(1,36,1),--6.3	Liberar Módulos (24)
+(1,37,1),--7-Gestão de Fluxo de Caixa (25)
+(1,38,1),--8-Gestão de Recebíveis (26)
+(1,39,1),--8.1	Gerar Boletos (27)
+(1,40,1),--8.2	Receber Boletos (28)
+
 --FINANCEIRO
-	(2, 1, 1), 
-	(2, 2, 0),
-	(2, 3, 0),
-	(2, 4, 1),
-	(2, 5, 0),
-	(2, 6, 1),
-	(2, 7, 0),
-	(2, 8, 0),
-	(2, 9, 0),
-	(2, 10, 1),
-	(2, 11, 0),
-	(2, 12, 0),
-	(2, 13, 0),
-	(2, 14, 0),
-	(2, 15, 0),
-	(2, 16, 0),
-	(2, 17, 0),
-	(2, 18, 0),
-	(2, 19, 0),
-	(2, 20, 0),
-	(2, 21, 0),
-	(2, 22, 0),
-	(2, 23, 0),
-	(2, 24, 0),
-	(2, 25, 1),
-	(2, 26, 1),
-	(2, 27, 1),
-	(2, 28, 1),
---GERENTE DE CONTAS
-	(3, 1, 1), 
-	(3, 2, 1),
-	(3, 3, 1),
-	(3, 4, 1),
-	(3, 5, 0),
-	(3, 6, 1),
-	(3, 7, 1),
-	(3, 8, 1),
-	(3, 9, 0),
-	(3, 10, 0),
-	(3, 11, 1),
-	(3, 12, 0),
-	(3, 13, 0),
-	(3, 14, 1),
-	(3, 15, 0),
-	(3, 16, 1),
-	(3, 17, 1),
-	(3, 18, 0),
-	(3, 19, 0),
-	(3, 20, 0),
-	(3, 21, 0),
-	(3, 22, 0),
-	(3, 23, 0),
-	(3, 24, 0),
-	(3, 25, 0),
-	(3, 26, 0),
-	(3, 27, 0),
-	(3, 28, 0)
+
+/*
+
+1-Gestão de Clientes (1)
+1.3	Alterar Status Cliente (4)
+
+2-Gestão de Contratos (6)
+2.4	Alterar Status Contrato (10)
+
+7-Gestão de Fluxo de Caixa (25)
+8-Gestão de Recebíveis (26)
+8.1	Gerar Boletos (27)
+8.2	Receber Boletos (28)
+*/
+(2,1, 1),--1-Gestão de Clientes (1)
+(2,2, 0),--1.1	Cadastro de Clientes (2)
+(2,3, 0),--1.2	Edição de Clientes (3)
+(2,4, 0),--1.3	Alterar Dados Cliente (4)
+(2,5, 1),--1.4	Alterar Status Cliente (5)
+(2,6, 0),--1.5 Edição de Contatos (Exibe)
+(2,7, 0),--1.5.1 Adicionar Contatos
+(2,8, 0),--1.5.2 Editar Contatos
+(2,9, 0),--1.5.3 Remover Contatos
+(2,10,1),--2-Gestão de Contratos (6)
+(2,11,0),--2.1	Cadastro de Contratos (7)
+(2,12,0),--2.2	Edição de Contrato (8)
+(2,13,0),--2.3	Alterar Dados Contrato (9)
+(2,14,1),--2.4	Alterar Status Contrato (10)
+(2,15,0),--2.5	Vincluar Cliente ao Contrato (11)
+(2,16,0),--3-Gestão de Software (12)
+(2,17,0),--3.1	Cadastro de Software (13)
+(2,18,0),--4-Gestão de Licenças (14)
+(2,19,0),--4.1	Adicionar Licença (15)
+(2,20,0),--4.2	Vincular Contrato à Licença (16)
+(2,21,0),--4.3	Liberar Licença (17)
+(2,22,0),--5-Gestão da Fábrica (18)
+(2,23,0),--5.1	Cadasto da Fábrica (19)
+(2,24,0),--5.2	Edição da Fábrica (20)
+(2,25,0),--5.3 Gestão de Contatos (Exibe)
+(2,26,0),--5.3.1 Adicionar Contatos
+(2,27,0),--5.3.2 Editar Contatos
+(2,28,0),--5.3.3 Remover Contatos
+(2,29,0),--5.4 Gestão de Enderecos
+(2,30,0),--5.4.1 Adicionar Endereço
+(2,31,0),--5.4.2 Editar Endereço
+(2,32,0),--5.4.3 Remover Endereço
+(2,33,0),--6-Gestão de Usuários (21)
+(2,34,0),--6.1	Cadastro de Usuários (22)
+(2,35,0),--6.2	Edição de Usuário (23)
+(2,36,0),--6.3	Liberar Módulos (24)
+(2,37,1),--7-Gestão de Fluxo de Caixa (25)
+(2,38,1),--8-Gestão de Recebíveis (26)
+(2,39,1),--8.1	Gerar Boletos (27)
+(2,40,1),--8.2	Receber Boletos (28)
+
+--GERENTE
+/*
+
+1-Gestão de Clientes (1)
+1.1	Cadastro de Clientes (2)
+1.2	Edição de Clientes (3)
+1.3	Alterar Dados Cliente (4)
+
+2-Gestão de Contratos (6)
+2.1	Cadastro de Contratos (7)
+2.2	Edição de Contratos (8)
+2.3	Alterar Dados Contrato (9)
+2.5	Vincular Cliente a Contrato (11)
+
+4-Gestão de Licenças (14)
+4.2	Vincular Contrato à Licença (16)
+4.3	Liberar Licenças (17)
+*/
+
+(3,1, 1),--1-Gestão de Clientes (1)
+(3,2, 1),--1.1	Cadastro de Clientes (2)
+(3,3, 1),--1.2	Edição de Clientes (3)
+(3,4, 1),--1.3	Alterar Dados Cliente (4)
+(3,5, 0),--1.4	Alterar Status Cliente (5)
+(3,6, 0),--1.5 Edição de Contatos (Exibe)
+(3,7, 0),--1.5.1 Adicionar Contatos
+(3,8, 0),--1.5.2 Editar Contatos
+(3,9, 0),--1.5.3 Remover Contatos
+(3,10,1),--2-Gestão de Contratos (6)
+(3,11,1),--2.1	Cadastro de Contratos (7)
+(3,12,1),--2.2	Edição de Contrato (8)
+(3,13,1),--2.3	Alterar Dados Contrato (9)
+(3,14,0),--2.4	Alterar Status Contrato (10)
+(3,15,1),--2.5	Vincluar Cliente ao Contrato (11)
+(3,16,0),--3-Gestão de Software (12)
+(3,17,0),--3.1	Cadastro de Software (13)
+(3,18,1),--4-Gestão de Licenças (14)
+(3,19,0),--4.1	Adicionar Licença (15)
+(3,20,1),--4.2	Vincular Contrato à Licença (16)
+(3,21,1),--4.3	Liberar Licença (17)
+(3,22,0),--5-Gestão da Fábrica (18)
+(3,23,0),--5.1	Cadasto da Fábrica (19)
+(3,24,0),--5.2	Edição da Fábrica (20)
+(3,25,0),--5.3 Gestão de Contatos (Exibe)
+(3,26,0),--5.3.1 Adicionar Contatos
+(3,27,0),--5.3.2 Editar Contatos
+(3,28,0),--5.3.3 Remover Contatos
+(3,29,0),--5.4 Gestão de Enderecos
+(3,30,0),--5.4.1 Adicionar Endereço
+(3,31,0),--5.4.2 Editar Endereço
+(3,32,0),--5.4.3 Remover Endereço
+(3,33,0),--6-Gestão de Usuários (21)
+(3,34,0),--6.1	Cadastro de Usuários (22)
+(3,35,0),--6.2	Edição de Usuário (23)
+(3,36,0),--6.3	Liberar Módulos (24)
+(3,37,0),--7-Gestão de Fluxo de Caixa (25)
+(3,38,0),--8-Gestão de Recebíveis (26)
+(3,39,0),--8.1	Gerar Boletos (27)
+(3,40,0)--8.2	Receber Boletos (28)
 GO
 
 /*
