@@ -30,8 +30,8 @@ namespace MLicencas.FormViews.Fabrica
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txbId = new System.Windows.Forms.TextBox();
             this.txbRazaoSocial = new System.Windows.Forms.TextBox();
             this.txbNomeFantasia = new System.Windows.Forms.TextBox();
@@ -199,14 +199,14 @@ namespace MLicencas.FormViews.Fabrica
             this.dgvEnderecosFabrica.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEnderecosFabrica.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEnderecosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEnderecosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvEnderecosFabrica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEnderecosFabrica.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvEnderecosFabrica.Location = new System.Drawing.Point(3, 14);
@@ -245,14 +245,14 @@ namespace MLicencas.FormViews.Fabrica
             this.dgvContatosFabrica.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvContatosFabrica.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContatosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContatosFabrica.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvContatosFabrica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContatosFabrica.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvContatosFabrica.Location = new System.Drawing.Point(3, 13);
@@ -263,7 +263,7 @@ namespace MLicencas.FormViews.Fabrica
             this.dgvContatosFabrica.Size = new System.Drawing.Size(243, 178);
             this.dgvContatosFabrica.TabIndex = 1;
             this.dgvContatosFabrica.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContatosFabrica_CellContentDoubleClick);
-            this.dgvContatosFabrica.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvContatosFabrica_CellFormatting);
+            this.dgvContatosFabrica.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvContatosFabrica_CellFormatting_1);
             this.dgvContatosFabrica.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContatosFabrica_CellMouseClick);
             // 
             // btnRemCont
@@ -276,10 +276,11 @@ namespace MLicencas.FormViews.Fabrica
             this.btnRemCont.Name = "btnRemCont";
             this.btnRemCont.Size = new System.Drawing.Size(103, 22);
             this.btnRemCont.TabIndex = 14;
-            this.btnRemCont.Tag = "5.2";
+            this.btnRemCont.Tag = "5.3.3";
             this.btnRemCont.Text = "Rem Contato";
             this.btnRemCont.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRemCont.UseVisualStyleBackColor = false;
+            this.btnRemCont.Click += new System.EventHandler(this.btnRemCont_Click);
             // 
             // btnAddCont
             // 
@@ -291,7 +292,7 @@ namespace MLicencas.FormViews.Fabrica
             this.btnAddCont.Name = "btnAddCont";
             this.btnAddCont.Size = new System.Drawing.Size(103, 22);
             this.btnAddCont.TabIndex = 0;
-            this.btnAddCont.Tag = "5.2";
+            this.btnAddCont.Tag = "5.3.1";
             this.btnAddCont.Text = "Add Contato";
             this.btnAddCont.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddCont.UseVisualStyleBackColor = false;
@@ -304,29 +305,31 @@ namespace MLicencas.FormViews.Fabrica
             this.editarTSMIContatos,
             this.removerTSMIContatos});
             this.cMenuContatos.Name = "cMenuContatos";
-            this.cMenuContatos.Size = new System.Drawing.Size(126, 70);
+            this.cMenuContatos.Size = new System.Drawing.Size(181, 92);
             // 
             // adicionarTSMIContatos
             // 
             this.adicionarTSMIContatos.Name = "adicionarTSMIContatos";
-            this.adicionarTSMIContatos.Size = new System.Drawing.Size(125, 22);
-            this.adicionarTSMIContatos.Tag = "5.2";
+            this.adicionarTSMIContatos.Size = new System.Drawing.Size(180, 22);
+            this.adicionarTSMIContatos.Tag = "5.3.1";
             this.adicionarTSMIContatos.Text = "Adicionar";
+            this.adicionarTSMIContatos.Click += new System.EventHandler(this.adicionarTSMIContatos_Click);
             // 
             // editarTSMIContatos
             // 
             this.editarTSMIContatos.Name = "editarTSMIContatos";
-            this.editarTSMIContatos.Size = new System.Drawing.Size(125, 22);
-            this.editarTSMIContatos.Tag = "5.2";
+            this.editarTSMIContatos.Size = new System.Drawing.Size(180, 22);
+            this.editarTSMIContatos.Tag = "5.3";
             this.editarTSMIContatos.Text = "Editar";
             this.editarTSMIContatos.Click += new System.EventHandler(this.editarTSMIContatos_Click);
             // 
             // removerTSMIContatos
             // 
             this.removerTSMIContatos.Name = "removerTSMIContatos";
-            this.removerTSMIContatos.Size = new System.Drawing.Size(125, 22);
-            this.removerTSMIContatos.Tag = "5.2";
+            this.removerTSMIContatos.Size = new System.Drawing.Size(180, 22);
+            this.removerTSMIContatos.Tag = "5.3.3";
             this.removerTSMIContatos.Text = "Remover";
+            this.removerTSMIContatos.Click += new System.EventHandler(this.removerTSMIContatos_Click);
             // 
             // groupBox1
             // 
@@ -416,7 +419,7 @@ namespace MLicencas.FormViews.Fabrica
             this.btnRemEnd.Name = "btnRemEnd";
             this.btnRemEnd.Size = new System.Drawing.Size(103, 22);
             this.btnRemEnd.TabIndex = 14;
-            this.btnRemEnd.Tag = "5.2";
+            this.btnRemEnd.Tag = "5.4.3";
             this.btnRemEnd.Text = "Rem Endereço";
             this.btnRemEnd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRemEnd.UseVisualStyleBackColor = false;
@@ -463,7 +466,7 @@ namespace MLicencas.FormViews.Fabrica
             // adicionarTSMIEndereco
             // 
             this.adicionarTSMIEndereco.Name = "adicionarTSMIEndereco";
-            this.adicionarTSMIEndereco.Size = new System.Drawing.Size(180, 22);
+            this.adicionarTSMIEndereco.Size = new System.Drawing.Size(125, 22);
             this.adicionarTSMIEndereco.Tag = "5.2";
             this.adicionarTSMIEndereco.Text = "Adicionar";
             this.adicionarTSMIEndereco.Click += new System.EventHandler(this.adicionarTSMIEndereco_Click);
@@ -471,7 +474,7 @@ namespace MLicencas.FormViews.Fabrica
             // editarTSMIEndereco
             // 
             this.editarTSMIEndereco.Name = "editarTSMIEndereco";
-            this.editarTSMIEndereco.Size = new System.Drawing.Size(180, 22);
+            this.editarTSMIEndereco.Size = new System.Drawing.Size(125, 22);
             this.editarTSMIEndereco.Tag = "5.2";
             this.editarTSMIEndereco.Text = "Editar";
             this.editarTSMIEndereco.Click += new System.EventHandler(this.editarTSMIEndereco_Click);
@@ -479,7 +482,7 @@ namespace MLicencas.FormViews.Fabrica
             // removerTSMIEndereco
             // 
             this.removerTSMIEndereco.Name = "removerTSMIEndereco";
-            this.removerTSMIEndereco.Size = new System.Drawing.Size(180, 22);
+            this.removerTSMIEndereco.Size = new System.Drawing.Size(125, 22);
             this.removerTSMIEndereco.Tag = "5.2";
             this.removerTSMIEndereco.Text = "Remover";
             this.removerTSMIEndereco.Click += new System.EventHandler(this.removerTSMIEndereco_Click);

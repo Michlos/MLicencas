@@ -79,6 +79,18 @@
     <Compile Include="FormViews\Enderecos\EnderecoAddForm.Designer.cs">
       <DependentUpon>EnderecoAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Fabrica\Contato\ContFabAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Fabrica\Contato\ContFabAddForm.Designer.cs">
+      <DependentUpon>ContFabAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViews\Fabrica\Contato\Telefone\TelFabAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Fabrica\Contato\Telefone\TelFabAddForm.Designer.cs">
+      <DependentUpon>TelFabAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Fabrica\Endereco\EndFabAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +155,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Enderecos\EnderecoAddForm.resx">
       <DependentUpon>EnderecoAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Fabrica\Contato\ContFabAddForm.resx">
+      <DependentUpon>ContFabAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Fabrica\Contato\Telefone\TelFabAddForm.resx">
+      <DependentUpon>TelFabAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Fabrica\Endereco\EndFabAddForm.resx">
       <DependentUpon>EndFabAddForm.cs</DependentUpon>
@@ -223,8 +241,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormViews\Fabrica\Contato\Telefone\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,6 +11,8 @@ using InfraStructure.Repository.TelefonesContatosFabrica;
 
 using MLicencas.FormViews.Contatos;
 using MLicencas.FormViews.Enderecos;
+using MLicencas.FormViews.Fabrica.Contato;
+using MLicencas.FormViews.Fabrica.Endereco;
 
 using ServiceLayer.CommonServices;
 
@@ -55,6 +57,7 @@ namespace MLicencas.FormViews.Fabrica
         private IContatoFabricaModel contFabModel = new ContatoFabricaModel();
         private IEnumerable<IEnderecoFabricaModel> enderecosListModel;
         private IEnumerable<IContatoFabricaModel> contatosListModel = new List<IContatoFabricaModel>();
+        private IEnumerable<ITelefoneContatoFabricaModel> telefonesListModel = new List<ITelefoneContatoFabricaModel>();
 
         public FabricaFormView()
         {
@@ -73,11 +76,9 @@ namespace MLicencas.FormViews.Fabrica
         //EVENTOS DATA GRID
         private void dgvContatosFabrica_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 2 && e.RowIndex != dgvContatosFabrica.NewRowIndex)
-            {
+            
+            
 
-                e.Value = !string.IsNullOrEmpty(e.Value.ToString()) ? string.Format(@"{0:\(00\) 00000\-0000", Int64.Parse(e.Value.ToString())) : "";
-            }
         }
         private void dgvContatosFabrica_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -158,20 +159,21 @@ namespace MLicencas.FormViews.Fabrica
 
         private void AddContato(int fabricaId)
         {
-            contFabModel.FabricaId = this.fabricaModel.Id;
-            ContatoAddForm contatoForm = new ContatoAddForm(0, contFabModel);
+            ContFabAddForm contatoForm = new ContFabAddForm(0, fabricaModel.Id); ;
             contatoForm.ShowDialog();
+            LoadModels();
             LoadDgvContatos();
         }
 
         private void EditContato(int contatoId)
         {
-            this.contFabModel = _contatosServices.GetById(contatoId);
-            ContatoAddForm contatoForm = new ContatoAddForm(contatoId, contFabModel);
+            //this.contFabModel = _contatosServices.GetById(contatoId);
+            //ContatoAddForm contatoForm = new ContatoAddForm(contatoId, contFabModel);
+            ContFabAddForm contatoForm = new ContFabAddForm(contatoId, fabricaModel.Id);
             contatoForm.MdiParent = MainView;
             contatoForm.ShowDialog();
             LoadModels();
-            LoadDgvEnderecos();
+            LoadDgvContatos();
         }
 
 
@@ -309,7 +311,8 @@ namespace MLicencas.FormViews.Fabrica
         private void AddEndereco(int fabricaId)
         {
             this.endFabModel.FabricaId = fabricaId;
-            EnderecoAddForm endForm = new EnderecoAddForm(0, this.endFabModel);
+            EndFabAddForm endForm = new EndFabAddForm(0, endFabModel.Id);
+            //EnderecoAddForm endForm = new EnderecoAddForm(0, this.endFabModel);
             endForm.MdiParent = MainView;
             endForm.ShowDialog();
             LoadModels();
@@ -318,7 +321,8 @@ namespace MLicencas.FormViews.Fabrica
         private void EditEndereco(int enderecoId)
         {
             this.endFabModel = _enderecoServices.GetById(enderecoId);
-            EnderecoAddForm endForm = new EnderecoAddForm(endFabModel.Id, endFabModel);
+            //EnderecoAddForm endForm = new EnderecoAddForm(endFabModel.Id, endFabModel);
+            EndFabAddForm endForm = new EndFabAddForm(endFabModel.Id, endFabModel.Id);
             endForm.MdiParent = MainView;
             endForm.ShowDialog();
             LoadModels();
@@ -419,21 +423,23 @@ namespace MLicencas.FormViews.Fabrica
 
         private void LodButtonsPermitions()
         {
+            //CONTEXTMENU CONTATO
             adicionarTSMIContatos.Enabled = MainView.CheckPermissoes(adicionarTSMIContatos.Tag);
-            btnAddCont.Enabled = MainView.CheckPermissoes(btnAddCont.Tag);
-
             editarTSMIContatos.Enabled = MainView.CheckPermissoes(editarTSMIContatos.Tag);
-
             removerTSMIContatos.Enabled = MainView.CheckPermissoes(removerTSMIContatos.Tag);
+            //BTNS CONTATO
+            btnAddCont.Enabled = MainView.CheckPermissoes(btnAddCont.Tag);
             btnRemCont.Enabled = MainView.CheckPermissoes(btnRemCont.Tag);
 
+            //CONTEXTMENU ENDEREÇO
             adicionarTSMIEndereco.Enabled = MainView.CheckPermissoes(adicionarTSMIEndereco.Tag);
-            btnAddEnd.Enabled = MainView.CheckPermissoes(btnAddEnd.Tag);
-
             editarTSMIEndereco.Enabled = MainView.CheckPermissoes(editarTSMIEndereco.Tag);
-
-            removerTSMIContatos.Enabled = MainView.CheckPermissoes(removerTSMIEndereco.Tag);
+            removerTSMIEndereco.Enabled = MainView.CheckPermissoes(removerTSMIEndereco.Tag);
+            //BTNS ENDEREÇO
+            btnAddEnd.Enabled = MainView.CheckPermissoes(btnAddEnd.Tag);
             btnRemEnd.Enabled = MainView.CheckPermissoes(btnRemEnd.Tag);
+
+
         }
 
 
@@ -487,5 +493,64 @@ namespace MLicencas.FormViews.Fabrica
             }
         }
 
+        private void adicionarTSMIContatos_Click(object sender, EventArgs e)
+        {
+            AddContato(fabricaModel.Id);
+        }
+
+        private void btnRemCont_Click(object sender, EventArgs e)
+        {
+            DeleteContato(int.Parse(dgvContatosFabrica.CurrentRow.Cells[0].Value.ToString()));
+        }
+
+        private void DeleteContato(int contatoId)
+        {
+            this.contFabModel = _contatosServices.GetById(contatoId);
+            telefonesListModel = _telefoneContatos.GetAllByContatoId(contFabModel.Id);
+
+            var result = MessageBox.Show($"Tem cereza que quer apagar o registro de \n{contFabModel.Nome}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (telefonesListModel.Any())
+                    {
+                        foreach (var item in telefonesListModel)
+                        {
+                            _telefoneContatos.Delete(item.Id);
+                        }
+                    }
+                    _contatosServices.Delete(contFabModel.Id);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"Não foi possível apagar o regsitro.\nMessageError: {e.Message}\nInnerException: {e.InnerException}\nStackTrace: {e.StackTrace}", this.Text);
+                }
+            }
+            LoadModels();
+            LoadDgvContatos();
+        }
+
+        private void dgvContatosFabrica_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((e.ColumnIndex == 2) && (e.RowIndex != dgvContatosFabrica.NewRowIndex))
+            {
+                if (e.Value.ToString().Length == 11)
+                {
+                    //CELULAR
+                    e.Value = string.Format(@"{0:(00) 0 0000-0000}", Int64.Parse(e.Value.ToString()));
+                }
+                else
+                {
+                    e.Value = string.Format(@"{0:(00) 0000-0000}", Int64.Parse(e.Value.ToString()));
+
+                }
+            }
+        }
+
+        private void removerTSMIContatos_Click(object sender, EventArgs e)
+        {
+            DeleteContato(int.Parse(dgvContatosFabrica.CurrentRow.Cells[0].Value.ToString()));
+        }
     }
 }

@@ -65,6 +65,7 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.lblAddBairro.Tag = "5.4.2";
             this.lblAddBairro.Text = "+";
             this.lblAddBairro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAddBairro.Click += new System.EventHandler(this.lblAddBairro_Click);
             // 
             // btnClose
             // 
@@ -91,6 +92,7 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.btnSave.Tag = "5.4.2";
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label8
             // 
@@ -129,6 +131,7 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.cbCidade.Name = "cbCidade";
             this.cbCidade.Size = new System.Drawing.Size(163, 21);
             this.cbCidade.TabIndex = 34;
+            this.cbCidade.SelectedIndexChanged += new System.EventHandler(this.cbCidade_SelectedIndexChanged);
             // 
             // cbUf
             // 
@@ -139,6 +142,7 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.cbUf.Name = "cbUf";
             this.cbUf.Size = new System.Drawing.Size(40, 21);
             this.cbUf.TabIndex = 33;
+            this.cbUf.SelectedIndexChanged += new System.EventHandler(this.cbUf_SelectedIndexChanged);
             // 
             // cbTipoEndereco
             // 
@@ -278,8 +282,11 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EndFabAddForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EndFabAddForm";
+            this.Load += new System.EventHandler(this.EndFabAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
