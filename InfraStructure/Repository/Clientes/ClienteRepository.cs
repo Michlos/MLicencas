@@ -27,9 +27,9 @@ namespace InfraStructure.Repository.Clientes
             int idReturned;
             this.clienteModel = new ClienteModel();
             _query = "INSERT INTO Clientes " +
-                     "(NomeFantasia, RazaoSocial, Cnpj, Ie, Email, WebSite, SituacaoId)" +
-                     "OUTPUT INSERTED.Id" +
-                     "VALUES" +
+                     "(NomeFantasia, RazaoSocial, Cnpj, Ie, Email, WebSite, SituacaoId) " +
+                     "OUTPUT INSERTED.Id " +
+                     "VALUES " +
                      "(@NomeFantasia, @RazaoSocial, @Cnpj, @Ie, @Email, @WebSite, @SituacaoId) ";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -72,7 +72,7 @@ namespace InfraStructure.Repository.Clientes
 
         public void Edid(IClienteModel clienteModel)
         {
-            _query = "UPDATE Clientes SET" +
+            _query = "UPDATE Clientes SET " +
                      "NomeFantasia = @NomeFantasia, RazaoSocial = @RazaoSocial, Cnpj = @Cnpj, Ie = @Ie, Email = @Email, WebSite = @WebSite, SituacaoId = @SituacaoId " +
                      "WHERE Id = @Id ";
             using (SqlConnection connection = new SqlConnection(_connectionString))

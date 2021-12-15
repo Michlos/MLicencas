@@ -61,23 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormViews\Contatos\ContatoAddForm.cs">
+    <Compile Include="FormViews\Clientes\ClienteAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\Contatos\ContatoAddForm.Designer.cs">
-      <DependentUpon>ContatoAddForm.cs</DependentUpon>
+    <Compile Include="FormViews\Clientes\ClienteAddForm.Designer.cs">
+      <DependentUpon>ClienteAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViews\Clientes\ClientesListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Clientes\ClientesListForm.Designer.cs">
+      <DependentUpon>ClientesListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormViews\Enderecos\BairroAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormViews\Enderecos\BairroAddForm.Designer.cs">
       <DependentUpon>BairroAddForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormViews\Enderecos\EnderecoAddForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormViews\Enderecos\EnderecoAddForm.Designer.cs">
-      <DependentUpon>EnderecoAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormViews\Fabrica\Contato\ContFabAddForm.cs">
       <SubType>Form</SubType>
@@ -147,14 +147,14 @@
     <Compile Include="UCViews\Usuarios\UsuariosListUC.Designer.cs">
       <DependentUpon>UsuariosListUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormViews\Contatos\ContatoAddForm.resx">
-      <DependentUpon>ContatoAddForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormViews\Clientes\ClienteAddForm.resx">
+      <DependentUpon>ClienteAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Clientes\ClientesListForm.resx">
+      <DependentUpon>ClientesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Enderecos\BairroAddForm.resx">
       <DependentUpon>BairroAddForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\Enderecos\EnderecoAddForm.resx">
-      <DependentUpon>EnderecoAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Fabrica\Contato\ContFabAddForm.resx">
       <DependentUpon>ContFabAddForm.cs</DependentUpon>
@@ -241,6 +241,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="FormViews\Clientes\Contato\Telefone\" />
+    <Folder Include="FormViews\Clientes\Endereco\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,7 @@
 ﻿using DomainLayer.Modulos;
 using DomainLayer.Usuarios;
 
+using MLicencas.FormViews.Clientes;
 using MLicencas.FormViews.Fabrica;
 using MLicencas.FormViews.Login;
 using MLicencas.FormViews.Usuarios;
@@ -82,6 +83,8 @@ namespace MLicencas
         {
             menuGestaoDeUsuarios.Enabled = CheckPermissoes(menuGestaoDeUsuarios.Tag);
             cadastroDaEmpresaToolStripMenuItem.Enabled = CheckPermissoes(cadastroDaEmpresaToolStripMenuItem.Tag);
+            novoClienteToolStripMenuItem.Enabled = CheckPermissoes(novoClienteToolStripMenuItem.Tag);
+            gestaoDeClientesToolStripMenuItem.Enabled = CheckPermissoes(gestaoDeClientesToolStripMenuItem.Tag);
         }
 
         private void cadastroDaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,6 +93,14 @@ namespace MLicencas
             fab.WindowState = FormWindowState.Normal;
             fab.MdiParent = this;
             fab.Show();
+        }
+
+        private void gestaoDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientesListForm cliForm = new ClientesListForm();
+            cliForm.WindowState = FormWindowState.Normal;
+            cliForm.MdiParent = this;
+            cliForm.Show();
         }
     }
 }

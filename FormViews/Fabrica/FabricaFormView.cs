@@ -1,5 +1,4 @@
-﻿using DomainLayer.Enderecos;
-using DomainLayer.Fabrica;
+﻿using DomainLayer.Fabrica;
 
 using InfraStructure;
 using InfraStructure.Repository.Cidades;
@@ -9,8 +8,6 @@ using InfraStructure.Repository.Estados;
 using InfraStructure.Repository.Fabrica;
 using InfraStructure.Repository.TelefonesContatosFabrica;
 
-using MLicencas.FormViews.Contatos;
-using MLicencas.FormViews.Enderecos;
 using MLicencas.FormViews.Fabrica.Contato;
 using MLicencas.FormViews.Fabrica.Endereco;
 
@@ -25,12 +22,8 @@ using ServicesLayer.TelefonesContatosFabricaServices;
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MLicencas.FormViews.Fabrica
