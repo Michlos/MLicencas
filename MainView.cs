@@ -102,5 +102,13 @@ namespace MLicencas
             cliForm.MdiParent = this;
             cliForm.Show();
         }
+
+        private void novoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClienteAddForm cliAddForm = new ClienteAddForm(0);
+            cliAddForm.WindowState = FormWindowState.Normal;
+            cliAddForm.MdiParent = this;
+            cliAddForm.Show();
+        }
     }
 }

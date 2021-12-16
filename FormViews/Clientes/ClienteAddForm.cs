@@ -1,6 +1,7 @@
 ﻿using DomainLayer.Clientes;
 using DomainLayer.Clientes.Contatos;
 using DomainLayer.Clientes.Enderecos;
+using DomainLayer.Clientes.Telefones;
 using DomainLayer.Enderecos;
 using DomainLayer.Situacao;
 
@@ -13,6 +14,8 @@ using InfraStructure.Repository.Estados;
 using InfraStructure.Repository.Situacoes;
 using InfraStructure.Repository.TelefonesContatosClientes;
 
+using MLicencas.FormViews.Clientes.Contato;
+using MLicencas.FormViews.Clientes.Contato.Telefone;
 using MLicencas.FormViews.Clientes.Endereco;
 
 using ServiceLayer.CommonServices;
@@ -70,7 +73,8 @@ namespace MLicencas.FormViews.Clientes
         {
             statusListModel = _statusServices.GetAll();
 
-            if (clienteId != 0){
+            if (clienteId != 0)
+            {
                 clienteModel = _clientesServices.GetById(clienteId);
                 contListModel = _contatoServices.GetAllByClienteId(clienteId);
                 endListModel = _enderecosServices.GetAllByClienteId(clienteId);
@@ -87,7 +91,7 @@ namespace MLicencas.FormViews.Clientes
             _statusServices = new SituacoesServices(new SituacaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
             _cidadesServices = new CidadesServices(new CidadeRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
             _estadosServices = new EstadosServices(new EstadoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
-            
+
 
         }
 
@@ -115,6 +119,7 @@ namespace MLicencas.FormViews.Clientes
 
             table.Columns.Add("Id", typeof(int));
             table.Columns.Add("Nome", typeof(string));
+            table.Columns.Add("Funcao", typeof(string));
             table.Columns.Add("Telefone", typeof(string));
 
             return table;
@@ -125,11 +130,14 @@ namespace MLicencas.FormViews.Clientes
             {
                 foreach (var item in contListModel)
                 {
+                    IEnumerable<ITelefoneContatoClienteModel> telListModelCli = new List<ITelefoneContatoClienteModel>();
+                    telListModelCli = _telefoneServices.GetAllByContatoId(item.Id);
                     DataRow row = tableContatos.NewRow();
 
                     row["Id"] = item.Id;
                     row["Nome"] = item.Nome;
-                    row["Telefone"] = _telefoneServices.GetAllByContatoId(item.Id).FirstOrDefault().Numero;
+                    row["Funcao"] = item.Cargo;
+                    row["Telefone"] = telListModelCli.Any() ? telListModelCli.FirstOrDefault().Numero : string.Empty;
 
                     tableContatos.Rows.Add(row);
                 }
@@ -138,7 +146,9 @@ namespace MLicencas.FormViews.Clientes
         private void ConfigDGVContatos()
         {
             dgvContato.Columns["Id"].Visible = false;
-            dgvContato.Columns["Nome"].Width = 150;
+            dgvContato.Columns["Nome"].Width = 190;
+            dgvContato.Columns["Funcao"].Width = 150;
+            dgvContato.Columns["Funcao"].HeaderText = "Cargo/Função";
             dgvContato.Columns["Telefone"].Width = 100;
 
         }
@@ -165,7 +175,7 @@ namespace MLicencas.FormViews.Clientes
         }
         private DataRow GetRowEnderecos(DataTable tableEnderecos)
         {
-            
+
             DataRow row = null;
             if (endListModel.Any())
             {
@@ -188,11 +198,11 @@ namespace MLicencas.FormViews.Clientes
         private void ConfigDGVEnderecos()
         {
             dgvEndereco.Columns["Id"].Visible = false;
-            dgvEndereco.Columns["Logradouro"].Width = 130;
+            dgvEndereco.Columns["Logradouro"].Width = 150;
             dgvEndereco.Columns["Numero"].Width = 40;
             dgvEndereco.Columns["Numero"].HeaderText = "Nº.";
             dgvEndereco.Columns["Cep"].Width = 80;
-            dgvEndereco.Columns["Cidade"].Width = 100;
+            dgvEndereco.Columns["Cidade"].Width = 140;
             dgvEndereco.Columns["Uf"].Width = 30;
 
         }
@@ -211,7 +221,7 @@ namespace MLicencas.FormViews.Clientes
 
         private void LoadFormFields()
         {
-            if (clienteId !=0)
+            if (clienteId != 0)
             {
                 gbEndereco.Enabled = true;
                 gbContato.Enabled = true;
@@ -220,7 +230,7 @@ namespace MLicencas.FormViews.Clientes
                 txbNomeFantasia.Text = clienteModel.NomeFantasia;
                 txbRazaoSocial.Text = clienteModel.RazaoSocial;
                 mtxbCnpj.Text = clienteModel.Cnpj;
-                mtxbIe.Text = clienteModel.Ie;
+                txbIe.Text = clienteModel.Ie;
                 txbEmail.Text = clienteModel.Email;
                 txbSite.Text = clienteModel.WebSite;
                 cbStatus.Text = statusListModel.Where(id => id.Id == clienteModel.SituacaoId).FirstOrDefault().Descricao;
@@ -246,7 +256,7 @@ namespace MLicencas.FormViews.Clientes
             clienteModel.NomeFantasia = txbNomeFantasia.Text;
             clienteModel.RazaoSocial = txbRazaoSocial.Text;
             clienteModel.Cnpj = mtxbCnpj.Text;
-            clienteModel.Ie = mtxbIe.Text;
+            clienteModel.Ie = txbIe.Text;
             clienteModel.Email = txbEmail.Text;
             clienteModel.WebSite = txbSite.Text;
             clienteModel.SituacaoId = (cbStatus.SelectedItem as ISituacaoModel).Id;
@@ -282,7 +292,7 @@ namespace MLicencas.FormViews.Clientes
         {
             try
             {
-                _clientesServices.Edid(clienteModel);
+                _clientesServices.Edit(clienteModel);
                 MessageBox.Show("Cliente Atualizado com sucesso", this.Text);
 
             }
@@ -305,7 +315,7 @@ namespace MLicencas.FormViews.Clientes
             int enderecoId = int.Parse(dgvEndereco.CurrentRow.Cells[0].Value.ToString());
             IEnderecoClienteModel endModel = _enderecosServices.GetById(enderecoId);
 
-            var result = MessageBox.Show($"Tem certeza que deseja apagar o registro do logradouro {endModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question );
+            var result = MessageBox.Show($"Tem certeza que deseja apagar o registro do logradouro {endModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 DeleteEndereco(enderecoId);
@@ -326,6 +336,85 @@ namespace MLicencas.FormViews.Clientes
             catch (Exception e)
             {
                 MessageBox.Show($"Não foi possível apagar o registro de endereço selecionado.\n\nMessage Error: {e.Message}\n\n Inner Exception: {e.InnerException} \n\n StackTrace: {e.StackTrace}", this.Text);
+            }
+        }
+
+        private void btnNovoCont_Click(object sender, EventArgs e)
+        {
+            ContCliAddForm contCliAddForm = new ContCliAddForm(0, clienteId);
+            contCliAddForm.ShowDialog();
+            LoadModels();
+            LoadDGVContato();
+        }
+
+        private void btnRemoveCont_Click(object sender, EventArgs e)
+        {
+            int contatoId = int.Parse(dgvContato.CurrentRow.Cells[0].Value.ToString());
+            IContatoClienteModel contModel = _contatoServices.GetById(contatoId);
+            var resul = MessageBox.Show($"Tem certez que deseja apagar o contato {contModel.Nome}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resul == DialogResult.Yes)
+            {
+                DeleteContato(contatoId);
+                LoadModels();
+                LoadDGVContato();
+            }
+        }
+
+        private void DeleteContato(int contatoId)
+        {
+            IEnumerable<ITelefoneContatoClienteModel> telListModel = new List<ITelefoneContatoClienteModel>();
+            telListModel = _telefoneServices.GetAllByContatoId(contatoId);
+            if (telListModel.Any())
+            {
+                foreach (var item in telListModel)
+                {
+                    try
+                    {
+                        _telefoneServices.Delete(item.Id);
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show($"Não foi possível apagar o telefone para remover o Contato.\n\nMessageError: {e.Message}\n\nStackTrace: {e.StackTrace}\n\nInnerException: {e.InnerException}", this.Text);
+                    }
+                }
+            }
+
+            try
+            {
+                _contatoServices.Delete(contatoId);
+                MessageBox.Show("Contato removido com sucesso", this.Text);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Não foi possível apagar o Contato.\n\nMessageError: {e.Message}\n\nStackTrace: {e.StackTrace}\n\nInnerException: {e.InnerException}", this.Text);
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvContato_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contatosContextMenu.Show(MousePosition);
+            }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvContato.CurrentRow != null)
+            {
+                //TESTE
+                int contatoId = int.Parse(dgvContato.CurrentRow.Cells[0].Value.ToString());
+                ContCliAddForm contCliAddForm = new ContCliAddForm(contatoId, clienteId);
+                contCliAddForm.ShowDialog();
+                LoadModels();
+                LoadDGVContato();
             }
         }
     }

@@ -70,7 +70,7 @@ namespace InfraStructure.Repository.Clientes
             return this.clienteModel;
         }
 
-        public void Edid(IClienteModel clienteModel)
+        public void Edit(IClienteModel clienteModel)
         {
             _query = "UPDATE Clientes SET " +
                      "NomeFantasia = @NomeFantasia, RazaoSocial = @RazaoSocial, Cnpj = @Cnpj, Ie = @Ie, Email = @Email, WebSite = @WebSite, SituacaoId = @SituacaoId " +

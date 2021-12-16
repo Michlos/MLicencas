@@ -31,9 +31,9 @@ namespace InfraStructure.Repository.TelefonesContatosClientes
             int idReturned;
             this.telefoneContatoModel = new TelefoneContatoClienteModel();
             _query = "INSERT INTO TelefonesContatosClientes " +
-                     "(Numero, Operadora, Ramal, TipoTelefoneId, ContatoId)" +
-                     "OUTPUT INSERTED.Id" +
-                     "VALUES" +
+                     "(Numero, Operadora, Ramal, TipoTelefoneId, ContatoId) " +
+                     "OUTPUT INSERTED.Id " +
+                     "VALUES " +
                      "(@Numero, @Operadora, @Ramal, @TipoTelefoneId, @ContatoId) ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -72,7 +72,7 @@ namespace InfraStructure.Repository.TelefonesContatosClientes
 
         }
 
-        public void Delte(int telefoneId)
+        public void Delete(int telefoneId)
         {
 
             _query = "DELETE TelefonesContatosClientes WHERE Id = @Id";

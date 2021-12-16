@@ -8,7 +8,7 @@ namespace ServicesLayer.ClientesServices
     {
         IClienteModel Add(IClienteModel clienteModel);
         IClienteModel GetById(int clienteId);
-        void Edid(IClienteModel clienteModel);
+        void Edit(IClienteModel clienteModel);
         IEnumerable<IClienteModel> GetAll();
         IEnumerable<IClienteModel> GetAllBySituacaoId(int situacaoId);
     }

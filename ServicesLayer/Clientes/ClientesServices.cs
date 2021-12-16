@@ -22,9 +22,9 @@ namespace ServicesLayer.ClientesServices
             return _clientesRepository.Add(clienteModel);
         }
 
-        public void Edid(IClienteModel clienteModel)
+        public void Edit(IClienteModel clienteModel)
         {
-            _clientesRepository.Edid(clienteModel);
+            _clientesRepository.Edit(clienteModel);
         }
 
         public IEnumerable<IClienteModel> GetAll()

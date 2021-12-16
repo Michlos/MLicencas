@@ -30,6 +30,9 @@ namespace MLicencas
         private void InitializeComponent()
         {
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestaoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGestaoDeUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,9 +40,6 @@ namespace MLicencas
             this.cadastroDaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestaoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,31 @@ namespace MLicencas
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoClienteToolStripMenuItem,
+            this.gestaoDeClientesToolStripMenuItem});
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // novoClienteToolStripMenuItem
+            // 
+            this.novoClienteToolStripMenuItem.Name = "novoClienteToolStripMenuItem";
+            this.novoClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoClienteToolStripMenuItem.Tag = "1.1";
+            this.novoClienteToolStripMenuItem.Text = "Novo";
+            this.novoClienteToolStripMenuItem.Click += new System.EventHandler(this.novoClienteToolStripMenuItem_Click);
+            // 
+            // gestaoDeClientesToolStripMenuItem
+            // 
+            this.gestaoDeClientesToolStripMenuItem.Name = "gestaoDeClientesToolStripMenuItem";
+            this.gestaoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestaoDeClientesToolStripMenuItem.Tag = "1";
+            this.gestaoDeClientesToolStripMenuItem.Text = "Gestão de Clientes";
+            this.gestaoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeClientesToolStripMenuItem_Click);
+            // 
             // menuGestaoDeUsuarios
             // 
             this.menuGestaoDeUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -69,14 +94,14 @@ namespace MLicencas
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.usuariosToolStripMenuItem.Text = "&Usuários";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem
             // 
             this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
-            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.gruposToolStripMenuItem.Text = "&Grupos";
             // 
             // sobreToolStripMenuItem
@@ -110,30 +135,6 @@ namespace MLicencas
             this.statusUsuario.Name = "statusUsuario";
             this.statusUsuario.Size = new System.Drawing.Size(99, 17);
             this.statusUsuario.Text = "NomeUsuarioTXT";
-            // 
-            // clientesToolStripMenuItem
-            // 
-            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoClienteToolStripMenuItem,
-            this.gestaoDeClientesToolStripMenuItem});
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            // 
-            // gestaoDeClientesToolStripMenuItem
-            // 
-            this.gestaoDeClientesToolStripMenuItem.Name = "gestaoDeClientesToolStripMenuItem";
-            this.gestaoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gestaoDeClientesToolStripMenuItem.Tag = "1";
-            this.gestaoDeClientesToolStripMenuItem.Text = "Gestão de Clientes";
-            this.gestaoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeClientesToolStripMenuItem_Click);
-            // 
-            // novoClienteToolStripMenuItem
-            // 
-            this.novoClienteToolStripMenuItem.Name = "novoClienteToolStripMenuItem";
-            this.novoClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.novoClienteToolStripMenuItem.Tag = "1.1";
-            this.novoClienteToolStripMenuItem.Text = "Novo";
             // 
             // MainView
             // 

@@ -73,6 +73,24 @@
     <Compile Include="FormViews\Clientes\ClientesListForm.Designer.cs">
       <DependentUpon>ClientesListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Clientes\ClienteStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Clientes\ClienteStatusForm.Designer.cs">
+      <DependentUpon>ClienteStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViews\Clientes\Contato\ContCliAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Clientes\Contato\ContCliAddForm.Designer.cs">
+      <DependentUpon>ContCliAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViews\Clientes\Contato\Telefone\TelCliAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Clientes\Contato\Telefone\TelCliAddForm.Designer.cs">
+      <DependentUpon>TelCliAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Clientes\Endereco\EndCliAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +176,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Clientes\ClientesListForm.resx">
       <DependentUpon>ClientesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Clientes\ClienteStatusForm.resx">
+      <DependentUpon>ClienteStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Clientes\Contato\ContCliAddForm.resx">
+      <DependentUpon>ContCliAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Clientes\Contato\Telefone\TelCliAddForm.resx">
+      <DependentUpon>TelCliAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Clientes\Endereco\EndCliAddForm.resx">
       <DependentUpon>EndCliAddForm.cs</DependentUpon>
@@ -250,8 +277,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormViews\Clientes\Contato\Telefone\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

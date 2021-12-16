@@ -22,9 +22,9 @@ namespace ServicesLayer.TelefonesContatosClientes
             return _telefonesContatosClientesRepository.Add(telefoneModel);
         }
 
-        public void Delte(int telefoneId)
+        public void Delete(int telefoneId)
         {
-            _telefonesContatosClientesRepository.Delte(telefoneId);
+            _telefonesContatosClientesRepository.Delete(telefoneId);
         }
 
         public void Edit(ITelefoneContatoClienteModel telefoneModel)

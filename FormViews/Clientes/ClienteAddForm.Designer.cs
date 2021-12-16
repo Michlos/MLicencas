@@ -29,10 +29,11 @@ namespace MLicencas.FormViews.Clientes
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txbId = new System.Windows.Forms.TextBox();
             this.mtxbCnpj = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@ namespace MLicencas.FormViews.Clientes
             this.txbRazaoSocial = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbNomeFantasia = new System.Windows.Forms.TextBox();
-            this.mtxbIe = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,10 +61,16 @@ namespace MLicencas.FormViews.Clientes
             this.label10 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.contatosContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.novoContatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarContatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removerContatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txbIe = new System.Windows.Forms.TextBox();
             this.gbEndereco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
             this.gbContato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).BeginInit();
+            this.contatosContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txbId
@@ -135,13 +141,6 @@ namespace MLicencas.FormViews.Clientes
             this.txbNomeFantasia.Size = new System.Drawing.Size(222, 20);
             this.txbNomeFantasia.TabIndex = 1;
             // 
-            // mtxbIe
-            // 
-            this.mtxbIe.Location = new System.Drawing.Point(382, 97);
-            this.mtxbIe.Name = "mtxbIe";
-            this.mtxbIe.Size = new System.Drawing.Size(100, 20);
-            this.mtxbIe.TabIndex = 3;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -171,6 +170,7 @@ namespace MLicencas.FormViews.Clientes
             // 
             // txbEmail
             // 
+            this.txbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txbEmail.Location = new System.Drawing.Point(91, 97);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(188, 20);
@@ -187,6 +187,7 @@ namespace MLicencas.FormViews.Clientes
             // 
             // txbSite
             // 
+            this.txbSite.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txbSite.Location = new System.Drawing.Point(91, 127);
             this.txbSite.Name = "txbSite";
             this.txbSite.Size = new System.Drawing.Size(188, 20);
@@ -249,29 +250,30 @@ namespace MLicencas.FormViews.Clientes
             this.dgvEndereco.AllowUserToAddRows = false;
             this.dgvEndereco.AllowUserToDeleteRows = false;
             this.dgvEndereco.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEndereco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEndereco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEndereco.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEndereco.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvEndereco.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvEndereco.Location = new System.Drawing.Point(6, 16);
             this.dgvEndereco.Name = "dgvEndereco";
             this.dgvEndereco.ReadOnly = true;
             this.dgvEndereco.RowHeadersVisible = false;
             this.dgvEndereco.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvEndereco.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEndereco.Size = new System.Drawing.Size(465, 81);
             this.dgvEndereco.TabIndex = 3;
             // 
@@ -310,6 +312,7 @@ namespace MLicencas.FormViews.Clientes
             this.btnRemoveCont.Tag = "1.1";
             this.btnRemoveCont.Text = "Remover";
             this.btnRemoveCont.UseVisualStyleBackColor = false;
+            this.btnRemoveCont.Click += new System.EventHandler(this.btnRemoveCont_Click);
             // 
             // btnNovoCont
             // 
@@ -324,37 +327,40 @@ namespace MLicencas.FormViews.Clientes
             this.btnNovoCont.Tag = "1.1";
             this.btnNovoCont.Text = "Novo Contato";
             this.btnNovoCont.UseVisualStyleBackColor = false;
+            this.btnNovoCont.Click += new System.EventHandler(this.btnNovoCont_Click);
             // 
             // dgvContato
             // 
             this.dgvContato.AllowUserToAddRows = false;
             this.dgvContato.AllowUserToDeleteRows = false;
             this.dgvContato.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvContato.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvContato.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvContato.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvContato.Location = new System.Drawing.Point(6, 16);
             this.dgvContato.Name = "dgvContato";
             this.dgvContato.ReadOnly = true;
             this.dgvContato.RowHeadersVisible = false;
             this.dgvContato.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvContato.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContato.Size = new System.Drawing.Size(465, 81);
             this.dgvContato.TabIndex = 4;
+            this.dgvContato.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContato_CellMouseClick);
             // 
             // label10
             // 
@@ -377,6 +383,7 @@ namespace MLicencas.FormViews.Clientes
             this.btnClose.TabIndex = 19;
             this.btnClose.Text = "Fechar";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
@@ -393,6 +400,44 @@ namespace MLicencas.FormViews.Clientes
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // contatosContextMenu
+            // 
+            this.contatosContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoContatoToolStripMenuItem,
+            this.editarContatoToolStripMenuItem,
+            this.removerContatoToolStripMenuItem});
+            this.contatosContextMenu.Name = "contatosContextMenu";
+            this.contatosContextMenu.Size = new System.Drawing.Size(122, 70);
+            // 
+            // novoContatoToolStripMenuItem
+            // 
+            this.novoContatoToolStripMenuItem.Name = "novoContatoToolStripMenuItem";
+            this.novoContatoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.novoContatoToolStripMenuItem.Text = "Novo";
+            this.novoContatoToolStripMenuItem.Click += new System.EventHandler(this.btnNovoCont_Click);
+            // 
+            // editarContatoToolStripMenuItem
+            // 
+            this.editarContatoToolStripMenuItem.Name = "editarContatoToolStripMenuItem";
+            this.editarContatoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.editarContatoToolStripMenuItem.Text = "Editar";
+            this.editarContatoToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // removerContatoToolStripMenuItem
+            // 
+            this.removerContatoToolStripMenuItem.Name = "removerContatoToolStripMenuItem";
+            this.removerContatoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removerContatoToolStripMenuItem.Text = "Remover";
+            this.removerContatoToolStripMenuItem.Click += new System.EventHandler(this.btnRemoveCont_Click);
+            // 
+            // txbIe
+            // 
+            this.txbIe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txbIe.Location = new System.Drawing.Point(383, 97);
+            this.txbIe.Name = "txbIe";
+            this.txbIe.Size = new System.Drawing.Size(99, 20);
+            this.txbIe.TabIndex = 5;
+            // 
             // ClienteAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +447,7 @@ namespace MLicencas.FormViews.Clientes
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gbContato);
             this.Controls.Add(this.gbEndereco);
+            this.Controls.Add(this.txbIe);
             this.Controls.Add(this.txbSite);
             this.Controls.Add(this.txbEmail);
             this.Controls.Add(this.txbNomeFantasia);
@@ -414,7 +460,6 @@ namespace MLicencas.FormViews.Clientes
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.mtxbIe);
             this.Controls.Add(this.mtxbCnpj);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -430,6 +475,7 @@ namespace MLicencas.FormViews.Clientes
             this.gbContato.ResumeLayout(false);
             this.gbContato.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).EndInit();
+            this.contatosContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,7 +491,6 @@ namespace MLicencas.FormViews.Clientes
         private System.Windows.Forms.TextBox txbRazaoSocial;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbNomeFantasia;
-        private System.Windows.Forms.MaskedTextBox mtxbIe;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -465,5 +510,10 @@ namespace MLicencas.FormViews.Clientes
         private System.Windows.Forms.Button btnNovoEnd;
         private System.Windows.Forms.Button btnRemoveCont;
         private System.Windows.Forms.Button btnNovoCont;
+        private System.Windows.Forms.ContextMenuStrip contatosContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem novoContatoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarContatoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removerContatoToolStripMenuItem;
+        private System.Windows.Forms.TextBox txbIe;
     }
 }

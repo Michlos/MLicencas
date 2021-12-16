@@ -141,6 +141,7 @@ namespace MLicencas.FormViews.Clientes
 
         private void btnNew_Click(object sender, EventArgs e)
         {
+            clienteId = 0;
             ShowFormEditCli();
 
         }
@@ -158,6 +159,39 @@ namespace MLicencas.FormViews.Clientes
             //dgvContatosFabrica.CurrentRow.Cells[0].Value.ToString()
             clienteId = int.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
             ShowFormEditCli();
+        }
+
+        private void dgvClientes_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuClientes.Show(MousePosition);
+            }
+        }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormEditCli();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clienteId = int.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
+            ShowFormEditCli();
+        }
+
+        private void alterarStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clienteId = int.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
+            ClienteStatusForm cliAlterStatus = new ClienteStatusForm(clienteId);
+            cliAlterStatus.ShowDialog();
+            LoadModels();
+            LoadDGVClientes();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
