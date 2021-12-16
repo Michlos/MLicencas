@@ -30,7 +30,7 @@ namespace MLicencas.FormViews.Clientes.Contato
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.removerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telefoneContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,9 +60,10 @@ namespace MLicencas.FormViews.Clientes.Contato
             // removerToolStripMenuItem
             // 
             this.removerToolStripMenuItem.Name = "removerToolStripMenuItem";
-            this.removerToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.removerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removerToolStripMenuItem.Tag = "1.5.3";
             this.removerToolStripMenuItem.Text = "Remover";
+            this.removerToolStripMenuItem.Click += new System.EventHandler(this.btnRemTel_Click);
             // 
             // telefoneContextMenu
             // 
@@ -70,15 +71,15 @@ namespace MLicencas.FormViews.Clientes.Contato
             this.adicionarToolStripMenuItem,
             this.removerToolStripMenuItem});
             this.telefoneContextMenu.Name = "telefoneContextMenu";
-            this.telefoneContextMenu.Size = new System.Drawing.Size(126, 48);
+            this.telefoneContextMenu.Size = new System.Drawing.Size(181, 70);
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.adicionarToolStripMenuItem.Tag = "1.5.1";
             this.adicionarToolStripMenuItem.Text = "Adicionar";
-            this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
+            this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.btnAddTel_Click);
             // 
             // btnSave
             // 
@@ -205,14 +206,14 @@ namespace MLicencas.FormViews.Clientes.Contato
             this.dgvTelefonesContato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTelefonesContato.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTelefonesContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTelefonesContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTelefonesContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTelefonesContato.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvTelefonesContato.Location = new System.Drawing.Point(5, 15);
@@ -266,6 +267,7 @@ namespace MLicencas.FormViews.Clientes.Contato
             this.btnRemTel.Text = "Remove";
             this.btnRemTel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRemTel.UseVisualStyleBackColor = false;
+            this.btnRemTel.Click += new System.EventHandler(this.btnRemTel_Click);
             // 
             // label2
             // 

@@ -312,13 +312,16 @@ namespace MLicencas.FormViews.Clientes
 
         private void btnRemoveEnd_Click(object sender, EventArgs e)
         {
-            int enderecoId = int.Parse(dgvEndereco.CurrentRow.Cells[0].Value.ToString());
-            IEnderecoClienteModel endModel = _enderecosServices.GetById(enderecoId);
-
-            var result = MessageBox.Show($"Tem certeza que deseja apagar o registro do logradouro {endModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (dgvEndereco.CurrentRow != null)
             {
-                DeleteEndereco(enderecoId);
+                int enderecoId = int.Parse(dgvEndereco.CurrentRow.Cells[0].Value.ToString());
+                IEnderecoClienteModel endModel = _enderecosServices.GetById(enderecoId);
+
+                var result = MessageBox.Show($"Tem certeza que deseja apagar o registro do logradouro {endModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEndereco(enderecoId);
+                }
             }
 
 
@@ -415,6 +418,26 @@ namespace MLicencas.FormViews.Clientes
                 contCliAddForm.ShowDialog();
                 LoadModels();
                 LoadDGVContato();
+            }
+        }
+
+        private void dgvEndereco_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                enderecosContextMenu.Show(MousePosition);
+            }
+        }
+
+        private void editarEnderecoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvEndereco.CurrentRow != null)
+            {
+                int enderecoId = int.Parse(dgvEndereco.CurrentRow.Cells[0].Value.ToString());
+                EndCliAddForm endCliAddForm = new EndCliAddForm(enderecoId, clienteId);
+                endCliAddForm.ShowDialog();
+                LoadModels();
+                LoadDGVEndereco();
             }
         }
     }

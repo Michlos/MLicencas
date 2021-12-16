@@ -30,10 +30,10 @@ namespace MLicencas.FormViews.Clientes
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txbId = new System.Windows.Forms.TextBox();
             this.mtxbCnpj = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,11 +66,16 @@ namespace MLicencas.FormViews.Clientes
             this.editarContatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removerContatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txbIe = new System.Windows.Forms.TextBox();
+            this.enderecosContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.novoEnderecoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarEnderecoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removerEnderecoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbEndereco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
             this.gbContato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).BeginInit();
             this.contatosContextMenu.SuspendLayout();
+            this.enderecosContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txbId
@@ -250,23 +255,23 @@ namespace MLicencas.FormViews.Clientes
             this.dgvEndereco.AllowUserToAddRows = false;
             this.dgvEndereco.AllowUserToDeleteRows = false;
             this.dgvEndereco.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEndereco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEndereco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEndereco.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEndereco.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEndereco.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvEndereco.Location = new System.Drawing.Point(6, 16);
             this.dgvEndereco.Name = "dgvEndereco";
@@ -276,6 +281,7 @@ namespace MLicencas.FormViews.Clientes
             this.dgvEndereco.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEndereco.Size = new System.Drawing.Size(465, 81);
             this.dgvEndereco.TabIndex = 3;
+            this.dgvEndereco.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEndereco_CellMouseClick);
             // 
             // label9
             // 
@@ -334,23 +340,23 @@ namespace MLicencas.FormViews.Clientes
             this.dgvContato.AllowUserToAddRows = false;
             this.dgvContato.AllowUserToDeleteRows = false;
             this.dgvContato.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvContato.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvContato.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvContato.GridColor = System.Drawing.Color.PaleGreen;
             this.dgvContato.Location = new System.Drawing.Point(6, 16);
             this.dgvContato.Name = "dgvContato";
@@ -438,6 +444,36 @@ namespace MLicencas.FormViews.Clientes
             this.txbIe.Size = new System.Drawing.Size(99, 20);
             this.txbIe.TabIndex = 5;
             // 
+            // enderecosContextMenu
+            // 
+            this.enderecosContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoEnderecoToolStripMenuItem,
+            this.editarEnderecoToolStripMenuItem,
+            this.removerEnderecoToolStripMenuItem});
+            this.enderecosContextMenu.Name = "enderecosContextMenu";
+            this.enderecosContextMenu.Size = new System.Drawing.Size(181, 92);
+            // 
+            // novoEnderecoToolStripMenuItem
+            // 
+            this.novoEnderecoToolStripMenuItem.Name = "novoEnderecoToolStripMenuItem";
+            this.novoEnderecoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.novoEnderecoToolStripMenuItem.Text = "Novo";
+            this.novoEnderecoToolStripMenuItem.Click += new System.EventHandler(this.btnNovoEnd_Click);
+            // 
+            // editarEnderecoToolStripMenuItem
+            // 
+            this.editarEnderecoToolStripMenuItem.Name = "editarEnderecoToolStripMenuItem";
+            this.editarEnderecoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarEnderecoToolStripMenuItem.Text = "Editar";
+            this.editarEnderecoToolStripMenuItem.Click += new System.EventHandler(this.editarEnderecoToolStripMenuItem_Click);
+            // 
+            // removerEnderecoToolStripMenuItem
+            // 
+            this.removerEnderecoToolStripMenuItem.Name = "removerEnderecoToolStripMenuItem";
+            this.removerEnderecoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removerEnderecoToolStripMenuItem.Text = "Remover";
+            this.removerEnderecoToolStripMenuItem.Click += new System.EventHandler(this.btnRemoveEnd_Click);
+            // 
             // ClienteAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,6 +512,7 @@ namespace MLicencas.FormViews.Clientes
             this.gbContato.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).EndInit();
             this.contatosContextMenu.ResumeLayout(false);
+            this.enderecosContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,5 +552,9 @@ namespace MLicencas.FormViews.Clientes
         private System.Windows.Forms.ToolStripMenuItem editarContatoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removerContatoToolStripMenuItem;
         private System.Windows.Forms.TextBox txbIe;
+        private System.Windows.Forms.ContextMenuStrip enderecosContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem novoEnderecoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarEnderecoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removerEnderecoToolStripMenuItem;
     }
 }

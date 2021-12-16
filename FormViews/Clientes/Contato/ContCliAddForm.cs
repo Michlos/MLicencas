@@ -46,7 +46,7 @@ namespace MLicencas.FormViews.Clientes.Contato
             this.clienteId = clienteId;
         }
 
-        
+
 
         private void LoadServices()
         {
@@ -93,7 +93,7 @@ namespace MLicencas.FormViews.Clientes.Contato
             }
         }
 
-        
+
         #region DGV TELEFONES
 
         private void LoadDGVTelefones()
@@ -124,7 +124,7 @@ namespace MLicencas.FormViews.Clientes.Contato
                     row["Id"] = item.Id;
                     row["Operadora"] = item.Operadora;
                     row["Numero"] = item.Numero;
-                    
+
                     tableTelefones.Rows.Add(row);
 
                 }
@@ -148,7 +148,7 @@ namespace MLicencas.FormViews.Clientes.Contato
         }
 
         #endregion
-        
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             contatoModel = new ContatoClienteModel();
@@ -190,7 +190,7 @@ namespace MLicencas.FormViews.Clientes.Contato
                 _contatosServices.Edit(contatoModel);
                 contatoId = contatoModel.Id;
                 MessageBox.Show("Contato alterado com sucesso.", this.Text);
-                
+
             }
             catch (Exception e)
             {
@@ -198,11 +198,6 @@ namespace MLicencas.FormViews.Clientes.Contato
             }
         }
 
-
-        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddTelContato(contatoId);
-        }
 
 
         private void btnAddTel_Click(object sender, EventArgs e)
@@ -213,6 +208,32 @@ namespace MLicencas.FormViews.Clientes.Contato
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnRemTel_Click(object sender, EventArgs e)
+        {
+            if (dgvTelefonesContato.CurrentRow != null)
+            {
+                int telefoneId = int.Parse(dgvTelefonesContato.CurrentRow.Cells[0].Value.ToString());
+                ITelefoneContatoClienteModel telContato = _telefoneServices.GetById(telefoneId);
+                var result = MessageBox.Show($"Tem certeza que desja apagar o número {telContato.Numero}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+
+                    try
+                    {
+
+                        _telefoneServices.Delete(telefoneId);
+                        MessageBox.Show("Telefone removido com sucesso.", this.Text);
+                        LoadFormFields();
+                        LoadDGVTelefones();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Não foi possível apagar o telefone do contato.\n\n{ex.Message} \n\n{ex.InnerException}\n\n{ex.StackTrace}", this.Text);
+                    }
+                }
+            }
         }
 
         private void AddTelContato(int contatoId)
