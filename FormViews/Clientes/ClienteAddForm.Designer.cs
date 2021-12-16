@@ -29,10 +29,10 @@ namespace MLicencas.FormViews.Clientes
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txbId = new System.Windows.Forms.TextBox();
             this.mtxbCnpj = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,20 +50,20 @@ namespace MLicencas.FormViews.Clientes
             this.txbSite = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.gbEndereco = new System.Windows.Forms.GroupBox();
+            this.btnRemoveEnd = new System.Windows.Forms.Button();
+            this.btnNovoEnd = new System.Windows.Forms.Button();
+            this.dgvEndereco = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.gbContato = new System.Windows.Forms.GroupBox();
+            this.btnRemoveCont = new System.Windows.Forms.Button();
+            this.btnNovoCont = new System.Windows.Forms.Button();
+            this.dgvContato = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.dgvEndereco = new System.Windows.Forms.DataGridView();
-            this.dgvContato = new System.Windows.Forms.DataGridView();
-            this.btnNovoCont = new System.Windows.Forms.Button();
-            this.btnNovoEnd = new System.Windows.Forms.Button();
-            this.btnRemoveEnd = new System.Windows.Forms.Button();
-            this.btnRemoveCont = new System.Windows.Forms.Button();
             this.gbEndereco.SuspendLayout();
-            this.gbContato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
+            this.gbContato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,6 +214,67 @@ namespace MLicencas.FormViews.Clientes
             this.gbEndereco.TabIndex = 4;
             this.gbEndereco.TabStop = false;
             // 
+            // btnRemoveEnd
+            // 
+            this.btnRemoveEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveEnd.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnRemoveEnd.FlatAppearance.BorderSize = 0;
+            this.btnRemoveEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveEnd.Location = new System.Drawing.Point(6, 103);
+            this.btnRemoveEnd.Name = "btnRemoveEnd";
+            this.btnRemoveEnd.Size = new System.Drawing.Size(103, 21);
+            this.btnRemoveEnd.TabIndex = 20;
+            this.btnRemoveEnd.Tag = "1.1";
+            this.btnRemoveEnd.Text = "Remover";
+            this.btnRemoveEnd.UseVisualStyleBackColor = false;
+            this.btnRemoveEnd.Click += new System.EventHandler(this.btnRemoveEnd_Click);
+            // 
+            // btnNovoEnd
+            // 
+            this.btnNovoEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovoEnd.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnNovoEnd.FlatAppearance.BorderSize = 0;
+            this.btnNovoEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoEnd.Location = new System.Drawing.Point(368, 103);
+            this.btnNovoEnd.Name = "btnNovoEnd";
+            this.btnNovoEnd.Size = new System.Drawing.Size(103, 21);
+            this.btnNovoEnd.TabIndex = 20;
+            this.btnNovoEnd.Tag = "1.1";
+            this.btnNovoEnd.Text = "Novo Endereço";
+            this.btnNovoEnd.UseVisualStyleBackColor = false;
+            this.btnNovoEnd.Click += new System.EventHandler(this.btnNovoEnd_Click);
+            // 
+            // dgvEndereco
+            // 
+            this.dgvEndereco.AllowUserToAddRows = false;
+            this.dgvEndereco.AllowUserToDeleteRows = false;
+            this.dgvEndereco.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEndereco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEndereco.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvEndereco.GridColor = System.Drawing.Color.PaleGreen;
+            this.dgvEndereco.Location = new System.Drawing.Point(6, 16);
+            this.dgvEndereco.Name = "dgvEndereco";
+            this.dgvEndereco.ReadOnly = true;
+            this.dgvEndereco.RowHeadersVisible = false;
+            this.dgvEndereco.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvEndereco.Size = new System.Drawing.Size(465, 81);
+            this.dgvEndereco.TabIndex = 3;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -235,6 +296,65 @@ namespace MLicencas.FormViews.Clientes
             this.gbContato.Size = new System.Drawing.Size(477, 130);
             this.gbContato.TabIndex = 4;
             this.gbContato.TabStop = false;
+            // 
+            // btnRemoveCont
+            // 
+            this.btnRemoveCont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveCont.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnRemoveCont.FlatAppearance.BorderSize = 0;
+            this.btnRemoveCont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveCont.Location = new System.Drawing.Point(6, 103);
+            this.btnRemoveCont.Name = "btnRemoveCont";
+            this.btnRemoveCont.Size = new System.Drawing.Size(103, 21);
+            this.btnRemoveCont.TabIndex = 20;
+            this.btnRemoveCont.Tag = "1.1";
+            this.btnRemoveCont.Text = "Remover";
+            this.btnRemoveCont.UseVisualStyleBackColor = false;
+            // 
+            // btnNovoCont
+            // 
+            this.btnNovoCont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovoCont.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnNovoCont.FlatAppearance.BorderSize = 0;
+            this.btnNovoCont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoCont.Location = new System.Drawing.Point(368, 103);
+            this.btnNovoCont.Name = "btnNovoCont";
+            this.btnNovoCont.Size = new System.Drawing.Size(103, 21);
+            this.btnNovoCont.TabIndex = 19;
+            this.btnNovoCont.Tag = "1.1";
+            this.btnNovoCont.Text = "Novo Contato";
+            this.btnNovoCont.UseVisualStyleBackColor = false;
+            // 
+            // dgvContato
+            // 
+            this.dgvContato.AllowUserToAddRows = false;
+            this.dgvContato.AllowUserToDeleteRows = false;
+            this.dgvContato.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvContato.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvContato.GridColor = System.Drawing.Color.PaleGreen;
+            this.dgvContato.Location = new System.Drawing.Point(6, 16);
+            this.dgvContato.Name = "dgvContato";
+            this.dgvContato.ReadOnly = true;
+            this.dgvContato.RowHeadersVisible = false;
+            this.dgvContato.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvContato.Size = new System.Drawing.Size(465, 81);
+            this.dgvContato.TabIndex = 4;
             // 
             // label10
             // 
@@ -273,124 +393,6 @@ namespace MLicencas.FormViews.Clientes
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // dgvEndereco
-            // 
-            this.dgvEndereco.AllowUserToAddRows = false;
-            this.dgvEndereco.AllowUserToDeleteRows = false;
-            this.dgvEndereco.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEndereco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEndereco.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEndereco.GridColor = System.Drawing.Color.PaleGreen;
-            this.dgvEndereco.Location = new System.Drawing.Point(6, 16);
-            this.dgvEndereco.Name = "dgvEndereco";
-            this.dgvEndereco.ReadOnly = true;
-            this.dgvEndereco.RowHeadersVisible = false;
-            this.dgvEndereco.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvEndereco.Size = new System.Drawing.Size(465, 81);
-            this.dgvEndereco.TabIndex = 3;
-            // 
-            // dgvContato
-            // 
-            this.dgvContato.AllowUserToAddRows = false;
-            this.dgvContato.AllowUserToDeleteRows = false;
-            this.dgvContato.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvContato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvContato.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvContato.GridColor = System.Drawing.Color.PaleGreen;
-            this.dgvContato.Location = new System.Drawing.Point(6, 16);
-            this.dgvContato.Name = "dgvContato";
-            this.dgvContato.ReadOnly = true;
-            this.dgvContato.RowHeadersVisible = false;
-            this.dgvContato.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvContato.Size = new System.Drawing.Size(465, 81);
-            this.dgvContato.TabIndex = 4;
-            // 
-            // btnNovoCont
-            // 
-            this.btnNovoCont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovoCont.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnNovoCont.FlatAppearance.BorderSize = 0;
-            this.btnNovoCont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoCont.Location = new System.Drawing.Point(368, 103);
-            this.btnNovoCont.Name = "btnNovoCont";
-            this.btnNovoCont.Size = new System.Drawing.Size(103, 21);
-            this.btnNovoCont.TabIndex = 19;
-            this.btnNovoCont.Tag = "1.1";
-            this.btnNovoCont.Text = "Novo Contato";
-            this.btnNovoCont.UseVisualStyleBackColor = false;
-            // 
-            // btnNovoEnd
-            // 
-            this.btnNovoEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovoEnd.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnNovoEnd.FlatAppearance.BorderSize = 0;
-            this.btnNovoEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoEnd.Location = new System.Drawing.Point(368, 103);
-            this.btnNovoEnd.Name = "btnNovoEnd";
-            this.btnNovoEnd.Size = new System.Drawing.Size(103, 21);
-            this.btnNovoEnd.TabIndex = 20;
-            this.btnNovoEnd.Tag = "1.1";
-            this.btnNovoEnd.Text = "Novo Endereço";
-            this.btnNovoEnd.UseVisualStyleBackColor = false;
-            // 
-            // btnRemoveEnd
-            // 
-            this.btnRemoveEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoveEnd.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnRemoveEnd.FlatAppearance.BorderSize = 0;
-            this.btnRemoveEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveEnd.Location = new System.Drawing.Point(6, 103);
-            this.btnRemoveEnd.Name = "btnRemoveEnd";
-            this.btnRemoveEnd.Size = new System.Drawing.Size(103, 21);
-            this.btnRemoveEnd.TabIndex = 20;
-            this.btnRemoveEnd.Tag = "1.1";
-            this.btnRemoveEnd.Text = "Remover";
-            this.btnRemoveEnd.UseVisualStyleBackColor = false;
-            // 
-            // btnRemoveCont
-            // 
-            this.btnRemoveCont.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoveCont.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnRemoveCont.FlatAppearance.BorderSize = 0;
-            this.btnRemoveCont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveCont.Location = new System.Drawing.Point(6, 103);
-            this.btnRemoveCont.Name = "btnRemoveCont";
-            this.btnRemoveCont.Size = new System.Drawing.Size(103, 21);
-            this.btnRemoveCont.TabIndex = 20;
-            this.btnRemoveCont.Tag = "1.1";
-            this.btnRemoveCont.Text = "Remover";
-            this.btnRemoveCont.UseVisualStyleBackColor = false;
-            // 
             // ClienteAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,9 +426,9 @@ namespace MLicencas.FormViews.Clientes
             this.Load += new System.EventHandler(this.ClienteAddForm_Load);
             this.gbEndereco.ResumeLayout(false);
             this.gbEndereco.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).EndInit();
             this.gbContato.ResumeLayout(false);
             this.gbContato.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContato)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

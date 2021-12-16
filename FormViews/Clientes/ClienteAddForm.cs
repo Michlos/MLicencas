@@ -13,6 +13,8 @@ using InfraStructure.Repository.Estados;
 using InfraStructure.Repository.Situacoes;
 using InfraStructure.Repository.TelefonesContatosClientes;
 
+using MLicencas.FormViews.Clientes.Endereco;
+
 using ServiceLayer.CommonServices;
 
 using ServicesLayer.Cidades;
@@ -287,6 +289,43 @@ namespace MLicencas.FormViews.Clientes
             catch (Exception e)
             {
                 MessageBox.Show($"Não foi possível atualizar os dados do cliente.\n\nErrorMessage: {e.Message}.\n\nStackTrace: {e.StackTrace}.\n\nInnerException: {e.InnerException}", this.Text);
+            }
+        }
+
+        private void btnNovoEnd_Click(object sender, EventArgs e)
+        {
+            EndCliAddForm endForm = new EndCliAddForm(0, clienteId);
+            endForm.ShowDialog();
+            LoadModels();
+            LoadDGVEndereco();
+        }
+
+        private void btnRemoveEnd_Click(object sender, EventArgs e)
+        {
+            int enderecoId = int.Parse(dgvEndereco.CurrentRow.Cells[0].Value.ToString());
+            IEnderecoClienteModel endModel = _enderecosServices.GetById(enderecoId);
+
+            var result = MessageBox.Show($"Tem certeza que deseja apagar o registro do logradouro {endModel.Logradouro}?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question );
+            if (result == DialogResult.Yes)
+            {
+                DeleteEndereco(enderecoId);
+            }
+
+
+        }
+
+        private void DeleteEndereco(int enderecoId)
+        {
+            try
+            {
+                _enderecosServices.Delete(enderecoId);
+                MessageBox.Show("Registro apagado com sucesso.", this.Text);
+                LoadModels();
+                LoadDGVEndereco();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Não foi possível apagar o registro de endereço selecionado.\n\nMessage Error: {e.Message}\n\n Inner Exception: {e.InnerException} \n\n StackTrace: {e.StackTrace}", this.Text);
             }
         }
     }

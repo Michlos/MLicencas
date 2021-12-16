@@ -73,6 +73,12 @@
     <Compile Include="FormViews\Clientes\ClientesListForm.Designer.cs">
       <DependentUpon>ClientesListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Clientes\Endereco\EndCliAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Clientes\Endereco\EndCliAddForm.Designer.cs">
+      <DependentUpon>EndCliAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Enderecos\BairroAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Clientes\ClientesListForm.resx">
       <DependentUpon>ClientesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Clientes\Endereco\EndCliAddForm.resx">
+      <DependentUpon>EndCliAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Enderecos\BairroAddForm.resx">
       <DependentUpon>BairroAddForm.cs</DependentUpon>
@@ -243,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FormViews\Clientes\Contato\Telefone\" />
-    <Folder Include="FormViews\Clientes\Endereco\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
