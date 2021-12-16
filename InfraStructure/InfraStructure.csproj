@@ -59,6 +59,7 @@
     <Compile Include="Repository\Seriais\SerialRepository.cs" />
     <Compile Include="Repository\SistemasOperacionais\SistemaOperacionalRepository.cs" />
     <Compile Include="Repository\Situacoes\SituacaoRepository.cs" />
+    <Compile Include="Repository\Softwares\SoftwareRepository.cs" />
     <Compile Include="Repository\TelefonesContatosClientes\TelefoneContatoClienteRepository.cs" />
     <Compile Include="Repository\TelefonesContatosFabrica\TelefoneContatoFabricaRepository.cs" />
     <Compile Include="Repository\TiposEnderecos\TipoEnderecoRepository.cs" />
