@@ -28,10 +28,10 @@ namespace InfraStructure.Repository.EnderecosClientes
             int idReturned;
             this.enderecoModel = new EnderecoClienteModel();
             _query = "INSERT INTO EnderecosClientes " +
-                     "(Logradouro, Complemento, Numero, Cep, UfId, CidadeId, BairroId, TipoEnderecoId, ClienteId) " +
+                     "(Logradouro, Complemento, Numero, Cep, UfId, CidadeId, BairroId, TipoEnderecoId, ClienteId, Responsavel) " +
                      "OUTPUT INSERTED.Id " +
                      "VALUES " +
-                     "(@Logradouro, @Complemento, @Numero, @Cep, @UfId, @CidadeId, @BairroId, @TipoEnderecoId, @ClienteId) ";
+                     "(@Logradouro, @Complemento, @Numero, @Cep, @UfId, @CidadeId, @BairroId, @TipoEnderecoId, @ClienteId, @Responsavel) ";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -50,6 +50,7 @@ namespace InfraStructure.Repository.EnderecosClientes
                         cmd.Parameters.AddWithValue("@BairroId", enderecoModel.BairroId);
                         cmd.Parameters.AddWithValue("@TipoEnderecoId", enderecoModel.TipoEnderecoId);
                         cmd.Parameters.AddWithValue("@ClienteId", enderecoModel.ClienteId);
+                        cmd.Parameters.AddWithValue("@Responsavel", enderecoModel.Responsavel);
 
                         idReturned = (int)cmd.ExecuteScalar();
                     }
@@ -103,7 +104,7 @@ namespace InfraStructure.Repository.EnderecosClientes
         public void Edit(IEnderecoClienteModel enderecoModel)
         {
             _query = "UPDATE EnderecosClientes SET " +
-                     "Logradouro = @Logradouro, Complemento = @Complemento, Numero = @Numero, Cep = @Cep, UfId = @UfId, CidadeId = @CidadeId, BairroId = @BairroId, TipoEnderecoId = @TipoEnderecoId " +
+                     "Logradouro = @Logradouro, Complemento = @Complemento, Numero = @Numero, Cep = @Cep, UfId = @UfId, CidadeId = @CidadeId, BairroId = @BairroId, TipoEnderecoId = @TipoEnderecoId, Responsavel = @Responsavel " +
                      "WHERE Id = @Id ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -124,6 +125,8 @@ namespace InfraStructure.Repository.EnderecosClientes
                         cmd.Parameters.AddWithValue("@CidadeId", enderecoModel.CidadeId);
                         cmd.Parameters.AddWithValue("@BairroId", enderecoModel.BairroId);
                         cmd.Parameters.AddWithValue("@TipoEnderecoId", enderecoModel.TipoEnderecoId);
+                        cmd.Parameters.AddWithValue("@Responsavel", enderecoModel.Responsavel);
+
 
                         cmd.ExecuteNonQuery();
                     }
@@ -168,6 +171,7 @@ namespace InfraStructure.Repository.EnderecosClientes
                                 this.enderecoModel.BairroId = int.Parse(reader["BairroId"].ToString());
                                 this.enderecoModel.TipoEnderecoId = int.Parse(reader["TipoEnderecoId"].ToString());
                                 this.enderecoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                this.enderecoModel.Responsavel = bool.Parse(reader["Responsavel"].ToString());
 
                                 this.enderecoListModel.Add(this.enderecoModel);
                             }
@@ -218,6 +222,7 @@ namespace InfraStructure.Repository.EnderecosClientes
                                 this.enderecoModel.BairroId = int.Parse(reader["BairroId"].ToString());
                                 this.enderecoModel.TipoEnderecoId = int.Parse(reader["TipoEnderecoId"].ToString());
                                 this.enderecoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                this.enderecoModel.Responsavel = bool.Parse(reader["Responsavel"].ToString());
 
                                 this.enderecoListModel.Add(this.enderecoModel);
                             }
@@ -267,6 +272,7 @@ namespace InfraStructure.Repository.EnderecosClientes
                                 this.enderecoModel.BairroId = int.Parse(reader["BairroId"].ToString());
                                 this.enderecoModel.TipoEnderecoId = int.Parse(reader["TipoEnderecoId"].ToString());
                                 this.enderecoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                this.enderecoModel.Responsavel = bool.Parse(reader["Responsavel"].ToString());
 
                             }
                         }

@@ -94,6 +94,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
                 cbUf.Text = estadoListModel.Where(id => id.Id == enderecoModel.UfId).FirstOrDefault().Uf;
                 cbCidade.Text = cidadeListModel.Where(id => id.Id == enderecoModel.CidadeId).FirstOrDefault().Nome;
                 cbBairro.Text = bairroListModel.Where(id => id.Id == enderecoModel.BairroId).FirstOrDefault().Nome;
+                chbResponsavel.Checked = enderecoModel.Responsavel;
 
             }
         }
@@ -169,6 +170,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             enderecoModel.Numero = txbNumero.Text;
             enderecoModel.TipoEnderecoId = (cbTipoEndereco.SelectedItem as ITipoEnderecoModel).Id;
             enderecoModel.UfId = (cbUf.SelectedItem as IEstadoModel).Id;
+            enderecoModel.Responsavel = chbResponsavel.Checked;
             if (enderecoId != 0)
             {
                 UpdateEndereco();

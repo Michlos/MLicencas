@@ -62,7 +62,6 @@ namespace MLicencas.FormViews.Softwares
 
         private void CheckPermissions()
         {
-            btnEdit.Enabled = MainView.CheckPermissoes(btnEdit.Tag);
             btnNew.Enabled = MainView.CheckPermissoes(btnNew.Tag);
             editarToolStripMenuItem.Enabled = MainView.CheckPermissoes(editarToolStripMenuItem.Tag);
             novoToolStripMenuItem.Enabled = MainView.CheckPermissoes(novoToolStripMenuItem.Tag);
@@ -128,18 +127,6 @@ namespace MLicencas.FormViews.Softwares
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvSoftwares.CurrentRow != null)
-            {
-                int softwareId = int.Parse(dgvSoftwares.CurrentRow.Cells[0].Value.ToString());
-                SoftwareAddform softwareAddform = new SoftwareAddform(softwareId);
-                softwareAddform.ShowDialog();
-                LoadModels();
-                LoadDGVSofwares();
-            }
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -153,11 +140,6 @@ namespace MLicencas.FormViews.Softwares
             LoadDGVSofwares();
         }
 
-        private void removerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
 
         private void dgvSoftwares_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -169,6 +151,19 @@ namespace MLicencas.FormViews.Softwares
                 LoadModels();
                 LoadDGVSofwares();
             }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvSoftwares.CurrentRow != null)
+            {
+                int softwareId = int.Parse(dgvSoftwares.CurrentRow.Cells[0].Value.ToString());
+                SoftwareAddform softwareAddform = new SoftwareAddform(softwareId);
+                softwareAddform.ShowDialog();
+                LoadModels();
+                LoadDGVSofwares();
+            }
+
         }
     }
 }

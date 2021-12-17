@@ -5,6 +5,7 @@
 	Complemento		VARCHAR(800) SPARSE NULL,
 	Numero			VARCHAR(10) NOT NULL,
 	Cep				VARCHAR(8) NOT NULL,
+	Responsavel		BIT NOT NULL DEFAULT(0),
 	UfId			INT NOT NULL,
 	CidadeId		INT NOT NULL,
 	BairroId		INT NOT NULL,

@@ -12,5 +12,6 @@
         public int BairroId { get; set; }
         public int TipoEnderecoId { get; set; }
         public int ClienteId { get; set; }
+        public bool Responsavel { get; set; }
     }
 }

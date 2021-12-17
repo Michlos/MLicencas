@@ -50,6 +50,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.chbResponsavel = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblAddBairro
@@ -58,7 +59,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.lblAddBairro.BackColor = System.Drawing.Color.PaleGreen;
             this.lblAddBairro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAddBairro.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddBairro.Location = new System.Drawing.Point(253, 203);
+            this.lblAddBairro.Location = new System.Drawing.Point(253, 229);
             this.lblAddBairro.Name = "lblAddBairro";
             this.lblAddBairro.Size = new System.Drawing.Size(13, 15);
             this.lblAddBairro.TabIndex = 59;
@@ -72,7 +73,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(14, 252);
+            this.btnClose.Location = new System.Drawing.Point(14, 278);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(103, 27);
             this.btnClose.TabIndex = 58;
@@ -85,7 +86,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.btnSave.BackColor = System.Drawing.Color.PaleGreen;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(219, 252);
+            this.btnSave.Location = new System.Drawing.Point(219, 278);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 27);
             this.btnSave.TabIndex = 57;
@@ -106,7 +107,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(225, 122);
+            this.label7.Location = new System.Drawing.Point(225, 148);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 50;
@@ -117,7 +118,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.cbBairro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbBairro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBairro.FormattingEnabled = true;
-            this.cbBairro.Location = new System.Drawing.Point(85, 199);
+            this.cbBairro.Location = new System.Drawing.Point(85, 225);
             this.cbBairro.Name = "cbBairro";
             this.cbBairro.Size = new System.Drawing.Size(163, 21);
             this.cbBairro.TabIndex = 56;
@@ -127,7 +128,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.cbCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCidade.FormattingEnabled = true;
-            this.cbCidade.Location = new System.Drawing.Point(85, 172);
+            this.cbCidade.Location = new System.Drawing.Point(85, 198);
             this.cbCidade.Name = "cbCidade";
             this.cbCidade.Size = new System.Drawing.Size(163, 21);
             this.cbCidade.TabIndex = 55;
@@ -138,7 +139,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.cbUf.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUf.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUf.FormattingEnabled = true;
-            this.cbUf.Location = new System.Drawing.Point(85, 145);
+            this.cbUf.Location = new System.Drawing.Point(85, 171);
             this.cbUf.Name = "cbUf";
             this.cbUf.Size = new System.Drawing.Size(40, 21);
             this.cbUf.TabIndex = 54;
@@ -156,7 +157,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // 
             // mtxbCep
             // 
-            this.mtxbCep.Location = new System.Drawing.Point(256, 119);
+            this.mtxbCep.Location = new System.Drawing.Point(256, 145);
             this.mtxbCep.Mask = "00,000-000";
             this.mtxbCep.Name = "mtxbCep";
             this.mtxbCep.Size = new System.Drawing.Size(66, 20);
@@ -165,14 +166,14 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // 
             // txbNumero
             // 
-            this.txbNumero.Location = new System.Drawing.Point(85, 119);
+            this.txbNumero.Location = new System.Drawing.Point(85, 145);
             this.txbNumero.Name = "txbNumero";
             this.txbNumero.Size = new System.Drawing.Size(40, 20);
             this.txbNumero.TabIndex = 43;
             // 
             // txbComplemento
             // 
-            this.txbComplemento.Location = new System.Drawing.Point(85, 64);
+            this.txbComplemento.Location = new System.Drawing.Point(85, 90);
             this.txbComplemento.Multiline = true;
             this.txbComplemento.Name = "txbComplemento";
             this.txbComplemento.Size = new System.Drawing.Size(237, 49);
@@ -180,7 +181,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // 
             // txbLogradouro
             // 
-            this.txbLogradouro.Location = new System.Drawing.Point(85, 38);
+            this.txbLogradouro.Location = new System.Drawing.Point(85, 64);
             this.txbLogradouro.Name = "txbLogradouro";
             this.txbLogradouro.Size = new System.Drawing.Size(237, 20);
             this.txbLogradouro.TabIndex = 41;
@@ -196,7 +197,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 202);
+            this.label6.Location = new System.Drawing.Point(48, 228);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 48;
@@ -205,7 +206,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(42, 175);
+            this.label5.Location = new System.Drawing.Point(42, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 47;
@@ -214,7 +215,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 148);
+            this.label4.Location = new System.Drawing.Point(61, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 13);
             this.label4.TabIndex = 46;
@@ -223,7 +224,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 67);
+            this.label9.Location = new System.Drawing.Point(11, 93);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 13);
             this.label9.TabIndex = 45;
@@ -232,7 +233,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 122);
+            this.label3.Location = new System.Drawing.Point(66, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 44;
@@ -241,7 +242,7 @@ namespace MLicencas.FormViews.Clientes.Endereco
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 41);
+            this.label2.Location = new System.Drawing.Point(21, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 52;
@@ -256,11 +257,22 @@ namespace MLicencas.FormViews.Clientes.Endereco
             this.label1.TabIndex = 49;
             this.label1.Text = "Código:";
             // 
+            // chbResponsavel
+            // 
+            this.chbResponsavel.AutoSize = true;
+            this.chbResponsavel.Location = new System.Drawing.Point(85, 39);
+            this.chbResponsavel.Name = "chbResponsavel";
+            this.chbResponsavel.Size = new System.Drawing.Size(176, 17);
+            this.chbResponsavel.TabIndex = 60;
+            this.chbResponsavel.Text = "Endereço do Responável Legal";
+            this.chbResponsavel.UseVisualStyleBackColor = true;
+            // 
             // EndCliAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 292);
+            this.ClientSize = new System.Drawing.Size(336, 317);
+            this.Controls.Add(this.chbResponsavel);
             this.Controls.Add(this.lblAddBairro);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -316,5 +328,6 @@ namespace MLicencas.FormViews.Clientes.Endereco
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chbResponsavel;
     }
 }

@@ -12,5 +12,6 @@
         string Numero { get; set; }
         int TipoEnderecoId { get; set; }
         int UfId { get; set; }
+        bool Responsavel { get; set; }
     }
 }

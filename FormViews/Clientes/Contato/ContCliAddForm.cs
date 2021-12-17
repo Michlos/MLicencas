@@ -14,12 +14,8 @@ using ServicesLayer.TelefonesContatosClientes;
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MLicencas.FormViews.Clientes.Contato
@@ -37,7 +33,13 @@ namespace MLicencas.FormViews.Clientes.Contato
         private IContatoClienteModel contatoModel;
         private IEnumerable<ITelefoneContatoClienteModel> telListModel = new List<ITelefoneContatoClienteModel>();
 
-
+        /// <summary>
+        /// CONSTRUTOR
+        /// RECEBE CONTATOID E CLIENTEID PARA EDIÇÃO E ADIÇÃO DE NOVO CONTATO
+        /// SE CONTATOID <> 0 ENTÃO ELE ENTRA NO MODO EDIÇÃO
+        /// </summary>
+        /// <param name="contatoId"></param>
+        /// <param name="clienteId"></param>
         public ContCliAddForm(int contatoId, int clienteId)
         {
             LoadServices();
@@ -154,10 +156,15 @@ namespace MLicencas.FormViews.Clientes.Contato
             contatoModel = new ContatoClienteModel();
 
             contatoModel.Nome = txbNome.Text;
+            contatoModel.Rg = txbRg.Text;
+            contatoModel.Cpf = mtxbCpf.Text;
+            contatoModel.EstadoCivil = txbEstadoCivil.Text;
+            contatoModel.Nacionalidade = txbNacionalidade.Text;
             contatoModel.Cargo = txbCargo.Text;
             contatoModel.Email = txbEmail.Text;
             contatoModel.ClienteId = clienteId;
             contatoModel.Id = !string.IsNullOrEmpty(txbId.Text) ? int.Parse(txbId.Text) : 0;
+            contatoModel.Responsavel = chbResponsavel.Checked;
 
             if (contatoId != 0)
             {
@@ -233,6 +240,18 @@ namespace MLicencas.FormViews.Clientes.Contato
                         MessageBox.Show($"Não foi possível apagar o telefone do contato.\n\n{ex.Message} \n\n{ex.InnerException}\n\n{ex.StackTrace}", this.Text);
                     }
                 }
+            }
+        }
+
+        private void chbResponsavel_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbResponsavel.Checked)
+            {
+                gbDadosContrato.Enabled = true;
+            }
+            else
+            {
+                gbDadosContrato.Enabled = false;
             }
         }
 
