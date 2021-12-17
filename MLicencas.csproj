@@ -97,6 +97,12 @@
     <Compile Include="FormViews\Clientes\Endereco\EndCliAddForm.Designer.cs">
       <DependentUpon>EndCliAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Contratos\ContratosListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Contratos\ContratosListForm.Designer.cs">
+      <DependentUpon>ContratosListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Enderecos\BairroAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     <EmbeddedResource Include="FormViews\Clientes\Endereco\EndCliAddForm.resx">
       <DependentUpon>EndCliAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Contratos\ContratosListForm.resx">
+      <DependentUpon>ContratosListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Enderecos\BairroAddForm.resx">
       <DependentUpon>BairroAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,8 +304,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormViews\Contratos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

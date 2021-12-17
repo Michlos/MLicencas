@@ -2,6 +2,7 @@
 using DomainLayer.Usuarios;
 
 using MLicencas.FormViews.Clientes;
+using MLicencas.FormViews.Contratos;
 using MLicencas.FormViews.Fabrica;
 using MLicencas.FormViews.Login;
 using MLicencas.FormViews.Softwares;
@@ -128,6 +129,14 @@ namespace MLicencas
             softwareListForm.WindowState = FormWindowState.Normal;
             softwareListForm.MdiParent = this;
             softwareListForm.Show();
+        }
+
+        private void gestaoDeContratosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContratosListForm contratosForm = new ContratosListForm();
+            contratosForm.WindowState = FormWindowState.Normal;
+            contratosForm.MdiParent = this;
+            contratosForm.Show();
         }
     }
 }

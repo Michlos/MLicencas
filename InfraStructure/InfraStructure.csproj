@@ -54,6 +54,7 @@
     <Compile Include="Repository\EnderecosFabrica\EnderecoFabricaRepository.cs" />
     <Compile Include="Repository\Estados\EstadoRepository.cs" />
     <Compile Include="Repository\Fabrica\FabricaRepository.cs" />
+    <Compile Include="Repository\Incisos\IncisoRepository.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
     <Compile Include="Repository\Plataformas\PlataformaRepository.cs" />
     <Compile Include="Repository\Seriais\SerialRepository.cs" />

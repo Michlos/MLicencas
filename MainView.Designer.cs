@@ -30,6 +30,9 @@ namespace MLicencas
         private void InitializeComponent()
         {
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
+            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestaoSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestaoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,9 +43,9 @@ namespace MLicencas
             this.cadastroDaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novoSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestaoSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoContratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestaoDeContratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +55,7 @@ namespace MLicencas
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.softwareToolStripMenuItem,
             this.clientesToolStripMenuItem,
+            this.contratosToolStripMenuItem,
             this.menuGestaoDeUsuarios,
             this.sobreToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
@@ -60,6 +64,31 @@ namespace MLicencas
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
+            // softwareToolStripMenuItem
+            // 
+            this.softwareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoSoftwareToolStripMenuItem,
+            this.gestaoSoftwareToolStripMenuItem});
+            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.softwareToolStripMenuItem.Text = "&Software";
+            // 
+            // novoSoftwareToolStripMenuItem
+            // 
+            this.novoSoftwareToolStripMenuItem.Name = "novoSoftwareToolStripMenuItem";
+            this.novoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoSoftwareToolStripMenuItem.Tag = "3.1";
+            this.novoSoftwareToolStripMenuItem.Text = "&Novo";
+            this.novoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.novoSoftwareToolStripMenuItem_Click);
+            // 
+            // gestaoSoftwareToolStripMenuItem
+            // 
+            this.gestaoSoftwareToolStripMenuItem.Name = "gestaoSoftwareToolStripMenuItem";
+            this.gestaoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestaoSoftwareToolStripMenuItem.Tag = "3";
+            this.gestaoSoftwareToolStripMenuItem.Text = "&Gestão de Software";
+            this.gestaoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.gestaoSoftwareToolStripMenuItem_Click);
+            // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -67,14 +96,14 @@ namespace MLicencas
             this.gestaoDeClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Text = "&Clientes";
             // 
             // novoClienteToolStripMenuItem
             // 
             this.novoClienteToolStripMenuItem.Name = "novoClienteToolStripMenuItem";
             this.novoClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoClienteToolStripMenuItem.Tag = "1.1";
-            this.novoClienteToolStripMenuItem.Text = "Novo";
+            this.novoClienteToolStripMenuItem.Text = "&Novo";
             this.novoClienteToolStripMenuItem.Click += new System.EventHandler(this.novoClienteToolStripMenuItem_Click);
             // 
             // gestaoDeClientesToolStripMenuItem
@@ -82,7 +111,7 @@ namespace MLicencas
             this.gestaoDeClientesToolStripMenuItem.Name = "gestaoDeClientesToolStripMenuItem";
             this.gestaoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestaoDeClientesToolStripMenuItem.Tag = "1";
-            this.gestaoDeClientesToolStripMenuItem.Text = "Gestão de Clientes";
+            this.gestaoDeClientesToolStripMenuItem.Text = "&Gestão de Clientes";
             this.gestaoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeClientesToolStripMenuItem_Click);
             // 
             // menuGestaoDeUsuarios
@@ -121,7 +150,7 @@ namespace MLicencas
             this.cadastroDaEmpresaToolStripMenuItem.Name = "cadastroDaEmpresaToolStripMenuItem";
             this.cadastroDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.cadastroDaEmpresaToolStripMenuItem.Tag = "5";
-            this.cadastroDaEmpresaToolStripMenuItem.Text = "Cadastro da Empresa";
+            this.cadastroDaEmpresaToolStripMenuItem.Text = "Cadastro da &Empresa";
             this.cadastroDaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDaEmpresaToolStripMenuItem_Click);
             // 
             // statusStripMain
@@ -140,30 +169,27 @@ namespace MLicencas
             this.statusUsuario.Size = new System.Drawing.Size(99, 17);
             this.statusUsuario.Text = "NomeUsuarioTXT";
             // 
-            // softwareToolStripMenuItem
+            // contratosToolStripMenuItem
             // 
-            this.softwareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoSoftwareToolStripMenuItem,
-            this.gestaoSoftwareToolStripMenuItem});
-            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
-            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.softwareToolStripMenuItem.Text = "Software";
+            this.contratosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoContratoToolStripMenuItem,
+            this.gestaoDeContratosToolStripMenuItem});
+            this.contratosToolStripMenuItem.Name = "contratosToolStripMenuItem";
+            this.contratosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.contratosToolStripMenuItem.Text = "C&ontratos";
             // 
-            // novoSoftwareToolStripMenuItem
+            // novoContratoToolStripMenuItem
             // 
-            this.novoSoftwareToolStripMenuItem.Name = "novoSoftwareToolStripMenuItem";
-            this.novoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.novoSoftwareToolStripMenuItem.Tag = "3.1";
-            this.novoSoftwareToolStripMenuItem.Text = "Novo";
-            this.novoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.novoSoftwareToolStripMenuItem_Click);
+            this.novoContratoToolStripMenuItem.Name = "novoContratoToolStripMenuItem";
+            this.novoContratoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.novoContratoToolStripMenuItem.Text = "&Novo";
             // 
-            // gestaoSoftwareToolStripMenuItem
+            // gestaoDeContratosToolStripMenuItem
             // 
-            this.gestaoSoftwareToolStripMenuItem.Name = "gestaoSoftwareToolStripMenuItem";
-            this.gestaoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gestaoSoftwareToolStripMenuItem.Tag = "3";
-            this.gestaoSoftwareToolStripMenuItem.Text = "Gestão de Software";
-            this.gestaoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.gestaoSoftwareToolStripMenuItem_Click);
+            this.gestaoDeContratosToolStripMenuItem.Name = "gestaoDeContratosToolStripMenuItem";
+            this.gestaoDeContratosToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.gestaoDeContratosToolStripMenuItem.Text = "&Gestão de Contratos";
+            this.gestaoDeContratosToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeContratosToolStripMenuItem_Click);
             // 
             // MainView
             // 
@@ -203,6 +229,9 @@ namespace MLicencas
         private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoSoftwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestaoSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contratosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novoContratoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestaoDeContratosToolStripMenuItem;
     }
 }
 

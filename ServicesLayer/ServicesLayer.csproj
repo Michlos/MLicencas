@@ -67,6 +67,9 @@
     <Compile Include="Contratos\ContratosServices.cs" />
     <Compile Include="Contratos\IContratosRepository.cs" />
     <Compile Include="Contratos\IContratosServices.cs" />
+    <Compile Include="Contratos\Incisos\IIncisosRepository.cs" />
+    <Compile Include="Contratos\Incisos\IIncisosServices.cs" />
+    <Compile Include="Contratos\Incisos\IncisosServices.cs" />
     <Compile Include="Fabrica\ContatosFabrica\ContatosFabricaServices.cs" />
     <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaRepository.cs" />
     <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaServices.cs" />
