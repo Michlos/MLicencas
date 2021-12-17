@@ -40,6 +40,9 @@ namespace MLicencas
             this.cadastroDaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestaoSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +50,7 @@ namespace MLicencas
             // menuStripMain
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.softwareToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.menuGestaoDeUsuarios,
             this.sobreToolStripMenuItem});
@@ -136,6 +140,31 @@ namespace MLicencas
             this.statusUsuario.Size = new System.Drawing.Size(99, 17);
             this.statusUsuario.Text = "NomeUsuarioTXT";
             // 
+            // softwareToolStripMenuItem
+            // 
+            this.softwareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoSoftwareToolStripMenuItem,
+            this.gestaoSoftwareToolStripMenuItem});
+            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.softwareToolStripMenuItem.Text = "Software";
+            // 
+            // novoSoftwareToolStripMenuItem
+            // 
+            this.novoSoftwareToolStripMenuItem.Name = "novoSoftwareToolStripMenuItem";
+            this.novoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoSoftwareToolStripMenuItem.Tag = "3.1";
+            this.novoSoftwareToolStripMenuItem.Text = "Novo";
+            this.novoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.novoSoftwareToolStripMenuItem_Click);
+            // 
+            // gestaoSoftwareToolStripMenuItem
+            // 
+            this.gestaoSoftwareToolStripMenuItem.Name = "gestaoSoftwareToolStripMenuItem";
+            this.gestaoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestaoSoftwareToolStripMenuItem.Tag = "3";
+            this.gestaoSoftwareToolStripMenuItem.Text = "Gestão de Software";
+            this.gestaoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.gestaoSoftwareToolStripMenuItem_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +200,9 @@ namespace MLicencas
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestaoDeClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novoSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestaoSoftwareToolStripMenuItem;
     }
 }
 

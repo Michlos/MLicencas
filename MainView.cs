@@ -4,6 +4,7 @@ using DomainLayer.Usuarios;
 using MLicencas.FormViews.Clientes;
 using MLicencas.FormViews.Fabrica;
 using MLicencas.FormViews.Login;
+using MLicencas.FormViews.Softwares;
 using MLicencas.FormViews.Usuarios;
 
 using System;
@@ -85,6 +86,8 @@ namespace MLicencas
             cadastroDaEmpresaToolStripMenuItem.Enabled = CheckPermissoes(cadastroDaEmpresaToolStripMenuItem.Tag);
             novoClienteToolStripMenuItem.Enabled = CheckPermissoes(novoClienteToolStripMenuItem.Tag);
             gestaoDeClientesToolStripMenuItem.Enabled = CheckPermissoes(gestaoDeClientesToolStripMenuItem.Tag);
+            novoSoftwareToolStripMenuItem.Enabled = CheckPermissoes(novoSoftwareToolStripMenuItem.Tag);
+            gestaoSoftwareToolStripMenuItem.Enabled = CheckPermissoes(gestaoSoftwareToolStripMenuItem.Tag);
         }
 
         private void cadastroDaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +112,22 @@ namespace MLicencas
             cliAddForm.WindowState = FormWindowState.Normal;
             cliAddForm.MdiParent = this;
             cliAddForm.Show();
+        }
+
+        private void novoSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SoftwareAddform softwareAddform = new SoftwareAddform(0);
+            softwareAddform.WindowState = FormWindowState.Normal;
+            softwareAddform.MdiParent = this;
+            softwareAddform.Show();
+        }
+
+        private void gestaoSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SoftwareListForm softwareListForm = new SoftwareListForm();
+            softwareListForm.WindowState = FormWindowState.Normal;
+            softwareListForm.MdiParent = this;
+            softwareListForm.Show();
         }
     }
 }

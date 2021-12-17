@@ -30,7 +30,7 @@ namespace InfraStructure.Repository.Softwares
         {
             softwareModel = new SoftwareModel();
             _query = "INSERT INTO Softwares (Nome, Descricao, PublicoAlvo, Versao, ClienteServidor, PlataformaId, OsId) " +
-                     "OUTPUT INSERTEND.Id " +
+                     "OUTPUT INSERTED.Id " +
                      "VALUES (@Nome, @Descricao, @PublicoAlvo, @Versao, @ClienteServidor, @PlataformaId, @OsId) ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -90,7 +90,7 @@ namespace InfraStructure.Repository.Softwares
                     {
                         cmd.Prepare();
 
-                        cmd.Parameters.AddWithValue("@Id", softwareModel.Id);
+                        cmd.Parameters.AddWithValue("@Id", software.Id);
                         cmd.Parameters.AddWithValue("@Nome", software.Nome);
                         cmd.Parameters.AddWithValue("@Descricao", software.Descricao);
                         cmd.Parameters.AddWithValue("@PublicoAlvo", software.PublicoAlvo);
@@ -178,10 +178,10 @@ namespace InfraStructure.Repository.Softwares
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
 
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", softwareId));
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            cmd.Prepare();
-                            cmd.Parameters.Add(new SqlParameter("@Id", softwareId));
                             while (reader.Read())
                             {
 
