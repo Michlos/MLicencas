@@ -2,7 +2,10 @@
 using DomainLayer.Situacao;
 
 using InfraStructure;
+using InfraStructure.Repository.Clientes;
 using InfraStructure.Repository.Contratos;
+using InfraStructure.Repository.Situacoes;
+using InfraStructure.Repository.Softwares;
 
 using ServiceLayer.CommonServices;
 
@@ -97,6 +100,9 @@ namespace MLicencas.FormViews.Contratos
         {
             _queryString = new QueryStringServices(new QueryString());
             _contratosServices = new ContratosServices(new ContratoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _clientesServices = new ClientesServices(new ClienteRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _softwaresServices = new SoftwaresServices(new SoftwareRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _statusServices = new SituacoesServices(new SituacaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
 
         }
 
@@ -111,6 +117,25 @@ namespace MLicencas.FormViews.Contratos
             {
                 e.Value = string.Format("{0:MM/dd/yyyy}", DateTime.Parse(e.Value.ToString()));
             }
+        }
+
+        private void ContratosListForm_Load(object sender, EventArgs e)
+        {
+            CheckPermissions();
+        }
+
+        private void CheckPermissions()
+        {
+            btnNew.Enabled = MainView.CheckPermissoes(btnNew.Tag);
+            alterarStatusToolStripMenuItem.Enabled = MainView.CheckPermissoes(alterarStatusToolStripMenuItem.Tag);
+            novoToolStripMenuItem.Enabled = MainView.CheckPermissoes(novoToolStripMenuItem.Tag);
+            editarToolStripMenuItem.Enabled = MainView.CheckPermissoes(editarToolStripMenuItem.Tag);
+
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

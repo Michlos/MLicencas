@@ -89,6 +89,9 @@ namespace MLicencas
             gestaoDeClientesToolStripMenuItem.Enabled = CheckPermissoes(gestaoDeClientesToolStripMenuItem.Tag);
             novoSoftwareToolStripMenuItem.Enabled = CheckPermissoes(novoSoftwareToolStripMenuItem.Tag);
             gestaoSoftwareToolStripMenuItem.Enabled = CheckPermissoes(gestaoSoftwareToolStripMenuItem.Tag);
+            novoContratoToolStripMenuItem.Enabled = CheckPermissoes(novoContratoToolStripMenuItem.Tag);
+            gestaoDeContratosToolStripMenuItem.Enabled = CheckPermissoes(gestaoDeContratosToolStripMenuItem.Tag);
+
         }
 
         private void cadastroDaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,6 +140,14 @@ namespace MLicencas
             contratosForm.WindowState = FormWindowState.Normal;
             contratosForm.MdiParent = this;
             contratosForm.Show();
+        }
+
+        private void novoContratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContratoAddForm contratoAddForm = new ContratoAddForm(0);
+            contratoAddForm.WindowState = FormWindowState.Normal;
+            contratoAddForm.MdiParent = this;
+            contratoAddForm.Show();
         }
     }
 }

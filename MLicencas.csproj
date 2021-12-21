@@ -97,11 +97,23 @@
     <Compile Include="FormViews\Clientes\Endereco\EndCliAddForm.Designer.cs">
       <DependentUpon>EndCliAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Contratos\ContratoAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Contratos\ContratoAddForm.Designer.cs">
+      <DependentUpon>ContratoAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Contratos\ContratosListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormViews\Contratos\ContratosListForm.Designer.cs">
       <DependentUpon>ContratosListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViews\Contratos\SelectClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Contratos\SelectClientForm.Designer.cs">
+      <DependentUpon>SelectClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormViews\Enderecos\BairroAddForm.cs">
       <SubType>Form</SubType>
@@ -177,6 +189,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCViews\Contratos\ContratoClausulaUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCViews\Contratos\ContratoClausulaUC.Designer.cs">
+      <DependentUpon>ContratoClausulaUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCViews\Usuarios\PermissoesListUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,8 +225,14 @@
     <EmbeddedResource Include="FormViews\Clientes\Endereco\EndCliAddForm.resx">
       <DependentUpon>EndCliAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Contratos\ContratoAddForm.resx">
+      <DependentUpon>ContratoAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Contratos\ContratosListForm.resx">
       <DependentUpon>ContratosListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Contratos\SelectClientForm.resx">
+      <DependentUpon>SelectClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Enderecos\BairroAddForm.resx">
       <DependentUpon>BairroAddForm.cs</DependentUpon>
@@ -254,13 +278,18 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCViews\Contratos\ContratoClausulaUC.resx">
+      <DependentUpon>ContratoClausulaUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCViews\Usuarios\PermissoesListUC.resx">
       <DependentUpon>PermissoesListUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCViews\Usuarios\UsuariosListUC.resx">
       <DependentUpon>UsuariosListUC.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -304,6 +333,23 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\IconDelete20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconEdit20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconAdd15x15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconAdd20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconSave20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconSave50x50.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
