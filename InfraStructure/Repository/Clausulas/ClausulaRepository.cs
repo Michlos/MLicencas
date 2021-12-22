@@ -30,9 +30,9 @@ namespace InfraStructure.Repository.Clausulas
         {
             int idReturned;
             this.clausulaModel = new ClausulaModel();
-            _query = "INSERT INTO Clausulas (Titulo, Termos, Ordem, ContratoId) " +
+            _query = "INSERT INTO Clausulas (Titulo, ContratoId) " +
                      "OUTPUT INSERTED.Id " +
-                     "VALUES (@Titulo, @Termos, @Ordem, @ContratoId) ";
+                     "VALUES (@Titulo, @ContratoId) ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -44,8 +44,6 @@ namespace InfraStructure.Repository.Clausulas
                         cmd.Prepare();
 
                         cmd.Parameters.AddWithValue("@Titulo", clausula.Titulo);
-                        cmd.Parameters.AddWithValue("@Termos", clausula.Termos);
-                        cmd.Parameters.AddWithValue("@Ordem", clausula.Ordem);
                         cmd.Parameters.AddWithValue("@ContratoId", clausula.ContratoId);
 
                         idReturned = (int)cmd.ExecuteScalar();
@@ -103,7 +101,7 @@ namespace InfraStructure.Repository.Clausulas
 
         public void Edit(IClausulaModel clausula)
         {
-            _query = "UPDATE Clausulas SET Titulo = @Titulo, Termos = @Termos, Ordem = Ordem WHERE Id = @Id";
+            _query = "UPDATE Clausulas SET Titulo = @Titulo, WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -115,8 +113,6 @@ namespace InfraStructure.Repository.Clausulas
 
                         cmd.Parameters.AddWithValue("@Id", clausula.Id);
                         cmd.Parameters.AddWithValue("@Titulo", clausula.Titulo);
-                        cmd.Parameters.AddWithValue("@Termos", clausula.Termos);
-                        cmd.Parameters.AddWithValue("@Ordem", clausula.Ordem);
 
                         cmd.ExecuteNonQuery();
 
@@ -154,8 +150,6 @@ namespace InfraStructure.Repository.Clausulas
 
                                 this.clausulaModel.Id = int.Parse(reader["Id"].ToString());
                                 this.clausulaModel.Titulo = reader["Titulo"].ToString();
-                                this.clausulaModel.Termos = reader["Termos"].ToString();
-                                this.clausulaModel.Ordem = int.Parse(reader["Ordem"].ToString());
                                 this.clausulaModel.ContratoId = int.Parse(reader["ContratoId"].ToString());
 
                                 this.clausulaListModel.Add(this.clausulaModel);
@@ -202,8 +196,6 @@ namespace InfraStructure.Repository.Clausulas
 
                                 this.clausulaModel.Id = int.Parse(reader["Id"].ToString());
                                 this.clausulaModel.Titulo = reader["Titulo"].ToString();
-                                this.clausulaModel.Termos = reader["Termos"].ToString();
-                                this.clausulaModel.Ordem = int.Parse(reader["Ordem"].ToString());
                                 this.clausulaModel.ContratoId = int.Parse(reader["ContratoId"].ToString());
 
                                 this.clausulaListModel.Add(this.clausulaModel);
@@ -239,14 +231,14 @@ namespace InfraStructure.Repository.Clausulas
                     connection.Open();
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", clausulaId));
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 this.clausulaModel.Id = int.Parse(reader["Id"].ToString());
                                 this.clausulaModel.Titulo = reader["Titulo"].ToString();
-                                this.clausulaModel.Termos = reader["Termos"].ToString();
-                                this.clausulaModel.Ordem = int.Parse(reader["Ordem"].ToString());
                                 this.clausulaModel.ContratoId = int.Parse(reader["ContratoId"].ToString());
                             }
                         }

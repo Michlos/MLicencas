@@ -107,6 +107,7 @@ namespace MLicencas.FormViews.Contratos
             this.dgvContratos.Size = new System.Drawing.Size(581, 308);
             this.dgvContratos.TabIndex = 17;
             this.dgvContratos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvContratos_CellFormatting);
+            this.dgvContratos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvContratos_MouseClick);
             // 
             // contextMenuContratos
             // 
@@ -115,21 +116,23 @@ namespace MLicencas.FormViews.Contratos
             this.editarToolStripMenuItem,
             this.alterarStatusToolStripMenuItem});
             this.contextMenuContratos.Name = "contextMenuClientes";
-            this.contextMenuContratos.Size = new System.Drawing.Size(145, 70);
+            this.contextMenuContratos.Size = new System.Drawing.Size(181, 92);
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoToolStripMenuItem.Tag = "2.1";
             this.novoToolStripMenuItem.Text = "Novo";
+            this.novoToolStripMenuItem.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarToolStripMenuItem.Tag = "2.3";
             this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // alterarStatusToolStripMenuItem
             // 

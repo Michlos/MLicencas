@@ -136,7 +136,7 @@ namespace MLicencas
 
         private void gestaoDeContratosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ContratosListForm contratosForm = new ContratosListForm();
+            ContratosListForm contratosForm = new ContratosListForm(this);
             contratosForm.WindowState = FormWindowState.Normal;
             contratosForm.MdiParent = this;
             contratosForm.Show();

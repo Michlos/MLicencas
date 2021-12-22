@@ -109,6 +109,12 @@
     <Compile Include="FormViews\Contratos\ContratosListForm.Designer.cs">
       <DependentUpon>ContratosListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Contratos\IncludeItemContratoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Contratos\IncludeItemContratoForm.Designer.cs">
+      <DependentUpon>IncludeItemContratoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Contratos\SelectClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Contratos\ContratosListForm.resx">
       <DependentUpon>ContratosListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Contratos\IncludeItemContratoForm.resx">
+      <DependentUpon>IncludeItemContratoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Contratos\SelectClientForm.resx">
       <DependentUpon>SelectClientForm.cs</DependentUpon>

@@ -531,11 +531,12 @@ namespace MLicencas.FormViews.Fabrica
                     //CELULAR
                     e.Value = string.Format(@"{0:(00) 0 0000-0000}", Int64.Parse(e.Value.ToString()));
                 }
-                else
+                else if(e.Value.ToString().Length == 10)
                 {
                     e.Value = string.Format(@"{0:(00) 0000-0000}", Int64.Parse(e.Value.ToString()));
 
                 }
+                
             }
         }
 

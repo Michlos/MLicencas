@@ -31,7 +31,6 @@ namespace MLicencas.FormViews.Contratos
         {
             this.pnlBottomMenu = new System.Windows.Forms.Panel();
             this.btnSaveContrato = new System.Windows.Forms.Button();
-            this.pnlRighMenu = new System.Windows.Forms.Panel();
             this.btnAddClausula = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.cbSoftware = new System.Windows.Forms.ComboBox();
@@ -51,9 +50,16 @@ namespace MLicencas.FormViews.Contratos
             this.txbNome = new System.Windows.Forms.TextBox();
             this.txbId = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.pnlRighMenu = new System.Windows.Forms.Panel();
+            this.dgvClausulas = new System.Windows.Forms.DataGridView();
+            this.dgvIncisos = new System.Windows.Forms.DataGridView();
+            this.btnAddInciso = new System.Windows.Forms.Button();
             this.pnlBottomMenu.SuspendLayout();
-            this.pnlRighMenu.SuspendLayout();
             this.pnlHeader.SuspendLayout();
+            this.pnlContainer.SuspendLayout();
+            this.pnlRighMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClausulas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncisos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBottomMenu
@@ -61,19 +67,20 @@ namespace MLicencas.FormViews.Contratos
             this.pnlBottomMenu.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pnlBottomMenu.Controls.Add(this.btnSaveContrato);
             this.pnlBottomMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottomMenu.Location = new System.Drawing.Point(0, 413);
+            this.pnlBottomMenu.Location = new System.Drawing.Point(0, 474);
             this.pnlBottomMenu.Name = "pnlBottomMenu";
-            this.pnlBottomMenu.Size = new System.Drawing.Size(784, 37);
+            this.pnlBottomMenu.Size = new System.Drawing.Size(912, 44);
             this.pnlBottomMenu.TabIndex = 0;
             // 
             // btnSaveContrato
             // 
+            this.btnSaveContrato.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveContrato.BackColor = System.Drawing.Color.PaleGreen;
             this.btnSaveContrato.FlatAppearance.BorderSize = 0;
             this.btnSaveContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveContrato.Image = global::MLicencas.Properties.Resources.iconSave20x20;
             this.btnSaveContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveContrato.Location = new System.Drawing.Point(670, 5);
+            this.btnSaveContrato.Location = new System.Drawing.Point(813, 5);
             this.btnSaveContrato.Name = "btnSaveContrato";
             this.btnSaveContrato.Size = new System.Drawing.Size(87, 29);
             this.btnSaveContrato.TabIndex = 0;
@@ -82,25 +89,16 @@ namespace MLicencas.FormViews.Contratos
             this.btnSaveContrato.UseVisualStyleBackColor = false;
             this.btnSaveContrato.Click += new System.EventHandler(this.btnSaveContrato_Click);
             // 
-            // pnlRighMenu
-            // 
-            this.pnlRighMenu.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnlRighMenu.Controls.Add(this.btnAddClausula);
-            this.pnlRighMenu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRighMenu.Location = new System.Drawing.Point(652, 0);
-            this.pnlRighMenu.Name = "pnlRighMenu";
-            this.pnlRighMenu.Size = new System.Drawing.Size(132, 413);
-            this.pnlRighMenu.TabIndex = 1;
-            // 
             // btnAddClausula
             // 
+            this.btnAddClausula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddClausula.BackColor = System.Drawing.Color.PaleGreen;
             this.btnAddClausula.Enabled = false;
             this.btnAddClausula.FlatAppearance.BorderSize = 0;
             this.btnAddClausula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddClausula.Image = global::MLicencas.Properties.Resources.IconAdd20x20;
             this.btnAddClausula.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddClausula.Location = new System.Drawing.Point(15, 12);
+            this.btnAddClausula.Location = new System.Drawing.Point(813, 110);
             this.btnAddClausula.Name = "btnAddClausula";
             this.btnAddClausula.Size = new System.Drawing.Size(87, 29);
             this.btnAddClausula.TabIndex = 0;
@@ -132,13 +130,14 @@ namespace MLicencas.FormViews.Contratos
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(652, 155);
+            this.pnlHeader.Size = new System.Drawing.Size(912, 155);
             this.pnlHeader.TabIndex = 3;
             // 
             // cbSoftware
             // 
+            this.cbSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSoftware.FormattingEnabled = true;
-            this.cbSoftware.Location = new System.Drawing.Point(479, 55);
+            this.cbSoftware.Location = new System.Drawing.Point(760, 56);
             this.cbSoftware.Name = "cbSoftware";
             this.cbSoftware.Size = new System.Drawing.Size(140, 21);
             this.cbSoftware.TabIndex = 3;
@@ -161,8 +160,9 @@ namespace MLicencas.FormViews.Contratos
             // 
             // dtVencimento
             // 
+            this.dtVencimento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtVencimento.Location = new System.Drawing.Point(534, 29);
+            this.dtVencimento.Location = new System.Drawing.Point(815, 30);
             this.dtVencimento.MinDate = new System.DateTime(2021, 12, 18, 0, 0, 0, 0);
             this.dtVencimento.Name = "dtVencimento";
             this.dtVencimento.Size = new System.Drawing.Size(85, 20);
@@ -170,8 +170,9 @@ namespace MLicencas.FormViews.Contratos
             // 
             // dtRegistro
             // 
+            this.dtRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtRegistro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtRegistro.Location = new System.Drawing.Point(534, 3);
+            this.dtRegistro.Location = new System.Drawing.Point(815, 4);
             this.dtRegistro.MinDate = new System.DateTime(2021, 12, 18, 0, 0, 0, 0);
             this.dtRegistro.Name = "dtRegistro";
             this.dtRegistro.Size = new System.Drawing.Size(85, 20);
@@ -188,8 +189,9 @@ namespace MLicencas.FormViews.Contratos
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(427, 59);
+            this.label8.Location = new System.Drawing.Point(708, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 1;
@@ -215,8 +217,9 @@ namespace MLicencas.FormViews.Contratos
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(445, 7);
+            this.label4.Location = new System.Drawing.Point(726, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 1;
@@ -242,8 +245,9 @@ namespace MLicencas.FormViews.Contratos
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(424, 33);
+            this.label5.Location = new System.Drawing.Point(705, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 1;
@@ -251,11 +255,13 @@ namespace MLicencas.FormViews.Contratos
             // 
             // txbTermo
             // 
+            this.txbTermo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txbTermo.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTermo.Location = new System.Drawing.Point(45, 82);
             this.txbTermo.Multiline = true;
             this.txbTermo.Name = "txbTermo";
-            this.txbTermo.Size = new System.Drawing.Size(574, 61);
+            this.txbTermo.Size = new System.Drawing.Size(855, 61);
             this.txbTermo.TabIndex = 0;
             this.txbTermo.Text = "Decidem as partes, na melhor forma de direito, celebrar o presente CONTRATO DE PR" +
     "ESTAÇÃO DE SERVIÇOS, que reger-se-á mediante as cláusulas e condições adiante es" +
@@ -278,31 +284,97 @@ namespace MLicencas.FormViews.Contratos
             // 
             // pnlContainer
             // 
+            this.pnlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContainer.AutoScroll = true;
             this.pnlContainer.BackColor = System.Drawing.Color.Maroon;
-            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContainer.Controls.Add(this.btnAddClausula);
+            this.pnlContainer.Controls.Add(this.dgvClausulas);
             this.pnlContainer.Location = new System.Drawing.Point(0, 155);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(652, 258);
+            this.pnlContainer.Size = new System.Drawing.Size(912, 151);
             this.pnlContainer.TabIndex = 4;
+            // 
+            // pnlRighMenu
+            // 
+            this.pnlRighMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlRighMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlRighMenu.Controls.Add(this.btnAddInciso);
+            this.pnlRighMenu.Controls.Add(this.dgvIncisos);
+            this.pnlRighMenu.Location = new System.Drawing.Point(0, 300);
+            this.pnlRighMenu.Name = "pnlRighMenu";
+            this.pnlRighMenu.Size = new System.Drawing.Size(912, 173);
+            this.pnlRighMenu.TabIndex = 1;
+            // 
+            // dgvClausulas
+            // 
+            this.dgvClausulas.AllowUserToAddRows = false;
+            this.dgvClausulas.AllowUserToDeleteRows = false;
+            this.dgvClausulas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClausulas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClausulas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClausulas.Location = new System.Drawing.Point(12, 16);
+            this.dgvClausulas.Name = "dgvClausulas";
+            this.dgvClausulas.ReadOnly = true;
+            this.dgvClausulas.Size = new System.Drawing.Size(795, 123);
+            this.dgvClausulas.TabIndex = 0;
+            // 
+            // dgvIncisos
+            // 
+            this.dgvIncisos.AllowUserToAddRows = false;
+            this.dgvIncisos.AllowUserToDeleteRows = false;
+            this.dgvIncisos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvIncisos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvIncisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncisos.Location = new System.Drawing.Point(11, 12);
+            this.dgvIncisos.Name = "dgvIncisos";
+            this.dgvIncisos.ReadOnly = true;
+            this.dgvIncisos.Size = new System.Drawing.Size(795, 154);
+            this.dgvIncisos.TabIndex = 0;
+            // 
+            // btnAddInciso
+            // 
+            this.btnAddInciso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddInciso.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnAddInciso.Enabled = false;
+            this.btnAddInciso.FlatAppearance.BorderSize = 0;
+            this.btnAddInciso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddInciso.Image = global::MLicencas.Properties.Resources.IconAdd20x20;
+            this.btnAddInciso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddInciso.Location = new System.Drawing.Point(812, 137);
+            this.btnAddInciso.Name = "btnAddInciso";
+            this.btnAddInciso.Size = new System.Drawing.Size(87, 29);
+            this.btnAddInciso.TabIndex = 0;
+            this.btnAddInciso.Text = "Inciso";
+            this.btnAddInciso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddInciso.UseVisualStyleBackColor = false;
+            this.btnAddInciso.Click += new System.EventHandler(this.btnAddClausula_Click);
             // 
             // ContratoAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 450);
+            this.ClientSize = new System.Drawing.Size(912, 518);
+            this.Controls.Add(this.pnlRighMenu);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlHeader);
-            this.Controls.Add(this.pnlRighMenu);
             this.Controls.Add(this.pnlBottomMenu);
             this.Name = "ContratoAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edição de Contrato";
             this.Load += new System.EventHandler(this.ContratoAddForm_Load);
             this.pnlBottomMenu.ResumeLayout(false);
-            this.pnlRighMenu.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.pnlContainer.ResumeLayout(false);
+            this.pnlRighMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClausulas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncisos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,7 +382,6 @@ namespace MLicencas.FormViews.Contratos
         #endregion
 
         private System.Windows.Forms.Panel pnlBottomMenu;
-        private System.Windows.Forms.Panel pnlRighMenu;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Button btnAddClausula;
@@ -331,5 +402,9 @@ namespace MLicencas.FormViews.Contratos
         private System.Windows.Forms.ComboBox cbCliente;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel pnlRighMenu;
+        private System.Windows.Forms.DataGridView dgvClausulas;
+        private System.Windows.Forms.Button btnAddInciso;
+        private System.Windows.Forms.DataGridView dgvIncisos;
     }
 }

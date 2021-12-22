@@ -29,6 +29,8 @@ namespace MLicencas.FormViews.Contratos
 {
     public partial class ContratosListForm : Form
     {
+        private readonly MainView MainView;
+        private int contratoId;
         //SERVICES
         private QueryStringServices _queryString;
         private ContratosServices _contratosServices;
@@ -39,8 +41,9 @@ namespace MLicencas.FormViews.Contratos
         //MODELS LISTMODELS
         private IEnumerable<IContratoModel> contratoListModel;
 
-        public ContratosListForm()
+        public ContratosListForm(MainView mainView)
         {
+            this.MainView = mainView;
             LoaServices();
             InitializeComponent();
             LoadDGVContratos();
@@ -135,7 +138,30 @@ namespace MLicencas.FormViews.Contratos
 
         private void btnNew_Click(object sender, EventArgs e)
         {
+            ContratoAddForm contratoAddForm = new ContratoAddForm(0);
+            contratoAddForm.WindowState = FormWindowState.Normal;
+            contratoAddForm.MdiParent = this.MainView;
+            contratoAddForm.Show();
+        }
 
+        private void dgvContratos_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuContratos.Show(MousePosition);
+            }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvContratos.CurrentRow != null)
+            {
+                contratoId = int.Parse(dgvContratos.CurrentRow.Cells[0].Value.ToString());
+                ContratoAddForm contratoAddForm = new ContratoAddForm(contratoId);
+                contratoAddForm.WindowState = FormWindowState.Normal;
+                contratoAddForm.MdiParent = this.MainView;
+                contratoAddForm.Show();
+            }
         }
     }
 }

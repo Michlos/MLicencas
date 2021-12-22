@@ -21,20 +21,23 @@ namespace MLicencas.UCViews.Contratos
 {
     public partial class ContratoClausulaUC : UserControl
     {
-        private int ordem, contratoId, clausulaId;
+        private int contratoId, clausulaId;
         private QueryStringServices _queryString;
         private ClausulasServices _clausulasServices;
 
         private IClausulaModel clauModel;
 
-        public ContratoClausulaUC(int contratoId, int ordem, int clausulaId)
+        public ContratoClausulaUC()
+        {
+
+        }
+
+        public ContratoClausulaUC(int contratoId, int clausulaId)
         {
             LoadServices();
             InitializeComponent();
             this.contratoId = contratoId;
-            this.ordem = ordem;
             this.clausulaId = clausulaId;
-            txbOrdem.Text = this.ordem.ToString();
         }
 
         private void LoadServices()
@@ -48,7 +51,7 @@ namespace MLicencas.UCViews.Contratos
             clauModel = new ClausulaModel();
             clauModel.Id = clausulaId;
             clauModel.Titulo = txbTitulo.Text;
-            clauModel.Ordem = int.Parse(txbOrdem.Text);
+            clauModel.ContratoId = contratoId;
 
             if (clausulaId != 0)
             {
@@ -66,6 +69,7 @@ namespace MLicencas.UCViews.Contratos
             try
             {
                 this.clauModel = _clausulasServices.Add(clauModel);
+                MessageBox.Show("Cláusula Adicionada com sucesso.");
             }
             catch (Exception e)
             {
@@ -79,6 +83,7 @@ namespace MLicencas.UCViews.Contratos
             try
             {
                 _clausulasServices.Edit(clauModel);
+                MessageBox.Show("Cláusula Atualizada com sucesso.");
             }
             catch (Exception e)
             {
@@ -97,9 +102,7 @@ namespace MLicencas.UCViews.Contratos
             {
                 this.clauModel = new ClausulaModel();
                 clauModel = _clausulasServices.GetById(clausulaId);
-                txbId.Text = this.clauModel.Id.ToString();
                 txbTitulo.Text = this.clauModel.Titulo;
-                txbOrdem.Text = this.clauModel.Ordem.ToString();
             }
 
         }
