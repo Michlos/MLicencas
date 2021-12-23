@@ -5,5 +5,6 @@
         int ContratoId { get; set; }
         int Id { get; set; }
         string Titulo { get; set; }
+        int Numero { get; set; }
     }
 }

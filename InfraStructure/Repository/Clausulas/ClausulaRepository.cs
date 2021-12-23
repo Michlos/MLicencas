@@ -15,11 +15,11 @@ namespace InfraStructure.Repository.Clausulas
 {
     public class ClausulaRepository : IClausulasRepository
     {
-        private string _connectionString;
+        private readonly string _connectionString;
         private string _query;
         private IClausulaModel clausulaModel;
-        private List<IClausulaModel> clausulaListModel = new List<IClausulaModel>();
-        private DataAccessStatus dataAccessStatus = new DataAccessStatus();
+        private readonly List<IClausulaModel> clausulaListModel = new List<IClausulaModel>();
+        private readonly DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
         public ClausulaRepository(string connectionString)
         {
@@ -30,9 +30,9 @@ namespace InfraStructure.Repository.Clausulas
         {
             int idReturned;
             this.clausulaModel = new ClausulaModel();
-            _query = "INSERT INTO Clausulas (Titulo, ContratoId) " +
+            _query = "INSERT INTO Clausulas (Numero, Titulo, ContratoId) " +
                      "OUTPUT INSERTED.Id " +
-                     "VALUES (@Titulo, @ContratoId) ";
+                     "VALUES (@Numero, @Titulo, @ContratoId) ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -43,6 +43,7 @@ namespace InfraStructure.Repository.Clausulas
                     {
                         cmd.Prepare();
 
+                        cmd.Parameters.AddWithValue("@Numero", clausula.Numero);
                         cmd.Parameters.AddWithValue("@Titulo", clausula.Titulo);
                         cmd.Parameters.AddWithValue("@ContratoId", clausula.ContratoId);
 
@@ -101,7 +102,7 @@ namespace InfraStructure.Repository.Clausulas
 
         public void Edit(IClausulaModel clausula)
         {
-            _query = "UPDATE Clausulas SET Titulo = @Titulo, WHERE Id = @Id";
+            _query = "UPDATE Clausulas SET Numero = @Numero, Titulo = @Titulo WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -112,6 +113,7 @@ namespace InfraStructure.Repository.Clausulas
                         cmd.Prepare();
 
                         cmd.Parameters.AddWithValue("@Id", clausula.Id);
+                        cmd.Parameters.AddWithValue("@Numero", clausula.Numero);
                         cmd.Parameters.AddWithValue("@Titulo", clausula.Titulo);
 
                         cmd.ExecuteNonQuery();
@@ -149,6 +151,7 @@ namespace InfraStructure.Repository.Clausulas
                                 this.clausulaModel = new ClausulaModel();
 
                                 this.clausulaModel.Id = int.Parse(reader["Id"].ToString());
+                                this.clausulaModel.Numero = int.Parse(reader["Numero"].ToString());
                                 this.clausulaModel.Titulo = reader["Titulo"].ToString();
                                 this.clausulaModel.ContratoId = int.Parse(reader["ContratoId"].ToString());
 
@@ -195,6 +198,7 @@ namespace InfraStructure.Repository.Clausulas
                                 this.clausulaModel = new ClausulaModel();
 
                                 this.clausulaModel.Id = int.Parse(reader["Id"].ToString());
+                                this.clausulaModel.Numero = int.Parse(reader["Numero"].ToString());
                                 this.clausulaModel.Titulo = reader["Titulo"].ToString();
                                 this.clausulaModel.ContratoId = int.Parse(reader["ContratoId"].ToString());
 
@@ -238,6 +242,7 @@ namespace InfraStructure.Repository.Clausulas
                             while (reader.Read())
                             {
                                 this.clausulaModel.Id = int.Parse(reader["Id"].ToString());
+                                this.clausulaModel.Numero = int.Parse(reader["Numero"].ToString());
                                 this.clausulaModel.Titulo = reader["Titulo"].ToString();
                                 this.clausulaModel.ContratoId = int.Parse(reader["ContratoId"].ToString());
                             }

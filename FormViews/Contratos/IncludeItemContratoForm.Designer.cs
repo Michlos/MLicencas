@@ -46,7 +46,9 @@ namespace MLicencas.FormViews.Contratos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 198);
             this.Controls.Add(this.pnlContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "IncludeItemContratoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IncludeItemContratoForm";
             this.ResumeLayout(false);
 

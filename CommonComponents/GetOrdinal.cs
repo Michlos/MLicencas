@@ -5,7 +5,7 @@ namespace CommonComponents
 {
     public static class GetOrdinal
     {
-        public static string GetNum(int num)
+        public static string GetOrd(int num)
         {
             //VARIÁVEL DE RETORNO
             string numOrdinary = string.Empty;
@@ -53,21 +53,6 @@ namespace CommonComponents
                     unidadeStr = unidades[unidade];
                 }
             }
-
-
-
-            //ATRIBUINDO DIA COMPLETO POR EXTENSO
-            //if (dezena != 0)
-            //{
-            //    numOrdinary += dezenaStr;
-            //    if (unidade != 0)
-            //    {
-            //        if (dezena != 1)
-            //        {
-            //            numOrdinary += " e ";
-            //        }
-            //    }
-            //}
 
             if (unidade != 0)
             {

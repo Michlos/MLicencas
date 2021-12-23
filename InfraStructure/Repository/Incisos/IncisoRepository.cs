@@ -4,22 +4,19 @@ using DomainLayer.Clientes.Contratos.Incisos;
 
 using ServicesLayer.Contratos.Incisos;
 
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InfraStructure.Repository.Incisos
 {
     public class IncisoRepository : IIncisosRepository
     {
-        private string _connectionString, _query;
+        private readonly string _connectionString;
+        private string _query;
         private int idReturned;
         private IIncisoModel incisoModel;
         private List<IIncisoModel> incisoListModel;
-        private DataAccessStatus dataAccessStatus = new DataAccessStatus();
+        private readonly DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
         public IncisoRepository(string connectionString)
         {
@@ -29,7 +26,7 @@ namespace InfraStructure.Repository.Incisos
         public IIncisoModel Add(IIncisoModel incisoModel)
         {
             this.incisoModel = new IncisoModel();
-            _query = "INSERT INTO Incisos (Termo, ClausulaId) OUTPUT INSERTED.Id VALUES (@Termo, @ClusulaId)";
+            _query = "INSERT INTO Incisos (Numero, Termo, ClausulaId) OUTPUT INSERTED.Id VALUES (@Numero, @Termo, @ClausulaId)";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -38,6 +35,7 @@ namespace InfraStructure.Repository.Incisos
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         cmd.Prepare();
+                        cmd.Parameters.AddWithValue("@Numero", incisoModel.Numero);
                         cmd.Parameters.AddWithValue("@Termo", incisoModel.Termo);
                         cmd.Parameters.AddWithValue("@ClausulaId", incisoModel.ClausulaId);
                         idReturned = (int)cmd.ExecuteScalar();
@@ -89,7 +87,7 @@ namespace InfraStructure.Repository.Incisos
 
         public void Edit(IIncisoModel incisoModel)
         {
-            _query = "UPDATE Incisos SET Termo = @Termo, ClausulaId = @ClausulaId WHERE Id = @Id";
+            _query = "UPDATE Incisos SET Numero = @Numero, Termo = @Termo, ClausulaId = @ClausulaId WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -99,6 +97,7 @@ namespace InfraStructure.Repository.Incisos
                     {
                         cmd.Prepare();
                         cmd.Parameters.AddWithValue("@Id", incisoModel.Id);
+                        cmd.Parameters.AddWithValue("@Numero", incisoModel.Numero);
                         cmd.Parameters.AddWithValue("@Termo", incisoModel.Termo);
                         cmd.Parameters.AddWithValue("@ClausulaId", incisoModel.ClausulaId);
                         cmd.ExecuteNonQuery();
@@ -134,6 +133,7 @@ namespace InfraStructure.Repository.Incisos
                                 this.incisoModel = new IncisoModel();
 
                                 this.incisoModel.Id = int.Parse(reader["Id"].ToString());
+                                this.incisoModel.Numero = int.Parse(reader["Numero"].ToString());
                                 this.incisoModel.Termo = reader["Termo"].ToString();
                                 this.incisoModel.ClausulaId = int.Parse(reader["ClausulaId"].ToString());
 
@@ -175,6 +175,7 @@ namespace InfraStructure.Repository.Incisos
                                 this.incisoModel = new IncisoModel();
 
                                 this.incisoModel.Id = int.Parse(reader["Id"].ToString());
+                                this.incisoModel.Numero = int.Parse(reader["Numero"].ToString());
                                 this.incisoModel.Termo = reader["Termo"].ToString();
                                 this.incisoModel.ClausulaId = int.Parse(reader["ClausulaId"].ToString());
 
@@ -215,6 +216,7 @@ namespace InfraStructure.Repository.Incisos
                             {
 
                                 this.incisoModel.Id = int.Parse(reader["Id"].ToString());
+                                this.incisoModel.Numero = int.Parse(reader["Numero"].ToString());
                                 this.incisoModel.Termo = reader["Termo"].ToString();
                                 this.incisoModel.ClausulaId = int.Parse(reader["ClausulaId"].ToString());
 

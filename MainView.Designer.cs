@@ -206,6 +206,7 @@ namespace MLicencas
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MLicenças - Sistema de Gerenciamento de Licenças de Software";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainView_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();

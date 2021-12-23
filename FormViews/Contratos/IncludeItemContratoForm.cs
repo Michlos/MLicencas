@@ -37,8 +37,8 @@ namespace MLicencas.FormViews.Contratos
             {
                 pnlContainer.Controls.Add(Control);
                 this.Width = 500;
-                this.Height = 300;
-                this.Text = "Icisos - Inclusão";
+                this.Height = 250;
+                this.Text = "Termos - Inclusão";
             }
         }
     }

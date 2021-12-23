@@ -1,34 +1,27 @@
-﻿using DomainLayer.Clientes.Contratos.Clausulas;
-using DomainLayer.Clientes.Contratos.Incisos;
+﻿using DomainLayer.Clientes.Contratos.Incisos;
 
 using InfraStructure;
-using InfraStructure.Repository.Clausulas;
 using InfraStructure.Repository.Incisos;
 
 using ServiceLayer.CommonServices;
 
-using ServicesLayer.Clausulas;
 using ServicesLayer.Contratos.Incisos;
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MLicencas.UCViews.Contratos
 {
     public partial class ContratoIncisoUC : UserControl
     {
-        private int clausulaId, incisoId;
+        private readonly int clausulaId, incisoId;
         private QueryStringServices _queryString;
         private IncisosServices _incisosServices;
 
         private IIncisoModel incisoModel;
+        private IEnumerable<IIncisoModel> incisoListModel = new List<IIncisoModel>();
 
         public ContratoIncisoUC()
         {
@@ -41,6 +34,12 @@ namespace MLicencas.UCViews.Contratos
             InitializeComponent();
             this.clausulaId = clausulaId;
             this.incisoId = incisoId;
+            LoadModels();
+        }
+
+        private void LoadModels()
+        {
+            incisoListModel = _incisosServices.GetAllByClausula(clausulaId);
         }
 
         private void LoadServices()
@@ -54,6 +53,7 @@ namespace MLicencas.UCViews.Contratos
             incisoModel = new IncisoModel();
             incisoModel.Id = incisoId;
             incisoModel.Termo = txbTermo.Text;
+            incisoModel.Numero = int.Parse(txbNumero.Text);
             incisoModel.ClausulaId = clausulaId;
 
             if (incisoId != 0)
@@ -106,6 +106,19 @@ namespace MLicencas.UCViews.Contratos
                 this.incisoModel = new IncisoModel();
                 incisoModel = _incisosServices.GetById(incisoId);
                 txbTermo.Text = this.incisoModel.Termo;
+                txbNumero.Text = this.incisoModel.Numero.ToString();
+            }
+            else
+            {
+                if (incisoListModel.Any())
+                {
+                    txbNumero.Text = (incisoListModel.Last().Numero + 1).ToString();
+                }
+                else
+                {
+                    txbNumero.Text = "1";
+
+                }
             }
 
         }

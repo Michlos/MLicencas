@@ -21,11 +21,12 @@ namespace MLicencas.UCViews.Contratos
 {
     public partial class ContratoClausulaUC : UserControl
     {
-        private int contratoId, clausulaId;
+        private readonly int contratoId, clausulaId;
         private QueryStringServices _queryString;
         private ClausulasServices _clausulasServices;
 
         private IClausulaModel clauModel;
+        private IEnumerable<IClausulaModel> clausulaListModel = new List<IClausulaModel>();
 
         public ContratoClausulaUC()
         {
@@ -38,6 +39,12 @@ namespace MLicencas.UCViews.Contratos
             InitializeComponent();
             this.contratoId = contratoId;
             this.clausulaId = clausulaId;
+            LoadModels();
+        }
+
+        private void LoadModels()
+        {
+            clausulaListModel = _clausulasServices.GetAllByContratoId(contratoId);
         }
 
         private void LoadServices()
@@ -50,6 +57,7 @@ namespace MLicencas.UCViews.Contratos
         {
             clauModel = new ClausulaModel();
             clauModel.Id = clausulaId;
+            clauModel.Numero = int.Parse(txbNumero.Text);
             clauModel.Titulo = txbTitulo.Text;
             clauModel.ContratoId = contratoId;
 
@@ -84,6 +92,7 @@ namespace MLicencas.UCViews.Contratos
             {
                 _clausulasServices.Edit(clauModel);
                 MessageBox.Show("Cláusula Atualizada com sucesso.");
+                
             }
             catch (Exception e)
             {
@@ -96,6 +105,11 @@ namespace MLicencas.UCViews.Contratos
             LoadFormFields();
         }
 
+        private void txbNumero_Enter(object sender, EventArgs e)
+        {
+            MessageBox.Show($"O Número \"{txbNumero.Text}\" foi sugerido conforme\n a lista de clausulas existentes.\nTenha cautela ao alterá-lo.");
+        }
+
         private void LoadFormFields()
         {
             if (clausulaId != 0)
@@ -103,6 +117,18 @@ namespace MLicencas.UCViews.Contratos
                 this.clauModel = new ClausulaModel();
                 clauModel = _clausulasServices.GetById(clausulaId);
                 txbTitulo.Text = this.clauModel.Titulo;
+                txbNumero.Text = this.clauModel.Numero.ToString();
+            }
+            else
+            {
+                if (clausulaListModel.Any())
+                {
+                    txbNumero.Text = (clausulaListModel.Last().Numero + 1).ToString();
+                }
+                else
+                {
+                    txbNumero.Text = "1";
+                }
             }
 
         }

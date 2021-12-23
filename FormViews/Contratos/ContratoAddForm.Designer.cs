@@ -29,6 +29,7 @@ namespace MLicencas.FormViews.Contratos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlBottomMenu = new System.Windows.Forms.Panel();
             this.btnSaveContrato = new System.Windows.Forms.Button();
             this.btnAddClausula = new System.Windows.Forms.Button();
@@ -50,16 +51,26 @@ namespace MLicencas.FormViews.Contratos
             this.txbNome = new System.Windows.Forms.TextBox();
             this.txbId = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.pnlRighMenu = new System.Windows.Forms.Panel();
             this.dgvClausulas = new System.Windows.Forms.DataGridView();
-            this.dgvIncisos = new System.Windows.Forms.DataGridView();
+            this.pnlRighMenu = new System.Windows.Forms.Panel();
             this.btnAddInciso = new System.Windows.Forms.Button();
+            this.dgvIncisos = new System.Windows.Forms.DataGridView();
+            this.clausulaContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.novoClausulaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarClausulaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removerClausulaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incisoContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.novoIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removerIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBottomMenu.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlContainer.SuspendLayout();
-            this.pnlRighMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClausulas)).BeginInit();
+            this.pnlRighMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncisos)).BeginInit();
+            this.clausulaContextMenu.SuspendLayout();
+            this.incisoContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBottomMenu
@@ -295,6 +306,25 @@ namespace MLicencas.FormViews.Contratos
             this.pnlContainer.Size = new System.Drawing.Size(912, 151);
             this.pnlContainer.TabIndex = 4;
             // 
+            // dgvClausulas
+            // 
+            this.dgvClausulas.AllowUserToAddRows = false;
+            this.dgvClausulas.AllowUserToDeleteRows = false;
+            this.dgvClausulas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClausulas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClausulas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClausulas.Location = new System.Drawing.Point(12, 16);
+            this.dgvClausulas.Name = "dgvClausulas";
+            this.dgvClausulas.ReadOnly = true;
+            this.dgvClausulas.RowHeadersVisible = false;
+            this.dgvClausulas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvClausulas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClausulas.Size = new System.Drawing.Size(795, 123);
+            this.dgvClausulas.TabIndex = 0;
+            this.dgvClausulas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClausulas_CellClick);
+            this.dgvClausulas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvClausulas_MouseClick);
+            // 
             // pnlRighMenu
             // 
             this.pnlRighMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -307,35 +337,6 @@ namespace MLicencas.FormViews.Contratos
             this.pnlRighMenu.Name = "pnlRighMenu";
             this.pnlRighMenu.Size = new System.Drawing.Size(912, 173);
             this.pnlRighMenu.TabIndex = 1;
-            // 
-            // dgvClausulas
-            // 
-            this.dgvClausulas.AllowUserToAddRows = false;
-            this.dgvClausulas.AllowUserToDeleteRows = false;
-            this.dgvClausulas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvClausulas.BackgroundColor = System.Drawing.Color.White;
-            this.dgvClausulas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClausulas.Location = new System.Drawing.Point(12, 16);
-            this.dgvClausulas.Name = "dgvClausulas";
-            this.dgvClausulas.ReadOnly = true;
-            this.dgvClausulas.Size = new System.Drawing.Size(795, 123);
-            this.dgvClausulas.TabIndex = 0;
-            // 
-            // dgvIncisos
-            // 
-            this.dgvIncisos.AllowUserToAddRows = false;
-            this.dgvIncisos.AllowUserToDeleteRows = false;
-            this.dgvIncisos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvIncisos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvIncisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIncisos.Location = new System.Drawing.Point(11, 12);
-            this.dgvIncisos.Name = "dgvIncisos";
-            this.dgvIncisos.ReadOnly = true;
-            this.dgvIncisos.Size = new System.Drawing.Size(795, 154);
-            this.dgvIncisos.TabIndex = 0;
             // 
             // btnAddInciso
             // 
@@ -353,7 +354,87 @@ namespace MLicencas.FormViews.Contratos
             this.btnAddInciso.Text = "Inciso";
             this.btnAddInciso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddInciso.UseVisualStyleBackColor = false;
-            this.btnAddInciso.Click += new System.EventHandler(this.btnAddClausula_Click);
+            this.btnAddInciso.Click += new System.EventHandler(this.btnAddInciso_Click);
+            // 
+            // dgvIncisos
+            // 
+            this.dgvIncisos.AllowUserToAddRows = false;
+            this.dgvIncisos.AllowUserToDeleteRows = false;
+            this.dgvIncisos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvIncisos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvIncisos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvIncisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncisos.Location = new System.Drawing.Point(11, 12);
+            this.dgvIncisos.Name = "dgvIncisos";
+            this.dgvIncisos.ReadOnly = true;
+            this.dgvIncisos.RowHeadersVisible = false;
+            this.dgvIncisos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvIncisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvIncisos.Size = new System.Drawing.Size(795, 154);
+            this.dgvIncisos.TabIndex = 0;
+            this.dgvIncisos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvIncisos_MouseClick);
+            // 
+            // clausulaContextMenu
+            // 
+            this.clausulaContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoClausulaToolStripMenuItem,
+            this.editarClausulaToolStripMenuItem,
+            this.removerClausulaToolStripMenuItem});
+            this.clausulaContextMenu.Name = "clausulaContextMenu";
+            this.clausulaContextMenu.Size = new System.Drawing.Size(122, 70);
+            // 
+            // novoClausulaToolStripMenuItem
+            // 
+            this.novoClausulaToolStripMenuItem.Name = "novoClausulaToolStripMenuItem";
+            this.novoClausulaToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.novoClausulaToolStripMenuItem.Text = "Novo";
+            this.novoClausulaToolStripMenuItem.Click += new System.EventHandler(this.btnAddClausula_Click);
+            // 
+            // editarClausulaToolStripMenuItem
+            // 
+            this.editarClausulaToolStripMenuItem.Name = "editarClausulaToolStripMenuItem";
+            this.editarClausulaToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.editarClausulaToolStripMenuItem.Text = "Editar";
+            this.editarClausulaToolStripMenuItem.Click += new System.EventHandler(this.editarClausulaToolStripMenuItem_Click);
+            // 
+            // removerClausulaToolStripMenuItem
+            // 
+            this.removerClausulaToolStripMenuItem.Name = "removerClausulaToolStripMenuItem";
+            this.removerClausulaToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removerClausulaToolStripMenuItem.Text = "Remover";
+            this.removerClausulaToolStripMenuItem.Click += new System.EventHandler(this.removerClausulaToolStripMenuItem_Click);
+            // 
+            // incisoContextMenu
+            // 
+            this.incisoContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoIncisoToolStripMenuItem,
+            this.editarIncisoToolStripMenuItem,
+            this.removerIncisoToolStripMenuItem});
+            this.incisoContextMenu.Name = "incisoContextMenu";
+            this.incisoContextMenu.Size = new System.Drawing.Size(181, 92);
+            // 
+            // novoIncisoToolStripMenuItem
+            // 
+            this.novoIncisoToolStripMenuItem.Name = "novoIncisoToolStripMenuItem";
+            this.novoIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoIncisoToolStripMenuItem.Text = "Novo";
+            this.novoIncisoToolStripMenuItem.Click += new System.EventHandler(this.btnAddInciso_Click);
+            // 
+            // editarIncisoToolStripMenuItem
+            // 
+            this.editarIncisoToolStripMenuItem.Name = "editarIncisoToolStripMenuItem";
+            this.editarIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarIncisoToolStripMenuItem.Text = "Editar";
+            this.editarIncisoToolStripMenuItem.Click += new System.EventHandler(this.editarIncisoToolStripMenuItem_Click);
+            // 
+            // removerIncisoToolStripMenuItem
+            // 
+            this.removerIncisoToolStripMenuItem.Name = "removerIncisoToolStripMenuItem";
+            this.removerIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removerIncisoToolStripMenuItem.Text = "Remover";
+            this.removerIncisoToolStripMenuItem.Click += new System.EventHandler(this.removerIncisoToolStripMenuItem_Click);
             // 
             // ContratoAddForm
             // 
@@ -372,9 +453,11 @@ namespace MLicencas.FormViews.Contratos
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlContainer.ResumeLayout(false);
-            this.pnlRighMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClausulas)).EndInit();
+            this.pnlRighMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncisos)).EndInit();
+            this.clausulaContextMenu.ResumeLayout(false);
+            this.incisoContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -406,5 +489,13 @@ namespace MLicencas.FormViews.Contratos
         private System.Windows.Forms.DataGridView dgvClausulas;
         private System.Windows.Forms.Button btnAddInciso;
         private System.Windows.Forms.DataGridView dgvIncisos;
+        private System.Windows.Forms.ContextMenuStrip clausulaContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem novoClausulaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarClausulaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removerClausulaToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip incisoContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem novoIncisoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarIncisoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removerIncisoToolStripMenuItem;
     }
 }
