@@ -37,9 +37,7 @@ namespace MLicencas.FormViews.Contratos
     public partial class ContratoAddForm : Form
     {
         private int contratoId;
-        //private int ordemClausula;
         public int clienteId;
-        //readonly List<ContratoClausulaUC> clausulasListUC = new List<ContratoClausulaUC>();
 
         //SERVICES
         private QueryStringServices _queryString;
@@ -53,7 +51,6 @@ namespace MLicencas.FormViews.Contratos
         //MODELS LISTMODELS
         private IContratoModel contratoModel;
         private IClausulaModel clausulaModel;
-        private IIncisoModel incisoModel;
         private IEnumerable<IIncisoModel> incisoListModel = new List<IIncisoModel>();
         private IEnumerable<IClausulaModel> clausulaListModel = new List<IClausulaModel>();
         private IEnumerable<IClienteModel> cliListModel = new List<IClienteModel>();
@@ -180,7 +177,7 @@ namespace MLicencas.FormViews.Contratos
         {
             if (contratoId != 0)
             {
-                btnAddClausula.Enabled = true;
+                //btnAddClausula.Enabled = true;
                 this.contratoModel = _contratosServices.GetById(contratoId);
                 txbId.Text = this.contratoModel.Id.ToString();
                 txbNome.Text = this.contratoModel.Nome;
@@ -192,11 +189,7 @@ namespace MLicencas.FormViews.Contratos
                 cbStatus.SelectedItem = statusListModel.Where(id => id.Id == this.contratoModel.SituacaoId);
 
             }
-            else
-            {
 
-                btnAddClausula.Enabled = false;
-            }
 
         }
 
@@ -248,7 +241,7 @@ namespace MLicencas.FormViews.Contratos
             dgvIncisos.Columns["Id"].Visible = false;
             dgvIncisos.Columns["Numero"].Width = 60;
             dgvIncisos.Columns["Numero"].HeaderText = "Num.";
-            dgvIncisos.Columns["Termo"].Width = 710;
+            dgvIncisos.Columns["Termo"].Width = 650;
             dgvIncisos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgvIncisos.RowTemplate.Height = 60;
 
@@ -300,7 +293,7 @@ namespace MLicencas.FormViews.Contratos
             dgvClausulas.Columns["Id"].Visible = false;
             dgvClausulas.Columns["Clausula"].Width = 250; //CLÁUSULA PRIMEIRA... DADA PELO INDEX
             dgvClausulas.Columns["Clausula"].HeaderText = "Cláusula";
-            dgvClausulas.Columns["Titulo"].Width = 520; //DO OBJETO... OBIRGAÇÕES DO CONTRATANTE...
+            dgvClausulas.Columns["Titulo"].Width = 460; //DO OBJETO... OBIRGAÇÕES DO CONTRATANTE...
             dgvClausulas.Columns["Titulo"].HeaderText = "Título";
 
 
@@ -326,12 +319,9 @@ namespace MLicencas.FormViews.Contratos
             {
                 this.clausulaModel = _clausulasServices.GetById(int.Parse(dgvClausulas.CurrentRow.Cells[0].Value.ToString()));
                 LoadDGVIncisos(this.clausulaModel.Id);
-                btnAddInciso.Enabled = true;
+                //btnAddInciso.Enabled = true;
             }
-            else
-            {
-                btnAddInciso.Enabled = false;
-            }
+
         }
 
         private void btnAddInciso_Click(object sender, EventArgs e)

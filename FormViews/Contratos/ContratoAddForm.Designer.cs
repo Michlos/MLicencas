@@ -32,7 +32,6 @@ namespace MLicencas.FormViews.Contratos
             this.components = new System.ComponentModel.Container();
             this.pnlBottomMenu = new System.Windows.Forms.Panel();
             this.btnSaveContrato = new System.Windows.Forms.Button();
-            this.btnAddClausula = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.cbSoftware = new System.Windows.Forms.ComboBox();
             this.cbCliente = new System.Windows.Forms.ComboBox();
@@ -53,7 +52,6 @@ namespace MLicencas.FormViews.Contratos
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.dgvClausulas = new System.Windows.Forms.DataGridView();
             this.pnlRighMenu = new System.Windows.Forms.Panel();
-            this.btnAddInciso = new System.Windows.Forms.Button();
             this.dgvIncisos = new System.Windows.Forms.DataGridView();
             this.clausulaContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.novoClausulaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,12 +73,11 @@ namespace MLicencas.FormViews.Contratos
             // 
             // pnlBottomMenu
             // 
-            this.pnlBottomMenu.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pnlBottomMenu.Controls.Add(this.btnSaveContrato);
             this.pnlBottomMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottomMenu.Location = new System.Drawing.Point(0, 474);
             this.pnlBottomMenu.Name = "pnlBottomMenu";
-            this.pnlBottomMenu.Size = new System.Drawing.Size(912, 44);
+            this.pnlBottomMenu.Size = new System.Drawing.Size(753, 44);
             this.pnlBottomMenu.TabIndex = 0;
             // 
             // btnSaveContrato
@@ -91,7 +88,7 @@ namespace MLicencas.FormViews.Contratos
             this.btnSaveContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveContrato.Image = global::MLicencas.Properties.Resources.iconSave20x20;
             this.btnSaveContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveContrato.Location = new System.Drawing.Point(813, 5);
+            this.btnSaveContrato.Location = new System.Drawing.Point(654, 5);
             this.btnSaveContrato.Name = "btnSaveContrato";
             this.btnSaveContrato.Size = new System.Drawing.Size(87, 29);
             this.btnSaveContrato.TabIndex = 0;
@@ -100,27 +97,8 @@ namespace MLicencas.FormViews.Contratos
             this.btnSaveContrato.UseVisualStyleBackColor = false;
             this.btnSaveContrato.Click += new System.EventHandler(this.btnSaveContrato_Click);
             // 
-            // btnAddClausula
-            // 
-            this.btnAddClausula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddClausula.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnAddClausula.Enabled = false;
-            this.btnAddClausula.FlatAppearance.BorderSize = 0;
-            this.btnAddClausula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddClausula.Image = global::MLicencas.Properties.Resources.IconAdd20x20;
-            this.btnAddClausula.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddClausula.Location = new System.Drawing.Point(813, 110);
-            this.btnAddClausula.Name = "btnAddClausula";
-            this.btnAddClausula.Size = new System.Drawing.Size(87, 29);
-            this.btnAddClausula.TabIndex = 0;
-            this.btnAddClausula.Text = "Clausula";
-            this.btnAddClausula.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddClausula.UseVisualStyleBackColor = false;
-            this.btnAddClausula.Click += new System.EventHandler(this.btnAddClausula_Click);
-            // 
             // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnlHeader.Controls.Add(this.cbSoftware);
             this.pnlHeader.Controls.Add(this.cbCliente);
             this.pnlHeader.Controls.Add(this.cbStatus);
@@ -141,14 +119,14 @@ namespace MLicencas.FormViews.Contratos
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(912, 155);
+            this.pnlHeader.Size = new System.Drawing.Size(753, 155);
             this.pnlHeader.TabIndex = 3;
             // 
             // cbSoftware
             // 
             this.cbSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSoftware.FormattingEnabled = true;
-            this.cbSoftware.Location = new System.Drawing.Point(760, 56);
+            this.cbSoftware.Location = new System.Drawing.Point(601, 56);
             this.cbSoftware.Name = "cbSoftware";
             this.cbSoftware.Size = new System.Drawing.Size(140, 21);
             this.cbSoftware.TabIndex = 3;
@@ -156,7 +134,7 @@ namespace MLicencas.FormViews.Contratos
             // cbCliente
             // 
             this.cbCliente.FormattingEnabled = true;
-            this.cbCliente.Location = new System.Drawing.Point(45, 55);
+            this.cbCliente.Location = new System.Drawing.Point(48, 55);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Size = new System.Drawing.Size(226, 21);
             this.cbCliente.TabIndex = 3;
@@ -164,7 +142,7 @@ namespace MLicencas.FormViews.Contratos
             // cbStatus
             // 
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(249, 3);
+            this.cbStatus.Location = new System.Drawing.Point(252, 3);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(72, 21);
             this.cbStatus.TabIndex = 3;
@@ -173,7 +151,7 @@ namespace MLicencas.FormViews.Contratos
             // 
             this.dtVencimento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtVencimento.Location = new System.Drawing.Point(815, 30);
+            this.dtVencimento.Location = new System.Drawing.Point(656, 30);
             this.dtVencimento.MinDate = new System.DateTime(2021, 12, 18, 0, 0, 0, 0);
             this.dtVencimento.Name = "dtVencimento";
             this.dtVencimento.Size = new System.Drawing.Size(85, 20);
@@ -183,7 +161,7 @@ namespace MLicencas.FormViews.Contratos
             // 
             this.dtRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtRegistro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtRegistro.Location = new System.Drawing.Point(815, 4);
+            this.dtRegistro.Location = new System.Drawing.Point(656, 4);
             this.dtRegistro.MinDate = new System.DateTime(2021, 12, 18, 0, 0, 0, 0);
             this.dtRegistro.Name = "dtRegistro";
             this.dtRegistro.Size = new System.Drawing.Size(85, 20);
@@ -202,7 +180,7 @@ namespace MLicencas.FormViews.Contratos
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(708, 60);
+            this.label8.Location = new System.Drawing.Point(549, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 1;
@@ -230,7 +208,7 @@ namespace MLicencas.FormViews.Contratos
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(726, 8);
+            this.label4.Location = new System.Drawing.Point(567, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 1;
@@ -239,7 +217,7 @@ namespace MLicencas.FormViews.Contratos
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(210, 7);
+            this.label6.Location = new System.Drawing.Point(213, 7);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 1;
@@ -258,7 +236,7 @@ namespace MLicencas.FormViews.Contratos
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(705, 34);
+            this.label5.Location = new System.Drawing.Point(546, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 1;
@@ -269,10 +247,11 @@ namespace MLicencas.FormViews.Contratos
             this.txbTermo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbTermo.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTermo.Location = new System.Drawing.Point(45, 82);
+            this.txbTermo.Location = new System.Drawing.Point(48, 82);
             this.txbTermo.Multiline = true;
             this.txbTermo.Name = "txbTermo";
-            this.txbTermo.Size = new System.Drawing.Size(855, 61);
+            this.txbTermo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txbTermo.Size = new System.Drawing.Size(693, 61);
             this.txbTermo.TabIndex = 0;
             this.txbTermo.Text = "Decidem as partes, na melhor forma de direito, celebrar o presente CONTRATO DE PR" +
     "ESTAÇÃO DE SERVIÇOS, que reger-se-á mediante as cláusulas e condições adiante es" +
@@ -280,7 +259,7 @@ namespace MLicencas.FormViews.Contratos
             // 
             // txbNome
             // 
-            this.txbNome.Location = new System.Drawing.Point(45, 29);
+            this.txbNome.Location = new System.Drawing.Point(48, 29);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(276, 20);
             this.txbNome.TabIndex = 0;
@@ -288,7 +267,7 @@ namespace MLicencas.FormViews.Contratos
             // txbId
             // 
             this.txbId.Enabled = false;
-            this.txbId.Location = new System.Drawing.Point(45, 3);
+            this.txbId.Location = new System.Drawing.Point(48, 3);
             this.txbId.Name = "txbId";
             this.txbId.Size = new System.Drawing.Size(56, 20);
             this.txbId.TabIndex = 0;
@@ -298,12 +277,10 @@ namespace MLicencas.FormViews.Contratos
             this.pnlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContainer.AutoScroll = true;
-            this.pnlContainer.BackColor = System.Drawing.Color.Maroon;
-            this.pnlContainer.Controls.Add(this.btnAddClausula);
             this.pnlContainer.Controls.Add(this.dgvClausulas);
             this.pnlContainer.Location = new System.Drawing.Point(0, 155);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(912, 151);
+            this.pnlContainer.Size = new System.Drawing.Size(753, 151);
             this.pnlContainer.TabIndex = 4;
             // 
             // dgvClausulas
@@ -320,7 +297,7 @@ namespace MLicencas.FormViews.Contratos
             this.dgvClausulas.RowHeadersVisible = false;
             this.dgvClausulas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvClausulas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClausulas.Size = new System.Drawing.Size(795, 123);
+            this.dgvClausulas.Size = new System.Drawing.Size(729, 123);
             this.dgvClausulas.TabIndex = 0;
             this.dgvClausulas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClausulas_CellClick);
             this.dgvClausulas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvClausulas_MouseClick);
@@ -330,31 +307,11 @@ namespace MLicencas.FormViews.Contratos
             this.pnlRighMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlRighMenu.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnlRighMenu.Controls.Add(this.btnAddInciso);
             this.pnlRighMenu.Controls.Add(this.dgvIncisos);
             this.pnlRighMenu.Location = new System.Drawing.Point(0, 300);
             this.pnlRighMenu.Name = "pnlRighMenu";
-            this.pnlRighMenu.Size = new System.Drawing.Size(912, 173);
+            this.pnlRighMenu.Size = new System.Drawing.Size(753, 173);
             this.pnlRighMenu.TabIndex = 1;
-            // 
-            // btnAddInciso
-            // 
-            this.btnAddInciso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddInciso.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnAddInciso.Enabled = false;
-            this.btnAddInciso.FlatAppearance.BorderSize = 0;
-            this.btnAddInciso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddInciso.Image = global::MLicencas.Properties.Resources.IconAdd20x20;
-            this.btnAddInciso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddInciso.Location = new System.Drawing.Point(812, 137);
-            this.btnAddInciso.Name = "btnAddInciso";
-            this.btnAddInciso.Size = new System.Drawing.Size(87, 29);
-            this.btnAddInciso.TabIndex = 0;
-            this.btnAddInciso.Text = "Inciso";
-            this.btnAddInciso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddInciso.UseVisualStyleBackColor = false;
-            this.btnAddInciso.Click += new System.EventHandler(this.btnAddInciso_Click);
             // 
             // dgvIncisos
             // 
@@ -372,7 +329,7 @@ namespace MLicencas.FormViews.Contratos
             this.dgvIncisos.RowHeadersVisible = false;
             this.dgvIncisos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvIncisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncisos.Size = new System.Drawing.Size(795, 154);
+            this.dgvIncisos.Size = new System.Drawing.Size(730, 154);
             this.dgvIncisos.TabIndex = 0;
             this.dgvIncisos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvIncisos_MouseClick);
             // 
@@ -413,26 +370,26 @@ namespace MLicencas.FormViews.Contratos
             this.editarIncisoToolStripMenuItem,
             this.removerIncisoToolStripMenuItem});
             this.incisoContextMenu.Name = "incisoContextMenu";
-            this.incisoContextMenu.Size = new System.Drawing.Size(181, 92);
+            this.incisoContextMenu.Size = new System.Drawing.Size(122, 70);
             // 
             // novoIncisoToolStripMenuItem
             // 
             this.novoIncisoToolStripMenuItem.Name = "novoIncisoToolStripMenuItem";
-            this.novoIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoIncisoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.novoIncisoToolStripMenuItem.Text = "Novo";
             this.novoIncisoToolStripMenuItem.Click += new System.EventHandler(this.btnAddInciso_Click);
             // 
             // editarIncisoToolStripMenuItem
             // 
             this.editarIncisoToolStripMenuItem.Name = "editarIncisoToolStripMenuItem";
-            this.editarIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarIncisoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.editarIncisoToolStripMenuItem.Text = "Editar";
             this.editarIncisoToolStripMenuItem.Click += new System.EventHandler(this.editarIncisoToolStripMenuItem_Click);
             // 
             // removerIncisoToolStripMenuItem
             // 
             this.removerIncisoToolStripMenuItem.Name = "removerIncisoToolStripMenuItem";
-            this.removerIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removerIncisoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.removerIncisoToolStripMenuItem.Text = "Remover";
             this.removerIncisoToolStripMenuItem.Click += new System.EventHandler(this.removerIncisoToolStripMenuItem_Click);
             // 
@@ -440,7 +397,7 @@ namespace MLicencas.FormViews.Contratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 518);
+            this.ClientSize = new System.Drawing.Size(753, 518);
             this.Controls.Add(this.pnlRighMenu);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlHeader);
@@ -467,7 +424,6 @@ namespace MLicencas.FormViews.Contratos
         private System.Windows.Forms.Panel pnlBottomMenu;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Panel pnlContainer;
-        private System.Windows.Forms.Button btnAddClausula;
         private System.Windows.Forms.Button btnSaveContrato;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbId;
@@ -487,7 +443,6 @@ namespace MLicencas.FormViews.Contratos
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnlRighMenu;
         private System.Windows.Forms.DataGridView dgvClausulas;
-        private System.Windows.Forms.Button btnAddInciso;
         private System.Windows.Forms.DataGridView dgvIncisos;
         private System.Windows.Forms.ContextMenuStrip clausulaContextMenu;
         private System.Windows.Forms.ToolStripMenuItem novoClausulaToolStripMenuItem;
