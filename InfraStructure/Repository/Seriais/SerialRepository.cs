@@ -72,6 +72,50 @@ namespace InfraStructure.Repository.Seriais
 
         }
 
+        public IEnumerable<ISerialModel> GetAll()
+        {
+            this.serialListModel.Clear();
+            _query = "SELECT * FROM Seriais";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                serialModel = new SerialModel();
+                                
+                                serialModel.Id = int.Parse(reader["Id"].ToString());
+                                serialModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
+                                serialModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                serialModel.ContratoId = int.Parse(reader["ContratoId"].ToString());
+                                serialModel.Chave = reader["Chave"].ToString();
+                                serialModel.HashChave = reader["HashChave"].ToString();
+                                serialModel.HashCliente = reader["HashCliente"].ToString();
+
+                                serialListModel.Add(serialModel);
+
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    this.dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar a lista de Serials", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return serialListModel;
+        }
+
         public IEnumerable<ISerialModel> GetAllByClienteId(int clienteId)
         {
             this.serialListModel.Clear();

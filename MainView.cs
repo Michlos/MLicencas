@@ -4,6 +4,7 @@ using DomainLayer.Usuarios;
 using MLicencas.FormViews.Clientes;
 using MLicencas.FormViews.Contratos;
 using MLicencas.FormViews.Fabrica;
+using MLicencas.FormViews.Licencas;
 using MLicencas.FormViews.Login;
 using MLicencas.FormViews.Softwares;
 using MLicencas.FormViews.Usuarios;
@@ -83,8 +84,8 @@ namespace MLicencas
 
         private void MainView_Load(object sender, EventArgs e)
         {
-            menuGestaoDeUsuarios.Enabled = CheckPermissoes(menuGestaoDeUsuarios.Tag);
-            cadastroDaEmpresaToolStripMenuItem.Enabled = CheckPermissoes(cadastroDaEmpresaToolStripMenuItem.Tag);
+            //menuGestaoDeUsuarios.Enabled = CheckPermissoes(menuGestaoDeUsuarios.Tag);
+            //cadastroDaEmpresaToolStripMenuItem.Enabled = CheckPermissoes(cadastroDaEmpresaToolStripMenuItem.Tag);
             novoClienteToolStripMenuItem.Enabled = CheckPermissoes(novoClienteToolStripMenuItem.Tag);
             gestaoDeClientesToolStripMenuItem.Enabled = CheckPermissoes(gestaoDeClientesToolStripMenuItem.Tag);
             novoSoftwareToolStripMenuItem.Enabled = CheckPermissoes(novoSoftwareToolStripMenuItem.Tag);
@@ -148,6 +149,14 @@ namespace MLicencas
             contratoAddForm.WindowState = FormWindowState.Normal;
             contratoAddForm.MdiParent = this;
             contratoAddForm.Show();
+        }
+
+        private void gestaoDeLicencasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LicencaListForm licencaList = new LicencaListForm();
+            licencaList.WindowState = FormWindowState.Normal;
+            licencaList.MdiParent = this;
+            licencaList.Show();
         }
     }
 }

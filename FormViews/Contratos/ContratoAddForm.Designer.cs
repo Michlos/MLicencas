@@ -31,6 +31,7 @@ namespace MLicencas.FormViews.Contratos
         {
             this.components = new System.ComponentModel.Container();
             this.pnlBottomMenu = new System.Windows.Forms.Panel();
+            this.btnGerarLicenca = new System.Windows.Forms.Button();
             this.btnSaveContrato = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.cbSoftware = new System.Windows.Forms.ComboBox();
@@ -61,6 +62,7 @@ namespace MLicencas.FormViews.Contratos
             this.novoIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removerIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pnlBottomMenu.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlContainer.SuspendLayout();
@@ -73,12 +75,30 @@ namespace MLicencas.FormViews.Contratos
             // 
             // pnlBottomMenu
             // 
+            this.pnlBottomMenu.Controls.Add(this.btnClose);
+            this.pnlBottomMenu.Controls.Add(this.btnGerarLicenca);
             this.pnlBottomMenu.Controls.Add(this.btnSaveContrato);
             this.pnlBottomMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottomMenu.Location = new System.Drawing.Point(0, 474);
             this.pnlBottomMenu.Name = "pnlBottomMenu";
             this.pnlBottomMenu.Size = new System.Drawing.Size(753, 44);
             this.pnlBottomMenu.TabIndex = 0;
+            // 
+            // btnGerarLicenca
+            // 
+            this.btnGerarLicenca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGerarLicenca.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnGerarLicenca.Enabled = false;
+            this.btnGerarLicenca.FlatAppearance.BorderSize = 0;
+            this.btnGerarLicenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarLicenca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGerarLicenca.Location = new System.Drawing.Point(327, 5);
+            this.btnGerarLicenca.Name = "btnGerarLicenca";
+            this.btnGerarLicenca.Size = new System.Drawing.Size(87, 29);
+            this.btnGerarLicenca.TabIndex = 0;
+            this.btnGerarLicenca.Text = "Gerar Licença";
+            this.btnGerarLicenca.UseVisualStyleBackColor = false;
+            this.btnGerarLicenca.Click += new System.EventHandler(this.btnSaveContrato_Click);
             // 
             // btnSaveContrato
             // 
@@ -393,6 +413,20 @@ namespace MLicencas.FormViews.Contratos
             this.removerIncisoToolStripMenuItem.Text = "Remover";
             this.removerIncisoToolStripMenuItem.Click += new System.EventHandler(this.removerIncisoToolStripMenuItem_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(12, 6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(103, 27);
+            this.btnClose.TabIndex = 21;
+            this.btnClose.Text = "Fechar";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // ContratoAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,5 +486,7 @@ namespace MLicencas.FormViews.Contratos
         private System.Windows.Forms.ToolStripMenuItem novoIncisoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarIncisoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removerIncisoToolStripMenuItem;
+        private System.Windows.Forms.Button btnGerarLicenca;
+        public System.Windows.Forms.Button btnClose;
     }
 }

@@ -418,5 +418,10 @@ namespace MLicencas.FormViews.Contratos
                 }
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

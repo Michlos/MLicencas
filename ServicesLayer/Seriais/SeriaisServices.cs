@@ -9,8 +9,8 @@ namespace ServicesLayer.Seriais
 {
     public class SeriaisServices : ISeriaisRepository, ISeriaisServices
     {
-        private ISeriaisRepository _seriaisRepository;
-        private IModelDataAnnotationCheck _modelDataAnnotationCheck;
+        private readonly ISeriaisRepository _seriaisRepository;
+        private readonly IModelDataAnnotationCheck _modelDataAnnotationCheck;
 
         public SeriaisServices(ISeriaisRepository seriaisRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
         {
@@ -21,6 +21,11 @@ namespace ServicesLayer.Seriais
         public ISerialModel Add(ISerialModel serial)
         {
             return _seriaisRepository.Add(serial);
+        }
+
+        public IEnumerable<ISerialModel> GetAll()
+        {
+            return _seriaisRepository.GetAll();
         }
 
         public IEnumerable<ISerialModel> GetAllByClienteId(int clienteId)

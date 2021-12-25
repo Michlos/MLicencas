@@ -12,5 +12,6 @@ namespace ServicesLayer.Seriais
         ISerialModel GetById(int serialId);
         ISerialModel GetByContratoId(int contratoId);
         IEnumerable<ISerialModel> GetAllByClienteId(int clienteId);
+        IEnumerable<ISerialModel> GetAll();
     }
 }
