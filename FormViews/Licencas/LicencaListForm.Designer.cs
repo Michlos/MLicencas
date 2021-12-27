@@ -108,12 +108,12 @@ namespace MLicencas.FormViews.Licencas
             this.novoToolStripMenuItem,
             this.editarToolStripMenuItem});
             this.contextMenuLicencas.Name = "contextMenuClientes";
-            this.contextMenuLicencas.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuLicencas.Size = new System.Drawing.Size(105, 48);
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.novoToolStripMenuItem.Tag = "2.1";
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.btnNew_Click);
@@ -121,7 +121,7 @@ namespace MLicencas.FormViews.Licencas
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.editarToolStripMenuItem.Tag = "2.3";
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
@@ -135,7 +135,7 @@ namespace MLicencas.FormViews.Licencas
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dgvSerials);
             this.Name = "LicencaListForm";
-            this.Text = "Gerenciamento de Licenças";
+            this.Text = "Licença - Gestão de Licenças";
             this.Load += new System.EventHandler(this.LicencaListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSerials)).EndInit();
             this.contextMenuLicencas.ResumeLayout(false);

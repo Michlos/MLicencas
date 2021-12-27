@@ -49,7 +49,7 @@ namespace MLicencas.FormViews.Contratos
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "IncludeItemContratoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IncludeItemContratoForm";
+            this.Text = "Contrato - Edição";
             this.ResumeLayout(false);
 
         }

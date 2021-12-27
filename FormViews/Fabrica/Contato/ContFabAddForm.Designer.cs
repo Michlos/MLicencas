@@ -291,7 +291,7 @@ namespace MLicencas.FormViews.Fabrica.Contato
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ContFabAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ContFabAddForm";
+            this.Text = "Fábrica - Editar Contato";
             this.Load += new System.EventHandler(this.ContFabAddForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonesContato)).EndInit();
             this.gbTelefones.ResumeLayout(false);

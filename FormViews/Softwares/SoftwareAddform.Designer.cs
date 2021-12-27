@@ -232,7 +232,7 @@ namespace MLicencas.FormViews.Softwares
             this.MaximizeBox = false;
             this.Name = "SoftwareAddform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SoftwareAddform";
+            this.Text = "Software - Edição de Software";
             this.Load += new System.EventHandler(this.SoftwareAddform_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

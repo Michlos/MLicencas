@@ -178,7 +178,7 @@ namespace MLicencas.FormViews.Fabrica.Contato.Telefone
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TelFabAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Telefone Contato Fábrica";
+            this.Text = "Fábrica - Telefone Contato ";
             this.Load += new System.EventHandler(this.TelFabAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

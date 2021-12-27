@@ -161,7 +161,7 @@ namespace MLicencas.FormViews.Clientes
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ClienteStatusForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alterar Status Cliente";
+            this.Text = "Cliente - Alterar Status";
             this.ResumeLayout(false);
             this.PerformLayout();
 

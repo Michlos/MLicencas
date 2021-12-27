@@ -323,8 +323,10 @@ namespace MLicencas.FormViews.Licencas
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txbId);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LicencaAddForm";
-            this.Text = "Gerador de Chaves de Licença";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Licenças - Gerador de Chaves";
             this.Load += new System.EventHandler(this.LicencaAddForm_Load);
             this.gbDadosContrato.ResumeLayout(false);
             this.gbDadosContrato.PerformLayout();

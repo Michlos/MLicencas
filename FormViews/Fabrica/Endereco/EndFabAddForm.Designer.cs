@@ -285,7 +285,7 @@ namespace MLicencas.FormViews.Fabrica.Endereco
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EndFabAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EndFabAddForm";
+            this.Text = "Fábrica - Editar Endereço";
             this.Load += new System.EventHandler(this.EndFabAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

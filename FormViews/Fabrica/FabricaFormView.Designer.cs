@@ -521,7 +521,7 @@ namespace MLicencas.FormViews.Fabrica
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FabricaFormView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro da Fábrica de Software";
+            this.Text = "Fábrica - Cadastro da Fábrica de Software";
             this.Load += new System.EventHandler(this.FabricaFormView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnderecosFabrica)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContatosFabrica)).EndInit();

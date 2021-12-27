@@ -169,7 +169,7 @@ namespace MLicencas.FormViews.Clientes
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ClientesListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Clientes";
+            this.Text = "Cliente - Gestão de Clientes";
             this.Load += new System.EventHandler(this.ClientesListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.contextMenuClientes.ResumeLayout(false);

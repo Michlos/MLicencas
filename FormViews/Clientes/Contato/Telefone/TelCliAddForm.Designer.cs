@@ -179,7 +179,7 @@ namespace MLicencas.FormViews.Clientes.Contato.Telefone
             this.MaximizeBox = false;
             this.Name = "TelCliAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Telefone Contato Cliente";
+            this.Text = "Cliente - Telefone Contato";
             this.Load += new System.EventHandler(this.TelCliAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

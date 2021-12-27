@@ -195,7 +195,7 @@ namespace MLicencas.FormViews.Usuarios
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UsuarioEditFormView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cadastro de Usuário";
+            this.Text = "Usuário - Cadastro de Usuário";
             this.Load += new System.EventHandler(this.UsuarioEditFormView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

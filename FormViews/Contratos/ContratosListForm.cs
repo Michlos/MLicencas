@@ -118,7 +118,7 @@ namespace MLicencas.FormViews.Contratos
         {
             if (e.ColumnIndex == 3 && e.RowIndex != dgvContratos.NewRowIndex)
             {
-                e.Value = string.Format("{0:MM/dd/yyyy}", DateTime.Parse(e.Value.ToString()));
+                e.Value = string.Format("{0:dd/MM/yyyy}", DateTime.Parse(e.Value.ToString()));
             }
         }
 

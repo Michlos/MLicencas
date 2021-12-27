@@ -31,6 +31,7 @@ namespace MLicencas.FormViews.Contratos
         {
             this.components = new System.ComponentModel.Container();
             this.pnlBottomMenu = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnGerarLicenca = new System.Windows.Forms.Button();
             this.btnSaveContrato = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -62,7 +63,6 @@ namespace MLicencas.FormViews.Contratos
             this.novoIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removerIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnClose = new System.Windows.Forms.Button();
             this.pnlBottomMenu.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlContainer.SuspendLayout();
@@ -83,6 +83,20 @@ namespace MLicencas.FormViews.Contratos
             this.pnlBottomMenu.Name = "pnlBottomMenu";
             this.pnlBottomMenu.Size = new System.Drawing.Size(753, 44);
             this.pnlBottomMenu.TabIndex = 0;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(12, 6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(103, 27);
+            this.btnClose.TabIndex = 21;
+            this.btnClose.Text = "Fechar";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnGerarLicenca
             // 
@@ -413,20 +427,6 @@ namespace MLicencas.FormViews.Contratos
             this.removerIncisoToolStripMenuItem.Text = "Remover";
             this.removerIncisoToolStripMenuItem.Click += new System.EventHandler(this.removerIncisoToolStripMenuItem_Click);
             // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(12, 6);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(103, 27);
-            this.btnClose.TabIndex = 21;
-            this.btnClose.Text = "Fechar";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // ContratoAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,7 +438,7 @@ namespace MLicencas.FormViews.Contratos
             this.Controls.Add(this.pnlBottomMenu);
             this.Name = "ContratoAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edição de Contrato";
+            this.Text = "Contrato - Edição de Contrato";
             this.Load += new System.EventHandler(this.ContratoAddForm_Load);
             this.pnlBottomMenu.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);

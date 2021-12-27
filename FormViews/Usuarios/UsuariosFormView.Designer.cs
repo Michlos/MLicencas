@@ -138,7 +138,7 @@ namespace MLicencas.FormViews.Usuarios
             this.MaximizeBox = false;
             this.Name = "UsuariosFormView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestão de Usuários";
+            this.Text = "Usuários - Gestão de Usuários";
             this.Load += new System.EventHandler(this.UsuariosFormView_Load);
             this.ResumeLayout(false);
 

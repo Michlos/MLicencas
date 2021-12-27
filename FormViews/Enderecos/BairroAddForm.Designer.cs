@@ -134,7 +134,7 @@ namespace MLicencas.FormViews.Enderecos
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BairroAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Adicionando Bairro";
+            this.Text = "Endereços - Adicionando Bairro";
             this.Load += new System.EventHandler(this.BairroAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

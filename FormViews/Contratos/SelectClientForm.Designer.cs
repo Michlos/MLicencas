@@ -96,7 +96,7 @@ namespace MLicencas.FormViews.Contratos
             this.MaximizeBox = false;
             this.Name = "SelectClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Selecione o Cliente";
+            this.Text = "Contrato - Selecione o Cliente";
             this.Load += new System.EventHandler(this.SelectClientForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
