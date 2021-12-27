@@ -151,11 +151,23 @@
     <Compile Include="FormViews\Fabrica\FabricaFormView.Designer.cs">
       <DependentUpon>FabricaFormView.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Licencas\LicencaAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Licencas\LicencaAddForm.Designer.cs">
+      <DependentUpon>LicencaAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Licencas\LicencaListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormViews\Licencas\LicencaListForm.Designer.cs">
       <DependentUpon>LicencaListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViews\Licencas\SelectContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Licencas\SelectContractForm.Designer.cs">
+      <DependentUpon>SelectContractForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormViews\Login\AlteraSenhaForm.cs">
       <SubType>Form</SubType>
@@ -270,8 +282,14 @@
     <EmbeddedResource Include="FormViews\Fabrica\FabricaFormView.resx">
       <DependentUpon>FabricaFormView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Licencas\LicencaAddForm.resx">
+      <DependentUpon>LicencaAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Licencas\LicencaListForm.resx">
       <DependentUpon>LicencaListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Licencas\SelectContractForm.resx">
+      <DependentUpon>SelectContractForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Login\AlteraSenhaForm.resx">
       <DependentUpon>AlteraSenhaForm.cs</DependentUpon>
