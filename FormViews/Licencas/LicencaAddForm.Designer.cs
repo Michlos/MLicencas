@@ -36,14 +36,14 @@ namespace MLicencas.FormViews.Licencas
             this.txbIdContrato = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbDadosContrato = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.mtbDtRegContrato = new System.Windows.Forms.MaskedTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.mtbDtVencContrato = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.mtbDtRegContrato = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txbNomeSoftware = new System.Windows.Forms.TextBox();
-            this.txbChave = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.mtxbChave = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.mtxbHashCliente = new System.Windows.Forms.MaskedTextBox();
@@ -81,6 +81,7 @@ namespace MLicencas.FormViews.Licencas
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Size = new System.Drawing.Size(276, 21);
             this.cbCliente.TabIndex = 2;
+            this.cbCliente.SelectedIndexChanged += new System.EventHandler(this.cbCliente_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -125,14 +126,15 @@ namespace MLicencas.FormViews.Licencas
             this.gbDadosContrato.TabIndex = 3;
             this.gbDadosContrato.TabStop = false;
             // 
-            // label4
+            // mtbDtVencContrato
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Contrato:";
+            this.mtbDtVencContrato.Location = new System.Drawing.Point(381, 29);
+            this.mtbDtVencContrato.Mask = "00/00/0000";
+            this.mtbDtVencContrato.Name = "mtbDtVencContrato";
+            this.mtbDtVencContrato.ReadOnly = true;
+            this.mtbDtVencContrato.Size = new System.Drawing.Size(76, 20);
+            this.mtbDtVencContrato.TabIndex = 2;
+            this.mtbDtVencContrato.ValidatingType = typeof(System.DateTime);
             // 
             // mtbDtRegContrato
             // 
@@ -144,14 +146,14 @@ namespace MLicencas.FormViews.Licencas
             this.mtbDtRegContrato.TabIndex = 2;
             this.mtbDtRegContrato.ValidatingType = typeof(System.DateTime);
             // 
-            // label5
+            // label4
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(152, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Registro:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Contrato:";
             // 
             // label6
             // 
@@ -162,15 +164,13 @@ namespace MLicencas.FormViews.Licencas
             this.label6.TabIndex = 1;
             this.label6.Text = "Vencimento:";
             // 
-            // mtbDtVencContrato
+            // txbNomeSoftware
             // 
-            this.mtbDtVencContrato.Location = new System.Drawing.Point(381, 29);
-            this.mtbDtVencContrato.Mask = "00/00/0000";
-            this.mtbDtVencContrato.Name = "mtbDtVencContrato";
-            this.mtbDtVencContrato.ReadOnly = true;
-            this.mtbDtVencContrato.Size = new System.Drawing.Size(76, 20);
-            this.mtbDtVencContrato.TabIndex = 2;
-            this.mtbDtVencContrato.ValidatingType = typeof(System.DateTime);
+            this.txbNomeSoftware.Location = new System.Drawing.Point(82, 64);
+            this.txbNomeSoftware.Name = "txbNomeSoftware";
+            this.txbNomeSoftware.ReadOnly = true;
+            this.txbNomeSoftware.Size = new System.Drawing.Size(375, 20);
+            this.txbNomeSoftware.TabIndex = 0;
             // 
             // label7
             // 
@@ -181,21 +181,22 @@ namespace MLicencas.FormViews.Licencas
             this.label7.TabIndex = 1;
             this.label7.Text = "Software:";
             // 
-            // txbNomeSoftware
+            // label5
             // 
-            this.txbNomeSoftware.Location = new System.Drawing.Point(82, 64);
-            this.txbNomeSoftware.Name = "txbNomeSoftware";
-            this.txbNomeSoftware.ReadOnly = true;
-            this.txbNomeSoftware.Size = new System.Drawing.Size(375, 20);
-            this.txbNomeSoftware.TabIndex = 0;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(152, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Registro:";
             // 
-            // txbChave
+            // mtxbChave
             // 
-            this.txbChave.Location = new System.Drawing.Point(82, 19);
-            this.txbChave.Name = "txbChave";
-            this.txbChave.ReadOnly = true;
-            this.txbChave.Size = new System.Drawing.Size(276, 20);
-            this.txbChave.TabIndex = 4;
+            this.mtxbChave.Location = new System.Drawing.Point(82, 19);
+            this.mtxbChave.Name = "mtxbChave";
+            this.mtxbChave.ReadOnly = true;
+            this.mtxbChave.Size = new System.Drawing.Size(276, 20);
+            this.mtxbChave.TabIndex = 4;
             // 
             // label8
             // 
@@ -252,6 +253,7 @@ namespace MLicencas.FormViews.Licencas
             this.btnGen.Tag = "2.1";
             this.btnGen.Text = "Gerar Chave";
             this.btnGen.UseVisualStyleBackColor = false;
+            this.btnGen.Click += new System.EventHandler(this.btnGen_Click);
             // 
             // btnSave
             // 
@@ -265,11 +267,12 @@ namespace MLicencas.FormViews.Licencas
             this.btnSave.Tag = "2.1";
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txbChave);
+            this.groupBox1.Controls.Add(this.mtxbChave);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.mtxbHashChave);
             this.groupBox1.Controls.Add(this.label9);
@@ -319,6 +322,7 @@ namespace MLicencas.FormViews.Licencas
             this.Controls.Add(this.txbId);
             this.Name = "LicencaAddForm";
             this.Text = "Gerador de Chaves de Licença";
+            this.Load += new System.EventHandler(this.LicencaAddForm_Load);
             this.gbDadosContrato.ResumeLayout(false);
             this.gbDadosContrato.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -344,7 +348,7 @@ namespace MLicencas.FormViews.Licencas
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txbNomeSoftware;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox txbChave;
+        private System.Windows.Forms.MaskedTextBox mtxbChave;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox mtxbHashCliente;

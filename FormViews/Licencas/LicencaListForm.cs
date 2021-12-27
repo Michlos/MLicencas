@@ -133,5 +133,14 @@ namespace MLicencas.FormViews.Licencas
                 contextMenuLicencas.Show(MousePosition);
             }
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            LicencaAddForm licencaAdd = new LicencaAddForm(0);
+            licencaAdd.WindowState = FormWindowState.Normal;
+            licencaAdd.ShowDialog();
+            LoadModels();
+            LoadDGVLicencas();
+        }
     }
 }
