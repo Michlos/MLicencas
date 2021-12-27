@@ -142,5 +142,19 @@ namespace MLicencas.FormViews.Licencas
             LoadModels();
             LoadDGVLicencas();
         }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvSerials.CurrentRow != null)
+            {
+
+                int licencaId = int.Parse(dgvSerials.CurrentRow.Cells[0].Value.ToString());
+                LicencaAddForm licencaAdd = new LicencaAddForm(licencaId);
+                licencaAdd.WindowState = FormWindowState.Normal;
+                licencaAdd.ShowDialog();
+                LoadModels();
+                LoadDGVLicencas();
+            }
+        }
     }
 }

@@ -62,8 +62,10 @@ namespace MLicencas.FormViews.Licencas
             // 
             this.txbId.Location = new System.Drawing.Point(61, 6);
             this.txbId.Name = "txbId";
+            this.txbId.ReadOnly = true;
             this.txbId.Size = new System.Drawing.Size(66, 20);
             this.txbId.TabIndex = 0;
+            this.txbId.TabStop = false;
             // 
             // label1
             // 
@@ -305,6 +307,7 @@ namespace MLicencas.FormViews.Licencas
             this.btnClose.Tag = "2.1";
             this.btnClose.Text = "Fechar";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // LicencaAddForm
             // 

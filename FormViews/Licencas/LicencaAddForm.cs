@@ -20,19 +20,15 @@ using ServicesLayer.Softwares;
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MLicencas.FormViews.Licencas
 {
     public partial class LicencaAddForm : Form
     {
-        private readonly int licencaId;
+        private int licencaId;
 
         //SERVICES
         private QueryStringServices _queryString;
@@ -81,7 +77,8 @@ namespace MLicencas.FormViews.Licencas
                 licencaModel = _licencasServices.GetById(licencaId);
 
                 txbId.Text = licencaModel.Id.ToString();
-                cbCliente.SelectedItem = _clientesServices.GetById(licencaModel.ClienteId).NomeFantasia;
+                cbCliente.Text = clienteListModel.Where(id => id.Id == licencaModel.ClienteId).FirstOrDefault().NomeFantasia;
+                //cbCliente.SelectedItem = _clientesServices.GetById(licencaModel.ClienteId).NomeFantasia;
                 txbIdContrato.Text = licencaModel.ContratoId.ToString();
                 mtbDtRegContrato.Text = contratoListModel.Where(id => id.Id == licencaModel.ContratoId).Select(dataReg => dataReg.DataRegistro).FirstOrDefault().ToShortDateString();
                 mtbDtVencContrato.Text = contratoListModel.Where(id => id.Id == licencaModel.ContratoId).Select(dataVenc => dataVenc.DataVencimento).FirstOrDefault().ToShortDateString();
@@ -96,14 +93,18 @@ namespace MLicencas.FormViews.Licencas
         {
             //EXIBE SOMENTE CLIENTES QUE POSSUEM CONTRATOS ATIVOS
 
+
+
+
+            cbCliente.DisplayMember = "NomeFantasia";
             clienteListModel.Clear();
             foreach (var item in contratoListModel)
             {
+                cbCliente.Items.Add(_clientesServices.GetById(item.ClienteId));
                 clienteListModel.Add(_clientesServices.GetById(item.ClienteId));
             }
-            cbCliente.DataSource = clienteListModel;
-            cbCliente.DisplayMember = "NomeFantasia";
             cbCliente.SelectedIndex = -1;
+            //cbCliente.DataSource = clienteListModel;
         }
 
         private void LoadModels()
@@ -131,6 +132,7 @@ namespace MLicencas.FormViews.Licencas
             {
                 serialGen += item.ToString();
             }
+            serialToReturn = serialGen;
 
 
 
@@ -180,6 +182,7 @@ namespace MLicencas.FormViews.Licencas
             try
             {
                 licencaModel = _licencasServices.Add(licencaModel);
+                licencaId = licencaModel.Id;
                 MessageBox.Show("Licença gerada com sucesso.");
                 LoadModels();
                 LoadFormFields();
@@ -209,22 +212,32 @@ namespace MLicencas.FormViews.Licencas
 
         private void cbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //SE CLIENTE POSSUI MAIS DE UM CONTRATO CHAMA A TELA PARA SELECIONAR UM CONTRATO.
-            if (contratoListModel.Where(cli => cli.ClienteId == (cbCliente.SelectedItem as IClienteModel).Id).Count() > 1)
-            {
-                //SELECIONE O CONTRATO DESEJADO.
-
-            }
-            else
+            if (cbCliente.SelectedIndex >= 0)
             {
 
-                contratoModel = contratoListModel.Where(cliId => cliId.ClienteId == (cbCliente.SelectedItem as IClienteModel).Id).FirstOrDefault();
-                txbIdContrato.Text = contratoModel.Id.ToString();
-                mtbDtRegContrato.Text = contratoModel.DataRegistro.ToShortDateString();
-                mtbDtVencContrato.Text = contratoModel.DataVencimento.ToShortDateString();
-                txbNomeSoftware.Text = softwareListModel.Where(id => id.Id == contratoModel.SoftwareId).FirstOrDefault().Nome;
+                //SE CLIENTE POSSUI MAIS DE UM CONTRATO CHAMA A TELA PARA SELECIONAR UM CONTRATO.
+
+                if (contratoListModel.Where(cli => cli.ClienteId == (cbCliente.SelectedItem as IClienteModel).Id).Count() > 1)
+                {
+                    //SELECIONE O CONTRATO DESEJADO.
+
+                }
+                else
+                {
+
+                    contratoModel = contratoListModel.Where(cliId => cliId.ClienteId == (cbCliente.SelectedItem as IClienteModel).Id).FirstOrDefault();
+                    txbIdContrato.Text = contratoModel.Id.ToString();
+                    mtbDtRegContrato.Text = contratoModel.DataRegistro.ToShortDateString();
+                    mtbDtVencContrato.Text = contratoModel.DataVencimento.ToShortDateString();
+                    txbNomeSoftware.Text = softwareListModel.Where(id => id.Id == contratoModel.SoftwareId).FirstOrDefault().Nome;
+                }
             }
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
