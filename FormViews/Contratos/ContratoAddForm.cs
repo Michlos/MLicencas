@@ -58,6 +58,12 @@ namespace MLicencas.FormViews.Contratos
         private IEnumerable<ISoftwareModel> softListModel = new List<ISoftwareModel>();
 
 
+        /// <summary>
+        /// Pode receber como parâmetro o número d contrato para edição.
+        /// Se <paramref name="contratoId"/> == 0 Novo Contrato.
+        /// Se Não Edição de Contrato.
+        /// </summary>
+        /// <param name="contratoId"></param>
         public ContratoAddForm(int contratoId)
         {
 
@@ -66,6 +72,9 @@ namespace MLicencas.FormViews.Contratos
             this.contratoId = contratoId;
         }
 
+        /// <summary>
+        /// Parâmetro para leitura implementar todos os serviços necessários à classe.
+        /// </summary>
         private void LoadServices()
         {
             _queryString = new QueryStringServices(new QueryString());
@@ -92,7 +101,7 @@ namespace MLicencas.FormViews.Contratos
         {
             LoadModels();
             if (contratoId == 0)
-                this.clienteId = LoadFormSelectCli();
+                clienteId = LoadFormSelectCli();
             LoadCbCliente();
             LoadCBStatus();
             LoadCBSoftware();
@@ -135,6 +144,7 @@ namespace MLicencas.FormViews.Contratos
             cbStatus.SelectedIndex = 0;
         }
 
+
         private void btnSaveContrato_Click(object sender, EventArgs e)
         {
             contratoModel = new ContratoModel();
@@ -143,6 +153,9 @@ namespace MLicencas.FormViews.Contratos
             contratoModel.Termo = txbTermo.Text;
             contratoModel.DataRegistro = DateTime.Parse(dtRegistro.Text);
             contratoModel.DataVencimento = DateTime.Parse(dtVencimento.Text);
+            contratoModel.Valor = double.Parse(mtxbValor.Text);
+            contratoModel.Parcelas = int.Parse(txbParcelas.Text);
+            contratoModel.ValorParcela = int.Parse(mtxbValorParcela.Text);
             contratoModel.Prorrogacoes = 0;
             contratoModel.ClienteId = (cbCliente.SelectedItem as IClienteModel).Id;
             contratoModel.SoftwareId = (cbSoftware.SelectedItem as ISoftwareModel).Id;
@@ -162,8 +175,8 @@ namespace MLicencas.FormViews.Contratos
         {
             try
             {
-                this.contratoModel = _contratosServices.Add(contratoModel);
-                this.contratoId = this.contratoModel.Id;
+                contratoModel = _contratosServices.Add(contratoModel);
+                contratoId = contratoModel.Id;
                 MessageBox.Show("Contrato salvo com sucesso", this.Text);
                 LoadFormFields();
             }
@@ -177,16 +190,18 @@ namespace MLicencas.FormViews.Contratos
         {
             if (contratoId != 0)
             {
-                //btnAddClausula.Enabled = true;
-                this.contratoModel = _contratosServices.GetById(contratoId);
-                txbId.Text = this.contratoModel.Id.ToString();
-                txbNome.Text = this.contratoModel.Nome;
-                txbTermo.Text = this.contratoModel.Termo;
-                dtRegistro.Text = this.contratoModel.DataRegistro.ToString();
-                dtVencimento.Text = this.contratoModel.DataVencimento.ToString();
-                cbCliente.SelectedItem = cliListModel.Where(id => id.Id == this.contratoModel.ClienteId).FirstOrDefault();
-                cbSoftware.SelectedItem = softListModel.Where(id => id.Id == this.contratoModel.SoftwareId).FirstOrDefault();
-                cbStatus.SelectedItem = statusListModel.Where(id => id.Id == this.contratoModel.SituacaoId);
+                contratoModel = _contratosServices.GetById(contratoId);
+                txbId.Text = contratoModel.Id.ToString();
+                txbNome.Text = contratoModel.Nome;
+                txbTermo.Text = contratoModel.Termo;
+                dtRegistro.Text = contratoModel.DataRegistro.ToString();
+                dtVencimento.Text = contratoModel.DataVencimento.ToString();
+                cbCliente.SelectedItem = cliListModel.FirstOrDefault(id => id.Id == contratoModel.ClienteId);
+                cbSoftware.SelectedItem = softListModel.FirstOrDefault(id => id.Id == contratoModel.SoftwareId);
+                cbStatus.SelectedItem = statusListModel.Where(id => id.Id == contratoModel.SituacaoId);
+                mtxbValor.Text = contratoModel.Valor.ToString();
+                txbParcelas.Text = contratoModel.Parcelas.ToString();
+                mtxbValorParcela.Text = contratoModel.ValorParcela.ToString();
 
             }
 
@@ -317,8 +332,8 @@ namespace MLicencas.FormViews.Contratos
         {
             if (dgvClausulas.CurrentRow != null)
             {
-                this.clausulaModel = _clausulasServices.GetById(int.Parse(dgvClausulas.CurrentRow.Cells[0].Value.ToString()));
-                LoadDGVIncisos(this.clausulaModel.Id);
+                clausulaModel = _clausulasServices.GetById(int.Parse(dgvClausulas.CurrentRow.Cells[0].Value.ToString()));
+                LoadDGVIncisos(clausulaModel.Id);
                 //btnAddInciso.Enabled = true;
             }
 
@@ -422,6 +437,14 @@ namespace MLicencas.FormViews.Contratos
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txbParcelas_Leave(object sender, EventArgs e)
+        {
+            int valor = int.Parse(mtxbValor.Text);
+            int parcelas = int.Parse(txbParcelas.Text);
+            int valorParcela = valor / parcelas;
+            mtxbValorParcela.Text = valorParcela.ToString();
         }
     }
 }

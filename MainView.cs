@@ -84,14 +84,10 @@ namespace MLicencas
 
         private void MainView_Load(object sender, EventArgs e)
         {
-            //menuGestaoDeUsuarios.Enabled = CheckPermissoes(menuGestaoDeUsuarios.Tag);
-            //cadastroDaEmpresaToolStripMenuItem.Enabled = CheckPermissoes(cadastroDaEmpresaToolStripMenuItem.Tag);
             novoClienteToolStripMenuItem.Enabled = CheckPermissoes(novoClienteToolStripMenuItem.Tag);
             gestaoDeClientesToolStripMenuItem.Enabled = CheckPermissoes(gestaoDeClientesToolStripMenuItem.Tag);
             novoSoftwareToolStripMenuItem.Enabled = CheckPermissoes(novoSoftwareToolStripMenuItem.Tag);
             gestaoSoftwareToolStripMenuItem.Enabled = CheckPermissoes(gestaoSoftwareToolStripMenuItem.Tag);
-            novoContratoToolStripMenuItem.Enabled = CheckPermissoes(novoContratoToolStripMenuItem.Tag);
-            gestaoDeContratosToolStripMenuItem.Enabled = CheckPermissoes(gestaoDeContratosToolStripMenuItem.Tag);
 
         }
 

@@ -13,5 +13,8 @@ namespace DomainLayer.Clientes.Contratos
         int SituacaoId { get; set; }
         int SoftwareId { get; set; }
         string Termo { get; set; }
+        double Valor { get; set; }
+        int Parcelas { get; set; }
+        double ValorParcela { get; set; }
     }
 }

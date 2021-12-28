@@ -39,9 +39,6 @@ namespace MLicencas
             this.contratosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novoContratoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gestaoDeContratosClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novoContratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestaoDeContratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licencasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerarLicencaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestaoDeLicencasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +61,6 @@ namespace MLicencas
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.softwareToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.contratosToolStripMenuItem,
             this.licencasToolStripMenuItem,
             this.configuracaoToolStripMenuItem,
             this.sobreToolStripMenuItem});
@@ -86,7 +82,7 @@ namespace MLicencas
             // novoSoftwareToolStripMenuItem
             // 
             this.novoSoftwareToolStripMenuItem.Name = "novoSoftwareToolStripMenuItem";
-            this.novoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.novoSoftwareToolStripMenuItem.Tag = "3.1";
             this.novoSoftwareToolStripMenuItem.Text = "&Novo";
             this.novoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.novoSoftwareToolStripMenuItem_Click);
@@ -94,7 +90,7 @@ namespace MLicencas
             // gestaoSoftwareToolStripMenuItem
             // 
             this.gestaoSoftwareToolStripMenuItem.Name = "gestaoSoftwareToolStripMenuItem";
-            this.gestaoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestaoSoftwareToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.gestaoSoftwareToolStripMenuItem.Tag = "3";
             this.gestaoSoftwareToolStripMenuItem.Text = "&Gestão de Software";
             this.gestaoSoftwareToolStripMenuItem.Click += new System.EventHandler(this.gestaoSoftwareToolStripMenuItem_Click);
@@ -139,37 +135,14 @@ namespace MLicencas
             this.novoContratoToolStripMenuItem1.Name = "novoContratoToolStripMenuItem1";
             this.novoContratoToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
             this.novoContratoToolStripMenuItem1.Text = "Novo Contrato";
+            this.novoContratoToolStripMenuItem1.Click += new System.EventHandler(this.novoContratoToolStripMenuItem_Click);
             // 
             // gestaoDeContratosClientesToolStripMenuItem
             // 
             this.gestaoDeContratosClientesToolStripMenuItem.Name = "gestaoDeContratosClientesToolStripMenuItem";
             this.gestaoDeContratosClientesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.gestaoDeContratosClientesToolStripMenuItem.Text = "Gestão de Contratos";
-            // 
-            // contratosToolStripMenuItem
-            // 
-            this.contratosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoContratoToolStripMenuItem,
-            this.gestaoDeContratosToolStripMenuItem});
-            this.contratosToolStripMenuItem.Name = "contratosToolStripMenuItem";
-            this.contratosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.contratosToolStripMenuItem.Text = "C&ontratos";
-            // 
-            // novoContratoToolStripMenuItem
-            // 
-            this.novoContratoToolStripMenuItem.Name = "novoContratoToolStripMenuItem";
-            this.novoContratoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.novoContratoToolStripMenuItem.Tag = "2.1";
-            this.novoContratoToolStripMenuItem.Text = "&Novo";
-            this.novoContratoToolStripMenuItem.Click += new System.EventHandler(this.novoContratoToolStripMenuItem_Click);
-            // 
-            // gestaoDeContratosToolStripMenuItem
-            // 
-            this.gestaoDeContratosToolStripMenuItem.Name = "gestaoDeContratosToolStripMenuItem";
-            this.gestaoDeContratosToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.gestaoDeContratosToolStripMenuItem.Tag = "2";
-            this.gestaoDeContratosToolStripMenuItem.Text = "&Gestão de Contratos";
-            this.gestaoDeContratosToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeContratosToolStripMenuItem_Click);
+            this.gestaoDeContratosClientesToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeContratosToolStripMenuItem_Click);
             // 
             // licencasToolStripMenuItem
             // 
@@ -205,7 +178,7 @@ namespace MLicencas
             // dadosDaEmpresaToolStripMenuItem
             // 
             this.dadosDaEmpresaToolStripMenuItem.Name = "dadosDaEmpresaToolStripMenuItem";
-            this.dadosDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dadosDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.dadosDaEmpresaToolStripMenuItem.Text = "Dados da Empresa";
             this.dadosDaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDaEmpresaToolStripMenuItem_Click);
             // 
@@ -216,26 +189,26 @@ namespace MLicencas
             this.usuariosToolStripMenuItem,
             this.gruposToolStripMenuItem1});
             this.gestãoDeUsuariosToolStripMenuItem.Name = "gestãoDeUsuariosToolStripMenuItem";
-            this.gestãoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.gestãoDeUsuariosToolStripMenuItem.Text = "Gestão de Usuários";
             // 
             // novoUsuarioToolStripMenuItem
             // 
             this.novoUsuarioToolStripMenuItem.Name = "novoUsuarioToolStripMenuItem";
-            this.novoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.novoUsuarioToolStripMenuItem.Text = "Novo Usuário";
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.usuariosToolStripMenuItem.Text = "Usuários";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem1
             // 
             this.gruposToolStripMenuItem1.Name = "gruposToolStripMenuItem1";
-            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
             this.gruposToolStripMenuItem1.Text = "Grupos";
             // 
             // sobreToolStripMenuItem
@@ -249,7 +222,7 @@ namespace MLicencas
             // sobreToolStripMenuItem1
             // 
             this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.sobreToolStripMenuItem1.Text = "Sobre";
             // 
             // statusStripMain
@@ -303,9 +276,6 @@ namespace MLicencas
         private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoSoftwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestaoSoftwareToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contratosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem novoContratoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestaoDeContratosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licencasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerarLicencaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestaoDeLicencasToolStripMenuItem;

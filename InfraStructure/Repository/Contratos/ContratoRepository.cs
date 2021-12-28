@@ -15,11 +15,11 @@ namespace InfraStructure.Repository.Contratos
 {
     public class ContratoRepository : IContratosRepository
     {
-        private string _connectionString;
+        private readonly string _connectionString;
         private string _query;
         private IContratoModel contratoModel;
-        private List<IContratoModel> contratoListModel = new List<IContratoModel>();
-        private DataAccessStatus dataAccessStatus = new DataAccessStatus();
+        private readonly List<IContratoModel> contratoListModel = new List<IContratoModel>();
+        private readonly DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
 
         public ContratoRepository(string connectionString)
@@ -32,10 +32,10 @@ namespace InfraStructure.Repository.Contratos
             int idReturned;
             this.contratoModel = new ContratoModel();
             _query = "INSERT INTO Contratos " +
-                     "(Nome, Termo, DataRegistro, DataVencimento, Prorrogacoes, ClienteId, SoftwareId, SituacaoId) " +
+                     "(Nome, Termo, DataRegistro, DataVencimento, Valor, Parcelas, ValorParcela, Prorrogacoes, ClienteId, SoftwareId, SituacaoId) " +
                      "OUTPUT INSERTED.Id " +
                      "VALUES" +
-                     "(@Nome, @Termo, @DataRegistro, @DataVencimento, @Prorrogacoes, @ClienteId, @SoftwareId, @SituacaoId) ";
+                     "(@Nome, @Termo, @DataRegistro, @DataVencimento, @Valor, @Parcelas, @ValorParcela, @Prorrogacoes, @ClienteId, @SoftwareId, @SituacaoId) ";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -50,6 +50,9 @@ namespace InfraStructure.Repository.Contratos
                         cmd.Parameters.AddWithValue("@Termo", contrato.Termo);
                         cmd.Parameters.AddWithValue("@DataRegistro", contrato.DataRegistro);
                         cmd.Parameters.AddWithValue("@DataVencimento", contrato.DataVencimento);
+                        cmd.Parameters.AddWithValue("@Valor", contrato.Valor);
+                        cmd.Parameters.AddWithValue("@Parcelas", contrato.Parcelas);
+                        cmd.Parameters.AddWithValue("@ValorParcela", contrato.ValorParcela);
                         cmd.Parameters.AddWithValue("@Prorrogacoes", contrato.Prorrogacoes);
                         cmd.Parameters.AddWithValue("@ClienteId", contrato.ClienteId);
                         cmd.Parameters.AddWithValue("@SoftwareId", contrato.SoftwareId);
@@ -107,7 +110,7 @@ namespace InfraStructure.Repository.Contratos
 
         public void Edit(IContratoModel contrato)
         {
-            _query = "UPDATE Contratos SET Nome = @Nome, Termo = @Termo, DataVencimento = @DataVencimento, SoftwareId = @SoftwareId, SituacaoId = @SituacaoId " +
+            _query = "UPDATE Contratos SET Nome = @Nome, Termo = @Termo, DataVencimento = @DataVencimento, SoftwareId = @SoftwareId, SituacaoId = @SituacaoId, Valor = @Valor, Parcelas = @Parcelas, ValorParcela = @ValorParcela " +
                      "WHERE Id = @Id ";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -124,6 +127,9 @@ namespace InfraStructure.Repository.Contratos
                         cmd.Parameters.AddWithValue("@Termo", contrato.Termo);
                         cmd.Parameters.AddWithValue("@DataRegistro", contrato.DataRegistro);
                         cmd.Parameters.AddWithValue("@DataVencimento", contrato.DataVencimento);
+                        cmd.Parameters.AddWithValue("@Valor", contrato.Valor);
+                        cmd.Parameters.AddWithValue("@Parcelas", contrato.Parcelas);
+                        cmd.Parameters.AddWithValue("@ValorParcela", contrato.ValorParcela);
                         cmd.Parameters.AddWithValue("@Prorrogacoes", contrato.Prorrogacoes);
                         cmd.Parameters.AddWithValue("@SoftwareId", contrato.SoftwareId);
                         cmd.Parameters.AddWithValue("@SituacaoId", contrato.SituacaoId);
@@ -158,19 +164,22 @@ namespace InfraStructure.Repository.Contratos
                         {
                             while (reader.Read())
                             {
-                                this.contratoModel = new ContratoModel();
+                                contratoModel = new ContratoModel();
 
-                                this.contratoModel.Id = int.Parse(reader["Id"].ToString());
-                                this.contratoModel.Nome = reader["Nome"].ToString();
-                                this.contratoModel.Termo = reader["Termo"].ToString();
-                                this.contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
-                                this.contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
-                                this.contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
-                                this.contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
-                                this.contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
-                                this.contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
+                                contratoModel.Id = int.Parse(reader["Id"].ToString());
+                                contratoModel.Nome = reader["Nome"].ToString();
+                                contratoModel.Termo = reader["Termo"].ToString();
+                                contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
+                                contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
+                                contratoModel.Valor = double.Parse(reader["Valor"].ToString());
+                                contratoModel.Parcelas = int.Parse(reader["Parcelas"].ToString());
+                                contratoModel.ValorParcela = double.Parse(reader["ValorParcela"].ToString());
+                                contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
+                                contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
+                                contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
 
-                                this.contratoListModel.Add(this.contratoModel);
+                                contratoListModel.Add(contratoModel);
                             }
                         }
                     }
@@ -206,19 +215,22 @@ namespace InfraStructure.Repository.Contratos
                         {
                             while (reader.Read())
                             {
-                                this.contratoModel = new ContratoModel();
+                                contratoModel = new ContratoModel();
 
-                                this.contratoModel.Id = int.Parse(reader["Id"].ToString());
-                                this.contratoModel.Nome = reader["Nome"].ToString();
-                                this.contratoModel.Termo = reader["Termo"].ToString();
-                                this.contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
-                                this.contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
-                                this.contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
-                                this.contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
-                                this.contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
-                                this.contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
+                                contratoModel.Id = int.Parse(reader["Id"].ToString());
+                                contratoModel.Nome = reader["Nome"].ToString();
+                                contratoModel.Termo = reader["Termo"].ToString();
+                                contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
+                                contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
+                                contratoModel.Valor = double.Parse(reader["Valor"].ToString());
+                                contratoModel.Parcelas = int.Parse(reader["Parcelas"].ToString());
+                                contratoModel.ValorParcela = double.Parse(reader["ValorParcela"].ToString());
+                                contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
+                                contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
+                                contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
 
-                                this.contratoListModel.Add(this.contratoModel);
+                                contratoListModel.Add(contratoModel);
                             }
                         }
                     }
@@ -254,19 +266,22 @@ namespace InfraStructure.Repository.Contratos
                         {
                             while (reader.Read())
                             {
-                                this.contratoModel = new ContratoModel();
+                                contratoModel = new ContratoModel();
 
-                                this.contratoModel.Id = int.Parse(reader["Id"].ToString());
-                                this.contratoModel.Nome = reader["Nome"].ToString();
-                                this.contratoModel.Termo = reader["Termo"].ToString();
-                                this.contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
-                                this.contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
-                                this.contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
-                                this.contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
-                                this.contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
-                                this.contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
+                                contratoModel.Id = int.Parse(reader["Id"].ToString());
+                                contratoModel.Nome = reader["Nome"].ToString();
+                                contratoModel.Termo = reader["Termo"].ToString();
+                                contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
+                                contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
+                                contratoModel.Valor = double.Parse(reader["Valor"].ToString());
+                                contratoModel.Parcelas = int.Parse(reader["Parcelas"].ToString());
+                                contratoModel.ValorParcela = double.Parse(reader["ValorParcela"].ToString());
+                                contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
+                                contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
+                                contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
 
-                                this.contratoListModel.Add(this.contratoModel);
+                                contratoListModel.Add(contratoModel);
                             }
                         }
                     }
@@ -303,15 +318,18 @@ namespace InfraStructure.Repository.Contratos
                             while (reader.Read())
                             {
 
-                                this.contratoModel.Id = int.Parse(reader["Id"].ToString());
-                                this.contratoModel.Nome = reader["Nome"].ToString();
-                                this.contratoModel.Termo = reader["Termo"].ToString();
-                                this.contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
-                                this.contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
-                                this.contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
-                                this.contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
-                                this.contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
-                                this.contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
+                                contratoModel.Id = int.Parse(reader["Id"].ToString());
+                                contratoModel.Nome = reader["Nome"].ToString();
+                                contratoModel.Termo = reader["Termo"].ToString();
+                                contratoModel.DataRegistro = DateTime.Parse(reader["DataRegistro"].ToString());
+                                contratoModel.DataVencimento = DateTime.Parse(reader["DataVencimento"].ToString());
+                                contratoModel.Valor = double.Parse(reader["Valor"].ToString());
+                                contratoModel.Parcelas = int.Parse(reader["Parcelas"].ToString());
+                                contratoModel.ValorParcela = double.Parse(reader["ValorParcela"].ToString());
+                                contratoModel.Prorrogacoes = int.Parse(reader["Prorrogacoes"].ToString());
+                                contratoModel.ClienteId = int.Parse(reader["ClienteId"].ToString());
+                                contratoModel.SoftwareId = int.Parse(reader["SoftwareId"].ToString());
+                                contratoModel.SituacaoId = int.Parse(reader["SituacaoId"].ToString());
 
                             }
                         }
