@@ -48,9 +48,15 @@
     <Compile Include="Bairros\BairrosServices.cs" />
     <Compile Include="Bairros\IBairrosRepository.cs" />
     <Compile Include="Bairros\IBairrosServices.cs" />
+    <Compile Include="Bancos\BancosServices.cs" />
+    <Compile Include="Bancos\IBancosRepository.cs" />
+    <Compile Include="Bancos\IBancosServices.cs" />
     <Compile Include="Cidades\CidadesServices.cs" />
     <Compile Include="Cidades\ICidadesServices.cs" />
     <Compile Include="Cidades\ICidadesRepository.cs" />
+    <Compile Include="ContasBancarias\ContasBancariasServices.cs" />
+    <Compile Include="ContasBancarias\IContasBancariasRepository.cs" />
+    <Compile Include="ContasBancarias\IContasBancariasServices.cs" />
     <Compile Include="Contratos\Clausulas\ClausulasServices.cs" />
     <Compile Include="Contratos\Clausulas\IClausulasRepository.cs" />
     <Compile Include="Contratos\Clausulas\IClausulasServices.cs" />
@@ -110,6 +116,9 @@
     <Compile Include="Softwares\ISoftwaresRepository.cs" />
     <Compile Include="Softwares\ISoftwaresServices.cs" />
     <Compile Include="Softwares\SoftwaresServices.cs" />
+    <Compile Include="TiposContasBancarias\ITiposContasBancariasRepository.cs" />
+    <Compile Include="TiposContasBancarias\ITiposContasBancariasServices.cs" />
+    <Compile Include="TiposContasBancarias\TiposContasBancariasServices.cs" />
     <Compile Include="TiposEnderecos\ITiposEnderecosRepository.cs" />
     <Compile Include="TiposEnderecos\ITiposEnderecosServices.cs" />
     <Compile Include="TiposEnderecos\TiposEnderecosServices.cs" />

@@ -8,8 +8,8 @@ namespace ServicesLayer.Bairros
 {
     public class BairrosServices : IBairrosRepository, IBairrosServices
     {
-        private IBairrosRepository _bairrosRepository;
-        private IModelDataAnnotationCheck _modelDataAnnotationCheck;
+        private readonly IBairrosRepository _bairrosRepository;
+        private readonly IModelDataAnnotationCheck _modelDataAnnotationCheck;
 
         public BairrosServices(IBairrosRepository bairrosRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
         {

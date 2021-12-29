@@ -71,6 +71,8 @@
     <Folder Include="Tables\Contratos\Clausulas" />
     <Folder Include="Tables\Contratos\Seriais" />
     <Folder Include="Tables\Contratos\Incisos" />
+    <Folder Include="Tables\Financeiro" />
+    <Folder Include="Tables\Financeiro\Bancos" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
@@ -98,6 +100,9 @@
     <Build Include="Tables\Contratos\Clausulas\Clausulas.sql" />
     <Build Include="Tables\Contratos\Seriais\Seriais.sql" />
     <Build Include="Tables\Contratos\Incisos\Incisos.sql" />
+    <Build Include="Tables\Financeiro\Bancos\Bancos.sql" />
+    <Build Include="Tables\Financeiro\Bancos\TipoContaBancaria.sql" />
+    <Build Include="Tables\Financeiro\Bancos\ContasBancarias.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

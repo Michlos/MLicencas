@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Financeiro\Bancos\BancoModel.cs" />
+    <Compile Include="Financeiro\Bancos\IBancoModel.cs" />
     <Compile Include="Clientes\ClienteModel.cs" />
     <Compile Include="Clientes\Contatos\ContatoClienteModel.cs" />
     <Compile Include="Clientes\Contatos\IContatoClienteModel.cs" />
@@ -71,6 +73,10 @@
     <Compile Include="Fabrica\Contatos\IContatoFabricaModel.cs" />
     <Compile Include="Fabrica\Enderecos\IEnderecoFabricaModel.cs" />
     <Compile Include="Fabrica\IFabricaModel.cs" />
+    <Compile Include="Financeiro\Bancos\ContaBancaria\ContaBancariaModel.cs" />
+    <Compile Include="Financeiro\Bancos\ContaBancaria\IContaBancariaModel.cs" />
+    <Compile Include="Financeiro\Bancos\ITipoContaBancariaModel.cs" />
+    <Compile Include="Financeiro\Bancos\TipoContaBancariaModel.cs" />
     <Compile Include="Modulos\IModuloModel.cs" />
     <Compile Include="Modulos\ModuloModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,5 +99,6 @@
     <Compile Include="Usuarios\PermissaoModel.cs" />
     <Compile Include="Usuarios\UsuarioModel.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
