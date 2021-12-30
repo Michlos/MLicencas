@@ -102,6 +102,7 @@ namespace InfraStructure.Repository.Bancos
             {
                 try
                 {
+                    connection.Open();
                     using (SqlCommand cmd = new SqlCommand(_query, connection))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())

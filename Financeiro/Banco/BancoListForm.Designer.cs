@@ -29,13 +29,20 @@ namespace Financeiro.Banco
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvBancos = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Banco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.adicionarContaAoBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exibirContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvBancos
@@ -44,15 +51,12 @@ namespace Financeiro.Banco
             this.dgvBancos.AllowUserToDeleteRows = false;
             this.dgvBancos.BackgroundColor = System.Drawing.Color.White;
             this.dgvBancos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBancos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Banco});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBancos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBancos.GridColor = System.Drawing.Color.PaleGreen;
@@ -64,6 +68,7 @@ namespace Financeiro.Banco
             this.dgvBancos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBancos.Size = new System.Drawing.Size(274, 388);
             this.dgvBancos.TabIndex = 0;
+            this.dgvBancos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvBancos_MouseClick);
             // 
             // btnClose
             // 
@@ -91,20 +96,55 @@ namespace Financeiro.Banco
             this.btnNew.TabIndex = 22;
             this.btnNew.Text = "Novo";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // Codigo
+            // contextMenuStrip
             // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 50;
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem,
+            this.adicionarToolStripMenuItem,
+            this.removerToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.adicionarContaAoBancoToolStripMenuItem,
+            this.exibirContasToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 142);
             // 
-            // Banco
+            // editarToolStripMenuItem
             // 
-            this.Banco.HeaderText = "Banco";
-            this.Banco.Name = "Banco";
-            this.Banco.ReadOnly = true;
-            this.Banco.Width = 200;
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // adicionarToolStripMenuItem
+            // 
+            this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.adicionarToolStripMenuItem.Text = "Adicionar";
+            // 
+            // removerToolStripMenuItem
+            // 
+            this.removerToolStripMenuItem.Name = "removerToolStripMenuItem";
+            this.removerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.removerToolStripMenuItem.Text = "Remover";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // adicionarContaAoBancoToolStripMenuItem
+            // 
+            this.adicionarContaAoBancoToolStripMenuItem.Name = "adicionarContaAoBancoToolStripMenuItem";
+            this.adicionarContaAoBancoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.adicionarContaAoBancoToolStripMenuItem.Text = "Adicionar Conta";
+            // 
+            // exibirContasToolStripMenuItem
+            // 
+            this.exibirContasToolStripMenuItem.Name = "exibirContasToolStripMenuItem";
+            this.exibirContasToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.exibirContasToolStripMenuItem.Text = "Exibir Contas";
             // 
             // BancoListForm
             // 
@@ -114,10 +154,13 @@ namespace Financeiro.Banco
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvBancos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BancoListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Financeiro - Gestão de Bancos";
             this.Load += new System.EventHandler(this.BancoListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -127,7 +170,12 @@ namespace Financeiro.Banco
         private System.Windows.Forms.DataGridView dgvBancos;
         public System.Windows.Forms.Button btnClose;
         public System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Banco;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem adicionarContaAoBancoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exibirContasToolStripMenuItem;
     }
 }

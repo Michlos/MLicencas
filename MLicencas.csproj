@@ -357,6 +357,10 @@
       <Project>{01CBFFC4-C479-4C18-989D-AABC764B8731}</Project>
       <Name>DomainLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="Financeiro\Financeiro.csproj">
+      <Project>{40D7326F-395D-4D06-9113-FFB5033AE60D}</Project>
+      <Name>Financeiro</Name>
+    </ProjectReference>
     <ProjectReference Include="InfraStructure\InfraStructure.csproj">
       <Project>{93A7C86E-AE2E-4E4A-B251-4A9FC64EBB35}</Project>
       <Name>InfraStructure</Name>

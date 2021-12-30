@@ -1,6 +1,8 @@
 ﻿using DomainLayer.Modulos;
 using DomainLayer.Usuarios;
 
+using Financeiro.Banco;
+
 using MLicencas.FormViews.Clientes;
 using MLicencas.FormViews.Contratos;
 using MLicencas.FormViews.Fabrica;
@@ -153,6 +155,14 @@ namespace MLicencas
             licencaList.WindowState = FormWindowState.Normal;
             licencaList.MdiParent = this;
             licencaList.Show();
+        }
+
+        private void gestaoDeBancosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BancoListForm bancoListForm = new BancoListForm();
+            bancoListForm.WindowState = FormWindowState.Normal;
+            bancoListForm.MdiParent = this;
+            bancoListForm.Show();
         }
     }
 }

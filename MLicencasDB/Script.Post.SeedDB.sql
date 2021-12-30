@@ -6107,3 +6107,16 @@ INSERT INTO SistemasOperacionais (Nome) VALUES
 	('Linux'),
 	('AnyOne')
 GO
+
+/*
+	Id INT IDENTITY(1,1) NOT NULL,
+	Tipo	VARCHAR(50) NOT NULL,
+	CONSTRAINT PK_TIPOCONTABANCAIRA PRIMARY KEY NONCLUSTERED (Id)
+*/
+INSERT INTO TipoContaBancaria (Tipo) VALUES
+	('Investimentos'),
+	('Recebimentos'),
+	('Corrente'),
+	('Poupança'),
+	('Pagamentos')
+GO

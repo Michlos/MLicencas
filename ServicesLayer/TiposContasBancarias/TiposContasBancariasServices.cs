@@ -1,5 +1,7 @@
 ﻿using DomainLayer.Financeiro;
 
+using ServiceLayer.CommonServices;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace ServicesLayer.TiposContasBancarias
 {
-    class TiposContasBancariasServices : ITiposContasBancariasRepository, ITiposContasBancariasServices
+    public class TiposContasBancariasServices : ITiposContasBancariasRepository, ITiposContasBancariasServices
     {
         readonly ITiposContasBancariasRepository _tiposContasBancariasRepository;
-        readonly ITiposContasBancariasServices _tiposContasBancariasServices;
+        readonly IModelDataAnnotationCheck _modelDataAnnotationCheck;
 
-        public TiposContasBancariasServices(ITiposContasBancariasRepository tiposContasBancariasRepository, ITiposContasBancariasServices tiposContasBancariasServices)
+        public TiposContasBancariasServices(ITiposContasBancariasRepository tiposContasBancariasRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
         {
             _tiposContasBancariasRepository = tiposContasBancariasRepository;
-            _tiposContasBancariasServices = tiposContasBancariasServices;
+            _modelDataAnnotationCheck = modelDataAnnotationCheck;
         }
 
         public IEnumerable<ITipoContaBancariaModel> GetAll()
@@ -36,7 +38,7 @@ namespace ServicesLayer.TiposContasBancarias
 
         public void ValidateModel(ITipoContaBancariaModel tipoContaBancariaModel)
         {
-            _tiposContasBancariasServices.ValidateModel(tipoContaBancariaModel);
+            _modelDataAnnotationCheck.ValidateModelDataAnnotations(tipoContaBancariaModel);
         }
     }
 }

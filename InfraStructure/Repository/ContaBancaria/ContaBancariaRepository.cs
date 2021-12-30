@@ -4,12 +4,8 @@ using DomainLayer.Financeiro;
 
 using ServicesLayer.ContasBancarias;
 
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InfraStructure.Repository.ContaBancaria
 {
@@ -111,22 +107,166 @@ namespace InfraStructure.Repository.ContaBancaria
 
         public IEnumerable<IContaBancariaModel> GetAll()
         {
-            throw new NotImplementedException();
+            _query = "SELECT * FROM ContasBancarias";
+            contaListModel = new List<IContaBancariaModel>();
+
+            using (SqlConnection connection = new SqlConnection(_connectonString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                contaModel = new ContaBancariaModel();
+
+                                contaModel.Id = int.Parse(reader["Id"].ToString());
+                                contaModel.Agencia = reader["Agencia"].ToString();
+                                contaModel.AgenciaDV = reader["AgenciaDV"].ToString();
+                                contaModel.Conta = reader["Conta"].ToString();
+                                contaModel.ContaDV = reader["ContaDV"].ToString();
+                                contaModel.EmiteBoleto = bool.Parse(reader["EmiteBoleto"].ToString());
+                                contaModel.BancoId = int.Parse(reader["BancoId"].ToString());
+                                contaModel.TipoContaId = int.Parse(reader["TipoContaId"].ToString());
+
+                                contaListModel.Add(contaModel);
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar a lista de Contas Bancárias.", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return contaListModel;
+
         }
 
         public IEnumerable<IContaBancariaModel> GetAllByBancoId(int bancoId)
         {
-            throw new NotImplementedException();
+            _query = "SELECT * FROM ContasBancarias WHERE BancoId = @BancoId";
+            contaListModel = new List<IContaBancariaModel>();
+
+            using (SqlConnection connection = new SqlConnection(_connectonString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@BancoId", bancoId));
+                        
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                contaModel = new ContaBancariaModel();
+
+                                contaModel.Id = int.Parse(reader["Id"].ToString());
+                                contaModel.Agencia = reader["Agencia"].ToString();
+                                contaModel.AgenciaDV = reader["AgenciaDV"].ToString();
+                                contaModel.Conta = reader["Conta"].ToString();
+                                contaModel.ContaDV = reader["ContaDV"].ToString();
+                                contaModel.EmiteBoleto = bool.Parse(reader["EmiteBoleto"].ToString());
+                                contaModel.BancoId = int.Parse(reader["BancoId"].ToString());
+                                contaModel.TipoContaId = int.Parse(reader["TipoContaId"].ToString());
+
+                                contaListModel.Add(contaModel);
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar a lista de Contas Bancárias do Banco Selecionado", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return contaListModel;
         }
 
         public IContaBancariaModel GetById(int contaId)
         {
-            throw new NotImplementedException();
+            _query = "SELECT * FROM ContasBancarias WHERE Id = @Id";
+            contaModel = new ContaBancariaModel();
+
+            using (SqlConnection connection = new SqlConnection(_connectonString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", contaId));
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                contaModel.Id = int.Parse(reader["Id"].ToString());
+                                contaModel.Agencia = reader["Agencia"].ToString();
+                                contaModel.AgenciaDV = reader["AgenciaDV"].ToString();
+                                contaModel.Conta = reader["Conta"].ToString();
+                                contaModel.ContaDV = reader["ContaDV"].ToString();
+                                contaModel.EmiteBoleto = bool.Parse(reader["EmiteBoleto"].ToString());
+                                contaModel.BancoId = int.Parse(reader["BancoId"].ToString());
+                                contaModel.TipoContaId = int.Parse(reader["TipoContaId"].ToString());
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar a Conta Bancária pelo ID", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return contaModel;
         }
 
         public void Remove(int contaId)
         {
-            throw new NotImplementedException();
+            _query = "DELETE ContasBancarias WHERE Id = @Id";
+            using (SqlConnection connection = new SqlConnection(_connectonString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", contaId));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível remover a conta bancária do banco de dados.", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }
