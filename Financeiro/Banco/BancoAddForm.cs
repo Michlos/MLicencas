@@ -32,6 +32,7 @@ namespace Financeiro.Banco
         
         //MODELS LISTMODELS
         private IBancoModel bancoModel = new BancoModel();
+        private IEnumerable<IBancoModel> bancoListModel = new List<IBancoModel>();
 
         public BancoAddForm(int bancoId)
         {
@@ -48,9 +49,9 @@ namespace Financeiro.Banco
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bancoModel.Id = bancoId;
-            bancoModel.Nome = txbNomeBanco.Text;
-            bancoModel.CodigoBc = txbCodigoBc.Text;
+            bancoModel = (cbBanco.SelectedItem as IBancoModel);
+            bancoModel.Ativo = true;
+
 
             if (bancoId != 0)
             {
@@ -66,10 +67,11 @@ namespace Financeiro.Banco
         {
             try
             {
-                bancoModel = _bancosServices.Add(bancoModel);
+                _bancosServices.Edit(bancoModel);
                 MessageBox.Show("Banco Adicionado com sucesso");
                 bancoId = bancoModel.Id;
                 LoadFormFields();
+                LoadUserControlContas();
                 
             }
             catch (Exception e)
@@ -94,8 +96,30 @@ namespace Financeiro.Banco
 
         private void BancoAddForm_Load(object sender, EventArgs e)
         {
-            LoadUserControlContas();
+            LoadModels();
+            LoadCBCodBanco();
+            LoadCBNomeBanco();
             LoadFormFields();
+            LoadUserControlContas();
+        }
+
+        private void LoadCBNomeBanco()
+        {
+            cbBanco.DataSource = bancoListModel;
+            cbBanco.DisplayMember = "Nome";
+            cbBanco.SelectedIndex = -1;
+        }
+
+        private void LoadCBCodBanco()
+        {
+            cbCodigo.DataSource = bancoListModel;
+            cbCodigo.DisplayMember = "CodigoBC";
+            cbCodigo.SelectedIndex = -1;
+        }
+
+        private void LoadModels()
+        {
+            bancoListModel = _bancosServices.GetAll();
         }
 
         private void LoadFormFields()
@@ -104,10 +128,11 @@ namespace Financeiro.Banco
             {
                 groupBoxContas.Enabled = true;
                 bancoModel = _bancosServices.GetById(bancoId);
+                bancoId = bancoModel.Id;
 
                 txbId.Text = bancoModel.Id.ToString();
-                txbNomeBanco.Text = bancoModel.Nome;
-                txbCodigoBc.Text = bancoModel.CodigoBc;
+                cbBanco.Text = bancoModel.Nome;
+                cbCodigo.Text = bancoModel.CodigoBc;
 
             }
             else
@@ -127,6 +152,22 @@ namespace Financeiro.Banco
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbCodigo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCodigo.SelectedIndex != -1)
+            {
+                cbBanco.Text = (cbCodigo.SelectedItem as IBancoModel).Nome;
+            }
+        }
+
+        private void cbBanco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBanco.SelectedIndex != -1)
+            {
+                cbCodigo.Text = (cbBanco.SelectedItem as IBancoModel).CodigoBc;
+            }
         }
     }
 }

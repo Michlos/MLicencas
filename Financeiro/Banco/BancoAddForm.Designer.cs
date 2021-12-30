@@ -31,14 +31,14 @@ namespace Financeiro.Banco
         {
             this.txbId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txbNomeBanco = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txbCodigoBc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBoxContas = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.cbCodigo = new System.Windows.Forms.ComboBox();
+            this.cbBanco = new System.Windows.Forms.ComboBox();
             this.groupBoxContas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,33 +60,19 @@ namespace Financeiro.Banco
             this.label1.TabIndex = 1;
             this.label1.Text = "Id:";
             // 
-            // txbNomeBanco
-            // 
-            this.txbNomeBanco.Location = new System.Drawing.Point(55, 58);
-            this.txbNomeBanco.Name = "txbNomeBanco";
-            this.txbNomeBanco.Size = new System.Drawing.Size(197, 20);
-            this.txbNomeBanco.TabIndex = 0;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 62);
+            this.label2.Location = new System.Drawing.Point(15, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Banco:";
             // 
-            // txbCodigoBc
-            // 
-            this.txbCodigoBc.Location = new System.Drawing.Point(55, 32);
-            this.txbCodigoBc.Name = "txbCodigoBc";
-            this.txbCodigoBc.Size = new System.Drawing.Size(60, 20);
-            this.txbCodigoBc.TabIndex = 0;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 36);
+            this.label3.Location = new System.Drawing.Point(13, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 1;
@@ -139,16 +125,38 @@ namespace Financeiro.Banco
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // cbCodigo
+            // 
+            this.cbCodigo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbCodigo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbCodigo.FormattingEnabled = true;
+            this.cbCodigo.Location = new System.Drawing.Point(55, 33);
+            this.cbCodigo.Name = "cbCodigo";
+            this.cbCodigo.Size = new System.Drawing.Size(67, 21);
+            this.cbCodigo.TabIndex = 25;
+            this.cbCodigo.SelectedIndexChanged += new System.EventHandler(this.cbCodigo_SelectedIndexChanged);
+            // 
+            // cbBanco
+            // 
+            this.cbBanco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBanco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbBanco.FormattingEnabled = true;
+            this.cbBanco.Location = new System.Drawing.Point(55, 59);
+            this.cbBanco.Name = "cbBanco";
+            this.cbBanco.Size = new System.Drawing.Size(196, 21);
+            this.cbBanco.TabIndex = 25;
+            this.cbBanco.SelectedIndexChanged += new System.EventHandler(this.cbBanco_SelectedIndexChanged);
+            // 
             // BancoAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 337);
+            this.Controls.Add(this.cbBanco);
+            this.Controls.Add(this.cbCodigo);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBoxContas);
-            this.Controls.Add(this.txbNomeBanco);
-            this.Controls.Add(this.txbCodigoBc);
             this.Controls.Add(this.txbId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -169,13 +177,13 @@ namespace Financeiro.Banco
 
         private System.Windows.Forms.TextBox txbId;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbNomeBanco;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txbCodigoBc;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBoxContas;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ComboBox cbCodigo;
+        private System.Windows.Forms.ComboBox cbBanco;
     }
 }

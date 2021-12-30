@@ -111,6 +111,7 @@ namespace Financeiro.Banco.ContaBancaria
             contaModel.AgenciaDV = txbAgenciaDV.Text;
             contaModel.BancoId = bancoId;
             contaModel.TipoContaId = (cbTipoConta.SelectedItem as ITipoContaBancariaModel).Id;
+            contaModel.EmiteBoleto = chbEmiteBoleto.Checked;
 
             if (contaId != 0)
             {

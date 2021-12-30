@@ -1,5 +1,7 @@
 ﻿using DomainLayer.Financeiro;
 
+using Financeiro.Banco.ContaBancaria;
+
 using InfraStructure;
 using InfraStructure.Repository.ContaBancaria;
 using InfraStructure.Repository.TiposContasBancarias;
@@ -86,7 +88,7 @@ namespace Financeiro.UCViews.Bancos
                     DataRow row = tableContas.NewRow();
 
                     row["Id"] = item.Id;
-                    row["Agencia"] = item.Agencia + "-" + item.AgenciaDV;
+                    row["Agencia"] = string.IsNullOrEmpty(item.AgenciaDV.ToString().Trim()) ? item.Agencia : item.Agencia + "-" + item.AgenciaDV;
                     row["Conta"] = item.Conta + "-" + item.ContaDV;
                     row["Tipo"] = tipoListModel.FirstOrDefault(id => id.Id == item.TipoContaId).Tipo;
 
@@ -107,7 +109,63 @@ namespace Financeiro.UCViews.Bancos
 
         private void btnNew_Click(object sender, EventArgs e)
         {
+            
+            ContaAddForm contaAddForm = new ContaAddForm(bancoId, 0);
+            contaAddForm.WindowState = FormWindowState.Normal;
+            contaAddForm.ShowDialog();
+            LoadModels();
+            LoadDGVContas();
 
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvContas.CurrentRow != null)
+            {
+                int contaId = int.Parse(dgvContas.CurrentRow.Cells["Id"].Value.ToString());
+                ContaAddForm contaEditForm = new ContaAddForm(bancoId, contaId);
+                contaEditForm.WindowState = FormWindowState.Normal;
+                contaEditForm.ShowDialog();
+                LoadModels();
+                LoadDGVContas();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma conta");
+            }
+        }
+
+        private void removerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvContas.CurrentRow != null)
+                {
+                    int contaId = int.Parse(dgvContas.CurrentRow.Cells["Id"].Value.ToString());
+                    var result = MessageBox.Show($"Deseja realmente apagar o \nregistro da conta \"{dgvContas.CurrentRow.Cells["Conta"]}\"?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        _contasServices.Remove(contaId);
+                        MessageBox.Show("Conta Removida com sucesso");
+                        LoadModels();
+                        LoadDGVContas();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+        }
+
+
+        private void dgvContas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuStripContas.Show(MousePosition);
+            }
         }
     }
 }

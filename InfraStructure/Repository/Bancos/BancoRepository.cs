@@ -66,7 +66,7 @@ namespace InfraStructure.Repository.Bancos
 
         public void Edit(IBancoModel bancoModel)
         {
-            _query = "UPDATE Bancos SET Nome = @Nome, CodigoBC = @CodigoBC WHERE Id = @Id";
+            _query = "UPDATE Bancos SET Nome = @Nome, CodigoBC = @CodigoBC, Ativo = @Ativo WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
@@ -78,6 +78,7 @@ namespace InfraStructure.Repository.Bancos
                         cmd.Parameters.AddWithValue("@Id", bancoModel.Id);
                         cmd.Parameters.AddWithValue("@Nome", bancoModel.Nome);
                         cmd.Parameters.AddWithValue("@CodigoBC", bancoModel.CodigoBc);
+                        cmd.Parameters.AddWithValue("@Ativo", bancoModel.Ativo);
                         cmd.ExecuteNonQuery();
 
                     }
@@ -114,6 +115,7 @@ namespace InfraStructure.Repository.Bancos
                                 bancoModel.Id = int.Parse(reader["Id"].ToString());
                                 bancoModel.Nome = reader["Nome"].ToString();
                                 bancoModel.CodigoBc = reader["CodigoBC"].ToString();
+                                bancoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
 
                                 bancoListModel.Add(bancoModel);
 
@@ -157,6 +159,7 @@ namespace InfraStructure.Repository.Bancos
                                 bancoModel.Id = int.Parse(reader["Id"].ToString());
                                 bancoModel.Nome = reader["Nome"].ToString();
                                 bancoModel.CodigoBc = reader["CodigoBC"].ToString();
+                                bancoModel.Ativo = bool.Parse(reader["Ativo"].ToString());
                             }
                         }
                     }

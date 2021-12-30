@@ -5,5 +5,6 @@
         string CodigoBc { get; set; }
         int Id { get; set; }
         string Nome { get; set; }
+        bool Ativo { get; set; }
     }
 }

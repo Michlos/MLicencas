@@ -45,7 +45,7 @@ namespace InfraStructure.Repository.ContaBancaria
                         cmd.Parameters.AddWithValue("@ContaDV", contaModel.ContaDV);
                         cmd.Parameters.AddWithValue("@EmiteBoleto", contaModel.EmiteBoleto);
                         cmd.Parameters.AddWithValue("@BancoId", contaModel.BancoId);
-                        cmd.Parameters.AddWithValue("@BancoId", contaModel.TipoContaId);
+                        cmd.Parameters.AddWithValue("@TipoContaId", contaModel.TipoContaId);
 
                         idReturned = (int)cmd.ExecuteScalar();
                     }
@@ -88,7 +88,7 @@ namespace InfraStructure.Repository.ContaBancaria
                         cmd.Parameters.AddWithValue("@ContaDV", contaModel.ContaDV);
                         cmd.Parameters.AddWithValue("@EmiteBoleto", contaModel.EmiteBoleto);
                         cmd.Parameters.AddWithValue("@BancoId", contaModel.BancoId);
-                        cmd.Parameters.AddWithValue("@BancoId", contaModel.TipoContaId);
+                        cmd.Parameters.AddWithValue("@TipoContaId", contaModel.TipoContaId);
 
                         cmd.ExecuteNonQuery();
                     }
