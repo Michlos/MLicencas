@@ -6444,3 +6444,1669 @@ INSERT INTO Bancos (CodigoBC, Nome) VALUES
 	('756', 'BANCO SICOOB S.A.'),
 	('757', 'BCO KEB HANA DO BRASIL S.A.')
 GO
+
+
+/**INTEGRAÇÃO BANCÁRIA
+*/
+/*A001 - ALEGAÇÃO DO PAGADOR*/
+INSERT INTO A001_AlegacaoPagador (Codigo, Significado) VALUES
+	('0101'),('Pagador alega que não recebeu a mercadoria '),
+	('0102'),('Pagador alega que a mercadoria chegou atrasada '),
+	('0103'),('Pagador alega que a mercadoria chegou avariada '),
+	('0104'),('Pagador alega que a mercadoria não confere com o pedido '),
+	('0105'),('Pagador alega que a mercadoria chegou incompleta '),
+	('0106'),('Pagador alega que a mercadoria está à disposição do Beneficiário '),
+	('0107'),('Pagador alega que devolveu a mercadoria '),
+	('0108'),('Pagador alega que a mercadoria está em desacordo com a Nota Fiscal'),
+	('0109'),('Pagador alega que nada deve ou comprou '),
+	('0201'),('Pagador alega que não recebeu a fatura '),
+	('0202'),('Pagador alega que o pedido de compra foi cancelado '),
+	('0203'),('Pagador alega que a duplicata foi cancelada '),
+	('0204'),('Pagador alega não ter recebido a mercadoria, nota fiscal, fatura '),
+	('0205'),('Pagador alega que a duplicata/fatura está incorreta '),
+	('0206'),('Pagador alega que o valor está incorreto '),
+	('0207'),('Pagador alega que o faturamento é indevido '),
+	('0208'),('Pagador alega que não localizou o pedido de compra '),
+	('0301'),('Pagador alega que o vencimento correto é: '),
+	('0302'),('Pagador solicita a prorrogação do vencimento para: '),
+	('0303'),('Pagador aceita se o vencimento prorrogado para: '),
+	('0304'),('Pagador alega que pagará o título em: '),
+	('0305'),('Pagador pagou o título diretamente ao Beneficiário em: '),
+	('0306'),('Pagador pagará o título diretamente ao Beneficiário em: '),
+	('0401'),('Pagador não foi localizado, confirmar endereço '),
+	('0402'),('Pagador mudou-se, transferiu de domicílio '),
+	('0403'),('Pagador não recebe no endereço indicado '),
+	('0404'),('Pagador desconhecido no local '),
+	('0405'),('Pagador reside fora do perímetro '),
+	('0406'),('Pagador com endereço incompleto '),
+	('0407'),('Não foi localizado o número constante no endereço do título '),
+	('0408'),('Endereço não localizado/não consta nos guias da cidade '),
+	('0409'),('Endereço do Pagador alterado para: '),
+	('0501'),('Pagador alega que tem desconto ou abatimento de: '),
+	('0502'),('Pagador solicita desconto ou abatimento de: '),
+	('0503'),('Pagador solicita dispensa dos juros de mora '),
+	('0504'),('Pagador se recusa a pagar juros '),
+	('0505'),('Pagador se recusa a pagar comissão de permanência '),
+	('0601'),('Pagador está em regime de concordata '),
+	('0602'),('Pagador está em regime de falência '),
+	('0603'),('Pagador alega que mantém entendimentos com Pagadorr '),
+	('0604'),('Pagador está em entendimentos com o Beneficiário '),
+	('0605'),('Pagador está viajando '),
+	('0606'),('Pagador recusou-se a aceitar o título '),
+	('0607'),('Pagador sustou protesto judicialmente '),
+	('0608'),('Empregado recusou-se a receber título '),
+	('0609'),('Título reapresentado ao Pagador '),
+	('0610'),('Estamos nos dirigindo ao nosso correspondente '),
+	('0611'),('Correspondente não se interessa pelo protesto '),
+	('0612'),('Pagador não atende aos avisos de nossos correspondentes '),
+	('0613'),('Título está sendo encaminhado ao correspondente '),
+	('0614'),('Entrega franco de pagamento ao Pagador '),
+	('0615'),('Entrega franco de pagamento ao representante '),
+	('0616'),('A entrega franco de pagamento é difícil '),
+	('0617'),('Título recusado pelo cartório')
+GO
+
+/*C004-CODIGO DE MOVIMENTAÇÃO D REMESSA*/
+INSERT INTO C004_CodigoMovimentacaoRemessa (Codigo, Descricao) VALUES
+	('01'), ('Entrada de Títulos'),
+	('02'), ('Pedido de Baixa'),
+	('03'), ('Protesto para Fins Falimentares'),
+	('04'), ('Concessão de Abatimento'),
+	('05'), ('Cancelamento de Abatimento'),
+	('06'), ('Alteração de Vencimento'),
+	('07'), ('Concessão de Desconto'),
+	('08'), ('Cancelamento de Desconto'),
+	('09'), ('Protestar'),
+	('10'), ('Sustar Protesto e Baixar Título'),
+	('11'), ('Sustar Protesto e Manter em Carteira'),
+	('12'), ('Alteração de Juros de Mora'),
+	('13'), ('Dispensar Cobrança de Juros de Mora'),
+	('14'), ('Alteração de Valor/Percentual de Multa'),
+	('15'), ('Dispensar Cobrança de Multa'),
+	('16'), ('Alteração de Valor/Data de Desconto'),
+	('17'), ('Não conceder Desconto'),
+	('18'), ('Alteração do Valor de Abatimento'),
+	('19'), ('Prazo Limite de Recebimento - Alterar'),
+	('20'), ('Prazo Limite de Recebimento - Dispensar'),
+	('21'), ('Alterar número do título dado pelo Beneficiário'),
+	('22'), ('Alterar número controle do Participante'),
+	('23'), ('Alterar dados do Pagador'),
+	('24'), ('Alterar dados do Sacador/Avalista'),
+	('30'), ('Recusa da Alegação do Pagador'),
+	('31'), ('Alteração de Outros Dados'),
+	('33'), ('Alteração dos Dados do Rateio de Crédito'),
+	('34'), ('Pedido de Cancelamento dos Dados do Rateio de Crédito'),
+	('35'), ('Pedido de Desagendamento do Débito Automático'),
+	('40'), ('Alteração de Carteira'),
+	('41'), ('Cancelar protesto'),
+	('42'), ('Alteração de Espécie de Título'),
+	('43'), ('Transferência de carteira/modalidade de cobrança'),
+	('44'), ('Alteração de contrato de cobrança'),
+	('45'), ('Negativação Sem Protesto'),
+	('46'), ('Solicitação de Baixa de Título Negativado Sem Protesto'),
+	('47'), ('Alteração do Valor Nominal do Título'),
+	('48'), ('Alteração do Valor Mínimo/ Percentual'),
+	('49'), ('Alteração do Valor Máximo/Percentual'),
+	('61'), ('Alteração para inclusão/manutenção de QR Code Pix')
+GO
+
+/*C006 - CÓDIGO DA CARTEIRA*/
+INSERT INTO C006_CodigoCarteira (Codigo, Descricao) VALUES
+	(1, 'Cobrança Simples'),
+	(2, 'Cobrança Vinculada'),
+	(3, 'Cobrança Caucionada'),
+	(4, 'Cobrança Descontada'),
+	(5, 'Cobrança Vendor'),
+	(6, 'Cobrança Cessão')
+GO
+
+/*C007 - FormaCadastramentoTItulo*/
+INSERT INTO C007_FormaCadastramentoTitulo (Codigo, Descricao) VALUES
+	(1 , 'Com - Cobrança Registrada'),
+	(2 , 'Sem - Cobrança sem Registro'),
+	(3 , 'Com - Recusa do Débito Automático')
+GO
+
+/*C008 - TIPO DE DOCUMENTO*/
+INSERT INTO C008_TipoDocumento (Codigo, Descricao) VALUES
+	(1, 'Tradicional'),
+	(2, 'Escritural')
+GO
+
+/*C009 - IDENTIFICAÇÃO DE EMISSÃO DO BOLETO DE PAGAMENTO*/
+INSERT INTO C009_IdentEmissaoBoletoPagamento (Codigo, Descricao) VALUES
+	(1 , 'Banco Emite'),
+	(2 , 'Cliente Emite'),
+	(3 , 'Banco Pré-emite e Cliente Complementa'),
+	(4 , 'Banco Reemite'),
+	(5 , 'Banco Não Reemite'),
+	(7 , 'Banco Emitente - Aberta'),
+	(8 , 'Banco Emitente - Auto-envelopável')
+GO
+
+/*C010 - IDENTIFICAÇÃO DA DISTRIBUIÇÃO*/
+INSERT INTO C010_IdentDistribuicao (Codigo, Descricao) VALUES
+	('1', 'Banco Distribui'),
+	('2', 'Cliente Distribui'),
+	('3', 'Banco Envia E-Mail'),
+	('4', 'Banco Envia SMS'),
+	('P', 'Banco registra e cliente distribui boleto com QR Pix'),
+	('Q', 'Banco registra e distribui boleto com QR Pix')
+GO
+/*C015 - ESPÉCIE DO TÍTULO*/
+INSERT INTO C015_EspecieTitulo (Codigo, Descricao) VALUES
+	('01', 'CH Cheque'),
+	('02', 'DM Duplicata Mercantil'),
+	('03', 'DMI Duplicata Mercantil p/ Indicação'),
+	('04', 'DS Duplicata de Serviço'),
+	('05', 'DSI Duplicata de Serviço p/ Indicação'),
+	('06', 'DR Duplicata Rural'),
+	('07', 'LC Letra de Câmbio'),
+	('08', 'NCC Nota de Crédito Comercial'),
+	('09', 'NCE Nota de Crédito a Exportação'),
+	('10', 'NCI Nota de Crédito Industrial'),
+	('11', 'NCR Nota de Crédito Rural'),
+	('12', 'NP Nota Promissória'),
+	('13', 'NPR Nota Promissória Rural'),
+	('14', 'TM Triplicata Mercantil'),
+	('15', 'TS Triplicata de Serviço'),
+	('16', 'NS Nota de Seguro'),
+	('17', 'RC Recibo'),
+	('18', 'FAT Fatura'),
+	('19', 'ND Nota de Débito'),
+	('20', 'AP Apólice de Seguro'),
+	('21', 'ME Mensalidade Escolar'),
+	('22', 'PC Parcela de Consórcio'),
+	('23', 'NF Nota Fiscal'),
+	('24', 'DD Documento de Dívida'),
+	('25', 'Cédula de Produto Rural'),
+	('26', 'Warrant'),
+	('27', 'Dívida Ativa de Estado'),
+	('28', 'Dívida Ativa de Município'),
+	('29', 'Dívida Ativa da União'),
+	('30', 'Encargos condominiais'),
+	('31', 'CC Cartão de Crédito'),
+	('32', 'BDP – Boleto de Proposta'),
+	('99', 'Outros')
+GO
+
+/*C016 - IDENTIFICAÇÃO DE TÍTULO ACEITO/NÃO ACEITO*/
+INSERT INTO C016_IdentTituloAceito (Codigo, Descricao) VALUES
+	('A', 'Aceite'),
+	('N', 'Não Aceite')
+GO
+
+/*c018 - CÓDIGO DO JUROS DE MORA*/
+INSERT INTO C018_CodigoJurosMora (Codigo, Descricao) VALUES
+	(1, 'Valor por Dia'),
+	(2, 'Taxa Mensal'),
+	(3, 'Isento')
+GO
+
+/*C021 - CÓDIGO DO DESCONTO 1/2/3*/
+INSERT INTO C021_CodigoDesconto (Codigo, Descricao) VALUES
+	(1, 'Valor Fixo Até a Data Informada'),
+	(2, 'Percentual Até a Data Informada'),
+	(3, 'Valor por Antecipação Dia Corrido'),
+	(4, 'Valor por Antecipação Dia Útil'),
+	(5, 'Percentual Sobre o Valor Nominal Dia Corrido'),
+	(6, 'Percentual Sobre o Valor Nominal Dia Útil'),
+	(7, 'Cancelamento de Desconto')
+GO
+
+/*C026 - CÓDIGO PARA PROTESTO*/
+INSERT INTO C026_CodigoProtesto (Codigo, Descricao) VALUES
+	(1, 'Protestar Dias Corridos'),
+	(2, 'Protestar Dias Úteis'),
+	(3, 'Não Protestar'),
+	(4, 'Protestar Fim Falimentar - Dias Úteis'),
+	(5, 'Protestar Fim Falimentar - Dias Corridos'),
+	(8, 'Negativação sem Protesto'),
+	(9, 'Cancelamento Protesto Autmático')
+GO
+
+/*C028 - CÓDIGO PARA BAIXA/DEVOLUÇÃO*/
+INSERT INTO C028_CodigoBaixaDevolucao (Codigo, Descricao) VALUES
+	(1,'Baixar / Devolver'),
+	(2,'Não Baixar / Não Devolver'),
+	(3,'Cancelar Prazo para Baixa / Devolução')
+GO
+
+/*C039_AvisoDebitoAutomatico*/
+INSERT INTO C039_AvisoDebitoAutomatico (Codigo, Descricao) VALUES
+	('01', 'Emite o Aviso com o Endereço Informado no Arquivo Remessa'),
+	('02', 'Não Emite Aviso ao Pagador'),
+	('03', 'Emite Aviso com o Endereço Constante do Cadastro do Banco')
+GO
+
+/*C044 - CodigoMovimentoRetorno*/
+INSERT INTO C044_CodigoMovimentoRetorno (Codigo, Descricao) VALUES
+	('02', 'Entrada Confirmada'),
+	('03', 'Entrada Rejeitada'),
+	('04', 'Transferência de Carteira/Entrada'),
+	('05', 'Transferência de Carteira/Baixa'),
+	('06', 'Liquidação'),
+	('07', 'Confirmação do Recebimento da Instrução de Desconto'),
+	('08', 'Confirmação do Recebimento do Cancelamento do Desconto'),
+	('09', 'Baixa'),
+	('11', 'Títulos em Carteira (Em Ser)'),
+	('12', 'Confirmação Recebimento Instrução de Abatimento'),
+	('13', 'Confirmação Recebimento Instrução de Cancelamento Abatimento'),
+	('14', 'Confirmação Recebimento Instrução Alteração de Vencimento'),
+	('15', 'Franco de Pagamento'),
+	('17', 'Liquidação Após Baixa ou Liquidação Título Não Registrado'),
+	('19', 'Confirmação Recebimento Instrução de Protesto'),
+	('20', 'Confirmação Recebimento Instrução de Sustação/Cancelamento de Protesto'),
+	('23', 'Remessa a Cartório (Aponte em Cartório)'),
+	('24', 'Retirada de Cartório e Manutenção em Carteira'),
+	('25', 'Protestado e Baixado (Baixa por Ter Sido Protestado)'),
+	('26', 'Instrução Rejeitada'),
+	('27', 'Confirmação do Pedido de Alteração de Outros Dados'),
+	('28', 'Débito de Tarifas/Custas'),
+	('29', 'Ocorrências do Pagador'),
+	('30', 'Alteração de Dados Rejeitada'),
+	('33', 'Confirmação da Alteração dos Dados do Rateio de Crédito'),
+	('34', 'Confirmação do Cancelamento dos Dados do Rateio de Crédito'),
+	('35', 'Confirmação do Desagendamento do Débito Automático'),
+	('36', 'Confirmação de envio de e-mail/SMS'),
+	('37', 'Envio de e-mail/SMS rejeitado'),
+	('38', 'Confirmação de alteração do Prazo Limite de Recebimento (a data deve ser informada no campo 28.3.p)'),
+	('39', 'Confirmação de Dispensa de Prazo Limite de Recebimento'),
+	('40', 'Confirmação da alteração do número do título dado pelo Beneficiário'),
+	('41', 'Confirmação da alteração do número controle do Participante'),
+	('42', 'Confirmação da alteração dos dados do Pagador'),
+	('43', 'Confirmação da alteração dos dados do Sacador/Avalista'),
+	('44', 'Título pago com cheque devolvido'),
+	('45', 'Título pago com cheque compensado'),
+	('46', 'Instrução para cancelar protesto confirmada'),
+	('47', 'Instrução para protesto para fins falimentares confirmada'),
+	('48', 'Confirmação de instrução de transferência de carteira/modalidade de cobrança'),
+	('49', 'Alteração de contrato de cobrança'),
+	('50', 'Título pago com cheque pendente de liquidação'),
+	('51', 'Título DDA reconhecido pelo Pagador'),
+	('52', 'Título DDA não reconhecido pelo Pagador'),
+	('53', 'Título DDA recusado pela CIP'),
+	('54', 'Confirmação da Instrução de Baixa de Título Negativado sem Protesto'),
+	('55', 'Confirmação de Pedido de Dispensa de Multa'),
+	('56', 'Confirmação do Pedido de Cobrança de Multa'),
+	('57', 'Confirmação do Pedido de Alteração de Cobrança de Juros'),
+	('58', 'Confirmação do Pedido de Alteração do Valor/Data de Desconto'),
+	('59', 'Confirmação do Pedido de Alteração do Beneficiário do Título'),
+	('60', 'Confirmação do Pedido de Dispensa de Juros de Mora'),
+	('61', 'Confirmação de Alteração do Valor Nominal do Título'),
+	('63', 'Título Sustado Judicialmente'),
+	('64', 'Confirmação de alteração do valor mínimo/percentual'),
+	('65', 'Confirmação de alteração do valor máximo/percentual')
+GO
+
+/*C047A - TipoMotivoOcorrencia*/
+INSERT INTO C047A_TipoMotivoOcorrencia (Tipo, Descricao) VALUES
+	('A', 'Códigos de rejeições de 01 a 95 associados aos códigos de movimento 02, 03, 26 e 30 (Descrição C044)'),
+	('B', 'Códigos de tarifas / custas de 01 a 20 associados ao código de movimento 28 (Descrição C044)'),
+	('C', 'Códigos de liquidação / baixa de 01 a 15 associados aos códigos de movimento 06, 09 e 17 (Descrição C044)')
+GO
+
+DECLARE @TipoString CHAR(1) = 'A'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM C047A_TipoMotivoOcorrencia WHERE Tipo = @TipoString
+INSERT INTO C047_MotivoOcorrencia (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, '01', 'Código do Banco Inválido'),
+	(@TipoInt, '02', 'Código do Registro Detalhe Inválido'),
+	(@TipoInt, '03', 'Código do Segmento Inválido'),
+	(@TipoInt, '04', 'Código de Movimento Não Permitido para Carteira'),
+	(@TipoInt, '05', 'Código de Movimento Inválido'),
+	(@TipoInt, '06', 'Tipo/Número de Inscrição do Beneficiário Inválidos'),
+	(@TipoInt, '07', 'Agência/Conta/DV Inválido'),
+	(@TipoInt, '08', 'Nosso Número Inválido'),
+	(@TipoInt, '09', 'Nosso Número Duplicado'),
+	(@TipoInt, '10', 'Carteira Inválida'),
+	(@TipoInt, '11', 'Forma de Cadastramento do Título Inválido'),
+	(@TipoInt, '12', 'Tipo de Documento Inválido'),
+	(@TipoInt, '13', 'Identificação da Emissão do Boleto de Pagamento Inválida'),
+	(@TipoInt, '14', 'Identificação da Distribuição do Boleto de Pagamento Inválida'),
+	(@TipoInt, '15', 'Características da Cobrança Incompatíveis'),
+	(@TipoInt, '16', 'Data de Vencimento Inválida'),
+	(@TipoInt, '17', 'Data de Vencimento Anterior a Data de Emissão'),
+	(@TipoInt, '18', 'Vencimento Fora do Prazo de Operação'),
+	(@TipoInt, '19', 'Título a Cargo de Bancos Correspondentes com Vencimento Inferior a XX Dias'),
+	(@TipoInt, '20', 'Valor do Título Inválido'),
+	(@TipoInt, '21', 'Espécie do Título Inválida'),
+	(@TipoInt, '22', 'Espécie do Título Não Permitida para a Carteira'),
+	(@TipoInt, '23', 'Aceite Inválido'),
+	(@TipoInt, '24', 'Data da Emissão Inválida'),
+	(@TipoInt, '25', 'Data da Emissão Posterior a Data de Entrada'),
+	(@TipoInt, '26', 'Código de Juros de Mora Inválido'),
+	(@TipoInt, '27', 'Valor/Taxa de Juros de Mora Inválido'),
+	(@TipoInt, '28', 'Código do Desconto Inválido'),
+	(@TipoInt, '29', 'Valor do Desconto Maior ou Igual ao Valor do Título'),
+	(@TipoInt, '30', 'Desconto a Conceder Não Confere'),
+	(@TipoInt, '31', 'Concessão de Desconto - Já Existe Desconto Anterior'),
+	(@TipoInt, '32', 'Valor do IOF Inválido'),
+	(@TipoInt, '33', 'Valor do Abatimento Inválido'),
+	(@TipoInt, '34', 'Valor do Abatimento Maior ou Igual ao Valor do Título'),
+	(@TipoInt, '35', 'Valor a Conceder Não Confere'),
+	(@TipoInt, '36', 'Concessão de Abatimento - Já Existe Abatimento Anterior'),
+	(@TipoInt, '37', 'Código para Protesto Inválido'),
+	(@TipoInt, '38', 'Prazo para Protesto Inválido'),
+	(@TipoInt, '39', 'Pedido de Protesto Não Permitido para o Título'),
+	(@TipoInt, '40', 'Título com Ordem de Protesto Emitida'),
+	(@TipoInt, '41', 'Pedido de Cancelamento/Sustação para Títulos sem Instrução de Protesto'),
+	(@TipoInt, '42', 'Código para Baixa/Devolução Inválido'),
+	(@TipoInt, '43', 'Prazo para Baixa/Devolução Inválido'),
+	(@TipoInt, '44', 'Código da Moeda Inválido'),
+	(@TipoInt, '45', 'Nome do Pagador Não Informado'),
+	(@TipoInt, '46', 'Tipo/Número de Inscrição do Pagador Inválidos'),
+	(@TipoInt, '47', 'Endereço do Pagador Não Informado'),
+	(@TipoInt, '48', 'CEP Inválido'),
+	(@TipoInt, '49', 'CEP Sem Praça de Cobrança (Não Localizado)'),
+	(@TipoInt, '50', 'CEP Referente a um Banco Correspondente'),
+	(@TipoInt, '51', 'CEP incompatível com a Unidade da Federação'),
+	(@TipoInt, '52', 'Unidade da Federação Inválida'),
+	(@TipoInt, '53', 'Tipo/Número de Inscrição do Sacador/Avalista Inválidos'),
+	(@TipoInt, '54', 'Sacador/Avalista Não Informado'),
+	(@TipoInt, '55', 'Nosso número no Banco Correspondente Não Informado'),
+	(@TipoInt, '56', 'Código do Banco Correspondente Não Informado'),
+	(@TipoInt, '57', 'Código da Multa Inválido'),
+	(@TipoInt, '58', 'Data da Multa Inválida'),
+	(@TipoInt, '59', 'Valor/Percentual da Multa Inválido'),
+	(@TipoInt, '60', 'Movimento para Título Não Cadastrado'),
+	(@TipoInt, '61', 'Alteração da Agência Cobradora/DV Inválida'),
+	(@TipoInt, '62', 'Tipo de Impressão Inválido'),
+	(@TipoInt, '63', 'Entrada para Título já Cadastrado'),
+	(@TipoInt, '64', 'Número da Linha Inválido'),
+	(@TipoInt, '65', 'Código do Banco para Débito Inválido'),
+	(@TipoInt, '66', 'Agência/Conta/DV para Débito Inválido'),
+	(@TipoInt, '67', 'Dados para Débito incompatível com a Identificação da Emissão do Boleto de Pagamento'),
+	(@TipoInt, '68', 'Débito Automático Agendado'),
+	(@TipoInt, '69', 'Débito Não Agendado - Erro nos Dados da Remessa'),
+	(@TipoInt, '70', 'Débito Não Agendado - Pagador Não Consta do Cadastro de Autorizante'),
+	(@TipoInt, '71', 'Débito Não Agendado - Beneficiário Não Autorizado pelo Pagador'),
+	(@TipoInt, '72', 'Débito Não Agendado - Beneficiário Não Participa da Modalidade Débito Automático'),
+	(@TipoInt, '73', 'Débito Não Agendado - Código de Moeda Diferente de Real (R$)'),
+	(@TipoInt, '74', 'Débito Não Agendado - Data Vencimento Inválida'),
+	(@TipoInt, '75', 'Débito Não Agendado, Conforme seu Pedido, Título Não Registrado'),
+	(@TipoInt, '76', 'Débito Não Agendado, Tipo/Num. Inscrição do Debitado, Inválido'),
+	(@TipoInt, '77', 'Transferência para Desconto Não Permitida para a Carteira do Título'),
+	(@TipoInt, '78', 'Data Inferior ou Igual ao Vencimento para Débito Automático'),
+	(@TipoInt, '79', 'Data Juros de Mora Inválido'),
+	(@TipoInt, '80', 'Data do Desconto Inválida'),
+	(@TipoInt, '81', 'Tentativas de Débito Esgotadas - Baixado'),
+	(@TipoInt, '82', 'Tentativas de Débito Esgotadas - Pendente'),
+	(@TipoInt, '83', 'Limite Excedido'),
+	(@TipoInt, '84', 'Número Autorização Inexistente'),
+	(@TipoInt, '85', 'Título com Pagamento Vinculado'),
+	(@TipoInt, '86', 'Seu Número Inválido'),
+	(@TipoInt, '87', '-mail/SMS enviado'),
+	(@TipoInt, '88', '-mail Lido'),
+	(@TipoInt, '89', '-mail/SMS devolvido - endereço de e-mail ou número do celular incorreto'),
+	(@TipoInt, '90', '-mail devolvido - caixa postal cheia'),
+	(@TipoInt, '91', '-mail/número do celular do Pagador não informado'),
+	(@TipoInt, '92', 'agador optante por Boleto de Pagamento Eletrônico - e-mail não enviado'),
+	(@TipoInt, '93', 'ódigo para emissão de Boleto de Pagamento não permite envio de e-mail'),
+	(@TipoInt, '94', 'ódigo da Carteira inválido para envio e-mail.'),
+	(@TipoInt, '95', 'ntrato não permite o envio de e-mail'),
+	(@TipoInt, '96', 'úmero de contrato inválido'),
+	(@TipoInt, '97', 'Rejeição da alteração do prazo limite de recebimento (a data deve ser informada no campo 28.3.p)'),
+	(@TipoInt, '98', 'Rejeição de dispensa de prazo limite de recebimento'),
+	(@TipoInt, '99', 'Rejeição da alteração do número do título dado pelo Beneficiário'),
+	(@TipoInt, 'A1', 'Rejeição da alteração do número controle do participante'),
+	(@TipoInt, 'A2', 'Rejeição da alteração dos dados do Pagador'),
+	(@TipoInt, 'A3', 'Rejeição da alteração dos dados do Sacador/avalista'),
+	(@TipoInt, 'A4', 'Pagador DDA'),
+	(@TipoInt, 'A5', 'Registro Rejeitado – Título já Liquidado'),
+	(@TipoInt, 'A6', 'Código do Convenente Inválido ou Encerrado'),
+	(@TipoInt, 'A7', 'Título já se encontra na situação Pretendida'),
+	(@TipoInt, 'A8', 'Valor do Abatimento inválido para cancelamento'),
+	(@TipoInt, 'A9', 'Não autoriza pagamento parcial'),
+	(@TipoInt, 'B1', 'Autoriza recebimento parcial'),
+	(@TipoInt, 'B2', 'Valor Nominal do Título Conflitante'),
+	(@TipoInt, 'B3', 'Tipo de Pagamento Inválido'),
+	(@TipoInt, 'B4', 'Valor Máximo/Percentual Inválido'),
+	(@TipoInt, 'B5', 'Valor Mínimo/Percentual Inválido'),
+	(@TipoInt, 'P1', 'Registrado com QR Code Pix'),
+	(@TipoInt, 'P2', 'Registrado sem QR Code Pix'),
+	(@TipoInt, 'P3', 'Chave PIX – chave invalida'),
+	(@TipoInt, 'P4', 'Chave PIX – sem cadastro na DICT'),
+	(@TipoInt, 'P5', 'Chave PIX – não é compatível com o CNPJ'),
+	(@TipoInt, 'P6', 'Identificador (TXID) – em duplicidade'),
+	(@TipoInt, 'P7', 'Identificador (TXID) – inválido ou não encontrado'),
+	(@TipoInt, 'P8', 'Ocorrência – alterar QR Code – alteração não permitida – QR Code concluído, removido pelo PSP ou removido pelo usuário recebedor'),
+	(@TipoInt, 'P9', 'ocorrência – cancela QR Code – cancelamento n]ao permitido – QR Code concluído, removido pelo PSP ou removido pelo usuário recebedor')
+GO
+
+DECLARE @TipoString CHAR(1) = 'B'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM C047A_TipoMotivoOcorrencia WHERE Tipo = @TipoString
+INSERT INTO C047_MotivoOcorrencia (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, '01', 'Tarifa de Extrato de Posição'),
+	(@TipoInt, '02', 'Tarifa de Manutenção de Título Vencido'),
+	(@TipoInt, '03', 'Tarifa de Sustação'),
+	(@TipoInt, '04', 'Tarifa de Protesto'),
+	(@TipoInt, '05', 'Tarifa de Outras Instruções'),
+	(@TipoInt, '06', 'Tarifa de Outras Ocorrências'),
+	(@TipoInt, '07', 'Tarifa de Envio de Duplicata ao Pagador'),
+	(@TipoInt, '08', 'Custas de Protesto'),
+	(@TipoInt, '09', 'Custas de Sustação de Protesto'),
+	(@TipoInt, '10', 'Custas de Cartório Distribuidor'),
+	(@TipoInt, '11', 'Custas de Edital'),
+	(@TipoInt, '12', 'Tarifa Sobre Devolução de Título Vencido'),
+	(@TipoInt, '13', 'Tarifa Sobre Registro Cobrada na Baixa/Liquidação'),
+	(@TipoInt, '14', 'Tarifa Sobre Reapresentação Automática'),
+	(@TipoInt, '15', 'Tarifa Sobre Rateio de Crédito'),
+	(@TipoInt, '16', 'Tarifa Sobre Informações Via Fax'),
+	(@TipoInt, '17', 'Tarifa Sobre Prorrogação de Vencimento'),
+	(@TipoInt, '18', 'Tarifa Sobre Alteração de Abatimento/Desconto'),
+	(@TipoInt, '19', 'Tarifa Sobre Arquivo mensal (Em Ser)'),
+	(@TipoInt, '20', 'Tarifa Sobre Emissão de Boleto de Pagamento Pré-Emitido pelo Banco')
+GO
+
+DECLARE @TipoString CHAR(1) = 'C'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM C047A_TipoMotivoOcorrencia WHERE Tipo = @TipoString
+INSERT INTO C047_MotivoOcorrencia (LiquidacaoBaixa, TipoId, Codigo, Descricao) VALUES
+	('L', @TipoInt, '01', 'Por Saldo'),
+	('L', @TipoInt, '02', 'Por Conta'),
+	('L', @TipoInt, '03', 'Liquidação no Guichê de Caixa em Dinheiro'),
+	('L', @TipoInt, '04', 'Compensação Eletrônica'),
+	('L', @TipoInt, '05', 'Compensação Convencional'),
+	('L', @TipoInt, '06', 'Por Meio Eletrônico'),
+	('L', @TipoInt, '07', 'Após Feriado Local'),
+	('L', @TipoInt, '08', 'Em Cartório'),
+	('L', @TipoInt, '30', 'Liquidação no Guichê de Caixa em Cheque'),
+	('L', @TipoInt, '31', 'Liquidação em banco correspondente'),
+	('L', @TipoInt, '32', 'Liquidação Terminal de Auto-Atendimento'),
+	('L', @TipoInt, '33', 'Liquidação na Internet (Home banking)'),
+	('L', @TipoInt, '34', 'Liquidado Office Banking'),
+	('L', @TipoInt, '35', 'Liquidado Correspondente em Dinheiro'),
+	('L', @TipoInt, '36', 'Liquidado Correspondente em Cheque'),
+	('L', @TipoInt, '37', 'Liquidado por meio de Central de Atendimento (Telefone)'),
+	('L', @TipoInt, '61', 'Liquidado via Pix'),
+	('B', @TipoInt, '09', 'Comandada Banco'),
+	('B', @TipoInt, '10', 'Comandada Cliente Arquivo'),
+	('B', @TipoInt, '11', 'Comandada Cliente On-line'),
+	('B', @TipoInt, '12', 'Decurso Prazo - Cliente'),
+	('B', @TipoInt, '13', 'Decurso Prazo - Banco'),
+	('B', @TipoInt, '14', 'Protestado'),
+	('B', @TipoInt, '15', 'Título Excluído')
+GO
+
+/*c066_identiRejeições*/
+INSERT INTO C066_IdentiRejeicoes (Codigo, Descricao) VALUES
+	('01', 'Conta Beneficiário Inválida'),
+	('02', 'Conta Corrente Inativa para Rateio'),
+	('03', 'Código de Cálculo do Rateio Diferente de 1, 2 ou 3'),
+	('04', 'Banco/Agência/Conta do Beneficiário Não Numérico'),
+	('05', 'Valor do Rateio Informado Não Numérico'),
+	('06', 'Percentual para Rateio Não Numérico'),
+	('07', 'Tipo de Valor Informado Diferente de 1 ou 2'),
+	('08', 'Banco Não Participante do Rateio'),
+	('09', 'Dígito Agência Beneficiário Não Confere'),
+	('10', 'Dígito Conta Beneficiário Não Confere'),
+	('11', 'Banco/Agência/Conta Beneficiário Igual a Zeros'),
+	('12', 'Nome do Beneficiário Não Informado'),
+	('13', 'Quantidade de Beneficiários Excedida'),
+	('14', 'Floating Beneficiário Inválido'),
+	('15', 'Tipo Valor Informado, Inválido para Código Cálculo Rateio'),
+	('16', 'Beneficiário com Códigos de Cálculo de Rateio Diferentes'),
+	('17', 'Beneficiários Informados em Percentual e Outros em Valor'),
+	('18', 'Somatória dos Valores dos Beneficiários Excedeu Valor do Título'),
+	('19', 'Somatório dos Percentuais dos Beneficiários Excedeu 100%'),
+	('20', 'Acerto do Rateio Efetuado'),
+	('21', 'Cliente Bloqueado para Rateio'),
+	('22', 'Título Não Registrado na Cobrança'),
+	('23', 'Título Não Cadastrado para Rateio, Efetuada a Inclusão'),
+	('24', 'Cancelamento de Rateio Efetuado'),
+	('25', 'Rateio Cancelado, Título Baixado'),
+	('26', 'Rateio Efetuado, Beneficiário Aguardando Crédito'),
+	('27', 'Rateio Efetuado, Beneficiário Já Creditado'),
+	('28', 'Rateio Não Efetuado, Conta Beneficiário Encerrada'),
+	('29', 'Rateio Não Efetuado, Conta Débito Beneficiário Bloqueada'),
+	('30', 'Rateio Não Efetuado, Código Cálculo 2 (Valor Registro) e Valor Pago Menor'),
+	('31', 'Ocorrência Não Possui Rateio'),
+	('32', 'Título Já Cadastrado para Rateio'),
+	('33', 'Seu Número Inválido'),
+	('34', 'Título Já Rateado ou Baixado')
+GO
+
+/*D006 - ComplTipoServico*/
+INSERT INTO D006_ComplTipoServico (Codigo, Descricao) VALUES
+	('01', 'Crédito em Conta'),
+	('02', 'Pagamento de Aluguel/Condomínio'),
+	('03', 'Pagamento de Duplicata/Títulos'),
+	('04', 'Pagamento de Dividendos'),
+	('05', 'Pagamento de Mensalidade Escolar'),
+	('06', 'Pagamento de Salários'),
+	('07', 'Pagamento de Fornecedores/Honorários'),
+	('08', 'Operações de Câmbios/Fundos/Bolsa de Valores'),
+	('09', 'Repasse de Arrecadação/Pagamento de Tributos'),
+	('10', 'Transferência Internacional em Real'),
+	('11', 'DOC para Poupança'),
+	('12', 'DOC para Depósito Judicial'),
+	('13', 'Outros')
+GO
+
+/*D007 - AvisoPagador*/
+INSERT INTO D007_AvisoPagador (Codigo, Descricao) VALUES
+	(0, 'Não Emite Aviso'),
+	(2, 'Emite Aviso Somente para o Remetente'),
+	(5, 'Emite Aviso Somente para o Pagador'),
+	(6, 'Emite Aviso para o Remetente e Pagador'),
+	(7, 'Emite Aviso para o Pagador e 2 Vias para o Remetente')
+GO
+
+/*F001 - NaturezaSaldoConta*/
+INSERT INTO F001_NaturezaSaldoConta (Codigo, Descricao) VALUES
+	('DPV', 'Disponível'),
+	('SCR', 'Vinculado'),
+	('SSR', 'Bloqueado'),
+	('SDS', 'Somatório dos Saldos')
+GO
+
+/*F005 - NaturezaSituacaoSaldoInicial*/
+INSERT INTO F005_NaturezaSituacaoSaldoInicial (Codigo, Descricao) VALUES
+	('D', 'Devedor'),
+	('C', 'Credor')
+GO
+
+/*G003 - TipoRegistro*/
+INSERT INTO G003_TipoRegistro (Codigo, Descricao) VALUES
+	(0, 'Header de Arquivo'),
+	(1, 'Header de Lote'),
+	(2, 'Registros Iniciais do Lote'),
+	(3, 'Detalhe'),
+	(4, 'Registros Finais do Lote'),
+	(5, 'Trailer de Lote'),
+	(9, 'Trailer de Arquivo')
+GO
+
+/*G005 - TipoInscricao*/
+INSERT INTO G005_TipoInscricao (Codigo, Descrica) VALUES
+	(0,'Isento / Não Informado'),
+	(1,'CPF'),
+	(2,'CGC / CNPJ'),
+	(3,'PIS / PASEP'),
+	(9,'Outros')
+GO
+
+/*G015 - CodigoRemessaRetorno*/
+INSERT INTO G015_CodigoRemessaRetorno (Codigo, Descricao) VALUES
+	(1,'Remessa (Cliente → Banco)'),
+	(2,'Retorno (Banco → Cliente)')
+GO
+
+/*G020 - DensidadeArquivo*/
+INSERT INTO G020_DensidadeArquivo (Codigo, Descricao) VALUES
+	(1600,	'1600 BPI'), 
+	(6250,	'6250 BPI')
+GO
+
+/*G025 - TipoServico*/
+INSERT INTO G025_TipoServico (Codigo, Descricao) VALUES
+	('01', 'Cobrança'),
+	('03', 'Boleto de Pagamento Eletrônico'),
+	('04', 'Conciliação Bancária'),
+	('05', 'Débitos'),
+	('06', 'Custódia de Cheques'),
+	('07', 'Gestão de Caixa'),
+	('08', 'Consulta/Informação Margem'),
+	('09', 'Averbação da Consignação/Retenção'),
+	('10', 'Pagamento Dividendos'),
+	('11', 'Manutenção da Consignação'),
+	('12', 'Consignação de Parcelas'),
+	('13', 'Glosa da Consignação (INSS)'),
+	('14', 'Consulta de Tributos a pagar'),
+	('20', 'Pagamento Fornecedor'),
+	('22', 'Pagamento de Contas, Tributos e Impostos'),
+	('23', 'Interoperabilidade entre Contas de Instituições de Pagamentos'),
+	('25', 'Compror'),
+	('26', 'Compror Rotativo'),
+	('29', 'Alegação do Pagador'),
+	('30', 'Pagamento Salários'),
+	('32', 'Pagamento de honorários'),
+	('33', 'Pagamento de bolsa auxílio'),
+	('34', 'Pagamento de prebenda (remuneração a padres e sacerdotes)'),
+	('40', 'Vendor'),
+	('41', 'Vendor a Termo'),
+	('50', 'Pagamento Sinistros Segurados'),
+	('60', 'Pagamento Despesas Viajante em Trânsito'),
+	('70', 'Pagamento Autorizado'),
+	('75', 'Pagamento Credenciados'),
+	('77', 'Pagamento de Remuneração'),
+	('80', 'Pagamento Representantes / Vendedores Autorizados'),
+	('90', 'Pagamento Benefícios'),
+	('98', 'Pagamentos Diverso')
+GO
+
+/*G028 - TipoOperacao*/
+INSERT INTO G028_TipoOperacao (Codigo, Descricao) VALUES
+	('C', 'Lançamento a Crédito'),
+	('D', 'Lançamento a Débito'),
+	('E', 'Extrato para Conciliação'),
+	('G', 'Extrato para Gestão de Caixa'),
+	('I', 'Informações de Títulos Capturados do Próprio Banco'),
+	('R', 'Arquivo Remessa'),
+	('T', 'Arquivo Retorno')
+GO
+
+/*G029 - FormaLancamento*/
+INSERT INTO G029_FormaLancamento (Codigo, Descricao) VALUES
+	('01', 'Crédito em Conta Corrente/Salário'),
+	('02', 'Cheque Pagamento / Administrativo'),
+	('03', 'DOC/TED (1) (2)'),
+	('04', 'Cartão Salário (somente para Tipo de Serviço = 30)'),
+	('05', 'Crédito em Conta Poupança'),
+	('10', 'OP à Disposição'),
+	('11', 'Pagamento de Contas e Tributos com Código de Barras'),
+	('16', 'Tributo - DARF Normal'),
+	('17', 'Tributo - GPS (Guia da Previdência Social)'),
+	('18', 'Tributo - DARF Simples'),
+	('19', 'Tributo - IPTU – Prefeituras'),
+	('20', 'Pagamento com Autenticação'),
+	('21', 'Tributo – DARJ'),
+	('22', 'Tributo - GARE-SP ICMS'),
+	('23', 'Tributo - GARE-SP DR'),
+	('24', 'Tributo - GARE-SP ITCMD'),
+	('25', 'Tributo - IPVA'),
+	('26', 'Tributo - Licenciamento'),
+	('27', 'Tributo – DPVAT'),
+	('30', 'Liquidação de Títulos do Próprio Banco'),
+	('31', 'Pagamento de Títulos de Outros Bancos'),
+	('40', 'Extrato de Conta Corrente'),
+	('41', 'TED – Outra Titularidade (1)'),
+	('43', 'TED – Mesma Titularidade (1)'),
+	('44', 'TED para Transferência de Conta Investimento'),
+	('45', 'PIX Transferência'),
+	('47', 'PIX QR-CODE'),
+	('50', 'Débito em Conta Corrente'),
+	('70', 'Extrato para Gestão de Caixa'),
+	('71', 'Depósito Judicial em Conta Corrente'),
+	('72', 'Depósito Judicial em Poupança'),
+	('73', 'Extrato de Conta Investimento'),
+	('80', 'agamento de tributos municipais ISS – LCP 157 – próprio Banco'),
+	('81', 'agamento de Tributos Municipais ISS – LCP 157 – outros Bancos')
+GO
+
+/*G040 - TipoMoeda*/
+INSERT INTO G040_TipoMoeda (Codigo, Descricao) VALUES
+	('BTN', 'Bônus do Tesouro Nacional + TR'),
+	('BRL', 'Real'),
+	('USD', 'Dólar Americano'),
+	('PTE', 'Escudo Português'),
+	('FRF', 'Franco Francês'),
+	('CHF', 'Franco Suíço'),
+	('JPY', 'Ien Japonês'),
+	('IGP', 'Índice Geral de Preços'),
+	('IGM', 'Índice Geral de Preços de Mercado'),
+	('GBP', 'Libra Esterlina'),
+	('ITL', 'Lira Italiana'),
+	('DEM', 'Marco Alemão'),
+	('TRD', 'Taxa Referencial Diária'),
+	('UPC', 'Unidade Padrão de Capital'),
+	('UPF', 'Unidade Padrão de Financiamento'),
+	('UFR', 'Unidade Fiscal de Referência'),
+	('XEU', 'Unidade Monetária Européia')
+GO
+
+/*G059 - CodigoOcorrenciaRetornoRemessa*/
+INSERT INTO G059_CodigoOcorrenciaRetornoRemessa (Codigo, Descricao) VALUES
+	('00', 'Crédito ou Débito Efetivado → Este código indica que o pagamento foi confirmado'),
+	('01', 'Insuficiência de Fundos - Débito Não Efetuado'),
+	('02', 'Crédito ou Débito Cancelado pelo Pagador/Credor'),
+	('03', 'Débito Autorizado pela Agência - Efetuado'),
+	('AA', 'Controle Inválido'),
+	('AB', 'Tipo de Operação Inválido'),
+	('AC', 'Tipo de Serviço Inválido'),
+	('AD', 'Forma de Lançamento Inválida'),
+	('AE', 'Tipo/Número de Inscrição Inválido'),
+	('AF', 'Código de Convênio Inválido'),
+	('AG', 'Agência/Conta Corrente/DV Inválido'),
+	('AH', 'Nº Seqüencial do Registro no Lote Inválido'),
+	('AI', 'Código de Segmento de Detalhe Inválido'),
+	('AJ', 'Tipo de Movimento Inválido'),
+	('AK', 'Código da Câmara de Compensação do Banco Favorecido/Depositário Inválido'),
+	('AL', 'Código do Banco Favorecido, Instituição de Pagamento ou Depositário Inválido'),
+	('AM', 'Agência Mantenedora da Conta Corrente do Favorecido Inválida'),
+	('AN', 'Conta Corrente/DV/Conta de Pagamento do Favorecido Inválido'),
+	('AO', 'Nome do Favorecido Não Informado'),
+	('AP', 'Data Lançamento Inválido'),
+	('AQ', 'Tipo/Quantidade da Moeda Inválido'),
+	('AR', 'Valor do Lançamento Inválido'),
+	('AS', 'Aviso ao Favorecido - Identificação Inválida'),
+	('AT', 'Tipo/Número de Inscrição do Favorecido Inválido'),
+	('AU', 'Logradouro do Favorecido Não Informado'),
+	('AV', 'Nº do Local do Favorecido Não Informado'),
+	('AW', 'Cidade do Favorecido Não Informada'),
+	('AX', 'CEP/Complemento do Favorecido Inválido'),
+	('AY', 'Sigla do Estado do Favorecido Inválida'),
+	('AZ', 'Código/Nome do Banco Depositário Inválido'),
+	('BA', 'Código/Nome da Agência Depositária Não Informado'),
+	('BB', 'Seu Número Inválido'),
+	('BC', 'Nosso Número Inválido'),
+	('BD', 'Inclusão Efetuada com Sucesso'),
+	('BE', 'Alteração Efetuada com Sucesso'),
+	('BF', 'Exclusão Efetuada com Sucesso'),
+	('BG', 'Agência/Conta Impedida Legalmente/Bloqueada'),
+	('BH', 'mpresa não pagou salário'),
+	('BI', 'Falecimento do mutuário'),
+	('BJ', 'Empresa não enviou remessa do mutuário'),
+	('BK', 'mpresa não enviou remessa no vencimento'),
+	('BL', 'Valor da parcela inválida'),
+	('BM', 'dentificação do contrato inválida'),
+	('BN', 'Operação de Consignação Incluída com Sucesso'),
+	('BO', 'Operação de Consignação Alterada com Sucesso'),
+	('BP', 'Operação de Consignação Excluída com Sucesso'),
+	('BQ', 'Operação de Consignação Liquidada com Sucesso'),
+	('BR', 'Reativação Efetuada com Sucesso'),
+	('BS', 'Suspensão Efetuada com Sucesso'),
+	('CA', 'Código de Barras - Código do Banco Inválido'),
+	('CB', 'Código de Barras - Código da Moeda Inválido'),
+	('CC', 'Código de Barras - Dígito Verificador Geral Inválido'),
+	('CD', 'Código de Barras - Valor do Título Inválido'),
+	('CE', 'Código de Barras - Campo Livre Inválido'),
+	('CF', 'Valor do Documento Inválido'),
+	('CG', 'Valor do Abatimento Inválido'),
+	('CH', 'Valor do Desconto Inválido'),
+	('CI', 'Valor de Mora Inválido'),
+	('CJ', 'Valor da Multa Inválido'),
+	('CK', 'Valor do IR Inválido'),
+	('CL', 'Valor do ISS Inválido'),
+	('CM', 'Valor do IOF Inválido'),
+	('CN', 'Valor de Outras Deduções Inválido'),
+	('CO', 'Valor de Outros Acréscimos Inválido'),
+	('CP', 'Valor do INSS Inválido'),
+	('HA', 'Lote Não Aceito'),
+	('HB', 'Inscrição da Empresa Inválida para o Contrato'),
+	('HC', 'Convênio com a Empresa Inexistente/Inválido para o Contrato'),
+	('HD', 'Agência/Conta Corrente da Empresa Inexistente/Inválido para o Contrato'),
+	('HE', 'Tipo de Serviço Inválido para o Contrato'),
+	('HF', 'Conta Corrente da Empresa com Saldo Insuficiente'),
+	('HG', 'Lote de Serviço Fora de Seqüência'),
+	('HH', 'Lote de Serviço Inválido'),
+	('HI', 'Arquivo não aceito'),
+	('HJ', 'Tipo de Registro Inválido'),
+	('HK', 'Código Remessa / Retorno Inválido'),
+	('HL', 'Versão de layout inválida'),
+	('HM', 'Mutuário não identificado'),
+	('HN', 'Tipo do beneficio não permite empréstimo'),
+	('HO', 'Beneficio cessado/suspenso'),
+	('HP', 'Beneficio possui representante legal'),
+	('HQ', 'Beneficio é do tipo PA (Pensão alimentícia)'),
+	('HR', 'Quantidade de contratos permitida excedida'),
+	('HS', 'Beneficio não pertence ao Banco informado'),
+	('HT', 'Início do desconto informado já ultrapassado'),
+	('HU', 'úmero da parcela inválida'),
+	('HV', 'uantidade de parcela inválida'),
+	('HW', 'argem consignável excedida para o mutuário dentro do prazo do contrato'),
+	('HX', 'Empréstimo já cadastrado'),
+	('HY', 'Empréstimo inexistente'),
+	('HZ', 'Empréstimo já encerrado'),
+	('H1', 'Arquivo sem trailer'),
+	('H2', 'Mutuário sem crédito na competência'),
+	('H3', 'Não descontado – outros motivos'),
+	('H4', 'Retorno de Crédito não pago'),
+	('H5', 'Cancelamento de empréstimo retroativo'),
+	('H6', 'Outros Motivos de Glosa'),
+	('H7', 'Margem consignável excedida para o mutuário acima do prazo do contrato'),
+	('H8', 'Mutuário desligado do empregador'),
+	('H9', 'Mutuário afastado por licença'),
+	('IA', 'Primeiro nome do mutuário diferente do primeiro nome do movimento do censo ou diferente da base de Titular do Benefício'),
+	('IB', 'Benefício suspenso/cessado pela APS ou Sisobi'),
+	('IC', 'Benefício suspenso por dependência de cálculo'),
+	('ID', 'Benefício suspenso/cessado pela inspetoria/auditoria'),
+	('IE', 'Benefício bloqueado para empréstimo pelo beneficiário'),
+	('IF', 'Benefício bloqueado para empréstimo por TBM'),
+	('IG', 'Benefício está em fase de concessão de PA ou desdobramento'),
+	('IH', 'Benefício cessado por óbito'),
+	('II', 'Benefício cessado por fraude'),
+	('IJ', 'Benefício cessado por concessão de outro benefício'),
+	('IK', 'Benefício cessado: estatutário transferido para órgão de origem'),
+	('IL', 'Empréstimo suspenso pela APS'),
+	('IM', 'Empréstimo cancelado pelo banco'),
+	('IN', 'Crédito transformado em PAB'),
+	('IO', 'Término da consignação foi alterado'),
+	('IP', 'Fim do empréstimo ocorreu durante período de suspensão ou concessão'),
+	('IQ', 'Empréstimo suspenso pelo banco'),
+	('IR', 'Não averbação de contrato – quantidade de parcelas/competências informadas ultrapassou a data limite da extinção de cota do dependente titular de benefícios'),
+	('TA', 'Lote Não Aceito - Totais do Lote com Diferença'),
+	('YA', 'Título Não Encontrado'),
+	('YB', 'Identificador Registro Opcional Inválido'),
+	('YC', 'Código Padrão Inválido'),
+	('YD', 'Código de Ocorrência Inválido'),
+	('YE', 'Complemento de Ocorrência Inválido'),
+	('YF', 'Alegação já Informada'),
+	('ZA', 'Agência / Conta do Favorecido Substituída'),
+	('ZB', 'Divergência entre o primeiro e último nome do beneficiário versus primeiro e último nome na Receita Federal'),
+	('ZC', 'Confirmação de Antecipação de Valor'),
+	('ZD', 'Antecipação parcial de valor'),
+	('ZE', 'Título bloqueado na base'),
+	('ZF', 'Sistema em contingência – título valor maior que referência'),
+	('ZG', 'Sistema em contingência – título vencido'),
+	('ZH', 'Sistema em contingência – título indexado'),
+	('ZI', 'Beneficiário divergente'),
+	('ZJ', 'Limite de pagamentos parciais excedido'),
+	('ZK', 'Boleto já liquidado'),
+	('PA', 'Pix não efetivado'),
+	('PB', '“Transação interrompida devido a erro no PSP do Recebedor'),
+	('PC', '“Número da conta transacional encerrada no PSP do Recebedor'),
+	('PD', 'Tipo incorreto para a conta transacional especificada'),
+	('PE', 'Tipo de transação não é suportado/autorizado na conta transacional especificada'),
+	('PF', 'CPF/CNPJ do usuário recebedor não é consistente com o titular da conta transacional especificada'),
+	('PG', 'CPF/CNPJ do usuário recebedor incorreto'),
+	('PH', 'Ordem rejeitada pelo PSP do Recebedor'),
+	('PI', 'ISPB do PSP do Pagador inválido ou inexistente'),
+	('PJ', 'Chave não cadastrada no DICT'),
+	('PK', 'QR Code inválido/vencido'),
+	('PL', 'Forma de iniciação inválida'),
+	('PM', 'have de pagamento inválida'),
+	('PN', 'Chave de pagamento não informada')
+GO
+
+/*G060 - TipoMovimento*/
+INSERT INTO G060_TipoMovimento (Codigo, Descricao) VALUES
+	(0, 'Indica INCLUSÃO'),
+	(1, 'Indica CONSULTA'),
+	(2, 'Indica SUSPENSÃO'),
+	(3, 'Indica ESTORNO (somente para retorno)'),
+	(4, 'Indica REATIVAÇÃO'),
+	(5, 'Indica ALTERAÇÃO'),
+	(7, 'Indica LIQUIDAÇAO'),
+	(9, 'Indica EXCLUSÃO')
+GO
+
+/*G061 - CodigoInstrucaoMovimento*/
+INSERT INTO G061_CodigoInstrucaoMovimento (Codigo, Descricao) VALUES
+	('00', 'Inclusão de Registro Detalhe Liberado'),
+	('09', 'Inclusão do Registro Detalhe Bloqueado'),
+	('10', 'Alteração do Pagamento Liberado para Bloqueado (Bloqueio)'),
+	('11', 'Alteração do Pagamento Bloqueado para Liberado (Liberação)'),
+	('17', 'Alteração do Valor do Título'),
+	('19', 'Alteração da Data de Pagamento'),
+	('23', 'Pagamento Direto ao Fornecedor - Baixar'),
+	('25', 'Manutenção em Carteira - Não Pagar'),
+	('27', 'Retirada de Carteira - Não Pagar'),
+	('33', 'Estorno por Devolução da Câmara Centralizadora (somente para Tipo de Movimento = 3)'),
+	('40', 'Alegação do Pagador'),
+	('99', 'Exclusão do Registro Detalhe Incluído Anteriormente')
+GO
+
+/*G062 - CodigoPadraoOcorrenciasPagador*/
+INSERT INTO G062_CodigoPadraoOcorrenciasPagador (Codigo, Descricao) VALUES
+	('01', 'Formato Livre'),
+	('02', 'Formato Ocorrência (Descrição A002)')
+GO
+
+/*G065 - CodigoMoeda*/
+INSERT INTO G065_CodigoMoeda (Codigo, Descricao) VALUES
+	('01', 'Reservado para Uso Futuro'),
+	('02', 'Dólar Americano Comercial (Venda)'),
+	('03', 'Dólar Americano Turismo (Venda)'),
+	('04', 'ITRD'),
+	('05', 'IDTR'),
+	('06', 'UFIR Diária'),
+	('07', 'UFIR Mensal'),
+	('08', 'FAJ-TR'),
+	('09', 'Real'),
+	('10', 'TR'),
+	('11', 'IGPM'),
+	('12', 'CDI'),
+	('13', 'Percentual do CDI'),
+	('14', 'Euro'),
+	('15', 'CDI – CETIP'),
+	('16', 'CHF'),
+	('17', 'CUB/RS (NOVO)'),
+	('18', 'CUB/RS (R8-N)'),
+	('19', 'CUB/SC (ANTIGO)'),
+	('20', 'CUBRS'),
+	('21', 'CUB-SC (NOVO)'),
+	('22', 'GBP'),
+	('23', 'ICC (SALVADOR)'),
+	('24', 'IGPM (A)'),
+	('25', 'IGPM (N)'),
+	('26', 'INCC'),
+	('27', 'INCC-M'),
+	('28', 'INPC'),
+	('29', 'JPY'),
+	('30', 'TJLP')
+GO
+
+/*G067 - IdentRegistroOpcional*/
+INSERT INTO G067_IdentRegistroOpcional (Codigo, Descricao) VALUES
+	('01', 'Informação de Dados do Sacador Avalista'),
+	('02', 'Alegação do Pagador'),
+	('03', 'Informação de Dados do Pagador'),
+	('04', 'Informação de Dados de Cheques Utilizados'),
+	('11', 'Informações sobre dados de parcelas de compror'),
+	('50', 'Informação de Dados para Rateio de Crédito'),
+	('51', 'Informações de Notas Fiscais'),
+	('52', 'identificação dos entes envolvidos no processo de pagamento')
+GO
+
+/*G073 - CodigoMulta*/
+INSERT INTO G073_CodigoMulta (Codigo, Descricao) VALUES
+	(1, 'Valor Fixo'),
+	(2, 'Percentual')
+GO
+
+/*G081 - SituacaoSaldoInicial*/
+INSERT INTO G081_SituacaoSaldoInicial (Codigo, Descricao) VALUES
+	('D', 'Devedor'),
+	('C', 'Credor')
+GO
+
+/*G082 - PosicaoSaldoInicial*/
+INSERT INTO G082_PosicaoSaldoInicial (Codigo, Descricao) VALUES
+	('P', 'Parcial'),
+	('F', 'Final'),
+	('I', 'Intra-Dia')
+GO
+
+/*G084 - NaturezaLancamento*/
+INSERT INTO G084_NaturezaLancamento (Codigo, Descricao) VALUES
+	('DPV', 'TIPO DISPONÍVEL'),
+	('SCR', 'TIPO VINCULADO'),
+	('SSR', 'TIPO BLOQUEADO'),
+	('CDS', 'COMPOSIÇÃO DE DIVERSOS SALDOS')
+GO
+/*G085 - TipoComplementoLancamento*/
+INSERT INTO G085_TipoComplementoLancamento (Codigo, Descricao) VALUES
+	('01', 'Identificação da Origem do Lançamento'),
+	('00', 'Sem Informação do Complemento do Lançamento')
+GO
+
+/*G087 - IdentIsencaoCPMF*/
+INSERT INTO G087_IdentIsencaoCPMF (Codigo, Descricao) VALUES
+	('S', 'Isento'),
+	('N', 'Não Isento')
+GO
+
+/*G091 - TipoLancamento*/
+INSERT INTO G091_TipoLancamento (Codigo, Descricao) VALUES
+	('D', 'Débito'),
+	('C', 'Crédito')
+GO
+
+/*G092 - CategoriaLancamento*/
+DECLARE @TipoString CHAR(1) = 'D'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM G091_TipoLancamento WHERE Codigo = @TipoString
+INSERT INTO G092_CategoriaLancamento (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, 101, 'Cheque Compensado'),
+	(@TipoInt, 102, 'Encargos'),
+	(@TipoInt, 103, 'Estornos'),
+	(@TipoInt, 104, 'Lançamento Avisado'),
+	(@TipoInt, 105, 'Tarifas'),
+	(@TipoInt, 106, 'Aplicação'),
+	(@TipoInt, 107, 'Empréstimo / Financiamento'),
+	(@TipoInt, 108, 'Câmbio'),
+	(@TipoInt, 109, 'CPMF'),
+	(@TipoInt, 110, 'IOF'),
+	(@TipoInt, 111, 'Imposto de Renda'),
+	(@TipoInt, 112, 'Pagamento Fornecedores'),
+	(@TipoInt, 113, 'Pagamentos Salário'),
+	(@TipoInt, 114, 'Saque Eletrônico'),
+	(@TipoInt, 115, 'Ações'),
+	(@TipoInt, 117, 'Transferência entre Contas'),
+	(@TipoInt, 118, 'Devolução da Compensação'),
+	(@TipoInt, 119, 'Devolução de Cheque Depositado'),
+	(@TipoInt, 120, 'Transferência Interbancária (DOC, TED, Pix)'),
+	(@TipoInt, 121, 'Antecipação a Fornecedores'),
+	(@TipoInt, 122, 'OC / AEROPS'),
+	(@TipoInt, 123, 'Saque em Espécie'),
+	(@TipoInt, 124, 'Cheque Pago'),
+	(@TipoInt, 125, 'Pagamentos Diversos'),
+	(@TipoInt, 126, 'Pagamento de Tributos'),
+	(@TipoInt, 127, 'Cartão de crédito - Pagamento de fatura de cartão de crédito da própria IF')
+GO
+
+DECLARE @TipoString CHAR(1) = 'C'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM G091_TipoLancamento WHERE Codigo = @TipoString
+INSERT INTO G092_CategoriaLancamento (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, 201, 'Depósito em Cheque'),
+	(@TipoInt, 202, 'Crédito de Cobrança'),
+	(@TipoInt, 203, 'Devolução de Cheques'),
+	(@TipoInt, 204, 'Estornos'),
+	(@TipoInt, 205, 'Lançamento Avisado'),
+	(@TipoInt, 206, 'Resgate de Aplicação'),
+	(@TipoInt, 207, 'Empréstimo / Financiamento'),
+	(@TipoInt, 208, 'Câmbio'),
+	(@TipoInt, 209, 'Transferência Interbancária (DOC, TED, Pix)'),
+	(@TipoInt, 210, 'Ações'),
+	(@TipoInt, 211, 'Dividendos'),
+	(@TipoInt, 212, 'Seguro'),
+	(@TipoInt, 213, 'Transferência entre Contas'),
+	(@TipoInt, 214, 'Depósitos Especiais'),
+	(@TipoInt, 215, 'Devolução da Compensação'),
+	(@TipoInt, 216, 'OCT'),
+	(@TipoInt, 217, 'Pagamentos Fornecedores'),
+	(@TipoInt, 218, 'Pagamentos Diversos'),
+	(@TipoInt, 219, 'Recebimento de Salário'),
+	(@TipoInt, 220, 'Depósito em Espécie'),
+	(@TipoInt, 221, 'Pagamento de Tributos'),
+	(@TipoInt, 222, 'Cartão de Crédito - Recebíveis de cartão de crédito'),
+	(@TipoInt, 223, 'Crédito Pix via QrCode')
+GO
+
+/*G098 - SituacaoSaldoFinal*/
+INSERT INTO G098_SituacaoSaldoFinal (Codigo, Descricao) VALUES
+	('C', 'Credor'),
+	('D', 'Devedor')
+GO
+
+/*G099 - PosicaoSaldoFinal*/
+INSERT INTO G099_PosicaoSaldoFinal (Codigo, Descricao) VALUES
+	('F', 'Final'),
+	('P', 'Parcial'),
+	('I', 'Intra-Dia')
+GO
+
+/*G100 - FormaIniciacaoPix*/
+INSERT INTO G100_FormaIniciacaoPix (Codigo, Descricao) VALUES
+	('01', 'Chave Pix – tipo Telefone'),
+	('02', 'Chave Pix – tipo Email'),
+	('03', 'Chave Pix – tipo CPF/CNPJ'),
+	('04', 'Chave Aleatória'),
+	('05', 'Dados bancários')
+GO
+
+/*G103 - TipoChaveDICT*/
+INSERT INTO G103_TipoChaveDICT (Codigo, Descricao) VALUES
+	(1, 'CPF'),
+	(2, 'CNPJ'),
+	(3, 'Celular'),
+	(4, 'e-mail'),
+	(5, 'EVP – chave aleatória')
+GO
+
+/*H008 - StatusMutuario*/
+INSERT INTO H008_StatusMutuario (Codigo, Descricao) VALUES
+	(1, 'Ativo'),
+	(2, 'Inativo'),
+	(3, 'Pensionista')
+GO
+
+/*H009 - RegimeContratoMutuario*/
+INSERT INTO H009_RegimeContratoMutuario (Codigo, Descricao) VALUES
+	(1, 'CLT'),
+	(2, 'Estatutário'),
+	(3, 'Temporário')
+GO
+
+/*H010 - SituacaoSindicalMutuario*/
+INSERT INTO H010_SituacaoSindicalMutuario (Codigo, Descricao) VALUES
+	(1, 'Sindicalizado'),
+	(2, 'Não Sindicalizado')
+GO
+
+/*H011 - ComprometimentoVerbaRescisoria*/
+INSERT INTO H011_ComprometimentoVerbaRescisoria (Codigo, Descricao) VALUES
+	(1, 'Sim'),
+	(2, 'Não')
+GO
+
+/*H014 - IdentCentralSindical*/
+INSERT INTO H014_IdentCentralSindical (Codigo, Descricao) VALUES
+	(1, 'CUT'),
+	(2, 'CGT'),
+	(3, 'Força Sindical'),
+	(4, 'Outros')
+GO
+
+/*H015 - TipoOperacao*/
+INSERT INTO H015_TipoOperacao (Codigo, Descricao) VALUES
+	(1, 'Financiamento'),
+	(2, 'Empréstimo'),
+	(3, 'Arrendamento Mercantil'),
+	(4, 'Outros'),
+	(5, 'Devolução de Glosa'),
+	(7, 'Empréstimo Viaje Mais')
+GO
+
+/*H031 - TipoResidualGarantido*/
+INSERT INTO H031_TipoResidualGarantido (Codigo, Descricao) VALUES
+	('Antecipado', 'integralmente no ato da operação'),
+	('Parcelado', 'número igual à contraprestação'),
+	('Final', 'integralmente no vencimento do contrato')
+GO
+
+
+/*I004 - RegimeEncargosFinanceiros*/
+INSERT INTO I004_RegimeEncargosFinanceiros (Codigo, Descricao) VALUES
+	(1, 'Pré-fixado'),
+	(2, 'Pósfixado')
+GO
+
+/*I005 - ModalidadeEncargosFinanceirosPos*/
+INSERT INTO I005_ModalidadeEncargosFinanceirosPos (Codigo, Descricao) VALUES
+	('01', 'CDI + sobretaxa mensal'),
+	('02', 'Percentual do CDI'),
+	('03', 'Variação Cambial I')
+GO
+
+/*I007 - FormaReposicao*/
+INSERT INTO I007_FormaReposicao (Codigo, Descricao) VALUES
+	(1, 'Parcela única'),
+	(2, 'Reposição em parcelas'),
+	(3, 'Encargos antecipados'),
+	(4, 'Crédito rotativo')
+GO
+
+/*I008 - MetodologiaCalculoEncargos*/
+INSERT INTO I008_MetodologiaCalculoEncargos (Codigo, Descricao) VALUES
+	(1, 'PRICE'),
+	(2, 'SAC'),
+	(3, 'Americano'),
+	(4, 'Parcela Única')
+GO
+
+/*I011 - TipoVencimentoParcelas*/
+INSERT INTO I011_TipoVencimentoParcelas (Codigo, Descricao, Detalhe) VALUES
+	(1, 'Fixo', 'Pela quantidade de parcelas e o vencimento inicial e final, define-se o prazo de cada vencimento'),
+	(2, 'Variável', 'A data de vencimento deverá ser informada parcela a parcela')
+GO
+
+/*I015 - FormaPagamento*/
+INSERT INTO I015_FormaPagamento (Codigo, Descricao) VALUES
+	(0, 'Boleto de Pagamento'),
+	(1, 'Débito C/C Comprador')
+GO
+
+/*I017 - FormaPagamentoIOF*/
+INSERT INTO I017_FormaPagamentoIOF (Codigo, Descricao) VALUES
+	(0, 'Debitado no ato'),
+	(1, 'Financiado')
+GO
+
+/*K001 - CodigosOcorrencia*/
+INSERT INTO K001_CodigosOcorrencia (Codigo, Descricao) VALUES
+	('00', 'Remessa aceita'),
+	('01', 'Banco Inválido'),
+	('02', 'Lote inválido'),
+	('03', 'Lote sequência errada'),
+	('04', 'Registro inválido'),
+	('05', 'Tipo de operação inválido'),
+	('06', 'Tipo de serviço inválido'),
+	('07', 'Versão do lay-out no arquivo inválida'),
+	('08', 'Convênio com a Empresa inexistente/inválido'),
+	('09', 'Quantidade de registros no lote inválido'),
+	('10', 'Somatório do valor dos cheques inválido'),
+	('11', 'Quantidade de cheques inválida'),
+	('12', 'Agência/conta corrente com a Empresa inexistente/inválido'),
+	('13', 'Agência/conta/DV inválido'),
+	('14', 'Nome da empresa não informado')
+GO
+
+/*K002A - CategoriaTipoMovimento*/
+INSERT INTO K002A_CategoriaTipoMovimento (Categoria) VALUES
+	('Remessa'),
+	('Retorno')
+GO
+
+/*K002 - TipoMovimento*/
+DECLARE @CategoriaString CHAR(1) = 'Remessa'
+DECLARE @CategoriaInt INT
+SELECT @CategoriaInt = Id FROM K002A_CategoriaTipoMovimento WHERE Categoria = @CategoriaString
+INSERT INTO K002_TipoMovimento (CategoriaId, Codigo, Descricao) VALUES
+	(@CategoriaString, '01', 'Inclusão'),
+	(@CategoriaString, '02', 'Alteração'),
+	(@CategoriaString, '03', 'Exclusão'),
+	(@CategoriaString, '04', 'Sinistro')
+GO
+
+DECLARE @CategoriaString CHAR(1) = 'Retorno'
+DECLARE @CategoriaInt INT
+SELECT @CategoriaInt = Id FROM K002A_CategoriaTipoMovimento WHERE Categoria = @CategoriaString
+INSERT INTO K002_TipoMovimento (CategoriaId, Codigo, Descricao) VALUES
+	(@CategoriaString, '05', 'Cheques em carteira (em ser)'),
+	(@CategoriaString, '06', 'Cheque depositado/ enviado para compensação'),
+	(@CategoriaString, '07', 'Cheque devolvido (a primeira ocorrência corresponderá ao motivo da devolução)'),
+	(@CategoriaString, '08', 'Cheque liquidado'),
+	(@CategoriaString, '09', 'Cheque a ser depositado/enviado para a compensação na data boa'),
+	(@CategoriaString, '11', 'Inclusão Confirmada'),
+	(@CategoriaString, '12', 'Alteração Confirmada'),
+	(@CategoriaString, '13', 'Exclusão Confirmada'),
+	(@CategoriaString, '14', 'Sinistro Confirmado'),
+	(@CategoriaString, '21', 'Inclusão Rejeitada'),
+	(@CategoriaString, '22', 'Alteração Rejeitada'),
+	(@CategoriaString, '23', 'Exclusão Rejeitada'),
+	(@CategoriaString, '24', 'Sinistro Rejeitado')
+GO
+
+/*K003 - CodigoFinalidadeMovimento*/
+INSERT INTO K003_CodigoFinalidadeMovimento (Codigo, Descricao) VALUES
+	('00', 'Cheque a Vista'),
+	('01', 'Custódia Simples'),
+	('02', 'Carteira Descontada'),
+	('03', 'Carteira Caucionada'),
+	('04', 'Carteira Vinculado')
+GO
+
+/*K004 - FormaEntradaDadosCheque*/
+INSERT INTO K004_FormaEntradaDadosCheque (Codigo, Descricao, Complemento) VALUES
+	(1, 'CMC7', 'captura de informações da banda magnética'),
+	(2, 'Linha 1', 'digitação dos dados pré-impressos na primeira linha do cheque')
+GO
+
+/*K006 - TipoInscricaoEmitente*/
+INSERT INTO K006_TipoInscricaoEmitente (Codigo, Descricao) VALUES
+	(1, 'CPF'),
+	(2, 'CNPJ')
+GO
+
+/*K020 - CodigoOcorrencia*/
+INSERT INTO K020_CodigoOcorrencia (Codigo, Descricao) VALUES
+	('01', 'Banco do controle inválido'),
+	('02', 'Lote inválido'),
+	('03', 'Registro inválido'),
+	('04', 'Segmento inválido'),
+	('05', 'Tipo de movimento inválido'),
+	('06', 'Código da finalidade inválida'),
+	('07', 'Forma de entrada inválida'),
+	('08', 'CMC7/Linha1 inválida'),
+	('09', 'Cheque em duplicidade no arquivo'),
+	('10', 'Tipo/Número de inscrição do emitente inválido'),
+	('11', 'Valor do cheque inválido'),
+	('12', 'Data para depósito inválida'),
+	('13', 'Data da captura no cliente inválida'),
+	('14', 'Agência/Conta para devolução inválida'),
+	('15', 'Banco não cadastrado na COMPE'),
+	('16', 'Agência não cadastrada na COMPE'),
+	('17', 'Conta do cheque (no mesmo Banco) inválido'),
+	('18', 'Cheque não aceito para desconto'),
+	('19', 'Cheque não aceito para caução'),
+	('20', 'Cheque acatado com divergência de valor'),
+	('21', 'Cheque acatado com divergência de data para depósito'),
+	('22', 'Cheque acatado com divergência de CPJ/CNPJ do emitente')
+GO
+
+/*N003 - TipoIdentificacaoContribuinte*/
+INSERT INTO N003_TipoIdentificacaoContribuinte (Codigo, Descricao) VALUES
+	(1, 'CNPJ'),
+	(2, 'CPF'),
+	(3, 'NIT / PIS / PASEP'),
+	(4, 'CEI'),
+	(6, 'NB'),
+	(7, 'Nº do Título'),
+	(8, 'DEBCAD'),
+	(9, 'REFERÊNCIA')
+GO
+
+/*N005A - TipoTributo*/
+INSERT INTO N005A_TipoTributo (Tipo) VALUES
+	('Tributo Federal'),
+	('Tributo Estadual'),
+	('Tributo Municipal')
+GO
+
+/*N005 - CodigoIdentificacaoTributo*/
+DECLARE @TiposString VARCHAR(50) = 'Tributo Federal'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM N005A_TipoTributo (Id) WHERE Tipo = @TiposString
+INSERT INTO N005_CodigoIdentificacaoTributo (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, '16', 'Tributo - DARF Normal'), 
+	(@TipoInt, '18', 'Tributo - DARF Simples'), 
+	(@TipoInt, '17', 'Tributo - GPS (Guia da Previdência Social)'), 
+	(@TipoInt, '21', 'Tributo – DARJ'), 
+	(@TipoInt, '25', 'Tributo – IPVA'), 
+	(@TipoInt, '26', 'Tributo – Licenciamento'), 
+	(@TipoInt, '27', 'Tributo – DPVAT')
+GO
+
+DECLARE @TiposString VARCHAR(50) = 'Tributo Estadual'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM N005A_TipoTributo (Id) WHERE Tipo = @TiposString
+INSERT INTO N005_CodigoIdentificacaoTributo (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, '22', 'Tributo - GARE-SP ICMS'), 
+	(@TipoInt, '23', 'Tributo - GARE-SP DR'), 
+	(@TipoInt, '24', 'Tributo - GARE-SP ITCMD')
+GO
+
+DECLARE @TiposString VARCHAR(50) = 'Tributo Municipal'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM N005A_TipoTributo (Id) WHERE Tipo = @TiposString
+INSERT INTO N005_CodigoIdentificacaoTributo (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, '19', 'Tributo - IPTU – Prefeituras')
+GO
+
+/*N019 - OpcaoPagamento*/
+INSERT INTO N019_OpcaoPagamento (Codigo, Descricao) VALUES
+	(1, 'Parcela Única com Desconto'),
+	(2, 'Parcela Única sem Desconto'),
+	(3, 'Parcela Nº 1'),
+	(4, 'Parcela Nº 2'),
+	(5, 'Parcela Nº 3'),
+	(6, 'Parcela Nº 4'),
+	(7, 'Parcela Nº 5'),
+	(8, 'Parcela Nº 6')
+GO
+
+/*N020 - OpcaoRetiradaCRVL*/
+INSERT INTO N020_OpcaoRetiradaCRVL (Codigo, Descricao) VALUES
+	(1, 'Correio'),
+	(2, 'DETRAN / CIRETRAN')
+GO
+
+/*N027 - IdentificadorTributo*/
+INSERT INTO N027_IdentificadorTributo (Codigo, Descricao) VALUES
+	('01', 'FGTS')
+GO
+
+/*P001 - CodigoCamaraCentralizadora*/
+INSERT INTO P001_CodigoCamaraCentralizadora (Codigo, Descricao) VALUES
+	('018', 'TED (STR,CIP)'),
+	('700', 'DOC (COMPE)'),
+	('988', 'TED (STR/CIP) '),
+	('009', 'PIX (SPI)')
+GO
+
+/*P005 - ComplementoTipoServico*/
+INSERT INTO P005_ComplementoTipoServico (Codigo, Descricao) VALUES
+	('01', 'Crédito em Conta'),
+	('02', 'Pagamento de Aluguel/Condomínio'),
+	('03', 'Pagamento de Duplicata/Títulos'),
+	('04', 'Pagamento de Dividendos'),
+	('05', 'Pagamento de Mensalidade Escolar'),
+	('06', 'Pagamento de Salários'),
+	('07', 'Pagamento a Fornecedores'),
+	('08', 'Operações de Câmbios/Fundos/Bolsa de Valores'),
+	('09', 'Repasse de Arrecadação/Pagamento de Tributos'),
+	('10', 'Transferência Internacional em Real'),
+	('11', 'DOC para Poupança'),
+	('12', 'DOC para Depósito Judicial'),
+	('13', 'Outros'),
+	('16', 'Pagamento de bolsa auxílio'),
+	('17', 'Remuneração à cooperado'),
+	('18', 'Pagamento de honorários'),
+	('19', 'Pagamento de prebenda (Remuneração a padres e sacerdotes)')
+GO
+
+/*P006 - AvisoFavorecido*/
+INSERT INTO P006_AvisoFavorecido (Codigo, Descricao) VALUES
+	(0, 'Não Emite Aviso'),
+	(2, 'Emite Aviso Somente para o Remetente'),
+	(5, 'Emite Aviso Somente para o Favorecido'),
+	(6, 'Emite Aviso para o Remetente e Favorecido'),
+	(7, 'Emite Aviso para o Favorecido e 2 Vias para o Remetente')
+GO
+
+/*P014 - IndicativoFormaPagamento*/
+INSERT INTO P014_IndicativoFormaPagamento (Codigo, Descricao) VALUES
+	('01', 'Débito em Conta Corrente'),
+	('02', 'Débito Empréstimo/Financiamento'),
+	('03', 'Débito Cartão de Crédito')
+GO
+
+/*V002 - CodigoMovimentoRemessa*/
+INSERT INTO V002_CodigoMovimentoRemessa (Codigo, Descricao) VALUES
+	('01', 'Entrada de Títulos'),
+	('02', 'Pedido de Baixa'),
+	('04', 'Concessão de Abatimento'),
+	('05', 'Cancelamento de Abatimento'),
+	('06', 'Alteração de Vencimento'),
+	('07', 'Concessão de Desconto'),
+	('08', 'Cancelamento de Desconto'),
+	('12', 'Confirmação de Repactuação'),
+	('31', 'Alteração de Outros Dados'),
+	('41', 'Alteração de Dados do Comprador'),
+	('42', 'Alteração de Dados do Título')
+GO
+
+/*V003 - CodigoMovimentoRetorno*/
+INSERT INTO V003_CodigoMovimentoRetorno (Codigo, Descricao) VALUES
+	('02', 'Entrada Confirmada'),
+	('03', 'Entrada Rejeitada'),
+	('06', 'Liquidação'),
+	('07', 'Confirmação do Recebimento da Instrução de Desconto'),
+	('08', 'Confirmação do Recebimento do Cancelamento da Instrução de Desconto'),
+	('09', 'Baixa'),
+	('10', 'Confirmação do Recebimento da Instrução de Repactuação'),
+	('12', 'Confirmação do Recebimento da Instrução de Abatimento'),
+	('13', 'Confirmação do Recebimento do Cancelamento da Instrução de Abatimento'),
+	('14', 'Confirmação do Recebimento da Instrução de Alteração de Vencimento'),
+	('17', 'Liquidação após Baixa ou Liquidação Título não Registrado'),
+	('26', 'Instrução Rejeitada'),
+	('27', 'Confirmação do Pedido de Alteração de Outros Dados'),
+	('30', 'Alteração de Dados Rejeitada'),
+	('36', 'Concentração (Será informado apenas no arquivo retorno dos dados do Comprador)'),
+	('37', 'Títulos debitados a Empresa após o término da carência'),
+	('38', 'Títulos pagos em atraso creditados a Empresa')
+GO
+
+/*V005 - FormaPagamento*/
+INSERT INTO V005_FormaPagamento (Codigo, Descricao) VALUES
+	(0, 'Boleto de Pagamento'),
+	(1, 'Débito C/C Comprador'),
+	(2, 'Débito C/C Fornecedor'),
+	(3, 'Pagamento via DOC pelo Comprador'),
+	(4, 'Pagamento via DOC pelo Fornecedor')
+GO
+
+/*V009 - TipoVencimentoParcelas*/
+INSERT INTO V009_TipoVencimentoParcelas (Codigo, Descricao) VALUES
+	(1, 'Fixo'),
+	(2, 'Variável')
+GO
+
+/*V010A - TipoMovitoOcorrencia*/
+INSERT INTO V010A_TipoMotivoOcorrencia (Codigo, Descricao) VALUES
+	('A', 'Códigos de rejeições'),
+	('C', 'Códigos de liquidação / baixa')
+GO
+
+/*V010 - Motivo da Ocorrência*/
+DECLARE @TipoString CHAR(1) = 'A'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM V010A_TipoMotivoOcorrencia (Id) WHERE Codigo = @TipoString
+INSERT INTO V010_MotivoOcorrencia (TipoId, Codigo, Descricao) VALUES
+	(@TipoInt, '01', 'Código do Banco Inválido'),
+	(@TipoInt, '02', 'Código do Registro Detalhe Inválido'),
+	(@TipoInt, '03', 'Código do Segmento Inválido'),
+	(@TipoInt, '04', 'Código de Movimento Não Permitido para Carteira'),
+	(@TipoInt, '05', 'Código de Movimento Inválido'),
+	(@TipoInt, '06', 'Tipo/Número de Inscrição do Beneficiário Inválidos'),
+	(@TipoInt, '07', 'Agência/Conta/DV Inválido'),
+	(@TipoInt, '08', 'Nosso Número Inválido'),
+	(@TipoInt, '09', 'Nosso Número Duplicado'),
+	(@TipoInt, '10', 'Carteira Inválida'),
+	(@TipoInt, '11', 'Forma de Cadastramento do Título Inválido'),
+	(@TipoInt, '12', 'Tipo de Documento Inválido'),
+	(@TipoInt, '13', 'Identificação da Emissão do Boleto de Pagamento Inválida'),
+	(@TipoInt, '14', 'Identificação da Distribuição do Boleto de Pagamento Inválida'),
+	(@TipoInt, '15', 'Características da Cobrança Incompatíveis'),
+	(@TipoInt, '16', 'Data de Vencimento Inválida'),
+	(@TipoInt, '17', 'Data de Vencimento Anterior a Data de Emissão'),
+	(@TipoInt, '18', 'Vencimento Fora do Prazo de Operação'),
+	(@TipoInt, '19', 'Título a Cargo de Bancos Correspondentes com Vencimento Inferior a XX Dias'),
+	(@TipoInt, '20', 'Valor do Título Inválido'),
+	(@TipoInt, '21', 'Espécie do Título Inválida'),
+	(@TipoInt, '22', 'Espécie do Título Não Permitida para a Carteira'),
+	(@TipoInt, '23', 'Aceite Inválido'),
+	(@TipoInt, '24', 'Data da Emissão Inválida'),
+	(@TipoInt, '25', 'Data da Emissão Posterior a Data de Entrada'),
+	(@TipoInt, '26', 'Código de Juros de Mora Inválido'),
+	(@TipoInt, '27', 'Valor/Taxa de Juros de Mora Inválido'),
+	(@TipoInt, '28', 'Código do Desconto Inválido'),
+	(@TipoInt, '29', 'Valor do Desconto Maior ou Igual ao Valor do Título'),
+	(@TipoInt, '30', 'Desconto a Conceder Não Confere'),
+	(@TipoInt, '31', 'Concessão de Desconto - Já Existe Desconto Anterior'),
+	(@TipoInt, '32', 'Valor do IOF Inválido'),
+	(@TipoInt, '33', 'Valor do Abatimento Inválido'),
+	(@TipoInt, '34', 'Valor do Abatimento Maior ou Igual ao Valor do Título'),
+	(@TipoInt, '35', 'Valor a Conceder Não Confere'),
+	(@TipoInt, '36', 'Concessão de Abatimento - Já Existe Abatimento Anterior'),
+	(@TipoInt, '37', 'Código para Protesto Inválido'),
+	(@TipoInt, '38', 'Prazo para Protesto Inválido'),
+	(@TipoInt, '39', 'Pedido de Protesto Não Permitido para o Título'),
+	(@TipoInt, '40', 'Título com Ordem de Protesto Emitida'),
+	(@TipoInt, '41', 'Pedido de Cancelamento/Sustação para Títulos sem Instrução de Protesto'),
+	(@TipoInt, '42', 'Código para Baixa/Devolução Inválido'),
+	(@TipoInt, '43', 'Prazo para Baixa/Devolução Inválido'),
+	(@TipoInt, '44', 'Código da Moeda Inválido'),
+	(@TipoInt, '45', 'Nome do Pagador Não Informado'),
+	(@TipoInt, '46', 'Tipo/Número de Inscrição do Pagador Inválidos'),
+	(@TipoInt, '47', 'Endereço do Pagador Não Informado'),
+	(@TipoInt, '48', 'CEP Inválido'),
+	(@TipoInt, '49', 'CEP Sem Praça de Cobrança (Não Localizado)'),
+	(@TipoInt, '50', 'CEP Referente a um Banco Correspondente'),
+	(@TipoInt, '51', 'CEP incompatível com a Unidade da Federação'),
+	(@TipoInt, '52', 'Unidade da Federação Inválida'),
+	(@TipoInt, '53', 'Tipo/Número de Inscrição do Sacador/Avalista Inválidos'),
+	(@TipoInt, '54', 'Sacador/Avalista Não Informado'),
+	(@TipoInt, '55', 'Nosso número no Banco Correspondente Não Informado'),
+	(@TipoInt, '56', 'Código do Banco Correspondente Não Informado'),
+	(@TipoInt, '57', 'Código da Multa Inválido'),
+	(@TipoInt, '58', 'Data da Multa Inválida'),
+	(@TipoInt, '59', 'Valor/Percentual da Multa Inválido'),
+	(@TipoInt, '60', 'Movimento para Título Não Cadastrado'),
+	(@TipoInt, '61', 'Alteração da Agência Cobradora/DV Inválida'),
+	(@TipoInt, '62', 'Tipo de Impressão Inválido'),
+	(@TipoInt, '63', 'Entrada para Título já Cadastrado'),
+	(@TipoInt, '64', 'Número da Linha Inválido'),
+	(@TipoInt, '65', 'Código do Banco para Débito Inválido'),
+	(@TipoInt, '66', 'Agência/Conta/DV para Débito Inválido'),
+	(@TipoInt, '67', 'Dados para Débito incompatível com a Identificação da Emissão do Boleto de Pagamento'),
+	(@TipoInt, '68', 'Débito Automático Agendado'),
+	(@TipoInt, '69', 'Débito Não Agendado - Erro nos Dados da Remessa'),
+	(@TipoInt, '70', 'Débito Não Agendado - Pagador Não Consta do Cadastro de Autorizante'),
+	(@TipoInt, '71', 'Débito Não Agendado - Beneficiário Não Autorizado pelo Pagador'),
+	(@TipoInt, '72', 'Débito Não Agendado - Beneficiário Não Participa da Modalidade Débito Automático'),
+	(@TipoInt, '73', 'Débito Não Agendado - Código de Moeda Diferente de Real (R$)'),
+	(@TipoInt, '74', 'Débito Não Agendado - Data Vencimento Inválida'),
+	(@TipoInt, '75', 'Débito Não Agendado, Conforme seu Pedido, Título Não Registrado'),
+	(@TipoInt, '76', 'Débito Não Agendado, Tipo/Num. Inscrição do Debitado, Inválido'),
+	(@TipoInt, '77', 'Transferência para Desconto Não Permitida para a Carteira do Título'),
+	(@TipoInt, '78', 'Data Inferior ou Igual ao Vencimento para Débito Automático'),
+	(@TipoInt, '79', 'Data Juros de Mora Inválido'),
+	(@TipoInt, '80', 'Data do Desconto Inválida'),
+	(@TipoInt, '81', 'Tentativas de Débito Esgotadas - Baixado'),
+	(@TipoInt, '82', 'Tentativas de Débito Esgotadas - Pendente'),
+	(@TipoInt, '83', 'Limite Excedido'),
+	(@TipoInt, '84', 'Número Autorização Inexistente'),
+	(@TipoInt, '85', 'Título com Pagamento Vinculado'),
+	(@TipoInt, '86', 'Seu Número Inválido'),
+	(@TipoInt, '87', 'Quantidade Total Inf. Zerada'),
+	(@TipoInt, '88', 'Tipo de Registro Inválido'),
+	(@TipoInt, '89', 'Tipo de Serviço Inválido'),
+	(@TipoInt, '90', 'Valor Total Inf. Zerado'),
+	(@TipoInt, '91', 'Comprador Impedido de Operar'),
+	(@TipoInt, '92', 'Data Financiamento Inválida'),
+	(@TipoInt, '93', 'Equalização Inválida'),
+	(@TipoInt, '94', 'Financiamento IOF Inválido'),
+	(@TipoInt, '95', 'Indexador Inválido'),
+	(@TipoInt, '96', 'Negociação Bloqueada'),
+	(@TipoInt, '97', 'Parcela Inválida'),
+	(@TipoInt, '98', 'Prazo não Negociado'),
+	(@TipoInt, '99', 'Negociação sem Movimento Transmitido'),
+	(@TipoInt, '100', 'Taxa do Cliente Inválido'),
+	(@TipoInt, '101', 'Tipo de Comprador Inválido'),
+	(@TipoInt, '102', 'Tipo de Operação Inválido'),
+	(@TipoInt, '103', 'Valor Excedeu o Valor Negociado'),
+	(@TipoInt, '104', 'Outros'),
+	(@TipoInt, '105', 'Vencimento Fora do Prazo de Operação'),
+	(@TipoInt, '106', 'CEP não Cadastrado'),
+	(@TipoInt, '107', 'Nome do Comprador Inválido'),
+	(@TipoInt, '108', 'Endereço do Comprador Inválido'),
+	(@TipoInt, '109', 'Cidade do Comprador Inválido'),
+	(@TipoInt, '110', 'Estado do Comprador Inválido'),
+	(@TipoInt, '111', 'Agência Cobradora Inválida'),
+	(@TipoInt, '112', 'Praça Cobradora Inválida'),
+	(@TipoInt, '113', 'Limite Excedido'),
+	(@TipoInt, '114', 'Seu Número Inválido'),
+	(@TipoInt, '115', 'Seqüência de Registro Inválida'),
+	(@TipoInt, '116', 'Data de Vencimento - Título Vencido'),
+	(@TipoInt, '117', 'Registro Entrada em Duplicidade'),
+	(@TipoInt, '118', 'Intrução de Título Bloqueado'),
+	(@TipoInt, '119', 'Registro sem Correspondente'),
+	(@TipoInt, '120', 'Inválido para Vendor Eletrônico'),
+	(@TipoInt, '121', 'Falta Header'),
+	(@TipoInt, '122', 'Código da Ocorrência Inválido'),
+	(@TipoInt, '123', 'Campo não Númerico'),
+	(@TipoInt, '124', 'CNPJ zerado ou não númerico'),
+	(@TipoInt, '125', 'Data de Gravação Inválida'),
+	(@TipoInt, '126', 'Falta Sequência'),
+	(@TipoInt, '127', 'ID Remessa Inválida')
+GO
+
+DECLARE @TipoString CHAR(1) = 'C'
+DECLARE @TipoInt INT
+SELECT @TipoInt = Id FROM V010A_TipoMotivoOcorrencia (Id) WHERE Codigo = @TipoString
+INSERT INTO V010_MotivoOcorrencia (TipoId, LiquidacaoBaixa, Codigo, Descricao) VALUES
+	(@TipoInt, 'L', '01', 'Por Saldo'),
+	(@TipoInt, 'L', '02', 'Por Conta'),
+	(@TipoInt, 'L', '03', 'No Próprio Banco'),
+	(@TipoInt, 'L', '04', 'Compensação Eletrônica'),
+	(@TipoInt, 'L', '05', 'Compensação Convencional'),
+	(@TipoInt, 'L', '06', 'Por Meio Eletrônico'),
+	(@TipoInt, 'L', '07', 'Após Feriado Local'),
+	(@TipoInt, 'L', '08', 'Em Cartório'),
+	(@TipoInt, 'B', '09', 'Comandada Banco'),
+	(@TipoInt, 'B', '10', 'Comandada Cliente Arquivo'),
+	(@TipoInt, 'B', '11', 'Comandada Cliente On-line'),
+	(@TipoInt, 'B', '12', 'Decurso Prazo - Cliente'),
+	(@TipoInt, 'B', '13', 'Decurso Prazo - Banco'),
+	(@TipoInt, 'B', '14', 'Protestado'),
+	(@TipoInt, 'B', '15', 'Título Excluído')
+GO
+
+/*V020 - FormaPagamentoIOF*/
+INSERT INTO V020_FormaPagamentoIOF (Codigo, Descricao) VALUES
+	(0, 'Debitado do Vendedor no ato'),
+	(1, 'Financiado ao Comprador'),
+	(2, 'Débito do Abatimento na Liquidação')
+GO
+
+/*V021 - TipoEqualizacao*/
+INSERT INTO V021_TipoEqualizacao (Codigo, Descricao) VALUES
+	(0, 'Sem Equalização'),
+	(1, 'No Ato'),
+	(2, 'No Final')
+GO
+
+/*V022 - ModalidadeEqualizacao*/
+INSERT INTO V022_ModalidadeEqualizacao (Codigo, Descricao) VALUES
+	(0, 'Não utilizado'),
+	(1, 'Pré'),
+	(2, 'Pós')
+GO
+
+/*V032 - CodigoMoedaVendedor*/
+INSERT INTO V032_CodigoMoedaVendedor (Codigo, Descricao) VALUES
+	('01', 'Reservado para Uso Futuro'),
+	('02', 'Dólar Americano Comercial (Venda)'),
+	('03', 'Dólar Americano Turismo (Venda)'),
+	('04', 'ITRD'),
+	('05', 'IDTR'),
+	('06', 'UFIR Diária'),
+	('07', 'UFIR Mensal'),
+	('08', 'FAJ-TR'),
+	('09', 'Real'),
+	('10', 'TR'),
+	('11', 'IGPM'),
+	('12', 'CDI'),
+	('13', 'Percentual do CDI')
+GO
+
+/*V040 - CodigoDesconto*/
+INSERT INTO V040_CodigoDesconto (Codigo, Descricao) VALUES
+	(1, 'Valor Fixo Até a Data Informada'),
+	(2, 'Percentual Até a Data Informada'),
+	(3, 'Valor por Antecipação Dia Corrido'),
+	(4, 'Valor por Antecipação Dia Útil'),
+	(5, 'Percentual Sobre o Valor Nominal Dia Corrido'),
+	(6, 'Percentual Sobre o Valor Nominal Dia Útil'),
+	(7, 'Cancelamento de Desconto')
+GO
+
+/*V042 - CodigoProtesto*/
+INSERT INTO V042_CodigoProtesto (Codigo, Descricao) VALUES
+	(1, 'Protestar Dias Corridos'),
+	(2, 'Protestar Dias Úteis'),
+	(3, 'Não Protestar'),
+	(9, 'Cancelamento Protesto Automático')
+GO
+
+/*V047 - TipoLancamentoValorEqualizacao*/
+INSERT INTO V047_TipoLancamentoValorEqualizacao (Codigo, Descricao) VALUES
+	('D', 'Débito'),
+	('C', 'Crédito')
+GO
