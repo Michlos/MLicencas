@@ -17,11 +17,10 @@ GRUPOS DE USUÁRIOS
 	Nome	VARCHAR(50) NOT NULL,
 	Ativo	BIT NOT NULL DEFAULT (1),
 */
-INSERT INTO Grupos (Nome, Ativo) 
-VALUES
-('Administradores', 1),
-('Financeiro', 1),
-('Gerentes', 1)
+INSERT INTO Grupos (Nome, Ativo) VALUES
+	('Administradores', 1),
+	('Financeiro', 1),
+	('Gerentes', 1)
 GO
 
 
@@ -275,7 +274,7 @@ GO
 	CONSTRAINT U_ESTADOS_IBGE UNIQUE (CodIbge)
 */
 
-INSERT INTO Estados VALUES
+INSERT INTO Estados (Nome, Uf, CodIbge) VALUES
 	('Rondônia', 'RO', '11'),
 	('Acre', 'AC',  '12'),
 	('Amazonas', 'AM',  '13'),
@@ -6450,104 +6449,104 @@ GO
 */
 /*A001 - ALEGAÇÃO DO PAGADOR*/
 INSERT INTO A001_AlegacaoPagador (Codigo, Significado) VALUES
-	('0101'),('Pagador alega que não recebeu a mercadoria '),
-	('0102'),('Pagador alega que a mercadoria chegou atrasada '),
-	('0103'),('Pagador alega que a mercadoria chegou avariada '),
-	('0104'),('Pagador alega que a mercadoria não confere com o pedido '),
-	('0105'),('Pagador alega que a mercadoria chegou incompleta '),
-	('0106'),('Pagador alega que a mercadoria está à disposição do Beneficiário '),
-	('0107'),('Pagador alega que devolveu a mercadoria '),
-	('0108'),('Pagador alega que a mercadoria está em desacordo com a Nota Fiscal'),
-	('0109'),('Pagador alega que nada deve ou comprou '),
-	('0201'),('Pagador alega que não recebeu a fatura '),
-	('0202'),('Pagador alega que o pedido de compra foi cancelado '),
-	('0203'),('Pagador alega que a duplicata foi cancelada '),
-	('0204'),('Pagador alega não ter recebido a mercadoria, nota fiscal, fatura '),
-	('0205'),('Pagador alega que a duplicata/fatura está incorreta '),
-	('0206'),('Pagador alega que o valor está incorreto '),
-	('0207'),('Pagador alega que o faturamento é indevido '),
-	('0208'),('Pagador alega que não localizou o pedido de compra '),
-	('0301'),('Pagador alega que o vencimento correto é: '),
-	('0302'),('Pagador solicita a prorrogação do vencimento para: '),
-	('0303'),('Pagador aceita se o vencimento prorrogado para: '),
-	('0304'),('Pagador alega que pagará o título em: '),
-	('0305'),('Pagador pagou o título diretamente ao Beneficiário em: '),
-	('0306'),('Pagador pagará o título diretamente ao Beneficiário em: '),
-	('0401'),('Pagador não foi localizado, confirmar endereço '),
-	('0402'),('Pagador mudou-se, transferiu de domicílio '),
-	('0403'),('Pagador não recebe no endereço indicado '),
-	('0404'),('Pagador desconhecido no local '),
-	('0405'),('Pagador reside fora do perímetro '),
-	('0406'),('Pagador com endereço incompleto '),
-	('0407'),('Não foi localizado o número constante no endereço do título '),
-	('0408'),('Endereço não localizado/não consta nos guias da cidade '),
-	('0409'),('Endereço do Pagador alterado para: '),
-	('0501'),('Pagador alega que tem desconto ou abatimento de: '),
-	('0502'),('Pagador solicita desconto ou abatimento de: '),
-	('0503'),('Pagador solicita dispensa dos juros de mora '),
-	('0504'),('Pagador se recusa a pagar juros '),
-	('0505'),('Pagador se recusa a pagar comissão de permanência '),
-	('0601'),('Pagador está em regime de concordata '),
-	('0602'),('Pagador está em regime de falência '),
-	('0603'),('Pagador alega que mantém entendimentos com Pagadorr '),
-	('0604'),('Pagador está em entendimentos com o Beneficiário '),
-	('0605'),('Pagador está viajando '),
-	('0606'),('Pagador recusou-se a aceitar o título '),
-	('0607'),('Pagador sustou protesto judicialmente '),
-	('0608'),('Empregado recusou-se a receber título '),
-	('0609'),('Título reapresentado ao Pagador '),
-	('0610'),('Estamos nos dirigindo ao nosso correspondente '),
-	('0611'),('Correspondente não se interessa pelo protesto '),
-	('0612'),('Pagador não atende aos avisos de nossos correspondentes '),
-	('0613'),('Título está sendo encaminhado ao correspondente '),
-	('0614'),('Entrega franco de pagamento ao Pagador '),
-	('0615'),('Entrega franco de pagamento ao representante '),
-	('0616'),('A entrega franco de pagamento é difícil '),
-	('0617'),('Título recusado pelo cartório')
+	('0101' , 'Pagador alega que não recebeu a mercadoria '),
+	('0102' , 'Pagador alega que a mercadoria chegou atrasada '),
+	('0103' , 'Pagador alega que a mercadoria chegou avariada '),
+	('0104' , 'Pagador alega que a mercadoria não confere com o pedido '),
+	('0105' , 'Pagador alega que a mercadoria chegou incompleta '),
+	('0106' , 'Pagador alega que a mercadoria está à disposição do Beneficiário '),
+	('0107' , 'Pagador alega que devolveu a mercadoria '),
+	('0108' , 'Pagador alega que a mercadoria está em desacordo com a Nota Fiscal'),
+	('0109' , 'Pagador alega que nada deve ou comprou '),
+	('0201' , 'Pagador alega que não recebeu a fatura '),
+	('0202' , 'Pagador alega que o pedido de compra foi cancelado '),
+	('0203' , 'Pagador alega que a duplicata foi cancelada '),
+	('0204' , 'Pagador alega não ter recebido a mercadoria, nota fiscal, fatura '),
+	('0205' , 'Pagador alega que a duplicata/fatura está incorreta '),
+	('0206' , 'Pagador alega que o valor está incorreto '),
+	('0207' , 'Pagador alega que o faturamento é indevido '),
+	('0208' , 'Pagador alega que não localizou o pedido de compra '),
+	('0301' , 'Pagador alega que o vencimento correto é: '),
+	('0302' , 'Pagador solicita a prorrogação do vencimento para: '),
+	('0303' , 'Pagador aceita se o vencimento prorrogado para: '),
+	('0304' , 'Pagador alega que pagará o título em: '),
+	('0305' , 'Pagador pagou o título diretamente ao Beneficiário em: '),
+	('0306' , 'Pagador pagará o título diretamente ao Beneficiário em: '),
+	('0401' , 'Pagador não foi localizado, confirmar endereço '),
+	('0402' , 'Pagador mudou-se, transferiu de domicílio '),
+	('0403' , 'Pagador não recebe no endereço indicado '),
+	('0404' , 'Pagador desconhecido no local '),
+	('0405' , 'Pagador reside fora do perímetro '),
+	('0406' , 'Pagador com endereço incompleto '),
+	('0407' , 'Não foi localizado o número constante no endereço do título '),
+	('0408' , 'Endereço não localizado/não consta nos guias da cidade '),
+	('0409' , 'Endereço do Pagador alterado para: '),
+	('0501' , 'Pagador alega que tem desconto ou abatimento de: '),
+	('0502' , 'Pagador solicita desconto ou abatimento de: '),
+	('0503' , 'Pagador solicita dispensa dos juros de mora '),
+	('0504' , 'Pagador se recusa a pagar juros '),
+	('0505' , 'Pagador se recusa a pagar comissão de permanência '),
+	('0601' , 'Pagador está em regime de concordata '),
+	('0602' , 'Pagador está em regime de falência '),
+	('0603' , 'Pagador alega que mantém entendimentos com Pagadorr '),
+	('0604' , 'Pagador está em entendimentos com o Beneficiário '),
+	('0605' , 'Pagador está viajando '),
+	('0606' , 'Pagador recusou-se a aceitar o título '),
+	('0607' , 'Pagador sustou protesto judicialmente '),
+	('0608' , 'Empregado recusou-se a receber título '),
+	('0609' , 'Título reapresentado ao Pagador '),
+	('0610' , 'Estamos nos dirigindo ao nosso correspondente '),
+	('0611' , 'Correspondente não se interessa pelo protesto '),
+	('0612' , 'Pagador não atende aos avisos de nossos correspondentes '),
+	('0613' , 'Título está sendo encaminhado ao correspondente '),
+	('0614' , 'Entrega franco de pagamento ao Pagador '),
+	('0615' , 'Entrega franco de pagamento ao representante '),
+	('0616' , 'A entrega franco de pagamento é difícil '),
+	('0617' , 'Título recusado pelo cartório')
 GO
 
 /*C004-CODIGO DE MOVIMENTAÇÃO D REMESSA*/
 INSERT INTO C004_CodigoMovimentacaoRemessa (Codigo, Descricao) VALUES
-	('01'), ('Entrada de Títulos'),
-	('02'), ('Pedido de Baixa'),
-	('03'), ('Protesto para Fins Falimentares'),
-	('04'), ('Concessão de Abatimento'),
-	('05'), ('Cancelamento de Abatimento'),
-	('06'), ('Alteração de Vencimento'),
-	('07'), ('Concessão de Desconto'),
-	('08'), ('Cancelamento de Desconto'),
-	('09'), ('Protestar'),
-	('10'), ('Sustar Protesto e Baixar Título'),
-	('11'), ('Sustar Protesto e Manter em Carteira'),
-	('12'), ('Alteração de Juros de Mora'),
-	('13'), ('Dispensar Cobrança de Juros de Mora'),
-	('14'), ('Alteração de Valor/Percentual de Multa'),
-	('15'), ('Dispensar Cobrança de Multa'),
-	('16'), ('Alteração de Valor/Data de Desconto'),
-	('17'), ('Não conceder Desconto'),
-	('18'), ('Alteração do Valor de Abatimento'),
-	('19'), ('Prazo Limite de Recebimento - Alterar'),
-	('20'), ('Prazo Limite de Recebimento - Dispensar'),
-	('21'), ('Alterar número do título dado pelo Beneficiário'),
-	('22'), ('Alterar número controle do Participante'),
-	('23'), ('Alterar dados do Pagador'),
-	('24'), ('Alterar dados do Sacador/Avalista'),
-	('30'), ('Recusa da Alegação do Pagador'),
-	('31'), ('Alteração de Outros Dados'),
-	('33'), ('Alteração dos Dados do Rateio de Crédito'),
-	('34'), ('Pedido de Cancelamento dos Dados do Rateio de Crédito'),
-	('35'), ('Pedido de Desagendamento do Débito Automático'),
-	('40'), ('Alteração de Carteira'),
-	('41'), ('Cancelar protesto'),
-	('42'), ('Alteração de Espécie de Título'),
-	('43'), ('Transferência de carteira/modalidade de cobrança'),
-	('44'), ('Alteração de contrato de cobrança'),
-	('45'), ('Negativação Sem Protesto'),
-	('46'), ('Solicitação de Baixa de Título Negativado Sem Protesto'),
-	('47'), ('Alteração do Valor Nominal do Título'),
-	('48'), ('Alteração do Valor Mínimo/ Percentual'),
-	('49'), ('Alteração do Valor Máximo/Percentual'),
-	('61'), ('Alteração para inclusão/manutenção de QR Code Pix')
+	('01', 'Entrada de Títulos'),
+	('02', 'Pedido de Baixa'),
+	('03', 'Protesto para Fins Falimentares'),
+	('04', 'Concessão de Abatimento'),
+	('05', 'Cancelamento de Abatimento'),
+	('06', 'Alteração de Vencimento'),
+	('07', 'Concessão de Desconto'),
+	('08', 'Cancelamento de Desconto'),
+	('09', 'Protestar'),
+	('10', 'Sustar Protesto e Baixar Título'),
+	('11', 'Sustar Protesto e Manter em Carteira'),
+	('12', 'Alteração de Juros de Mora'),
+	('13', 'Dispensar Cobrança de Juros de Mora'),
+	('14', 'Alteração de Valor/Percentual de Multa'),
+	('15', 'Dispensar Cobrança de Multa'),
+	('16', 'Alteração de Valor/Data de Desconto'),
+	('17', 'Não conceder Desconto'),
+	('18', 'Alteração do Valor de Abatimento'),
+	('19', 'Prazo Limite de Recebimento - Alterar'),
+	('20', 'Prazo Limite de Recebimento - Dispensar'),
+	('21', 'Alterar número do título dado pelo Beneficiário'),
+	('22', 'Alterar número controle do Participante'),
+	('23', 'Alterar dados do Pagador'),
+	('24', 'Alterar dados do Sacador/Avalista'),
+	('30', 'Recusa da Alegação do Pagador'),
+	('31', 'Alteração de Outros Dados'),
+	('33', 'Alteração dos Dados do Rateio de Crédito'),
+	('34', 'Pedido de Cancelamento dos Dados do Rateio de Crédito'),
+	('35', 'Pedido de Desagendamento do Débito Automático'),
+	('40', 'Alteração de Carteira'),
+	('41', 'Cancelar protesto'),
+	('42', 'Alteração de Espécie de Título'),
+	('43', 'Transferência de carteira/modalidade de cobrança'),
+	('44', 'Alteração de contrato de cobrança'),
+	('45', 'Negativação Sem Protesto'),
+	('46', 'Solicitação de Baixa de Título Negativado Sem Protesto'),
+	('47', 'Alteração do Valor Nominal do Título'),
+	('48', 'Alteração do Valor Mínimo/ Percentual'),
+	('49', 'Alteração do Valor Máximo/Percentual'),
+	('61', 'Alteração para inclusão/manutenção de QR Code Pix')
 GO
 
 /*C006 - CÓDIGO DA CARTEIRA*/
@@ -7020,7 +7019,7 @@ INSERT INTO G003_TipoRegistro (Codigo, Descricao) VALUES
 GO
 
 /*G005 - TipoInscricao*/
-INSERT INTO G005_TipoInscricao (Codigo, Descrica) VALUES
+INSERT INTO G005_TipoInscricao (Codigo, Descricao) VALUES
 	(0,'Isento / Não Informado'),
 	(1,'CPF'),
 	(2,'CGC / CNPJ'),
@@ -7643,33 +7642,33 @@ INSERT INTO K002A_CategoriaTipoMovimento (Categoria) VALUES
 GO
 
 /*K002 - TipoMovimento*/
-DECLARE @CategoriaString CHAR(1) = 'Remessa'
+DECLARE @CategoriaString VARCHAR(50) = 'Remessa'
 DECLARE @CategoriaInt INT
 SELECT @CategoriaInt = Id FROM K002A_CategoriaTipoMovimento WHERE Categoria = @CategoriaString
 INSERT INTO K002_TipoMovimento (CategoriaId, Codigo, Descricao) VALUES
-	(@CategoriaString, '01', 'Inclusão'),
-	(@CategoriaString, '02', 'Alteração'),
-	(@CategoriaString, '03', 'Exclusão'),
-	(@CategoriaString, '04', 'Sinistro')
+	(@CategoriaInt, '01', 'Inclusão'),
+	(@CategoriaInt, '02', 'Alteração'),
+	(@CategoriaInt, '03', 'Exclusão'),
+	(@CategoriaInt, '04', 'Sinistro')
 GO
 
-DECLARE @CategoriaString CHAR(1) = 'Retorno'
+DECLARE @CategoriaString VARCHAR(50) = 'Retorno'
 DECLARE @CategoriaInt INT
 SELECT @CategoriaInt = Id FROM K002A_CategoriaTipoMovimento WHERE Categoria = @CategoriaString
 INSERT INTO K002_TipoMovimento (CategoriaId, Codigo, Descricao) VALUES
-	(@CategoriaString, '05', 'Cheques em carteira (em ser)'),
-	(@CategoriaString, '06', 'Cheque depositado/ enviado para compensação'),
-	(@CategoriaString, '07', 'Cheque devolvido (a primeira ocorrência corresponderá ao motivo da devolução)'),
-	(@CategoriaString, '08', 'Cheque liquidado'),
-	(@CategoriaString, '09', 'Cheque a ser depositado/enviado para a compensação na data boa'),
-	(@CategoriaString, '11', 'Inclusão Confirmada'),
-	(@CategoriaString, '12', 'Alteração Confirmada'),
-	(@CategoriaString, '13', 'Exclusão Confirmada'),
-	(@CategoriaString, '14', 'Sinistro Confirmado'),
-	(@CategoriaString, '21', 'Inclusão Rejeitada'),
-	(@CategoriaString, '22', 'Alteração Rejeitada'),
-	(@CategoriaString, '23', 'Exclusão Rejeitada'),
-	(@CategoriaString, '24', 'Sinistro Rejeitado')
+	(@CategoriaInt, '05', 'Cheques em carteira (em ser)'),
+	(@CategoriaInt, '06', 'Cheque depositado/ enviado para compensação'),
+	(@CategoriaInt, '07', 'Cheque devolvido (a primeira ocorrência corresponderá ao motivo da devolução)'),
+	(@CategoriaInt, '08', 'Cheque liquidado'),
+	(@CategoriaInt, '09', 'Cheque a ser depositado/enviado para a compensação na data boa'),
+	(@CategoriaInt, '11', 'Inclusão Confirmada'),
+	(@CategoriaInt, '12', 'Alteração Confirmada'),
+	(@CategoriaInt, '13', 'Exclusão Confirmada'),
+	(@CategoriaInt, '14', 'Sinistro Confirmado'),
+	(@CategoriaInt, '21', 'Inclusão Rejeitada'),
+	(@CategoriaInt, '22', 'Alteração Rejeitada'),
+	(@CategoriaInt, '23', 'Exclusão Rejeitada'),
+	(@CategoriaInt, '24', 'Sinistro Rejeitado')
 GO
 
 /*K003 - CodigoFinalidadeMovimento*/
@@ -7739,9 +7738,9 @@ INSERT INTO N005A_TipoTributo (Tipo) VALUES
 GO
 
 /*N005 - CodigoIdentificacaoTributo*/
-DECLARE @TiposString VARCHAR(50) = 'Tributo Federal'
+DECLARE @TipoString VARCHAR(50) = 'Tributo Federal'
 DECLARE @TipoInt INT
-SELECT @TipoInt = Id FROM N005A_TipoTributo (Id) WHERE Tipo = @TiposString
+SELECT @TipoInt = Id FROM N005A_TipoTributo WHERE Tipo = @TipoString
 INSERT INTO N005_CodigoIdentificacaoTributo (TipoId, Codigo, Descricao) VALUES
 	(@TipoInt, '16', 'Tributo - DARF Normal'), 
 	(@TipoInt, '18', 'Tributo - DARF Simples'), 
@@ -7754,7 +7753,7 @@ GO
 
 DECLARE @TiposString VARCHAR(50) = 'Tributo Estadual'
 DECLARE @TipoInt INT
-SELECT @TipoInt = Id FROM N005A_TipoTributo (Id) WHERE Tipo = @TiposString
+SELECT @TipoInt = Id FROM N005A_TipoTributo WHERE Tipo = @TiposString
 INSERT INTO N005_CodigoIdentificacaoTributo (TipoId, Codigo, Descricao) VALUES
 	(@TipoInt, '22', 'Tributo - GARE-SP ICMS'), 
 	(@TipoInt, '23', 'Tributo - GARE-SP DR'), 
@@ -7763,7 +7762,7 @@ GO
 
 DECLARE @TiposString VARCHAR(50) = 'Tributo Municipal'
 DECLARE @TipoInt INT
-SELECT @TipoInt = Id FROM N005A_TipoTributo (Id) WHERE Tipo = @TiposString
+SELECT @TipoInt = Id FROM N005A_TipoTributo WHERE Tipo = @TiposString
 INSERT INTO N005_CodigoIdentificacaoTributo (TipoId, Codigo, Descricao) VALUES
 	(@TipoInt, '19', 'Tributo - IPTU – Prefeituras')
 GO
@@ -7896,7 +7895,7 @@ GO
 /*V010 - Motivo da Ocorrência*/
 DECLARE @TipoString CHAR(1) = 'A'
 DECLARE @TipoInt INT
-SELECT @TipoInt = Id FROM V010A_TipoMotivoOcorrencia (Id) WHERE Codigo = @TipoString
+SELECT @TipoInt = Id FROM V010A_TipoMotivoOcorrencia WHERE Codigo = @TipoString
 INSERT INTO V010_MotivoOcorrencia (TipoId, Codigo, Descricao) VALUES
 	(@TipoInt, '01', 'Código do Banco Inválido'),
 	(@TipoInt, '02', 'Código do Registro Detalhe Inválido'),
@@ -8029,7 +8028,7 @@ GO
 
 DECLARE @TipoString CHAR(1) = 'C'
 DECLARE @TipoInt INT
-SELECT @TipoInt = Id FROM V010A_TipoMotivoOcorrencia (Id) WHERE Codigo = @TipoString
+SELECT @TipoInt = Id FROM V010A_TipoMotivoOcorrencia WHERE Codigo = @TipoString
 INSERT INTO V010_MotivoOcorrencia (TipoId, LiquidacaoBaixa, Codigo, Descricao) VALUES
 	(@TipoInt, 'L', '01', 'Por Saldo'),
 	(@TipoInt, 'L', '02', 'Por Conta'),

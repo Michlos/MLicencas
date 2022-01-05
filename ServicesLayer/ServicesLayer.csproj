@@ -91,6 +91,8 @@
     <Compile Include="Fabrica\FabricaServices.cs" />
     <Compile Include="Fabrica\IFabricaRepository.cs" />
     <Compile Include="Fabrica\IFabricaServices.cs" />
+    <Compile Include="Integracao\Bancaria\IIntegracaoBancariaRepository.cs" />
+    <Compile Include="Integracao\Bancaria\IntegracaoBancariaServices.cs" />
     <Compile Include="Modulos\IModulosRepository.cs" />
     <Compile Include="Modulos\IModulosServices.cs" />
     <Compile Include="Modulos\ModulosServices.cs" />

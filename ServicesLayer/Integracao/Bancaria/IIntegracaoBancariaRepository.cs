@@ -1,0 +1,102 @@
+﻿using DomainLayer.Financeiro.Integracoes.Bancaria;
+
+using System.Collections.Generic;
+
+namespace ServicesLayer.Integracao.Bancaria
+{
+    public interface IIntegracaoBancariaRepository
+    {
+        IEnumerable<IA001_AlegacaoPagador> GetA001_AlegacaoPagador();
+        IEnumerable<IC004_CodigoMovimentacaoRemessa> GetC004_CodigoMOvimentacaoRemessa();
+        IEnumerable<IC006_CodigoCarteira> GetC006_CodigoCarteira();
+        IEnumerable<IC007_FormaCadastramentoTitulo> GetC007_FormaCadastramentoTitulo();
+        IEnumerable<IC008_TipoDocumento> GetC008_TipoDocumento();
+        IEnumerable<IC009_IdentEmissaoBoletoPagamento> GetC009_IdentEmissaoBoletoPagamento();
+        IEnumerable<IC010_IdentDistribuicao> GetC010_IdentDistribuicao();
+        IEnumerable<IC015_EspecieTitulo> GetC015_EspecieTitulo();
+        IEnumerable<IC016_IdentTituloAceito> GetC016_IdentTituloAceito();
+        IEnumerable<IC018_CodigoJurosMora> GetC018_CodigoJuro();
+        IEnumerable<IC021_CodigoDesconto> GetC021_CodigoDesconto();
+        IEnumerable<IC026_CodigoProtesto> GetC026_CodigoProtesto();
+        IEnumerable<IC028_CodigoBaixaDevolucao> GetC028_CodigoBaixaDevolucao();
+        IEnumerable<IC039_AvisoDebitoAutomatico> GetC039_AvisoDebitoAutomatico();
+        IEnumerable<IC044_CodigoMovimentoRetorno> GetC044_CodigoMovimentoRetorno();
+        IEnumerable<IC047A_TipoMotivoOcorrencia> GetC047A_TipoMOtivoOcorrencia();
+        IEnumerable<IC047_MotivoOcorrencia> GetC047_MotivoOcorrencia();
+        IEnumerable<IC066_IdentiRejeicoes> GetC066_IdentiRejeicoe();
+        IEnumerable<ID006_ComplTipoServico> GetD006_ComplTipoServico();
+        IEnumerable<ID007_AvisoPagador> GetD007_AvisoPagador();
+        IEnumerable<IF001_NaturezaSaldoConta> GetF001_NaturezaSaldoConta();
+        IEnumerable<IF005_NaturezaSituacaoSaldoInicial> GetF005_NaturezaSituacaoSaldoInicial();
+        IEnumerable<IG003_TipoRegistro> GetG003_TipoRegistro();
+        IEnumerable<IG005_TipoInscricao> GetG005_TipoInscricao();
+        IEnumerable<IG015_CodigoRemessaRetorno> GetG015_CodigoRemessaRetorno();
+        IEnumerable<IG020_DensidadeArquivo> GetG020_DensidadeArquivo();
+        IEnumerable<IG025_TipoServico> GetG025_TipoServico();
+        IEnumerable<IG028_TipoOperacao> GetG028_TipoOperacao();
+        IEnumerable<IG029_FormaLancamento> GetG029_FormaLancamento();
+        IEnumerable<IG040_TipoMoeda> GetG040_TipoMoeda();
+        IEnumerable<IG059_CodigoOcorrenciaRetornoRemessa> GetG059_CodigoOcorrenciaRetornoRemessa();
+        IEnumerable<IG060_TipoMovimento> GetG060_TipoMovimento();
+        IEnumerable<IG061_CodigoInstrucaoMovimento> GetG061_CodigoInstrucaoMovimento();
+        IEnumerable<IG062_CodigoPadraoOcorrenciasPagador> GetG062_CodigoPadraoOcorrencia();
+        IEnumerable<IG065_CodigoMoeda> GetG065_CodigoMoeda();
+        IEnumerable<IG067_IdentRegistroOpcional> GetG067_IOdentRegistroOpcional();
+        IEnumerable<IG073_CodigoMulta> GetG073_CodigoMulta();
+        IEnumerable<IG081_SituacaoSaldoInicial> GetG081_SituacaoSaldoInicial();
+        IEnumerable<IG082_PosicaoSaldoInicial> GetG082_PosicaoSaldoInicial();
+        IEnumerable<IG084_NaturezaLancamento> GetG084_NaturezaLancamento();
+        IEnumerable<IG085_TipoComplementoLancamento> GetG085_TipoComplementoLancamento();
+        IEnumerable<IG087_IdentIsencaoCPMF> GetG087_IdentIsencaoCPMF();
+        IEnumerable<IG091_TipoLancamento> GetG091_TipoLancamento();
+        IEnumerable<IG092_CategoriaLancamento> GetG092_CategoriaLancamento();
+        IEnumerable<IG098_SituacaoSaldoFinal> GetG098_SituacaoSaldoFinal();
+        IEnumerable<IG099_PosicaoSaldoFinal> GetG099_PosicaoSaldoFinal();
+        IEnumerable<IG100_FormaIniciacaoPix> GetG100_FormaIniciacaoPix();
+        IEnumerable<IG103_TipoChaveDICT> GetG103_TipoChaveDICT();
+        IEnumerable<IH008_StatusMutuario> GetH008_StatusMutuario();
+        IEnumerable<IH009_RegimeContratoMutuario> GetH009_RegimeContratoMutuario();
+        IEnumerable<IH010_SituacaoSindicalMutuario> GetH010_SituacaoSindicalMutuario();
+        IEnumerable<IH011_ComprometimentoVerbaRescisoria> GetH011_ComprometimentoVerbaRescisoria();
+        IEnumerable<IH014_IdentCentralSindical> GetH014_IdentCentralSindical();
+        IEnumerable<IH015_TipoOperacao> GetH015_TipoOperacao();
+        IEnumerable<IH031_TipoResidualGarantido> GetH031_TipoResidualGarantido();
+        IEnumerable<II004_RegimeEncargosFinanceiros> GetI004_RegimeEncargo();
+        IEnumerable<II005_ModalidadeEncargosFinanceirosPos> GetI005_ModalidadeEncargo();
+        IEnumerable<II007_FormaReposicao> GetI007_FormaReposicao();
+        IEnumerable<II008_MetodologiaCalculoEncargos> GetI008_MetodologiaCalculoEncargo();
+        IEnumerable<II011_TipoVencimentoParcelas> GetI011_TipoVencimentoParcela();
+        IEnumerable<II015_FormaPagamento> GetI015_FormaPagamento();
+        IEnumerable<II017_FormaPagamentoIOF> GetI017_FormaPagamentoIOF();
+        IEnumerable<IK001_CodigosOcorrencia> GetK001_Codigo();
+        IEnumerable<IK002A_CategoriaTipoMovimento> GetK002A_CategoriaTipoMovimento();
+        IEnumerable<IK002_TipoMovimento> GetK002_TipoMovimento();
+        IEnumerable<IK003_CodigoFinalidadeMovimento> GetK003_CodigoFinalidadeMovimento();
+        IEnumerable<IK004_FormaEntradaDadosCheque> GetK004_FormaEsntradaDado();
+        IEnumerable<IK006_TipoInscricaoEmitente> GetK006_TipoInscricaoEmitente();
+        IEnumerable<IK020_CodigoOcorrencia> GetK020_CodigoOcorrencia();
+        IEnumerable<IN003_TipoIdentificacaoContribuinte> GetN003_TipoIdentificacaoContribuinte();
+        IEnumerable<IN005A_TipoTributo> GetN005A_TipoTributo();
+        IEnumerable<IN005_CodigoIdentificacaoTributo> GetN005_CodigoIdentificacaoTributo();
+        IEnumerable<IN019_OpcaoPagamento> GetN019_OpcaoPagamento();
+        IEnumerable<IN020_OpcaoRetiradaCRVL> GetN020_OpcaoRetiradaCRVL();
+        IEnumerable<IN027_IdentificadorTributo> GetN027_IdentificadorTributo();
+        IEnumerable<IP001_CodigoCamaraCentralizadora> GetP001_CodigoCamaraCentralizadora();
+        IEnumerable<IP006_AvisoFavorecido> GetP006_AvisoFavorecido();
+        IEnumerable<IP014_IndicativoFormaPagamento> GetP014_IndicativoFormaPagamento();
+        IEnumerable<IV002_CodigoMovimentoRemessa> GetV002_CodigoMovimentoRemessa();
+        IEnumerable<IV003_CodigoMovimentoRetorno> GetV003_CodigoMovimentoRetorno();
+        IEnumerable<IV005_FormaPagamento> GetV005_FormaPagamento();
+        IEnumerable<IV009_TipoVencimentoParcelas> GetV009_TipoVencimentoParcela();
+        IEnumerable<IV010A_TipoMotivoOcorrencia> GetV010A_TipoMotivoOcorrencia();
+        IEnumerable<IV010_MotivoOcorrencia> GetV010_MotivoOcorrencia();
+        IEnumerable<IV020_FormaPagamentoIOF> GetV020_FormaPagamentoIOF();
+        IEnumerable<IV021_TipoEqualizacao> GetV021_TipoEqualizacao();
+        IEnumerable<IV022_ModalidadeEqualizacao> GetV022_ModalidadeEqualizacao();
+        IEnumerable<IV032_CodigoMoedaVendedor> GetV032_CodigoMoedaVendedor();
+        IEnumerable<IV040_CodigoDesconto> GetV040_CodigoDesconto();
+        IEnumerable<IV042_CodigoProtesto> GetV042_CodigoProtesto();
+        IEnumerable<IV047_TipoLancamentoValorEqualizacao> GetV047_TipoLancamentoValorEqualizacao();
+
+    }
+}
