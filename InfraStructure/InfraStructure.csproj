@@ -74,6 +74,7 @@
     <Compile Include="Repository\TiposEnderecos\TipoEnderecoRepository.cs" />
     <Compile Include="Repository\TiposRecebimentosTitulos\TipoRecebimentoTituloRepository.cs" />
     <Compile Include="Repository\TiposTelefones\TipoTelefoneRepository.cs" />
+    <Compile Include="Repository\TitulosRecebidos\TituloRecebidoRepository.cs" />
     <Compile Include="Repository\TitulosRecebiveis\TituloRecebivelRepository.cs" />
     <Compile Include="Repository\Usuarios\GrupoRepository.cs" />
     <Compile Include="Repository\Usuarios\PermissaoRepository.cs" />
