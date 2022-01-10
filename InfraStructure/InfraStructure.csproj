@@ -60,6 +60,7 @@
     <Compile Include="Repository\Incisos\IncisoRepository.cs" />
     <Compile Include="Repository\IntegracaoBancaria\IntegracaoBancariaRepository.cs" />
     <Compile Include="Repository\LancamentosCaixa\LancamentoCaixaRepository.cs" />
+    <Compile Include="Repository\LancamentosContasBancarias\LancamentoContaBancariaRepository.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
     <Compile Include="Repository\Plataformas\PlataformaRepository.cs" />
     <Compile Include="Repository\Seriais\SerialRepository.cs" />

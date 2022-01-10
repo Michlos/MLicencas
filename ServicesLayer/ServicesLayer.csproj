@@ -99,6 +99,9 @@
     <Compile Include="LancamentosCaixa\ILancamentosCaixaRepository.cs" />
     <Compile Include="LancamentosCaixa\ILancamentosCaixaServices.cs" />
     <Compile Include="LancamentosCaixa\LancamentosCaixaServices.cs" />
+    <Compile Include="LancamentosContasBancarias\ILancamentosContasBancariasRepository.cs" />
+    <Compile Include="LancamentosContasBancarias\ILancamentosContasBancariasServices.cs" />
+    <Compile Include="LancamentosContasBancarias\LancamentosContasBancariasServices.cs" />
     <Compile Include="Modulos\IModulosRepository.cs" />
     <Compile Include="Modulos\IModulosServices.cs" />
     <Compile Include="Modulos\ModulosServices.cs" />
