@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Financeiro\Bancos\BancoModel.cs" />
+    <Compile Include="Financeiro\Bancos\ContaBancaria\ILancamentoContaBancariaModel.cs" />
+    <Compile Include="Financeiro\Bancos\ContaBancaria\LancamentoContaBancariaModel.cs" />
     <Compile Include="Financeiro\Bancos\IBancoModel.cs" />
     <Compile Include="Clientes\ClienteModel.cs" />
     <Compile Include="Clientes\Contatos\ContatoClienteModel.cs" />
@@ -77,6 +79,10 @@
     <Compile Include="Financeiro\Bancos\ContaBancaria\IContaBancariaModel.cs" />
     <Compile Include="Financeiro\Bancos\ITipoContaBancariaModel.cs" />
     <Compile Include="Financeiro\Bancos\TipoContaBancariaModel.cs" />
+    <Compile Include="Financeiro\Caixa\CaixaModel.cs" />
+    <Compile Include="Financeiro\Caixa\ICaixaModel.cs" />
+    <Compile Include="Financeiro\Caixa\ILancamentoCaixaModel.cs" />
+    <Compile Include="Financeiro\Caixa\LancamentoCaixaModel.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\A001_AlegacaoPagador.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\C004_CodigoMovimentacaoRemessa.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\C006_CodigoCarteira.cs" />
@@ -260,6 +266,14 @@
     <Compile Include="Financeiro\Integracoes\Bancaria\V040_CodigoDesconto.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\V042_CodigoProtesto.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\V047_TipoLancamentoValorEqualizacao.cs" />
+    <Compile Include="Financeiro\ITipoLancamentoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\ITipoRecebimentoTituloModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\ITituloRecebidoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\ITituloRecebivelModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\TituloRecebidoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\TituloRecebivelModel.cs" />
+    <Compile Include="Financeiro\TipoLancamentoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\TipoRecebimentoTituloModel.cs" />
     <Compile Include="Modulos\IModuloModel.cs" />
     <Compile Include="Modulos\ModuloModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

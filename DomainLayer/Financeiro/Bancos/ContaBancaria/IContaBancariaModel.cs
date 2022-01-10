@@ -10,5 +10,8 @@
         bool EmiteBoleto { get; set; }
         int Id { get; set; }
         int TipoContaId { get; set; }
+        string Convenio { get; set; }
+        double SaldoAnterior { get; set; }
+        double SaldoAtual { get; set; }
     }
 }

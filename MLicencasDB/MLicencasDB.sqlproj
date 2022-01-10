@@ -23,7 +23,8 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <GenerateCreateScript>True</GenerateCreateScript>
-    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -76,6 +77,8 @@
     <Folder Include="Tables\Financeiro" />
     <Folder Include="Tables\Financeiro\Bancos" />
     <Folder Include="Tables\Financeiro\Integracao" />
+    <Folder Include="Tables\Financeiro\Caixa" />
+    <Folder Include="Tables\Financeiro\TitulosRecebiveis" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
@@ -198,6 +201,13 @@
     <Build Include="Tables\Financeiro\Integracao\V040_CodigoDesconto.sql" />
     <Build Include="Tables\Financeiro\Integracao\V042_CodigoProtesto.sql" />
     <Build Include="Tables\Financeiro\Integracao\V047_TipoLancamentoValorEqualizacao.sql" />
+    <Build Include="Tables\CommonTables\TiposLancamentos.sql" />
+    <Build Include="Tables\Financeiro\Bancos\LancamentosContasBancarias.sql" />
+    <Build Include="Tables\Financeiro\Caixa\Caixa.sql" />
+    <Build Include="Tables\Financeiro\Caixa\LancamentosCaixa.sql" />
+    <Build Include="Tables\Financeiro\TitulosRecebiveis\TipoRecebimentoTitulo.sql" />
+    <Build Include="Tables\Financeiro\TitulosRecebiveis\TitulosRecebiveis.sql" />
+    <Build Include="Tables\Financeiro\TitulosRecebiveis\TitulosRecebidos.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

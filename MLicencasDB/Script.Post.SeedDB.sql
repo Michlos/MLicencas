@@ -8109,3 +8109,17 @@ INSERT INTO V047_TipoLancamentoValorEqualizacao (Codigo, Descricao) VALUES
 	('D', 'Débito'),
 	('C', 'Crédito')
 GO
+
+/*
+CREATE TABLE TiposLancamentos
+(
+	Id INT IDENTITY(1,1) NOT NULL,
+	Tipo CHAR(1) NOT NULL,
+	Descricao VARCHAR(10) NOT NULL,
+	CONSTRAINT PK_TIPOSLANCAMENTOS PRIMARY KEY NONCLUSTERED(Id)
+)
+*/
+INSERT INTO TiposLancamentos (Tipo, Descricao) VALUES
+	('D', 'Débito'),
+	('C', 'Crédito')
+GO

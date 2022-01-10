@@ -51,6 +51,9 @@
     <Compile Include="Bancos\BancosServices.cs" />
     <Compile Include="Bancos\IBancosRepository.cs" />
     <Compile Include="Bancos\IBancosServices.cs" />
+    <Compile Include="Caixa\CaixaServices.cs" />
+    <Compile Include="Caixa\ICaixaServices.cs" />
+    <Compile Include="Caixa\ICaixaRepository.cs" />
     <Compile Include="Cidades\CidadesServices.cs" />
     <Compile Include="Cidades\ICidadesServices.cs" />
     <Compile Include="Cidades\ICidadesRepository.cs" />
@@ -93,6 +96,9 @@
     <Compile Include="Fabrica\IFabricaServices.cs" />
     <Compile Include="Integracao\Bancaria\IIntegracaoBancariaRepository.cs" />
     <Compile Include="Integracao\Bancaria\IntegracaoBancariaServices.cs" />
+    <Compile Include="LancamentosCaixa\ILancamentosCaixaRepository.cs" />
+    <Compile Include="LancamentosCaixa\ILancamentosCaixaServices.cs" />
+    <Compile Include="LancamentosCaixa\LancamentosCaixaServices.cs" />
     <Compile Include="Modulos\IModulosRepository.cs" />
     <Compile Include="Modulos\IModulosServices.cs" />
     <Compile Include="Modulos\ModulosServices.cs" />
@@ -124,6 +130,12 @@
     <Compile Include="TiposEnderecos\ITiposEnderecosRepository.cs" />
     <Compile Include="TiposEnderecos\ITiposEnderecosServices.cs" />
     <Compile Include="TiposEnderecos\TiposEnderecosServices.cs" />
+    <Compile Include="TiposLancamentos\ITiposLancamentosRepository.cs" />
+    <Compile Include="TiposLancamentos\ITiposLancamentosServices.cs" />
+    <Compile Include="TiposLancamentos\TiposLancamentosServices.cs" />
+    <Compile Include="TiposRecebimentosTitulos\ITiposRecebimentosTitulosRepository.cs" />
+    <Compile Include="TiposRecebimentosTitulos\ITiposRecebimentosTitulosServices.cs" />
+    <Compile Include="TiposRecebimentosTitulos\TiposRecebimentosTitulosServices.cs" />
     <Compile Include="TiposTelefones\ITiposTelefonesRepository.cs" />
     <Compile Include="TiposTelefones\ITiposTelefonesServices.cs" />
     <Compile Include="TiposTelefones\TiposTelefonesServices.cs" />

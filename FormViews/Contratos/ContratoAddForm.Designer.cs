@@ -35,6 +35,9 @@ namespace MLicencas.FormViews.Contratos
             this.btnGerarLicenca = new System.Windows.Forms.Button();
             this.btnSaveContrato = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.txbParcelas = new System.Windows.Forms.TextBox();
+            this.mtxbValorParcela = new System.Windows.Forms.MaskedTextBox();
+            this.mtxbValor = new System.Windows.Forms.MaskedTextBox();
             this.cbSoftware = new System.Windows.Forms.ComboBox();
             this.cbCliente = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -42,15 +45,18 @@ namespace MLicencas.FormViews.Contratos
             this.dtRegistro = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.txbTermo = new System.Windows.Forms.TextBox();
             this.txbNome = new System.Windows.Forms.TextBox();
             this.txbId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.dgvClausulas = new System.Windows.Forms.DataGridView();
             this.pnlRighMenu = new System.Windows.Forms.Panel();
@@ -63,12 +69,6 @@ namespace MLicencas.FormViews.Contratos
             this.novoIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removerIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mtxbValor = new System.Windows.Forms.MaskedTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.mtxbValorParcela = new System.Windows.Forms.MaskedTextBox();
-            this.txbParcelas = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.pnlBottomMenu.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlContainer.SuspendLayout();
@@ -168,6 +168,33 @@ namespace MLicencas.FormViews.Contratos
             this.pnlHeader.Size = new System.Drawing.Size(753, 155);
             this.pnlHeader.TabIndex = 3;
             // 
+            // txbParcelas
+            // 
+            this.txbParcelas.Location = new System.Drawing.Point(550, 29);
+            this.txbParcelas.Name = "txbParcelas";
+            this.txbParcelas.Size = new System.Drawing.Size(32, 20);
+            this.txbParcelas.TabIndex = 4;
+            this.txbParcelas.Leave += new System.EventHandler(this.txbParcelas_Leave);
+            // 
+            // mtxbValorParcela
+            // 
+            this.mtxbValorParcela.Location = new System.Drawing.Point(662, 29);
+            this.mtxbValorParcela.Mask = "00000,00";
+            this.mtxbValorParcela.Name = "mtxbValorParcela";
+            this.mtxbValorParcela.Size = new System.Drawing.Size(79, 20);
+            this.mtxbValorParcela.TabIndex = 4;
+            this.mtxbValorParcela.TabStop = false;
+            this.mtxbValorParcela.ValidatingType = typeof(int);
+            // 
+            // mtxbValor
+            // 
+            this.mtxbValor.Location = new System.Drawing.Point(410, 29);
+            this.mtxbValor.Mask = "00000,00";
+            this.mtxbValor.Name = "mtxbValor";
+            this.mtxbValor.Size = new System.Drawing.Size(79, 20);
+            this.mtxbValor.TabIndex = 3;
+            this.mtxbValor.ValidatingType = typeof(int);
+            // 
             // cbSoftware
             // 
             this.cbSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -233,6 +260,15 @@ namespace MLicencas.FormViews.Contratos
             this.label8.TabIndex = 1;
             this.label8.Text = "Software:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(499, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Parcelas:";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -251,16 +287,6 @@ namespace MLicencas.FormViews.Contratos
             this.label7.TabIndex = 1;
             this.label7.Text = "Cliente:";
             // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(448, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Registro:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -278,16 +304,6 @@ namespace MLicencas.FormViews.Contratos
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Código:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(592, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Vencimento:";
             // 
             // txbTermo
             // 
@@ -319,6 +335,44 @@ namespace MLicencas.FormViews.Contratos
             this.txbId.Size = new System.Drawing.Size(56, 20);
             this.txbId.TabIndex = 0;
             this.txbId.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(448, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Registro:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(592, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Vencimento:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(334, 33);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Valor Contrato:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(591, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Valor Parcela:";
             // 
             // pnlContainer
             // 
@@ -440,60 +494,6 @@ namespace MLicencas.FormViews.Contratos
             this.removerIncisoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.removerIncisoToolStripMenuItem.Text = "Remover";
             this.removerIncisoToolStripMenuItem.Click += new System.EventHandler(this.removerIncisoToolStripMenuItem_Click);
-            // 
-            // mtxbValor
-            // 
-            this.mtxbValor.Location = new System.Drawing.Point(410, 29);
-            this.mtxbValor.Mask = "00000,00";
-            this.mtxbValor.Name = "mtxbValor";
-            this.mtxbValor.Size = new System.Drawing.Size(79, 20);
-            this.mtxbValor.TabIndex = 3;
-            this.mtxbValor.ValidatingType = typeof(int);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(334, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Valor Contrato:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(591, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Valor Parcela:";
-            // 
-            // mtxbValorParcela
-            // 
-            this.mtxbValorParcela.Location = new System.Drawing.Point(662, 29);
-            this.mtxbValorParcela.Mask = "00000,00";
-            this.mtxbValorParcela.Name = "mtxbValorParcela";
-            this.mtxbValorParcela.Size = new System.Drawing.Size(79, 20);
-            this.mtxbValorParcela.TabIndex = 4;
-            this.mtxbValorParcela.TabStop = false;
-            this.mtxbValorParcela.ValidatingType = typeof(int);
-            // 
-            // txbParcelas
-            // 
-            this.txbParcelas.Location = new System.Drawing.Point(550, 29);
-            this.txbParcelas.Name = "txbParcelas";
-            this.txbParcelas.Size = new System.Drawing.Size(32, 20);
-            this.txbParcelas.TabIndex = 4;
-            this.txbParcelas.Leave += new System.EventHandler(this.txbParcelas_Leave);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(499, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Parcelas:";
             // 
             // ContratoAddForm
             // 

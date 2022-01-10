@@ -8,8 +8,8 @@ namespace ServicesLayer.Softwares
 {
     public class SoftwaresServices : ISoftwaresRepository, ISoftwaresServices
     {
-        private ISoftwaresRepository _softwareRepository;
-        private IModelDataAnnotationCheck _modelDataAnnotationCheck;
+        private readonly ISoftwaresRepository _softwareRepository;
+        private readonly IModelDataAnnotationCheck _modelDataAnnotationCheck;
 
         public SoftwaresServices(ISoftwaresRepository softwareRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
         {

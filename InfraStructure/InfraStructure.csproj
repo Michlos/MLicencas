@@ -45,6 +45,7 @@
     <Compile Include="QueryString.cs" />
     <Compile Include="Repository\Bairros\BairroRepository.cs" />
     <Compile Include="Repository\Bancos\BancoRepository.cs" />
+    <Compile Include="Repository\Caixas\CaixaRepository.cs" />
     <Compile Include="Repository\Cidades\CidadeRepository.cs" />
     <Compile Include="Repository\Clausulas\ClausulaRepository.cs" />
     <Compile Include="Repository\Clientes\ClienteRepository.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Repository\Fabrica\FabricaRepository.cs" />
     <Compile Include="Repository\Incisos\IncisoRepository.cs" />
     <Compile Include="Repository\IntegracaoBancaria\IntegracaoBancariaRepository.cs" />
+    <Compile Include="Repository\LancamentosCaixa\LancamentoCaixaRepository.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
     <Compile Include="Repository\Plataformas\PlataformaRepository.cs" />
     <Compile Include="Repository\Seriais\SerialRepository.cs" />
@@ -66,8 +68,10 @@
     <Compile Include="Repository\Softwares\SoftwareRepository.cs" />
     <Compile Include="Repository\TelefonesContatosClientes\TelefoneContatoClienteRepository.cs" />
     <Compile Include="Repository\TelefonesContatosFabrica\TelefoneContatoFabricaRepository.cs" />
+    <Compile Include="Repository\TipoLancamento\TipoLancamentoRepository.cs" />
     <Compile Include="Repository\TiposContasBancarias\TipoContaBancariaRepository.cs" />
     <Compile Include="Repository\TiposEnderecos\TipoEnderecoRepository.cs" />
+    <Compile Include="Repository\TiposRecebimentosTitulos\TipoRecebimentoTituloRepository.cs" />
     <Compile Include="Repository\TiposTelefones\TipoTelefoneRepository.cs" />
     <Compile Include="Repository\Usuarios\GrupoRepository.cs" />
     <Compile Include="Repository\Usuarios\PermissaoRepository.cs" />
