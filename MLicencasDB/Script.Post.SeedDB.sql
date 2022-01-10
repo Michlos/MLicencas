@@ -8123,3 +8123,11 @@ INSERT INTO TiposLancamentos (Tipo, Descricao) VALUES
 	('D', 'Débito'),
 	('C', 'Crédito')
 GO
+
+/*TipoRecebimentoTitulo*/
+INSERT INTO TipoRecebimentoTitulo (Tipo) VALUES
+	('TED'),
+	('DOC'),
+	('PIX'),
+	('Boleto')
+GO
