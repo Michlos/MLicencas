@@ -142,6 +142,9 @@
     <Compile Include="TiposTelefones\ITiposTelefonesRepository.cs" />
     <Compile Include="TiposTelefones\ITiposTelefonesServices.cs" />
     <Compile Include="TiposTelefones\TiposTelefonesServices.cs" />
+    <Compile Include="TitulosRecebiveis\ITitulosRecebiveisRepository.cs" />
+    <Compile Include="TitulosRecebiveis\ITitulosRecebiveisServices.cs" />
+    <Compile Include="TitulosRecebiveis\TitulosRecebiveisServices.cs" />
     <Compile Include="Usuarios\GruposServices.cs" />
     <Compile Include="Usuarios\IGruposRepository.cs" />
     <Compile Include="Usuarios\IGruposServices.cs" />

@@ -282,7 +282,45 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
 
         public ILancamentoContaBancariaModel GetById(int lancamentoId)
         {
-            throw new NotImplementedException();
+            _query = "SELECT * FROM LancamentosContasBancarias WHERE Id = @Id";
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(_query, connection))
+                    {
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new SqlParameter("@Id", lancamentoId));
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lancamentoModel = new LancamentoContaBancariaModel()
+                                {
+                                    Id = int.Parse(reader["Id"].ToString()),
+                                    ContaId = int.Parse(reader["ContaId"].ToString()),
+                                    TipoLancamentoId = int.Parse(reader["TipoLancamentoId"].ToString()),
+                                    DataLancamento = DateTime.Parse(reader["DataLancamento"].ToString()),
+                                    Valor = double.Parse(reader["Valor"].ToString()),
+                                    Historico = reader["Historico"].ToString()
+                                };
+                            }
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    dataAccessStatus.setValues("Error", false, e.Message, "Não foi possível recuperar o Lancamento em Conta Bancária pelo ID.", e.HelpLink, e.ErrorCode, e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return lancamentoModel;
         }
     }
 }

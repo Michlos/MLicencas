@@ -18,5 +18,7 @@ namespace DomainLayer.Financeiro.Recebiveis
         int Parcela { get; set; }
         int TotalParcelas { get; set; }
         double ValorParcela { get; set; }
+        double TaxaJurosMora { get; set; }
+        bool Quitado { get; set; }
     }
 }

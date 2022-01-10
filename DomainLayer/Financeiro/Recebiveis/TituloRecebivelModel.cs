@@ -25,8 +25,10 @@ namespace DomainLayer.Financeiro.Recebiveis
         public DateTime DataRegistro { get; set; }
         public DateTime DataVencimento { get; set; }
         public DateTime DataJurosMora { get; set; }
+        public double TaxaJurosMora { get; set; }
         public int DiasParaProtesto { get; set; }
         public int DiasParaBaixa { get; set; }
+        public bool Quitado { get; set; }
 
     }
 }
