@@ -1,4 +1,6 @@
-﻿using DomainLayer.Financeiro;
+﻿using CommonComponents;
+
+using DomainLayer.Financeiro;
 
 using InfraStructure;
 using InfraStructure.Repository.Bancos;
@@ -46,6 +48,9 @@ namespace Financeiro.Banco.ContaBancaria
             InitializeComponent();
             this.bancoId = bancoId;
             this.contaId = contaId;
+            AplicarEventoFloat(txbSaldoInicial);
+            AplicarEventoFloat(txbSaldoAtual);
+
         }
 
         private void LoadServices()
@@ -77,6 +82,9 @@ namespace Financeiro.Banco.ContaBancaria
                 txbConta.Text = contaModel.Conta;
                 txbContaDV.Text = contaModel.ContaDV;
                 chbEmiteBoleto.Checked = contaModel.EmiteBoleto;
+                txbConvenio.Text = contaModel.EmiteBoleto ? contaModel.Convenio : string.Empty;
+                txbSaldoInicial.Text = contaModel.SaldoAnterior.ToString();
+                txbSaldoAtual.Text = contaModel.SaldoAtual.ToString();
 
             }
         }
@@ -112,6 +120,9 @@ namespace Financeiro.Banco.ContaBancaria
             contaModel.BancoId = bancoId;
             contaModel.TipoContaId = (cbTipoConta.SelectedItem as ITipoContaBancariaModel).Id;
             contaModel.EmiteBoleto = chbEmiteBoleto.Checked;
+            contaModel.Convenio = chbEmiteBoleto.Checked ? txbConta.Text : null;
+            contaModel.SaldoAnterior = double.Parse(txbSaldoInicial.Text);
+            contaModel.SaldoAtual = double.Parse(txbSaldoAtual.Text);
 
             if (contaId != 0)
             {
@@ -153,5 +164,28 @@ namespace Financeiro.Banco.ContaBancaria
                 throw new Exception(e.Message, e.InnerException);
             }
         }
+
+        private void chbEmiteBoleto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbEmiteBoleto.Checked)
+            {
+                txbConvenio.Enabled = true;
+            }
+            else
+            {
+                txbConvenio.Text = string.Empty;
+                txbConvenio.Enabled = false;
+            }
+        }
+
+        #region TRATAMENTO DE FORMATO DE VALORES DE PONTOS FLUTUANTES
+        private void AplicarEventoFloat(TextBox txt)
+        {
+            txt.Enter += AplyFloatCurrency.TirarMascara;
+            txt.Leave += AplyFloatCurrency.RetornarMarcarca;
+            txt.KeyPress += AplyFloatCurrency.AenpasValorNumerico;
+        }
+
+        #endregion
     }
 }
