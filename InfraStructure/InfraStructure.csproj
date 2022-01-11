@@ -57,6 +57,7 @@
     <Compile Include="Repository\EnderecosFabrica\EnderecoFabricaRepository.cs" />
     <Compile Include="Repository\Estados\EstadoRepository.cs" />
     <Compile Include="Repository\EstornosCaixa\EstornoCaixaRepository.cs" />
+    <Compile Include="Repository\EstornosTitulosRecebidos\EstornoTituloRecebidoRepository.cs" />
     <Compile Include="Repository\Fabrica\FabricaRepository.cs" />
     <Compile Include="Repository\Incisos\IncisoRepository.cs" />
     <Compile Include="Repository\IntegracaoBancaria\IntegracaoBancariaRepository.cs" />

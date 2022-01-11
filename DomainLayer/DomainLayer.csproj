@@ -269,6 +269,8 @@
     <Compile Include="Financeiro\Integracoes\Bancaria\V042_CodigoProtesto.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\V047_TipoLancamentoValorEqualizacao.cs" />
     <Compile Include="Financeiro\ITipoLancamentoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\EstornoTituloRecebidoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\IEstornoTituloRecebidoModel.cs" />
     <Compile Include="Financeiro\Recebiveis\ITipoRecebimentoTituloModel.cs" />
     <Compile Include="Financeiro\Recebiveis\ITituloRecebidoModel.cs" />
     <Compile Include="Financeiro\Recebiveis\ITituloRecebivelModel.cs" />

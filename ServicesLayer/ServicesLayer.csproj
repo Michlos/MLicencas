@@ -82,6 +82,9 @@
     <Compile Include="EstornosCaixa\EstornosCaixaServices.cs" />
     <Compile Include="EstornosCaixa\IEstornosCaixaServices.cs" />
     <Compile Include="EstornosCaixa\IEstornosCaixaRepository.cs" />
+    <Compile Include="EstornosTitulosRecebidos\EstornosTitulosRecebidosServices.cs" />
+    <Compile Include="EstornosTitulosRecebidos\IEstornosTitulosRecebidosRepository.cs" />
+    <Compile Include="EstornosTitulosRecebidos\IEstornosTitulosRecebidosServices.cs" />
     <Compile Include="Fabrica\ContatosFabrica\ContatosFabricaServices.cs" />
     <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaRepository.cs" />
     <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaServices.cs" />

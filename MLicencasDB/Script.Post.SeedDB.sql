@@ -98,7 +98,7 @@ INSERT INTO Modulos (Nome, Nivel) VALUES
 	('Registrar Lançamento de Caixa', '7.1.2'),
 	('Editar Lançamento de Caixa', '7.1.3'),
 	('Estornar Lançamento de Caixa', '7.1.4'),
-	('Cancelar Estorno de Lançamento', '7.1.5'),
+	('Cancelar Estorno de Lançamento', '7.1.5'), --DELETE ESTORNO
 	
 	('Gestão de Recebíveis', '7.2'),
 	('Registrar Recebíveis', '7.2.1'),

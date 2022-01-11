@@ -10,5 +10,6 @@ namespace DomainLayer.Financeiro.Caixa
         int Id { get; set; }
         int TipoLancamentoId { get; set; }
         double Valor { get; set; }
+        bool Estornado { get; set; }
     }
 }

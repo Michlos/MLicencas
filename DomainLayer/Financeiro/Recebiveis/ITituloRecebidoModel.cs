@@ -10,5 +10,6 @@ namespace DomainLayer.Financeiro.Recebiveis
         int TituloRecebivelId { get; set; }
         double ValorRecebido { get; set; }
         double ValorTitulo { get; set; }
+        bool Estornado { get; set; }
     }
 }

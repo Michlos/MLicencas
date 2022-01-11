@@ -73,7 +73,7 @@ namespace InfraStructure.Repository.TitulosRecebidos
         public void Edit(ITituloRecebidoModel titulo)
         {
             _query = "UPDATE TitulosRecebidos SET " +
-                     "TipoRecebimentoId = @TipoRecebimentoId, ValorRecebido = @ValorRecebido, DataRecebimento = @DataRecebimento " +
+                     "TipoRecebimentoId = @TipoRecebimentoId, ValorRecebido = @ValorRecebido, DataRecebimento = @DataRecebimento, Estornado = @Estornado" +
                      "WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -86,6 +86,7 @@ namespace InfraStructure.Repository.TitulosRecebidos
                         cmd.Parameters.AddWithValue("@TipoRecebimentoId", titulo.TipoRecebimentoId);
                         cmd.Parameters.AddWithValue("@ValorRecebido", titulo.ValorRecebido);
                         cmd.Parameters.AddWithValue("@DataRecebimento", titulo.DataRecebimento);
+                        cmd.Parameters.AddWithValue("@Estornado", titulo.Estornado);
                         cmd.ExecuteNonQuery();
                     }
 
@@ -124,7 +125,8 @@ namespace InfraStructure.Repository.TitulosRecebidos
                                     TipoRecebimentoId = int.Parse(reader["TipoRecebimentoId"].ToString()),
                                     ValorTitulo = double.Parse(reader["ValorTitulo"].ToString()),
                                     ValorRecebido = double.Parse(reader["ValorRecebido"].ToString()),
-                                    DataRecebimento = DateTime.Parse(reader["DataRecebimento"].ToString())
+                                    DataRecebimento = DateTime.Parse(reader["DataRecebimento"].ToString()),
+                                    Estornado = bool.Parse(reader["Estornado"].ToString())
                                 };
                                 tituloListModel.Add(tituloModel);
                             }
@@ -169,7 +171,8 @@ namespace InfraStructure.Repository.TitulosRecebidos
                                     TipoRecebimentoId = int.Parse(reader["TipoRecebimentoId"].ToString()),
                                     ValorTitulo = double.Parse(reader["ValorTitulo"].ToString()),
                                     ValorRecebido = double.Parse(reader["ValorRecebido"].ToString()),
-                                    DataRecebimento = DateTime.Parse(reader["DataRecebimento"].ToString())
+                                    DataRecebimento = DateTime.Parse(reader["DataRecebimento"].ToString()),
+                                    Estornado = bool.Parse(reader["Estornado"].ToString())
                                 };
                             }
                         }

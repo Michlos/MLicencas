@@ -14,6 +14,7 @@ namespace DomainLayer.Financeiro.Caixa
 
         //SE VEM DO BANCO OU DE RECEBIMENTO DE TÍTULO
         public string Historico { get; set; }
+        public bool Estornado { get; set; }
 
     }
 }

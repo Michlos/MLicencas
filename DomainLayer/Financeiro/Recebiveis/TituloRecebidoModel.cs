@@ -12,6 +12,7 @@ namespace DomainLayer.Financeiro.Recebiveis
         public double ValorTitulo { get; set; }
         public double ValorRecebido { get; set; }
         public DateTime DataRecebimento { get; set; }
+        public bool Estornado { get; set; }
 
     }
 }
