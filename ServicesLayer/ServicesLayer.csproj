@@ -79,6 +79,9 @@
     <Compile Include="Contratos\Incisos\IIncisosRepository.cs" />
     <Compile Include="Contratos\Incisos\IIncisosServices.cs" />
     <Compile Include="Contratos\Incisos\IncisosServices.cs" />
+    <Compile Include="EstornosCaixa\EstornosCaixaServices.cs" />
+    <Compile Include="EstornosCaixa\IEstornosCaixaServices.cs" />
+    <Compile Include="EstornosCaixa\IEstornosCaixaRepository.cs" />
     <Compile Include="Fabrica\ContatosFabrica\ContatosFabricaServices.cs" />
     <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaRepository.cs" />
     <Compile Include="Fabrica\ContatosFabrica\IContatosFabricaServices.cs" />

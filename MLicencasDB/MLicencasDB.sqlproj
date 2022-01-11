@@ -208,6 +208,7 @@
     <Build Include="Tables\Financeiro\TitulosRecebiveis\TipoRecebimentoTitulo.sql" />
     <Build Include="Tables\Financeiro\TitulosRecebiveis\TitulosRecebiveis.sql" />
     <Build Include="Tables\Financeiro\TitulosRecebiveis\TitulosRecebidos.sql" />
+    <Build Include="Tables\Financeiro\Caixa\EstornosCaixa.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

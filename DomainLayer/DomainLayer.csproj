@@ -80,7 +80,9 @@
     <Compile Include="Financeiro\Bancos\ITipoContaBancariaModel.cs" />
     <Compile Include="Financeiro\Bancos\TipoContaBancariaModel.cs" />
     <Compile Include="Financeiro\Caixa\CaixaModel.cs" />
+    <Compile Include="Financeiro\Caixa\EstornoCaixaModel.cs" />
     <Compile Include="Financeiro\Caixa\ICaixaModel.cs" />
+    <Compile Include="Financeiro\Caixa\IEstornoCaixaModel.cs" />
     <Compile Include="Financeiro\Caixa\ILancamentoCaixaModel.cs" />
     <Compile Include="Financeiro\Caixa\LancamentoCaixaModel.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\A001_AlegacaoPagador.cs" />
