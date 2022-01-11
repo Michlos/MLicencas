@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Financeiro\Bancos\BancoModel.cs" />
+    <Compile Include="Financeiro\Bancos\ContaBancaria\EstornoLancamentoContaBancariaModel.cs" />
+    <Compile Include="Financeiro\Bancos\ContaBancaria\IEstornoLancamentoContaBancariaModel.cs" />
     <Compile Include="Financeiro\Bancos\ContaBancaria\ILancamentoContaBancariaModel.cs" />
     <Compile Include="Financeiro\Bancos\ContaBancaria\LancamentoContaBancariaModel.cs" />
     <Compile Include="Financeiro\Bancos\IBancoModel.cs" />

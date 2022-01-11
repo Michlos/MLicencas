@@ -7,9 +7,6 @@ using ServicesLayer.LancamentosContasBancarias;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InfraStructure.Repository.LancamentosContasBancarias
 {
@@ -69,7 +66,7 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
         public void Edit(ILancamentoContaBancariaModel lancamento)
         {
             _query = "UPDATE LancamentosContasBancarias SET TipoLancamentoId = @TipoLancamentoId,  " +
-                "DataLancamento = @DataLancamento, Valor = @Valor, Historico = @Historico " +
+                "DataLancamento = @DataLancamento, Valor = @Valor, Historico = @Historico, Estornado = @Estornado " +
                 "WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -84,6 +81,7 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
                         cmd.Parameters.AddWithValue("@DataLancamento", lancamento.DataLancamento);
                         cmd.Parameters.AddWithValue("@Valor", lancamento.Valor);
                         cmd.Parameters.AddWithValue("@Historico", lancamento.Historico);
+                        cmd.Parameters.AddWithValue("@Estornado", lancamento.Estornado);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -121,7 +119,8 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
                                     TipoLancamentoId = int.Parse(reader["TipoLancamentoId"].ToString()),
                                     DataLancamento = DateTime.Parse(reader["DataLancamento"].ToString()),
                                     Valor = double.Parse(reader["Valor"].ToString()),
-                                    Historico = reader["Historico"].ToString()
+                                    Historico = reader["Historico"].ToString(),
+                                    Estornado = bool.Parse(reader["Estornado"].ToString())
                                 };
                                 lancamentoListModel.Add(lancamentoModel);
                             }
@@ -166,7 +165,8 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
                                     TipoLancamentoId = int.Parse(reader["TipoLancamentoId"].ToString()),
                                     DataLancamento = DateTime.Parse(reader["DataLancamento"].ToString()),
                                     Valor = double.Parse(reader["Valor"].ToString()),
-                                    Historico = reader["Historico"].ToString()
+                                    Historico = reader["Historico"].ToString(),
+                                    Estornado = bool.Parse(reader["Estornado"].ToString())
                                 };
                                 lancamentoListModel.Add(lancamentoModel);
                             }
@@ -213,7 +213,8 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
                                     TipoLancamentoId = int.Parse(reader["TipoLancamentoId"].ToString()),
                                     DataLancamento = DateTime.Parse(reader["DataLancamento"].ToString()),
                                     Valor = double.Parse(reader["Valor"].ToString()),
-                                    Historico = reader["Historico"].ToString()
+                                    Historico = reader["Historico"].ToString(),
+                                    Estornado = bool.Parse(reader["Estornado"].ToString())
                                 };
                                 lancamentoListModel.Add(lancamentoModel);
                             }
@@ -260,7 +261,8 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
                                     TipoLancamentoId = int.Parse(reader["TipoLancamentoId"].ToString()),
                                     DataLancamento = DateTime.Parse(reader["DataLancamento"].ToString()),
                                     Valor = double.Parse(reader["Valor"].ToString()),
-                                    Historico = reader["Historico"].ToString()
+                                    Historico = reader["Historico"].ToString(),
+                                    Estornado = bool.Parse(reader["Estornado"].ToString())
                                 };
                                 lancamentoListModel.Add(lancamentoModel);
                             }
@@ -304,7 +306,8 @@ namespace InfraStructure.Repository.LancamentosContasBancarias
                                     TipoLancamentoId = int.Parse(reader["TipoLancamentoId"].ToString()),
                                     DataLancamento = DateTime.Parse(reader["DataLancamento"].ToString()),
                                     Valor = double.Parse(reader["Valor"].ToString()),
-                                    Historico = reader["Historico"].ToString()
+                                    Historico = reader["Historico"].ToString(),
+                                    Estornado = bool.Parse(reader["Estornado"].ToString())
                                 };
                             }
                         }

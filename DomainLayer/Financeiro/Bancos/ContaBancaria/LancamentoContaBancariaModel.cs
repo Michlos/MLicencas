@@ -14,7 +14,8 @@ namespace DomainLayer.Financeiro.Bancos.ContaBancaria
 
         //DEVE CONTER A ORIGEM DO LANÇAMENTO
         //SE VEIO DO CAIXA (LANÇAMENTOID) SE VEIO DE PAGAMENTO DE BOLETO (TITULOID)
-        public string Historico { get; set; } 
+        public string Historico { get; set; }
+        public bool Estornado { get; set; }
 
     }
 }

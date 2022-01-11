@@ -12,5 +12,6 @@ namespace DomainLayer.Financeiro.Bancos.ContaBancaria
         TipoLancamentoModel TipoLancamento { get; set; }
         int TipoLancamentoId { get; set; }
         double Valor { get; set; }
+        bool Estornado { get; set; }
     }
 }

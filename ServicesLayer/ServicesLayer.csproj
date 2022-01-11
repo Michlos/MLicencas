@@ -82,6 +82,9 @@
     <Compile Include="EstornosCaixa\EstornosCaixaServices.cs" />
     <Compile Include="EstornosCaixa\IEstornosCaixaServices.cs" />
     <Compile Include="EstornosCaixa\IEstornosCaixaRepository.cs" />
+    <Compile Include="EstornosContasBancarias\EstornosLancamentosContasBancariasServices.cs" />
+    <Compile Include="EstornosContasBancarias\IEstornosLancamentosContasBancariasRepository.cs" />
+    <Compile Include="EstornosContasBancarias\IEstornosLancamentosContasBancariasServices.cs" />
     <Compile Include="EstornosTitulosRecebidos\EstornosTitulosRecebidosServices.cs" />
     <Compile Include="EstornosTitulosRecebidos\IEstornosTitulosRecebidosRepository.cs" />
     <Compile Include="EstornosTitulosRecebidos\IEstornosTitulosRecebidosServices.cs" />
