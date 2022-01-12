@@ -193,6 +193,12 @@
     <Compile Include="FormViews\Softwares\SoftwareListForm.Designer.cs">
       <DependentUpon>SoftwareListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Usuarios\GrupoEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Usuarios\GrupoEditForm.Designer.cs">
+      <DependentUpon>GrupoEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Usuarios\GruposListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Softwares\SoftwareListForm.resx">
       <DependentUpon>SoftwareListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Usuarios\GrupoEditForm.resx">
+      <DependentUpon>GrupoEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Usuarios\GruposListForm.resx">
       <DependentUpon>GruposListForm.cs</DependentUpon>

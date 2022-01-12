@@ -114,8 +114,10 @@ namespace MLicencas.FormViews.Usuarios
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panelGruposList);
             this.Controls.Add(this.panelAccessList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GruposListForm";
-            this.Text = "GruposListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Usuários - Gestão de Grupos";
             this.ResumeLayout(false);
 
         }
