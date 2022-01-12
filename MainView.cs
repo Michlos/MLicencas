@@ -164,5 +164,13 @@ namespace MLicencas
             bancoListForm.MdiParent = this;
             bancoListForm.Show();
         }
+
+        private void gruposToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GruposListForm grupoListForm = new GruposListForm();
+            grupoListForm.WindowState = FormWindowState.Normal;
+            grupoListForm.MdiParent = this;
+            grupoListForm.Show();
+        }
     }
 }

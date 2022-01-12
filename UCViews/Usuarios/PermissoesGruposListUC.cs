@@ -22,38 +22,34 @@ using System.Windows.Forms;
 
 namespace MLicencas.UCViews.Usuarios
 {
-    public partial class PermissoesListUC : UserControl
+    public partial class PermissoesGruposListUC : UserControl
     {
         //MODELS AND LISTMODELS
-        public IUsuarioModel usuario;
-        private readonly int idUsuario;
-        private IGrupoModel grupo;
-        //private List<IGrupoModel> grupoListModel;
+        private IGrupoModel grupoModel;
+        private readonly int grupoId;
         private List<IModuloModel> moduloListModel;
         private List<IPermissaoModel> permissaoListModel;
         public List<IPermissaoModel> permissoesAlteradas = new List<IPermissaoModel>();
 
         //SERVICES
         private QueryStringServices _queryString;
-        private UsuariosServices _usuariosServices;
         private GruposServices _gruposServices;
         private ModulosServices _modulosServices;
-        private PermissoesServices _persmissoesServices;
+        private PermissoesServices _permissoesServices;
 
-
-        public PermissoesListUC(int idUsuario)
+        public PermissoesGruposListUC(int grupoId)
         {
-            this.idUsuario = idUsuario;
+            this.grupoId = grupoId;
             LoadServices();
             InitializeComponent();
             LoadModels();
-            LoadDgvPermissoes();
+            LoadDGVPermissoes();
         }
 
-        private void LoadDgvPermissoes()
+        private void LoadDGVPermissoes()
         {
             DataTable tablePermissoes = ModelaTableGrid();
-            DataRow row = ModelaRowTable(tablePermissoes, permissaoListModel);
+            ModelaRowTable(tablePermissoes, permissaoListModel);
             dgvPermissoes.DataSource = tablePermissoes;
             ConfiguraDataGridView();
         }
@@ -75,14 +71,14 @@ namespace MLicencas.UCViews.Usuarios
             dgvPermissoes.Columns["Permite"].ReadOnly = !MainView.CheckPermissoes("6.3");
         }
 
-        private DataRow ModelaRowTable(DataTable table, List<IPermissaoModel> lista)
+        private void ModelaRowTable(DataTable tablePermissoes, List<IPermissaoModel> permissaoListModel)
         {
             DataRow row = null;
-            if (lista.Any())
+            if (permissaoListModel.Any())
             {
-                foreach (var item in lista)
+                foreach (var item in permissaoListModel)
                 {
-                    row = table.NewRow();
+                    row = tablePermissoes.NewRow();
                     row["Id"] = item.Id;
                     row["GrupoId"] = item.GrupId;
                     row["ModuloId"] = item.ModuloId;
@@ -90,10 +86,9 @@ namespace MLicencas.UCViews.Usuarios
                     row["Nivel"] = moduloListModel.Where(modId => modId.Id == item.ModuloId).Select(niv => niv.Nivel).FirstOrDefault();
                     row["Permite"] = item.Ativo;
 
-                    table.Rows.Add(row);
+                    tablePermissoes.Rows.Add(row);
                 }
             }
-            return row;
         }
 
         private DataTable ModelaTableGrid()
@@ -112,34 +107,29 @@ namespace MLicencas.UCViews.Usuarios
 
         private void LoadModels()
         {
-            usuario = _usuariosServices.GetById(idUsuario);
-            grupo = _gruposServices.GetById(usuario.GrupoId);
+            grupoModel = _gruposServices.GetById(grupoId);
             moduloListModel = (List<IModuloModel>)_modulosServices.GetAll();
-            permissaoListModel = (List<IPermissaoModel>)_persmissoesServices.GetAllByGrupo(grupo.Id);
-            
+            permissaoListModel = (List<IPermissaoModel>)_permissoesServices.GetAllByGrupo(grupoId);
         }
 
         private void LoadServices()
         {
             _queryString = new QueryStringServices(new QueryString());
-            _usuariosServices = new UsuariosServices(new UsuarioRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
             _gruposServices = new GruposServices(new GrupoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
             _modulosServices = new ModulosServices(new ModuloRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
-            _persmissoesServices = new PermissoesServices(new PermissaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _permissoesServices = new PermissoesServices(new PermissaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
         }
 
         private void dgvPermissoes_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            
             if (e.ColumnIndex == dgvPermissoes.Columns["Permite"].Index)
             {
                 int id = int.Parse(dgvPermissoes.Rows[e.RowIndex].Cells["Id"].Value.ToString());
                 IPermissaoModel permissao = new PermissaoModel();
-                permissao = _persmissoesServices.GetById(id);
+                permissao = _permissoesServices.GetById(id);
                 permissao.Ativo = bool.Parse(dgvPermissoes.Rows[e.RowIndex].Cells["Permite"].Value.ToString());
                 permissoesAlteradas.Add(permissao);
             }
-
         }
     }
 }

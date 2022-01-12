@@ -193,6 +193,12 @@
     <Compile Include="FormViews\Softwares\SoftwareListForm.Designer.cs">
       <DependentUpon>SoftwareListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Usuarios\GruposListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Usuarios\GruposListForm.Designer.cs">
+      <DependentUpon>GruposListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Usuarios\UsuarioEditFormView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,18 @@
     </Compile>
     <Compile Include="UCViews\Contratos\ContratoClausulaUC.Designer.cs">
       <DependentUpon>ContratoClausulaUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCViews\Usuarios\GruposListUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCViews\Usuarios\GruposListUC.Designer.cs">
+      <DependentUpon>GruposListUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCViews\Usuarios\PermissoesGruposListUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCViews\Usuarios\PermissoesGruposListUC.Designer.cs">
+      <DependentUpon>PermissoesGruposListUC.cs</DependentUpon>
     </Compile>
     <Compile Include="UCViews\Usuarios\PermissoesListUC.cs">
       <SubType>UserControl</SubType>
@@ -303,6 +321,9 @@
     <EmbeddedResource Include="FormViews\Softwares\SoftwareListForm.resx">
       <DependentUpon>SoftwareListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Usuarios\GruposListForm.resx">
+      <DependentUpon>GruposListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Usuarios\UsuarioEditFormView.resx">
       <DependentUpon>UsuarioEditFormView.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCViews\Contratos\ContratoClausulaUC.resx">
       <DependentUpon>ContratoClausulaUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCViews\Usuarios\GruposListUC.resx">
+      <DependentUpon>GruposListUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCViews\Usuarios\PermissoesGruposListUC.resx">
+      <DependentUpon>PermissoesGruposListUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCViews\Usuarios\PermissoesListUC.resx">
       <DependentUpon>PermissoesListUC.cs</DependentUpon>

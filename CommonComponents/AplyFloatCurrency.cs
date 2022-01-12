@@ -7,6 +7,19 @@ using System.Windows.Forms;
 
 namespace CommonComponents
 {
+    /// <summary>
+    /// Método(TextBox textBox)
+    /// {
+    ///     txt.Enter += AplyFloatCurrency.TirarMascara;
+    ///     txt.Leave += AplyFloatCurrency.RetornarMarcarca;
+    ///     txt.KeyPress += AplyFloatCurrency.AenpasValorNumerico;
+    /// }
+    /// 
+    /// Chamar o esse método no método de inicialização do Form
+    /// apontando par ao textbox que terá o valor currency
+    ///InitializeComponent();
+    ///    Método(textboxvalor);
+    /// </summary>
     public static class AplyFloatCurrency
     {
         public static void RetornarMarcarca(object sender, EventArgs e)

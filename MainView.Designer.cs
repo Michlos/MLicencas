@@ -45,6 +45,7 @@ namespace MLicencas
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoBancáriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeBancosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestãoDeContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeBoletosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dadosDaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@ namespace MLicencas
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.gestãoDeContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -187,20 +187,26 @@ namespace MLicencas
             this.listaDeBancosToolStripMenuItem,
             this.gestãoDeContasToolStripMenuItem});
             this.gestãoBancáriaToolStripMenuItem.Name = "gestãoBancáriaToolStripMenuItem";
-            this.gestãoBancáriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoBancáriaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.gestãoBancáriaToolStripMenuItem.Text = "Gestão Bancária";
             // 
             // listaDeBancosToolStripMenuItem
             // 
             this.listaDeBancosToolStripMenuItem.Name = "listaDeBancosToolStripMenuItem";
-            this.listaDeBancosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaDeBancosToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.listaDeBancosToolStripMenuItem.Text = "Gestão de Bancos";
             this.listaDeBancosToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeBancosToolStripMenuItem_Click);
+            // 
+            // gestãoDeContasToolStripMenuItem
+            // 
+            this.gestãoDeContasToolStripMenuItem.Name = "gestãoDeContasToolStripMenuItem";
+            this.gestãoDeContasToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.gestãoDeContasToolStripMenuItem.Text = "Gestão de Contas";
             // 
             // gestãoDeBoletosToolStripMenuItem
             // 
             this.gestãoDeBoletosToolStripMenuItem.Name = "gestãoDeBoletosToolStripMenuItem";
-            this.gestãoDeBoletosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeBoletosToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.gestãoDeBoletosToolStripMenuItem.Text = "Gestão de Boletos";
             // 
             // configuracaoToolStripMenuItem
@@ -215,7 +221,7 @@ namespace MLicencas
             // dadosDaEmpresaToolStripMenuItem
             // 
             this.dadosDaEmpresaToolStripMenuItem.Name = "dadosDaEmpresaToolStripMenuItem";
-            this.dadosDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.dadosDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dadosDaEmpresaToolStripMenuItem.Text = "Dados da Empresa";
             this.dadosDaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDaEmpresaToolStripMenuItem_Click);
             // 
@@ -226,27 +232,28 @@ namespace MLicencas
             this.usuariosToolStripMenuItem,
             this.gruposToolStripMenuItem1});
             this.gestãoDeUsuariosToolStripMenuItem.Name = "gestãoDeUsuariosToolStripMenuItem";
-            this.gestãoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.gestãoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestãoDeUsuariosToolStripMenuItem.Text = "Gestão de Usuários";
             // 
             // novoUsuarioToolStripMenuItem
             // 
             this.novoUsuarioToolStripMenuItem.Name = "novoUsuarioToolStripMenuItem";
-            this.novoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.novoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoUsuarioToolStripMenuItem.Text = "Novo Usuário";
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuários";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem1
             // 
             this.gruposToolStripMenuItem1.Name = "gruposToolStripMenuItem1";
-            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
+            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.gruposToolStripMenuItem1.Text = "Grupos";
+            this.gruposToolStripMenuItem1.Click += new System.EventHandler(this.gruposToolStripMenuItem1_Click);
             // 
             // sobreToolStripMenuItem
             // 
@@ -277,12 +284,6 @@ namespace MLicencas
             this.statusUsuario.Name = "statusUsuario";
             this.statusUsuario.Size = new System.Drawing.Size(99, 17);
             this.statusUsuario.Text = "NomeUsuarioTXT";
-            // 
-            // gestãoDeContasToolStripMenuItem
-            // 
-            this.gestãoDeContasToolStripMenuItem.Name = "gestãoDeContasToolStripMenuItem";
-            this.gestãoDeContasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gestãoDeContasToolStripMenuItem.Text = "Gestão de Contas";
             // 
             // MainView
             // 
