@@ -1,12 +1,15 @@
-﻿using DomainLayer.Usuarios;
+﻿using DomainLayer.Modulos;
+using DomainLayer.Usuarios;
 
 using InfraStructure;
+using InfraStructure.Repository.Modulos;
 using InfraStructure.Repository.Usuarios;
 
 using MLicencas.FormViews.Usuarios;
 
 using ServiceLayer.CommonServices;
 
+using ServicesLayer.Modulos;
 using ServicesLayer.Usuarios;
 
 using System;
@@ -25,10 +28,14 @@ namespace MLicencas.UCViews.Usuarios
     {
         //MODEL
         private IEnumerable<IGrupoModel> grupoListModel;
+        private IEnumerable<IModuloModel> moduloListModel;
+        private IEnumerable<IPermissaoModel> permissaoListModel;
 
         //SERVICES
         private QueryStringServices _queryString;
         private GruposServices _gruposServices;
+        private ModulosServices _modulosServices;
+        private PermissoesServices _permissoesServices;
         
         private readonly GruposListForm grupoListForm;
         public int grupoId;
@@ -88,12 +95,17 @@ namespace MLicencas.UCViews.Usuarios
         {
             grupoListModel = new List<IGrupoModel>();
             grupoListModel = (List<IGrupoModel>)_gruposServices.GetAll();
+
+            moduloListModel = new List<IModuloModel>();
+            moduloListModel = (List<IModuloModel>)_modulosServices.GetAll();
         }
 
         private void LoadServices()
         {
             _queryString = new QueryStringServices(new QueryString());
             _gruposServices = new GruposServices(new GrupoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _modulosServices = new ModulosServices(new ModuloRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _permissoesServices = new PermissoesServices(new PermissaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
             
         }
 
@@ -104,6 +116,69 @@ namespace MLicencas.UCViews.Usuarios
             if (grupoId != 0)
             {
                 grupoListForm.LoadPermissoesUserControl(grupoId);
+            }
+        }
+
+        private void dgvGrupos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuStrip.Show(MousePosition);
+            }
+        }
+
+        private void desativarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Deseja realmente desativar esse grupo?", "Gestão de Usuários", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    IGrupoModel grupoModel = new GrupoModel();
+                    grupoModel = _gruposServices.GetById(grupoId);
+                    grupoModel.Ativo = false;
+                    _gruposServices.Edit(grupoModel);
+                    MessageBox.Show("Grupo desativado com sucesso.");
+                    
+                    permissaoListModel = _permissoesServices.GetAllByGrupo(grupoId);
+
+                    //DESATIVANDO PERMISSÕES DO GRUPO
+                    foreach (var item in permissaoListModel)
+                    {
+                        _permissoesServices.Desable(item.Id);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex.InnerException);
+                }
+                finally
+                {
+                    LoadModels();
+                    LoadDGVGrupos();
+                }
+            }
+        }
+
+        private void ativarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IGrupoModel grupoModel = new GrupoModel();
+                grupoModel = _gruposServices.GetById(grupoId);
+                grupoModel.Ativo = true;
+                _gruposServices.Edit(grupoModel);
+                MessageBox.Show("Grupo Ativado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+            finally
+            {
+                LoadModels();
+                LoadDGVGrupos();
             }
         }
     }

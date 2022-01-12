@@ -11,11 +11,11 @@ namespace InfraStructure.Repository.Usuarios
 {
     public class PermissaoRepository : IPermissoesRepository
     {
-        private string _connectionString;
+        private readonly string _connectionString;
         private string _query;
         private IPermissaoModel permissaoModel;
         private List<IPermissaoModel> perissaoListModel;
-        private DataAccessStatus dataAccessStatus = new DataAccessStatus();
+        private readonly DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
 
         public PermissaoRepository(string connectionString)
@@ -29,7 +29,7 @@ namespace InfraStructure.Repository.Usuarios
             int returnedId;
             _query = "INSERT INTO Permissoes (GrupoId, ModuloId, Ativo) " +
                      " OUTPUT INSERTED.Id " +
-                     " VALUES (@GupoId, @ModuloId, @Ativo)";
+                     " VALUES (@GrupoId, @ModuloId, @Ativo)";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -40,9 +40,9 @@ namespace InfraStructure.Repository.Usuarios
                     {
                         cmd.Prepare();
 
-                        cmd.Parameters.AddWithValue("GrupoId", permissao.GrupId);
-                        cmd.Parameters.AddWithValue("ModuloId", permissao.ModuloId);
-                        cmd.Parameters.AddWithValue("Ativo", permissao.Ativo);
+                        cmd.Parameters.AddWithValue("@GrupoId", permissao.GrupId);
+                        cmd.Parameters.AddWithValue("@ModuloId", permissao.ModuloId);
+                        cmd.Parameters.AddWithValue("@Ativo", permissao.Ativo);
 
                         returnedId = (int)cmd.ExecuteScalar();
 

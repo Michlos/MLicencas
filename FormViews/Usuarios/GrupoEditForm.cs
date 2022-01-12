@@ -1,10 +1,13 @@
-﻿using DomainLayer.Usuarios;
+﻿using DomainLayer.Modulos;
+using DomainLayer.Usuarios;
 
 using InfraStructure;
+using InfraStructure.Repository.Modulos;
 using InfraStructure.Repository.Usuarios;
 
 using ServiceLayer.CommonServices;
 
+using ServicesLayer.Modulos;
 using ServicesLayer.Usuarios;
 
 using System;
@@ -24,10 +27,14 @@ namespace MLicencas.FormViews.Usuarios
         //SERVICES
         private QueryStringServices _queryString;
         private GruposServices _gruposServices;
+        private ModulosServices _modulosServices;
+        private PermissoesServices _permissoesServices;
 
         //MODELS
         private IGrupoModel grupoModel = new GrupoModel();
         private IEnumerable<IGrupoModel> grupoListModel = new List<IGrupoModel>();
+        private IEnumerable<IModuloModel> moduloListModel = new List<IModuloModel>();
+        private List<IPermissaoModel> permissoesListModel = new List<IPermissaoModel>();
 
         public GrupoEditForm()
         {
@@ -39,12 +46,15 @@ namespace MLicencas.FormViews.Usuarios
         private void LoadModels()
         {
             grupoListModel = _gruposServices.GetAll();
+            moduloListModel = _modulosServices.GetAll();
         }
 
         private void LoadServices()
         {
             _queryString = new QueryStringServices(new QueryString());
             _gruposServices = new GruposServices(new GrupoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _modulosServices = new ModulosServices(new ModuloRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
+            _permissoesServices = new PermissoesServices(new PermissaoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -56,11 +66,12 @@ namespace MLicencas.FormViews.Usuarios
         {
             grupoModel = new GrupoModel()
             {
-                Nome = txbNome.Text
+                Nome = txbNome.Text,
+                Ativo = true
             };
             try
             {
-                
+
                 if (grupoListModel.Where(nome => nome.Nome == txbNome.Text).Any())
                 {
                     throw new Exception("Já existe um grupo com esse nome");
@@ -72,6 +83,25 @@ namespace MLicencas.FormViews.Usuarios
                 else
                 {
                     grupoModel = _gruposServices.Add(grupoModel);
+                    foreach (var item in moduloListModel)
+                    {
+                        IPermissaoModel permissao = new PermissaoModel()
+                        {
+                            GrupId = grupoModel.Id,
+                            ModuloId = item.Id,
+                            Ativo = false
+                        };
+                        try
+                        {
+                            _permissoesServices.Add(permissao);
+                        }
+                        catch (Exception)
+                        {
+
+                            throw new Exception("O Grupo foi adicionado, porém ocorreu um erro ao adicionar permissões.");
+                        }
+                    }
+
                     MessageBox.Show("Grupo Cadastrado com Sucesso.");
                     txbId.Text = grupoModel.Id.ToString();
                 }

@@ -8,8 +8,8 @@ namespace ServicesLayer.Usuarios
 {
     public class PermissoesServices : IPermissoesRepository, IPermissoesServices
     {
-        private IPermissoesRepository _permissoesRepository;
-        private IModelDataAnnotationCheck _modelDataAnnotationCheck;
+        private readonly IPermissoesRepository _permissoesRepository;
+        private readonly IModelDataAnnotationCheck _modelDataAnnotationCheck;
 
         public PermissoesServices(IPermissoesRepository permissoesRepository, IModelDataAnnotationCheck modelDataAnnotationCheck)
         {

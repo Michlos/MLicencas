@@ -29,10 +29,15 @@ namespace MLicencas.UCViews.Usuarios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvGrupos = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ativarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desativarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupos)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvGrupos
@@ -48,25 +53,48 @@ namespace MLicencas.UCViews.Usuarios
             this.dgvGrupos.MultiSelect = false;
             this.dgvGrupos.Name = "dgvGrupos";
             this.dgvGrupos.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvGrupos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvGrupos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvGrupos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvGrupos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.PaleGreen;
             this.dgvGrupos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvGrupos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGrupos.Size = new System.Drawing.Size(401, 421);
             this.dgvGrupos.TabIndex = 1;
+            this.dgvGrupos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGrupos_CellMouseClick);
             this.dgvGrupos.SelectionChanged += new System.EventHandler(this.dgvGrupos_SelectionChanged);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ativarToolStripMenuItem,
+            this.desativarToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            // 
+            // ativarToolStripMenuItem
+            // 
+            this.ativarToolStripMenuItem.Name = "ativarToolStripMenuItem";
+            this.ativarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ativarToolStripMenuItem.Text = "Ativar";
+            this.ativarToolStripMenuItem.Click += new System.EventHandler(this.ativarToolStripMenuItem_Click);
+            // 
+            // desativarToolStripMenuItem
+            // 
+            this.desativarToolStripMenuItem.Name = "desativarToolStripMenuItem";
+            this.desativarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desativarToolStripMenuItem.Text = "Desativar";
+            this.desativarToolStripMenuItem.Click += new System.EventHandler(this.desativarToolStripMenuItem_Click);
             // 
             // GruposListUC
             // 
@@ -76,6 +104,7 @@ namespace MLicencas.UCViews.Usuarios
             this.Name = "GruposListUC";
             this.Size = new System.Drawing.Size(401, 421);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupos)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -83,5 +112,8 @@ namespace MLicencas.UCViews.Usuarios
         #endregion
 
         private System.Windows.Forms.DataGridView dgvGrupos;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem ativarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem desativarToolStripMenuItem;
     }
 }
