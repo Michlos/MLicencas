@@ -64,9 +64,16 @@ namespace Financeiro.Banco.ContaBancaria
         private void ContaAddForm_Load(object sender, EventArgs e)
         {
             LoadModels();
-            txbNomeBanco.Text = bancoListModel.FirstOrDefault(id => id.Id == bancoId).Nome;
             LoadCBTipos();
+            LoadCBBancos();
             LoadFormFields();
+        }
+
+        private void LoadCBBancos()
+        {
+            cbNomeBanco.DataSource = bancoListModel;
+            cbNomeBanco.DisplayMember = "Nome";
+            cbNomeBanco.SelectedIndex = -1;
         }
 
         private void LoadFormFields()
@@ -77,6 +84,7 @@ namespace Financeiro.Banco.ContaBancaria
                 contaModel = _contasServices.GetById(contaId);
                 txbId.Text = contaModel.Id.ToString();
                 cbTipoConta.Text = tipoListModel.FirstOrDefault(id => id.Id == contaModel.TipoContaId).Tipo;
+                cbNomeBanco.Text = bancoId != 0 ? bancoListModel.FirstOrDefault(id => id.Id == bancoId).Nome : "";
                 txbAgencia.Text = contaModel.Agencia;
                 txbAgenciaDV.Text = contaModel.AgenciaDV;
                 txbConta.Text = contaModel.Conta;
@@ -111,18 +119,18 @@ namespace Financeiro.Banco.ContaBancaria
         private void btnSave_Click(object sender, EventArgs e)
         {
             contaModel = new ContaBancariaModel();
-            
+
             contaModel.Id = contaId;
             contaModel.Conta = txbConta.Text;
             contaModel.ContaDV = txbContaDV.Text;
             contaModel.Agencia = txbAgencia.Text;
             contaModel.AgenciaDV = txbAgenciaDV.Text;
-            contaModel.BancoId = bancoId;
+            contaModel.BancoId = (cbNomeBanco.SelectedItem as IBancoModel).Id;
             contaModel.TipoContaId = (cbTipoConta.SelectedItem as ITipoContaBancariaModel).Id;
             contaModel.EmiteBoleto = chbEmiteBoleto.Checked;
             contaModel.Convenio = chbEmiteBoleto.Checked ? txbConta.Text : null;
-            contaModel.SaldoAnterior = double.Parse(txbSaldoInicial.Text);
-            contaModel.SaldoAtual = double.Parse(txbSaldoAtual.Text);
+            contaModel.SaldoAnterior = double.Parse(txbSaldoInicial.Text.Replace("R$", "").Trim());
+            contaModel.SaldoAtual = double.Parse(txbSaldoAtual.Text.Replace("R$", "").Trim());
 
             if (contaId != 0)
             {
@@ -141,6 +149,22 @@ namespace Financeiro.Banco.ContaBancaria
                 contaModel = _contasServices.Add(contaModel);
                 MessageBox.Show("Conta Adicionada com sucesso");
                 contaId = contaModel.Id;
+
+                if (!bancoListModel.FirstOrDefault(id => id.Id == contaModel.BancoId).Ativo)
+                {
+                    IBancoModel bancoModel = _bancosServices.GetById(contaModel.BancoId);
+                    bancoModel.Ativo = true;
+                    try
+                    {
+                        _bancosServices.Edit(bancoModel);
+
+                    }
+                    catch (Exception)
+                    {
+
+                        throw new Exception("Não foi possível ativar o banco selecionado.");
+                    }
+                }
                 LoadModels();
                 LoadFormFields();
             }
@@ -184,6 +208,7 @@ namespace Financeiro.Banco.ContaBancaria
             txt.Enter += AplyFloatCurrency.TirarMascara;
             txt.Leave += AplyFloatCurrency.RetornarMarcarca;
             txt.KeyPress += AplyFloatCurrency.AenpasValorNumerico;
+            txt.TextChanged += AplyFloatCurrency.RetornarMarcarca;
         }
 
         #endregion

@@ -2,6 +2,7 @@
 using DomainLayer.Usuarios;
 
 using Financeiro.Banco;
+using Financeiro.Banco.ContaBancaria;
 
 using MLicencas.FormViews.Clientes;
 using MLicencas.FormViews.Contratos;
@@ -171,6 +172,19 @@ namespace MLicencas
             grupoListForm.WindowState = FormWindowState.Normal;
             grupoListForm.MdiParent = this;
             grupoListForm.Show();
+        }
+
+        private void gestãoDeContasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContaListForm contaListForm = new ContaListForm();
+            contaListForm.WindowState = FormWindowState.Normal;
+            contaListForm.MdiParent = this;
+            contaListForm.Show();
+        }
+
+        private void lancamentosBancariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

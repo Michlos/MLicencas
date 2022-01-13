@@ -26,10 +26,10 @@ namespace InfraStructure.Repository.ContaBancaria
 
         public IContaBancariaModel Add(IContaBancariaModel contaModel)
         {
-            _query = "INSERT INTO ContasBancarias (Agencia, AgenciaDV, Conta, ContaDV, EmiteBoleto, BancoId, TipoContaId) " +
+            _query = "INSERT INTO ContasBancarias (Agencia, AgenciaDV, Conta, ContaDV, EmiteBoleto, BancoId, TipoContaId,  SaldoAnterior, SaldoAtual "+ (contaModel.Convenio != null ? ", Convenio) " : ") ") + 
                      " OUTPUT INSERTED.Id " +
                      " VALUES " +
-                     " (@Agencia, @AgenciaDV, @Conta, @ContaDV, @EmiteBoleto, @BancoId, @TipoContaId)";
+                     " (@Agencia, @AgenciaDV, @Conta, @ContaDV, @EmiteBoleto, @BancoId, @TipoContaId, @SaldoAnterior, @SaldoAtual "+ (contaModel.Convenio != null ? ", @Convenio)" : ")");
             this.contaModel = new ContaBancariaModel();
             using (SqlConnection connection = new SqlConnection(_connectonString))
             {
@@ -46,6 +46,10 @@ namespace InfraStructure.Repository.ContaBancaria
                         cmd.Parameters.AddWithValue("@EmiteBoleto", contaModel.EmiteBoleto);
                         cmd.Parameters.AddWithValue("@BancoId", contaModel.BancoId);
                         cmd.Parameters.AddWithValue("@TipoContaId", contaModel.TipoContaId);
+                        cmd.Parameters.AddWithValue("@SaldoAnterior", contaModel.SaldoAnterior);
+                        cmd.Parameters.AddWithValue("@SaldoAtual", contaModel.SaldoAtual);
+                        if (contaModel.Convenio != null)
+                           cmd.Parameters.AddWithValue("@Convenio", contaModel.Convenio);
 
                         idReturned = (int)cmd.ExecuteScalar();
                     }
@@ -70,7 +74,7 @@ namespace InfraStructure.Repository.ContaBancaria
         public void Edit(IContaBancariaModel contaModel)
         {
             _query = "UPDATE ContasBancarias SET " +
-                " Agencia = @Agencia, AgenciaDV = @AgenciaDV, Conta = @Conta, ContaDV = @ContaDV, EmiteBoleto = @EmiteBoleto " +
+                " Agencia = @Agencia, AgenciaDV = @AgenciaDV, Conta = @Conta, ContaDV = @ContaDV, EmiteBoleto = @EmiteBoleto, Convenio = @Conveio, SaldoAnterior = @SaldoAnterior, SaldoAtual = @SaldoAtual " +
                 " WHERE Id = @Id ";
             using (SqlConnection connection = new SqlConnection(_connectonString))
             {
@@ -89,6 +93,9 @@ namespace InfraStructure.Repository.ContaBancaria
                         cmd.Parameters.AddWithValue("@EmiteBoleto", contaModel.EmiteBoleto);
                         cmd.Parameters.AddWithValue("@BancoId", contaModel.BancoId);
                         cmd.Parameters.AddWithValue("@TipoContaId", contaModel.TipoContaId);
+                        cmd.Parameters.AddWithValue("@Convenio", contaModel.Convenio);
+                        cmd.Parameters.AddWithValue("@SaldoAnterior", contaModel.SaldoAnterior);
+                        cmd.Parameters.AddWithValue("@SaldoAtual", contaModel.SaldoAtual);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -131,6 +138,9 @@ namespace InfraStructure.Repository.ContaBancaria
                                 contaModel.EmiteBoleto = bool.Parse(reader["EmiteBoleto"].ToString());
                                 contaModel.BancoId = int.Parse(reader["BancoId"].ToString());
                                 contaModel.TipoContaId = int.Parse(reader["TipoContaId"].ToString());
+                                contaModel.Convenio = string.IsNullOrEmpty(reader["Convenio"].ToString()) ? null : reader["Convenio"].ToString();
+                                contaModel.SaldoAnterior = double.Parse(reader["SaldoAnterior"].ToString());
+                                contaModel.SaldoAtual = double.Parse(reader["SaldoAtual"].ToString());
 
                                 contaListModel.Add(contaModel);
                             }
@@ -180,6 +190,9 @@ namespace InfraStructure.Repository.ContaBancaria
                                 contaModel.EmiteBoleto = bool.Parse(reader["EmiteBoleto"].ToString());
                                 contaModel.BancoId = int.Parse(reader["BancoId"].ToString());
                                 contaModel.TipoContaId = int.Parse(reader["TipoContaId"].ToString());
+                                contaModel.Convenio = string.IsNullOrEmpty(reader["Convenio"].ToString()) ? null : reader["Convenio"].ToString();
+                                contaModel.SaldoAnterior = double.Parse(reader["SaldoAnterior"].ToString());
+                                contaModel.SaldoAtual = double.Parse(reader["SaldoAtual"].ToString());
 
                                 contaListModel.Add(contaModel);
                             }
@@ -225,6 +238,9 @@ namespace InfraStructure.Repository.ContaBancaria
                                 contaModel.EmiteBoleto = bool.Parse(reader["EmiteBoleto"].ToString());
                                 contaModel.BancoId = int.Parse(reader["BancoId"].ToString());
                                 contaModel.TipoContaId = int.Parse(reader["TipoContaId"].ToString());
+                                contaModel.Convenio = string.IsNullOrEmpty(reader["Convenio"].ToString()) ? null : reader["Convenio"].ToString();
+                                contaModel.SaldoAnterior = double.Parse(reader["SaldoAnterior"].ToString());
+                                contaModel.SaldoAtual = double.Parse(reader["SaldoAtual"].ToString());
                             }
                         }
                     }

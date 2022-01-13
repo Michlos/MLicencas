@@ -31,7 +31,6 @@ namespace Financeiro.Banco.ContaBancaria
         {
             this.txbId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txbNomeBanco = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbTipoConta = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@ namespace Financeiro.Banco.ContaBancaria
             this.label10 = new System.Windows.Forms.Label();
             this.txbSaldoInicial = new System.Windows.Forms.TextBox();
             this.txbSaldoAtual = new System.Windows.Forms.TextBox();
+            this.cbNomeBanco = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txbId
@@ -71,15 +71,6 @@ namespace Financeiro.Banco.ContaBancaria
             this.label1.Size = new System.Drawing.Size(19, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Id:";
-            // 
-            // txbNomeBanco
-            // 
-            this.txbNomeBanco.Location = new System.Drawing.Point(297, 36);
-            this.txbNomeBanco.Name = "txbNomeBanco";
-            this.txbNomeBanco.ReadOnly = true;
-            this.txbNomeBanco.Size = new System.Drawing.Size(112, 20);
-            this.txbNomeBanco.TabIndex = 0;
-            this.txbNomeBanco.TabStop = false;
             // 
             // label2
             // 
@@ -110,6 +101,7 @@ namespace Financeiro.Banco.ContaBancaria
             // txbAgencia
             // 
             this.txbAgencia.Location = new System.Drawing.Point(90, 66);
+            this.txbAgencia.MaxLength = 5;
             this.txbAgencia.Name = "txbAgencia";
             this.txbAgencia.Size = new System.Drawing.Size(78, 20);
             this.txbAgencia.TabIndex = 1;
@@ -135,6 +127,7 @@ namespace Financeiro.Banco.ContaBancaria
             // txbAgenciaDV
             // 
             this.txbAgenciaDV.Location = new System.Drawing.Point(178, 66);
+            this.txbAgenciaDV.MaxLength = 1;
             this.txbAgenciaDV.Name = "txbAgenciaDV";
             this.txbAgenciaDV.Size = new System.Drawing.Size(24, 20);
             this.txbAgenciaDV.TabIndex = 2;
@@ -151,6 +144,7 @@ namespace Financeiro.Banco.ContaBancaria
             // txbConta
             // 
             this.txbConta.Location = new System.Drawing.Point(90, 92);
+            this.txbConta.MaxLength = 12;
             this.txbConta.Name = "txbConta";
             this.txbConta.Size = new System.Drawing.Size(78, 20);
             this.txbConta.TabIndex = 3;
@@ -158,6 +152,7 @@ namespace Financeiro.Banco.ContaBancaria
             // txbContaDV
             // 
             this.txbContaDV.Location = new System.Drawing.Point(178, 92);
+            this.txbContaDV.MaxLength = 1;
             this.txbContaDV.Name = "txbContaDV";
             this.txbContaDV.Size = new System.Drawing.Size(24, 20);
             this.txbContaDV.TabIndex = 4;
@@ -261,6 +256,15 @@ namespace Financeiro.Banco.ContaBancaria
             this.txbSaldoAtual.Size = new System.Drawing.Size(112, 20);
             this.txbSaldoAtual.TabIndex = 8;
             // 
+            // cbNomeBanco
+            // 
+            this.cbNomeBanco.Enabled = false;
+            this.cbNomeBanco.FormattingEnabled = true;
+            this.cbNomeBanco.Location = new System.Drawing.Point(297, 37);
+            this.cbNomeBanco.Name = "cbNomeBanco";
+            this.cbNomeBanco.Size = new System.Drawing.Size(112, 21);
+            this.cbNomeBanco.TabIndex = 0;
+            // 
             // ContaAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,6 +273,7 @@ namespace Financeiro.Banco.ContaBancaria
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.chbEmiteBoleto);
+            this.Controls.Add(this.cbNomeBanco);
             this.Controls.Add(this.cbTipoConta);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label10);
@@ -285,7 +290,6 @@ namespace Financeiro.Banco.ContaBancaria
             this.Controls.Add(this.txbConvenio);
             this.Controls.Add(this.txbConta);
             this.Controls.Add(this.txbAgencia);
-            this.Controls.Add(this.txbNomeBanco);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txbId);
             this.Controls.Add(this.label5);
@@ -303,7 +307,6 @@ namespace Financeiro.Banco.ContaBancaria
 
         private System.Windows.Forms.TextBox txbId;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbNomeBanco;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbTipoConta;
         private System.Windows.Forms.Label label3;
@@ -324,5 +327,6 @@ namespace Financeiro.Banco.ContaBancaria
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txbSaldoInicial;
         private System.Windows.Forms.TextBox txbSaldoAtual;
+        public System.Windows.Forms.ComboBox cbNomeBanco;
     }
 }

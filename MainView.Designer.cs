@@ -57,6 +57,7 @@ namespace MLicencas
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lancamentosBancariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -184,29 +185,31 @@ namespace MLicencas
             // gestãoBancáriaToolStripMenuItem
             // 
             this.gestãoBancáriaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lancamentosBancariosToolStripMenuItem,
             this.listaDeBancosToolStripMenuItem,
             this.gestãoDeContasToolStripMenuItem});
             this.gestãoBancáriaToolStripMenuItem.Name = "gestãoBancáriaToolStripMenuItem";
-            this.gestãoBancáriaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.gestãoBancáriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestãoBancáriaToolStripMenuItem.Text = "Gestão Bancária";
             // 
             // listaDeBancosToolStripMenuItem
             // 
             this.listaDeBancosToolStripMenuItem.Name = "listaDeBancosToolStripMenuItem";
-            this.listaDeBancosToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.listaDeBancosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.listaDeBancosToolStripMenuItem.Text = "Gestão de Bancos";
             this.listaDeBancosToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeBancosToolStripMenuItem_Click);
             // 
             // gestãoDeContasToolStripMenuItem
             // 
             this.gestãoDeContasToolStripMenuItem.Name = "gestãoDeContasToolStripMenuItem";
-            this.gestãoDeContasToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.gestãoDeContasToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.gestãoDeContasToolStripMenuItem.Text = "Gestão de Contas";
+            this.gestãoDeContasToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeContasToolStripMenuItem_Click);
             // 
             // gestãoDeBoletosToolStripMenuItem
             // 
             this.gestãoDeBoletosToolStripMenuItem.Name = "gestãoDeBoletosToolStripMenuItem";
-            this.gestãoDeBoletosToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.gestãoDeBoletosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestãoDeBoletosToolStripMenuItem.Text = "Gestão de Boletos";
             // 
             // configuracaoToolStripMenuItem
@@ -221,7 +224,7 @@ namespace MLicencas
             // dadosDaEmpresaToolStripMenuItem
             // 
             this.dadosDaEmpresaToolStripMenuItem.Name = "dadosDaEmpresaToolStripMenuItem";
-            this.dadosDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dadosDaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.dadosDaEmpresaToolStripMenuItem.Text = "Dados da Empresa";
             this.dadosDaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDaEmpresaToolStripMenuItem_Click);
             // 
@@ -232,26 +235,26 @@ namespace MLicencas
             this.usuariosToolStripMenuItem,
             this.gruposToolStripMenuItem1});
             this.gestãoDeUsuariosToolStripMenuItem.Name = "gestãoDeUsuariosToolStripMenuItem";
-            this.gestãoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.gestãoDeUsuariosToolStripMenuItem.Text = "Gestão de Usuários";
             // 
             // novoUsuarioToolStripMenuItem
             // 
             this.novoUsuarioToolStripMenuItem.Name = "novoUsuarioToolStripMenuItem";
-            this.novoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.novoUsuarioToolStripMenuItem.Text = "Novo Usuário";
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.usuariosToolStripMenuItem.Text = "Usuários";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // gruposToolStripMenuItem1
             // 
             this.gruposToolStripMenuItem1.Name = "gruposToolStripMenuItem1";
-            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.gruposToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
             this.gruposToolStripMenuItem1.Text = "Grupos";
             this.gruposToolStripMenuItem1.Click += new System.EventHandler(this.gruposToolStripMenuItem1_Click);
             // 
@@ -284,6 +287,13 @@ namespace MLicencas
             this.statusUsuario.Name = "statusUsuario";
             this.statusUsuario.Size = new System.Drawing.Size(99, 17);
             this.statusUsuario.Text = "NomeUsuarioTXT";
+            // 
+            // lancamentosBancariosToolStripMenuItem
+            // 
+            this.lancamentosBancariosToolStripMenuItem.Name = "lancamentosBancariosToolStripMenuItem";
+            this.lancamentosBancariosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.lancamentosBancariosToolStripMenuItem.Text = "Lançamentos Bancários";
+            this.lancamentosBancariosToolStripMenuItem.Click += new System.EventHandler(this.lancamentosBancariosToolStripMenuItem_Click);
             // 
             // MainView
             // 
@@ -338,6 +348,7 @@ namespace MLicencas
         private System.Windows.Forms.ToolStripMenuItem listaDeBancosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeBoletosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeContasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lancamentosBancariosToolStripMenuItem;
     }
 }
 

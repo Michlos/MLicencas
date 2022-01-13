@@ -26,7 +26,8 @@ namespace CommonComponents
         {
             TextBox txt = (TextBox)sender;
             if (txt.Text != string.Empty)
-                txt.Text = double.Parse(txt.Text).ToString("C2");
+                if(!txt.Text.Contains("R$"))
+                    txt.Text = double.Parse(txt.Text).ToString("C2");
 
         }
 
