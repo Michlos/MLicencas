@@ -85,11 +85,23 @@
     <Compile Include="Banco\ContaBancaria\ContaListForm.Designer.cs">
       <DependentUpon>ContaListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Banco\LancamentoBancario\LancamentoBancarioAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Banco\LancamentoBancario\LancamentoBancarioAddForm.Designer.cs">
+      <DependentUpon>LancamentoBancarioAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Banco\LancamentoBancario\LancamentoBancarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Banco\LancamentoBancario\LancamentoBancarioForm.Designer.cs">
       <DependentUpon>LancamentoBancarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Banco\LancamentoBancario\SelectContaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Banco\LancamentoBancario\SelectContaForm.Designer.cs">
+      <DependentUpon>SelectContaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -116,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Banco\ContaBancaria\ContaListForm.resx">
       <DependentUpon>ContaListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Banco\LancamentoBancario\LancamentoBancarioForm.resx">
+      <DependentUpon>LancamentoBancarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Banco\LancamentoBancario\SelectContaForm.resx">
+      <DependentUpon>SelectContaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

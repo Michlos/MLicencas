@@ -3,6 +3,7 @@ using DomainLayer.Usuarios;
 
 using Financeiro.Banco;
 using Financeiro.Banco.ContaBancaria;
+using Financeiro.Banco.LancamentoBancario;
 
 using MLicencas.FormViews.Clientes;
 using MLicencas.FormViews.Contratos;
@@ -184,6 +185,10 @@ namespace MLicencas
 
         private void lancamentosBancariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            LancamentoBancarioForm lancamentoForm = new LancamentoBancarioForm();
+            lancamentoForm.MdiParent = this;
+            if(!lancamentoForm.IsDisposed)
+                lancamentoForm.Show();
 
         }
     }
