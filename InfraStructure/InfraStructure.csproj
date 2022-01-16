@@ -50,6 +50,7 @@
     <Compile Include="Repository\Clausulas\ClausulaRepository.cs" />
     <Compile Include="Repository\Clientes\ClienteRepository.cs" />
     <Compile Include="Repository\ContaBancaria\ContaBancariaRepository.cs" />
+    <Compile Include="Repository\ContasPagar\ContaPagarRepository.cs" />
     <Compile Include="Repository\ContatosClientes\ContatoClienteRepository.cs" />
     <Compile Include="Repository\ContatosFabrica\ContatoFabricaRepository.cs" />
     <Compile Include="Repository\Contratos\ContratoRepository.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Repository\LancamentosCaixa\LancamentoCaixaRepository.cs" />
     <Compile Include="Repository\LancamentosContasBancarias\LancamentoContaBancariaRepository.cs" />
     <Compile Include="Repository\Modulos\ModuloRepository.cs" />
+    <Compile Include="Repository\OrigensPagamentos\OrigemPagamentoRepository.cs" />
     <Compile Include="Repository\Plataformas\PlataformaRepository.cs" />
     <Compile Include="Repository\Seriais\SerialRepository.cs" />
     <Compile Include="Repository\SistemasOperacionais\SistemaOperacionalRepository.cs" />

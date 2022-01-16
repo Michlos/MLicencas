@@ -8208,3 +8208,11 @@ INSERT INTO TipoRecebimentoTitulo (Tipo) VALUES
 	('PIX'),
 	('Boleto')
 GO
+
+/*
+ORIGENS DE PAGAMENTOS
+*/
+INSERT INTO OrigensPagamentos (Origem) VALUES
+	('Caixa'),
+	('Banco')
+GO

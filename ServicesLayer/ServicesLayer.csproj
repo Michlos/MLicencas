@@ -60,6 +60,9 @@
     <Compile Include="ContasBancarias\ContasBancariasServices.cs" />
     <Compile Include="ContasBancarias\IContasBancariasRepository.cs" />
     <Compile Include="ContasBancarias\IContasBancariasServices.cs" />
+    <Compile Include="ContasPagar\ContasPagarServices.cs" />
+    <Compile Include="ContasPagar\IContasPagarRepository.cs" />
+    <Compile Include="ContasPagar\IContasPagarServices.cs" />
     <Compile Include="Contratos\Clausulas\ClausulasServices.cs" />
     <Compile Include="Contratos\Clausulas\IClausulasRepository.cs" />
     <Compile Include="Contratos\Clausulas\IClausulasServices.cs" />
@@ -114,6 +117,9 @@
     <Compile Include="Modulos\IModulosRepository.cs" />
     <Compile Include="Modulos\IModulosServices.cs" />
     <Compile Include="Modulos\ModulosServices.cs" />
+    <Compile Include="OrigensPagamentos\IOrigensPagamentosRepository.cs" />
+    <Compile Include="OrigensPagamentos\IOrigensPagamentosServices.cs" />
+    <Compile Include="OrigensPagamentos\OrigensPagamentosServices.cs" />
     <Compile Include="Seriais\ISeriaisRepository.cs" />
     <Compile Include="Seriais\ISeriaisServices.cs" />
     <Compile Include="Seriais\SeriaisServices.cs" />

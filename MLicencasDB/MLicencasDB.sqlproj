@@ -79,6 +79,7 @@
     <Folder Include="Tables\Financeiro\Integracao" />
     <Folder Include="Tables\Financeiro\Caixa" />
     <Folder Include="Tables\Financeiro\TitulosRecebiveis" />
+    <Folder Include="Tables\Financeiro\ContasPagar" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
@@ -211,6 +212,8 @@
     <Build Include="Tables\Financeiro\Caixa\EstornosCaixa.sql" />
     <Build Include="Tables\Financeiro\TitulosRecebiveis\EstornosTitulosRecebidos.sql" />
     <Build Include="Tables\Financeiro\Bancos\EstornosLancamentosContasBancarias.sql" />
+    <Build Include="Tables\Financeiro\ContasPagar\OrigensPagamentos.sql" />
+    <Build Include="Tables\Financeiro\ContasPagar\ContasPagar.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />
