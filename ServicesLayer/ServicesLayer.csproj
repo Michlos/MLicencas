@@ -60,6 +60,9 @@
     <Compile Include="ContasBancarias\ContasBancariasServices.cs" />
     <Compile Include="ContasBancarias\IContasBancariasRepository.cs" />
     <Compile Include="ContasBancarias\IContasBancariasServices.cs" />
+    <Compile Include="ContasLiquidadas\ContasLiquidadasServices.cs" />
+    <Compile Include="ContasLiquidadas\IContasLiquidadasRepository.cs" />
+    <Compile Include="ContasLiquidadas\IContasLiquidadasServices.cs" />
     <Compile Include="ContasPagar\ContasPagarServices.cs" />
     <Compile Include="ContasPagar\IContasPagarRepository.cs" />
     <Compile Include="ContasPagar\IContasPagarServices.cs" />

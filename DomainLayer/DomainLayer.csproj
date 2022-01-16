@@ -271,7 +271,9 @@
     <Compile Include="Financeiro\Integracoes\Bancaria\V042_CodigoProtesto.cs" />
     <Compile Include="Financeiro\Integracoes\Bancaria\V047_TipoLancamentoValorEqualizacao.cs" />
     <Compile Include="Financeiro\ITipoLancamentoModel.cs" />
+    <Compile Include="Financeiro\Pagaveis\ContaLiquidadaModel.cs" />
     <Compile Include="Financeiro\Pagaveis\ContaPagarModel.cs" />
+    <Compile Include="Financeiro\Pagaveis\IContaLiquidadaModel.cs" />
     <Compile Include="Financeiro\Pagaveis\IContaPagarModel.cs" />
     <Compile Include="Financeiro\Pagaveis\IOrigemPagamentoModel.cs" />
     <Compile Include="Financeiro\Pagaveis\OrigemPagamentoModel.cs" />
