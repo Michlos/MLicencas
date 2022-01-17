@@ -80,6 +80,8 @@
     <Folder Include="Tables\Financeiro\Caixa" />
     <Folder Include="Tables\Financeiro\TitulosRecebiveis" />
     <Folder Include="Tables\Financeiro\ContasPagar" />
+    <Folder Include="Tables\Financeiro\ContasLiquidadasBancos" />
+    <Folder Include="Tables\Financeiro\ContasLiquidadasCaixas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Usuarios\Usuarios.sql" />
@@ -215,6 +217,8 @@
     <Build Include="Tables\Financeiro\ContasPagar\OrigensPagamentos.sql" />
     <Build Include="Tables\Financeiro\ContasPagar\ContasPagar.sql" />
     <Build Include="Tables\Financeiro\ContasPagar\ContasLiquidadas.sql" />
+    <Build Include="Tables\Financeiro\ContasLiquidadasBancos\ContasLiquidadasBancos.sql" />
+    <Build Include="Tables\Financeiro\ContasLiquidadasCaixas\ContasLiquidadasCaixas.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

@@ -50,6 +50,8 @@
     <Compile Include="Repository\Clausulas\ClausulaRepository.cs" />
     <Compile Include="Repository\Clientes\ClienteRepository.cs" />
     <Compile Include="Repository\ContaBancaria\ContaBancariaRepository.cs" />
+    <Compile Include="Repository\ContasLiquidadasBancos\ContaLiquidadaBancoRepository.cs" />
+    <Compile Include="Repository\ContasLiquidadasCaixas\ContaLiquidadaCaixaRepository.cs" />
     <Compile Include="Repository\ContasLiquidadas\ContaLiquidadaRepository.cs" />
     <Compile Include="Repository\ContasPagar\ContaPagarRepository.cs" />
     <Compile Include="Repository\ContatosClientes\ContatoClienteRepository.cs" />
