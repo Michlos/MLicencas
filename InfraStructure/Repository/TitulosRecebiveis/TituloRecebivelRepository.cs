@@ -21,6 +21,12 @@ namespace InfraStructure.Repository.TitulosRecebiveis
         private ITituloRecebivelModel tituloModel;
         private List<ITituloRecebivelModel> tituloListModel;
         private readonly DataAccessStatus dataAccessStatus = new DataAccessStatus();
+
+        public TituloRecebivelRepository(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public ITituloRecebivelModel Add(ITituloRecebivelModel tituloModel)
         {
             _query = "INSERT INTO TitulosRecebiveis " +
