@@ -29,6 +29,7 @@ namespace DomainLayer.Financeiro.Recebiveis
         public int DiasParaProtesto { get; set; }
         public int DiasParaBaixa { get; set; }
         public bool Quitado { get; set; }
+        public bool BoletoBancario { get; set; }
 
     }
 }

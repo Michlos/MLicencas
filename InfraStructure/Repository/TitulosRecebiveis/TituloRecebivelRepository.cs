@@ -81,7 +81,7 @@ namespace InfraStructure.Repository.TitulosRecebiveis
             _query = "UPDATE TitulosRecebiveis SET CodigoJurosMoraId = @CodigoJurosMoraId, " +
                 "CodigoProtestoId = @CodigoProestoId, CodigoBaixaId = @CodigoBaixaId, Parcela = @Parcela, " +
                 "ValorParcela = @ValorParcela, DataVencimento = @DataVencimento, DataJurosMora = @DataJurosMora, " +
-                "DiasParaProtesto = @DiasParaProtesto, DiasParaBaixa = @DiasParaBaixa, Quitado = @Quitado " +
+                "DiasParaProtesto = @DiasParaProtesto, DiasParaBaixa = @DiasParaBaixa, Quitado = @Quitado , BoletoBancario = @BoletoBancario" +
                 "WHERE Id = @Id";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -103,6 +103,8 @@ namespace InfraStructure.Repository.TitulosRecebiveis
                         cmd.Parameters.AddWithValue("@DiasParaProtesto", tituloModel.DiasParaProtesto);
                         cmd.Parameters.AddWithValue("@DiasParaBaixa", tituloModel.DiasParaBaixa);
                         cmd.Parameters.AddWithValue("@Quitado", tituloModel.Quitado);
+                        cmd.Parameters.AddWithValue("@BoletoBancario", tituloModel.BoletoBancario);
+
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -150,7 +152,8 @@ namespace InfraStructure.Repository.TitulosRecebiveis
                                     TaxaJurosMora = double.Parse(reader["TaxaJurosMora"].ToString()),
                                     DiasParaProtesto = int.Parse(reader["DiasParaProtesto"].ToString()),
                                     DiasParaBaixa = int.Parse(reader["DiasParaBaixa"].ToString()),
-                                    Quitado = bool.Parse(reader["Quitado"].ToString())
+                                    Quitado = bool.Parse(reader["Quitado"].ToString()),
+                                    BoletoBancario = bool.Parse(reader["BoletoBancario"].ToString())
                                 };
                                 tituloListModel.Add(this.tituloModel);
                             }
@@ -205,7 +208,8 @@ namespace InfraStructure.Repository.TitulosRecebiveis
                                     TaxaJurosMora = double.Parse(reader["TaxaJurosMora"].ToString()),
                                     DiasParaProtesto = int.Parse(reader["DiasParaProtesto"].ToString()),
                                     DiasParaBaixa = int.Parse(reader["DiasParaBaixa"].ToString()),
-                                    Quitado = bool.Parse(reader["Quitado"].ToString())
+                                    Quitado = bool.Parse(reader["Quitado"].ToString()),
+                                    BoletoBancario = bool.Parse(reader["BoletoBancario"].ToString())
                                 };
                                 tituloListModel.Add(this.tituloModel);
                             }
@@ -260,7 +264,8 @@ namespace InfraStructure.Repository.TitulosRecebiveis
                                     TaxaJurosMora = double.Parse(reader["TaxaJurosMora"].ToString()),
                                     DiasParaProtesto = int.Parse(reader["DiasParaProtesto"].ToString()),
                                     DiasParaBaixa = int.Parse(reader["DiasParaBaixa"].ToString()),
-                                    Quitado = bool.Parse(reader["Quitado"].ToString())
+                                    Quitado = bool.Parse(reader["Quitado"].ToString()),
+                                    BoletoBancario = bool.Parse(reader["BoletoBancario"].ToString())
                                 };
                                 tituloListModel.Add(this.tituloModel);
                             }
@@ -315,7 +320,8 @@ namespace InfraStructure.Repository.TitulosRecebiveis
                                     TaxaJurosMora = double.Parse(reader["TaxaJurosMora"].ToString()),
                                     DiasParaProtesto = int.Parse(reader["DiasParaProtesto"].ToString()),
                                     DiasParaBaixa = int.Parse(reader["DiasParaBaixa"].ToString()),
-                                    Quitado = bool.Parse(reader["Quitado"].ToString())
+                                    Quitado = bool.Parse(reader["Quitado"].ToString()),
+                                    BoletoBancario = bool.Parse(reader["BoletoBancario"].ToString())
                                 };
                             }
                         }

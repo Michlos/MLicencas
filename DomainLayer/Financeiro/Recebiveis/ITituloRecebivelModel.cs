@@ -20,5 +20,6 @@ namespace DomainLayer.Financeiro.Recebiveis
         double ValorParcela { get; set; }
         double TaxaJurosMora { get; set; }
         bool Quitado { get; set; }
+        bool BoletoBancario { get; set; }
     }
 }

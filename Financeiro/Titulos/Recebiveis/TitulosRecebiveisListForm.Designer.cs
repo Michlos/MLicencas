@@ -30,7 +30,7 @@ namespace Financeiro.Titulos.Recebiveis
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCommands = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnBoleto = new System.Windows.Forms.Button();
@@ -87,6 +87,7 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnBoleto.Tag = "7.4.1";
             this.btnBoleto.Text = "Gerar Boleto";
             this.btnBoleto.UseVisualStyleBackColor = false;
+            this.btnBoleto.Click += new System.EventHandler(this.btnBoleto_Click);
             // 
             // btnLiquidar
             // 
@@ -100,6 +101,7 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnLiquidar.Tag = "7.2.3";
             this.btnLiquidar.Text = "Liquidar";
             this.btnLiquidar.UseVisualStyleBackColor = false;
+            this.btnLiquidar.Click += new System.EventHandler(this.btnLiquidar_Click);
             // 
             // btnGerarTitulo
             // 
@@ -162,14 +164,14 @@ namespace Financeiro.Titulos.Recebiveis
             this.dgvRecebiveis.AllowUserToAddRows = false;
             this.dgvRecebiveis.AllowUserToDeleteRows = false;
             this.dgvRecebiveis.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecebiveis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecebiveis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRecebiveis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecebiveis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecebiveis.GridColor = System.Drawing.Color.PaleGreen;

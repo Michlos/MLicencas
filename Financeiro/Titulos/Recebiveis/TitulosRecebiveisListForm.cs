@@ -177,5 +177,74 @@ namespace Financeiro.Titulos.Recebiveis
             LoadModels();
             LoadDGVTitulos();
         }
+
+        private void btnBoleto_Click(object sender, EventArgs e)
+        {
+            //CHAMAR OPÇÃO DE SELECIONAR TODOS DO MÊS OU SÓ UM.
+            var result = MessageBox.Show("Gera boleto para Todos os Títulos?", this.Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                //GERA PARA TODOS OS REGISTROS LISTADOS QUE AINDA NÃO FORAM GERADOS BOLETOS
+                try
+                {
+
+                    foreach (var item in titulosListModel)
+                    {
+                        if (!item.BoletoBancario)
+                        {
+                            item.BoletoBancario = true;
+                            _titulosRecebiveisServices.Edit(item);
+                            //TODO: INTEGRAÇÃO BANCÁRIA GERAR ARQUIVO E ENVIAR PARA O BANCO.
+
+                        }
+                    }
+                    MessageBox.Show("Boletos Registrados com Sucesso", this.Text);
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception(ex.Message, ex.InnerException);
+                }
+
+            }
+            else if (result == DialogResult.No)
+            {
+                //GERA APENAS PARA O ITEM SELECIONADO
+                if (dgvRecebiveis.CurrentRow != null)
+                {
+                    int idTitulo = int.Parse(dgvRecebiveis.CurrentRow.Cells["Id"].Value.ToString());
+                    ITituloRecebivelModel model = _titulosRecebiveisServices.GetById(idTitulo);
+                    if (!model.BoletoBancario)
+                    {
+                        model.BoletoBancario = true;
+                        try
+                        {
+                            _titulosRecebiveisServices.Edit(model);
+                            MessageBox.Show("Boleto Registrado com Sucesso", this.Text);
+                            //TODO: Gerar arquivo bancário e enviar para o banco.
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            throw new Exception(ex.Message, ex.InnerException);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Boleto já gerado anteriormente", this.Text);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Geração de Boleto Abortada", this.Text);
+            }
+        }
+
+        private void btnLiquidar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
