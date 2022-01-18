@@ -30,19 +30,19 @@ namespace Financeiro.Titulos.Recebiveis
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCommands = new System.Windows.Forms.Panel();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnGerarTitulo = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnLiquidar = new System.Windows.Forms.Button();
             this.btnBoleto = new System.Windows.Forms.Button();
+            this.btnLiquidar = new System.Windows.Forms.Button();
+            this.btnGerarTitulo = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panelFiltros = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbMesFiltro = new System.Windows.Forms.ComboBox();
             this.dgvRecebiveis = new System.Windows.Forms.DataGridView();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.cbMesFiltro = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelCommands.SuspendLayout();
             this.panelFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecebiveis)).BeginInit();
@@ -62,19 +62,6 @@ namespace Financeiro.Titulos.Recebiveis
             this.panelCommands.Size = new System.Drawing.Size(800, 35);
             this.panelCommands.TabIndex = 0;
             // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnNovo.FlatAppearance.BorderSize = 0;
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Location = new System.Drawing.Point(709, 6);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(81, 23);
-            this.btnNovo.TabIndex = 0;
-            this.btnNovo.Tag = "7.2.1";
-            this.btnNovo.Text = "Novo Título";
-            this.btnNovo.UseVisualStyleBackColor = false;
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
@@ -87,6 +74,32 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnClose.Text = "Fechar";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnBoleto
+            // 
+            this.btnBoleto.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnBoleto.FlatAppearance.BorderSize = 0;
+            this.btnBoleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBoleto.Location = new System.Drawing.Point(533, 6);
+            this.btnBoleto.Name = "btnBoleto";
+            this.btnBoleto.Size = new System.Drawing.Size(81, 23);
+            this.btnBoleto.TabIndex = 0;
+            this.btnBoleto.Tag = "7.4.1";
+            this.btnBoleto.Text = "Gerar Boleto";
+            this.btnBoleto.UseVisualStyleBackColor = false;
+            // 
+            // btnLiquidar
+            // 
+            this.btnLiquidar.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnLiquidar.FlatAppearance.BorderSize = 0;
+            this.btnLiquidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLiquidar.Location = new System.Drawing.Point(445, 6);
+            this.btnLiquidar.Name = "btnLiquidar";
+            this.btnLiquidar.Size = new System.Drawing.Size(81, 23);
+            this.btnLiquidar.TabIndex = 0;
+            this.btnLiquidar.Tag = "7.2.3";
+            this.btnLiquidar.Text = "Liquidar";
+            this.btnLiquidar.UseVisualStyleBackColor = false;
             // 
             // btnGerarTitulo
             // 
@@ -103,31 +116,18 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnGerarTitulo.UseVisualStyleBackColor = false;
             this.btnGerarTitulo.Click += new System.EventHandler(this.btnGerarTitulo_Click);
             // 
-            // btnLiquidar
+            // btnNovo
             // 
-            this.btnLiquidar.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnLiquidar.FlatAppearance.BorderSize = 0;
-            this.btnLiquidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLiquidar.Location = new System.Drawing.Point(445, 6);
-            this.btnLiquidar.Name = "btnLiquidar";
-            this.btnLiquidar.Size = new System.Drawing.Size(81, 23);
-            this.btnLiquidar.TabIndex = 0;
-            this.btnLiquidar.Tag = "7.2.3";
-            this.btnLiquidar.Text = "Liquidar";
-            this.btnLiquidar.UseVisualStyleBackColor = false;
-            // 
-            // btnBoleto
-            // 
-            this.btnBoleto.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnBoleto.FlatAppearance.BorderSize = 0;
-            this.btnBoleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBoleto.Location = new System.Drawing.Point(533, 6);
-            this.btnBoleto.Name = "btnBoleto";
-            this.btnBoleto.Size = new System.Drawing.Size(81, 23);
-            this.btnBoleto.TabIndex = 0;
-            this.btnBoleto.Tag = "7.4.1";
-            this.btnBoleto.Text = "Gerar Boleto";
-            this.btnBoleto.UseVisualStyleBackColor = false;
+            this.btnNovo.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnNovo.FlatAppearance.BorderSize = 0;
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Location = new System.Drawing.Point(709, 6);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(81, 23);
+            this.btnNovo.TabIndex = 0;
+            this.btnNovo.Tag = "7.2.1";
+            this.btnNovo.Text = "Novo Título";
+            this.btnNovo.UseVisualStyleBackColor = false;
             // 
             // panelFiltros
             // 
@@ -139,19 +139,37 @@ namespace Financeiro.Titulos.Recebiveis
             this.panelFiltros.Size = new System.Drawing.Size(800, 38);
             this.panelFiltros.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Mês Vencimento:";
+            // 
+            // cbMesFiltro
+            // 
+            this.cbMesFiltro.FormattingEnabled = true;
+            this.cbMesFiltro.Location = new System.Drawing.Point(101, 9);
+            this.cbMesFiltro.Name = "cbMesFiltro";
+            this.cbMesFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cbMesFiltro.TabIndex = 0;
+            this.cbMesFiltro.SelectedIndexChanged += new System.EventHandler(this.cbMesFiltro_SelectedIndexChanged);
+            // 
             // dgvRecebiveis
             // 
             this.dgvRecebiveis.AllowUserToAddRows = false;
             this.dgvRecebiveis.AllowUserToDeleteRows = false;
             this.dgvRecebiveis.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecebiveis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecebiveis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRecebiveis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecebiveis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecebiveis.GridColor = System.Drawing.Color.PaleGreen;
@@ -172,23 +190,6 @@ namespace Financeiro.Titulos.Recebiveis
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(800, 377);
             this.panelContainer.TabIndex = 2;
-            // 
-            // cbMesFiltro
-            // 
-            this.cbMesFiltro.FormattingEnabled = true;
-            this.cbMesFiltro.Location = new System.Drawing.Point(101, 9);
-            this.cbMesFiltro.Name = "cbMesFiltro";
-            this.cbMesFiltro.Size = new System.Drawing.Size(121, 21);
-            this.cbMesFiltro.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Mês Vencimento:";
             // 
             // TitulosRecebiveisListForm
             // 

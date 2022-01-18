@@ -171,5 +171,11 @@ namespace Financeiro.Titulos.Recebiveis
             LoadModels();
             LoadDGVTitulos();
         }
+
+        private void cbMesFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadModels();
+            LoadDGVTitulos();
+        }
     }
 }
