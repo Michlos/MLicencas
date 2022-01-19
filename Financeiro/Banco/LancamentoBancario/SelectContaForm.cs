@@ -1,5 +1,7 @@
 ﻿using DomainLayer.Financeiro;
 
+using Financeiro.Titulos.Recebidos;
+
 using InfraStructure;
 using InfraStructure.Repository.Bancos;
 using InfraStructure.Repository.ContaBancaria;
@@ -33,12 +35,22 @@ namespace Financeiro.Banco.LancamentoBancario
         private IEnumerable<IContaBancariaModel> contasListModel;
         private IEnumerable<IBancoModel> bancoListModel;
         public IContaBancariaModel contaModel;
+        private TituloRecebidoAddForm tituloRecebidoAddForm;
 
         //PROPERTIES
         private readonly LancamentoBancarioForm lancamentoBancarioForm;
         public SelectContaForm(LancamentoBancarioForm lancamentoBancarioForm)
         {
             this.lancamentoBancarioForm = lancamentoBancarioForm;
+            LoadServices();
+            InitializeComponent();
+            LoadModels();
+            LoadDGVContas();
+        }
+
+        public SelectContaForm(TituloRecebidoAddForm tituloRecebidoAddForm)
+        {
+            this.tituloRecebidoAddForm = tituloRecebidoAddForm;
             LoadServices();
             InitializeComponent();
             LoadModels();

@@ -281,7 +281,9 @@
     <Compile Include="Financeiro\Pagaveis\IContaPagarModel.cs" />
     <Compile Include="Financeiro\Pagaveis\IOrigemPagamentoModel.cs" />
     <Compile Include="Financeiro\Pagaveis\OrigemPagamentoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\DestinoRecebivelModel.cs" />
     <Compile Include="Financeiro\Recebiveis\EstornoTituloRecebidoModel.cs" />
+    <Compile Include="Financeiro\Recebiveis\IDestinoRecebivelModel.cs" />
     <Compile Include="Financeiro\Recebiveis\IEstornoTituloRecebidoModel.cs" />
     <Compile Include="Financeiro\Recebiveis\ITipoRecebimentoTituloModel.cs" />
     <Compile Include="Financeiro\Recebiveis\ITituloRecebidoModel.cs" />

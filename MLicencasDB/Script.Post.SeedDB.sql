@@ -8202,11 +8202,12 @@ INSERT INTO TiposLancamentos (Tipo, Descricao) VALUES
 GO
 
 /*TipoRecebimentoTitulo*/
-INSERT INTO TipoRecebimentoTitulo (Tipo) VALUES
-	('TED'),
-	('DOC'),
-	('PIX'),
-	('Boleto')
+INSERT INTO TipoRecebimentoTitulo (Tipo, Destino) VALUES
+	('TED', 'B'),	 --DÉBITO E CRÉDITO
+	('DOC', 'B'),
+	('PIX', 'B'),
+	('Boleto', 'B'),
+	('Dinheiro', 'C') --ÚNICO LANÇAMENTO PARA O CAIXA
 GO
 
 /*
@@ -8215,4 +8216,12 @@ ORIGENS DE PAGAMENTOS
 INSERT INTO OrigensPagamentos (Origem) VALUES
 	('Caixa'),
 	('Banco')
+GO
+
+/*
+DESTIONOS DE RECEBÍVEIS
+*/
+INSERT INTO DestinosRecebiveis (Destino, Codigo) VALUES
+	('Caixa', 'C'),
+	('Banco', 'B')
 GO

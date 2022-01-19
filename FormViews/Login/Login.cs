@@ -1,4 +1,6 @@
-﻿using DomainLayer.Modulos;
+﻿using CommonComponents;
+
+using DomainLayer.Modulos;
 using DomainLayer.Usuarios;
 
 using InfraStructure;
@@ -74,6 +76,7 @@ namespace MLicencas.FormViews.Login
                 MainView._UsuarioModel = _usuariosServices.GetByLogin(txbUsuario.Text);
                 MainView._ModulosListModel = modulosListModel;
                 MainView._PermissaoListModel = _persmissoesServices.GetAllByGrupo(MainView._UsuarioModel.GrupoId);
+                Global.User = MainView._UsuarioModel.Login;
 
                 if (MainView._UsuarioModel.AlteraSenha)
                 {
@@ -82,6 +85,7 @@ namespace MLicencas.FormViews.Login
                     alteraSenha.ShowDialog();
                     if (senhaAtual != MainView._UsuarioModel.Senha)
                     {
+                        
                         this.Close();
                     }
                     else

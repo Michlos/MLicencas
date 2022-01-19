@@ -1,4 +1,6 @@
-﻿using DomainLayer.Modulos;
+﻿using CommonComponents;
+
+using DomainLayer.Modulos;
 using DomainLayer.Usuarios;
 
 using Financeiro.Banco;
@@ -69,7 +71,7 @@ namespace MLicencas
         }
         private void LoadStatusBarr()
         {
-            statusUsuario.Text = _UsuarioModel.Nome;
+            statusUsuario.Text = Global.User;
         }
 
         private void LoadLogin()

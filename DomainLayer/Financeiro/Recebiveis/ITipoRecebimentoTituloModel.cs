@@ -4,5 +4,6 @@
     {
         int Id { get; set; }
         string Tipo { get; set; }
+        char Destino { get; set; }
     }
 }

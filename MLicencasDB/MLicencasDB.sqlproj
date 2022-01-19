@@ -219,6 +219,7 @@
     <Build Include="Tables\Financeiro\ContasPagar\ContasLiquidadas.sql" />
     <Build Include="Tables\Financeiro\ContasLiquidadasBancos\ContasLiquidadasBancos.sql" />
     <Build Include="Tables\Financeiro\ContasLiquidadasCaixas\ContasLiquidadasCaixas.sql" />
+    <Build Include="Tables\Financeiro\TitulosRecebiveis\DestinosRecebiveis.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.Post.SeedDB.sql" />

@@ -17,6 +17,11 @@ namespace InfraStructure.Repository.TiposRecebimentosTitulos
         private List<ITipoRecebimentoTituloModel> tipoListModel;
         private readonly DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
+        public TipoRecebimentoTituloRepository(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public IEnumerable<ITipoRecebimentoTituloModel> GetAll()
         {
             _query = "SELECT * FROM TipoRecebimentoTitulo";
@@ -35,7 +40,8 @@ namespace InfraStructure.Repository.TiposRecebimentosTitulos
                                 tipoModel = new TipoRecebimentoTituloModel()
                                 {
                                     Id = int.Parse(reader["Id"].ToString()),
-                                    Tipo = reader["Tipo"].ToString()
+                                    Tipo = reader["Tipo"].ToString(),
+                                    Destino = char.Parse(reader["Destino"].ToString())
                                 };
                                 tipoListModel.Add(tipoModel);
                             }
@@ -74,7 +80,8 @@ namespace InfraStructure.Repository.TiposRecebimentosTitulos
                                 tipoModel = new TipoRecebimentoTituloModel()
                                 {
                                     Id = int.Parse(reader["Id"].ToString()),
-                                    Tipo = reader["Tipo"].ToString()
+                                    Tipo = reader["Tipo"].ToString(),
+                                    Destino = char.Parse(reader["Destino"].ToString())
                                 };
                             }
                         }

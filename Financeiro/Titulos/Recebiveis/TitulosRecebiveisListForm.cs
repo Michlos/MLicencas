@@ -61,7 +61,8 @@ namespace Financeiro.Titulos.Recebiveis
 
         private void ConfigDGVTitulos()
         {
-            dgvRecebiveis.Columns["Id"].Visible = false;
+            dgvRecebiveis.Columns["Id"].Width = 50;
+            dgvRecebiveis.Columns["Id"].HeaderText = "Registro";
             dgvRecebiveis.Columns["ClienteId"].Visible = false;
             dgvRecebiveis.Columns["Cliente"].Width = 200;
             dgvRecebiveis.Columns["Vencimento"].Width = 80;
@@ -244,6 +245,7 @@ namespace Financeiro.Titulos.Recebiveis
 
         private void btnLiquidar_Click(object sender, EventArgs e)
         {
+            //GERAR A CAXAI DE DIÁLOGO DE DESTINO DE RECEBIMENTO, VALOR RECEBIDO, DATA RECEBIMENTO.
 
         }
     }

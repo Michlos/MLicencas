@@ -57,6 +57,7 @@
     <Compile Include="Repository\ContatosClientes\ContatoClienteRepository.cs" />
     <Compile Include="Repository\ContatosFabrica\ContatoFabricaRepository.cs" />
     <Compile Include="Repository\Contratos\ContratoRepository.cs" />
+    <Compile Include="Repository\DestinosRecebiveis\DestinoRecebivelRepository.cs" />
     <Compile Include="Repository\EnderecosClientes\EnderecoClienteRepository.cs" />
     <Compile Include="Repository\EnderecosFabrica\EnderecoFabricaRepository.cs" />
     <Compile Include="Repository\Estados\EstadoRepository.cs" />
