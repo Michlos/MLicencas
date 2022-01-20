@@ -30,23 +30,27 @@ namespace Financeiro.Titulos.Recebiveis
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCommands = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnBoleto = new System.Windows.Forms.Button();
             this.btnLiquidar = new System.Windows.Forms.Button();
             this.btnGerarTitulo = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panelFiltros = new System.Windows.Forms.Panel();
+            this.chbExibeQuitados = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbMesFiltro = new System.Windows.Forms.ComboBox();
             this.dgvRecebiveis = new System.Windows.Forms.DataGridView();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.liquidarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exibirRecebidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCommands.SuspendLayout();
             this.panelFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecebiveis)).BeginInit();
             this.panelContainer.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelCommands
@@ -55,11 +59,10 @@ namespace Financeiro.Titulos.Recebiveis
             this.panelCommands.Controls.Add(this.btnBoleto);
             this.panelCommands.Controls.Add(this.btnLiquidar);
             this.panelCommands.Controls.Add(this.btnGerarTitulo);
-            this.panelCommands.Controls.Add(this.btnNovo);
             this.panelCommands.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelCommands.Location = new System.Drawing.Point(0, 415);
             this.panelCommands.Name = "panelCommands";
-            this.panelCommands.Size = new System.Drawing.Size(800, 35);
+            this.panelCommands.Size = new System.Drawing.Size(704, 35);
             this.panelCommands.TabIndex = 0;
             // 
             // btnClose
@@ -67,7 +70,7 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnClose.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(3, 6);
+            this.btnClose.Location = new System.Drawing.Point(11, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 0;
@@ -80,7 +83,7 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnBoleto.BackColor = System.Drawing.Color.PaleGreen;
             this.btnBoleto.FlatAppearance.BorderSize = 0;
             this.btnBoleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBoleto.Location = new System.Drawing.Point(533, 6);
+            this.btnBoleto.Location = new System.Drawing.Point(523, 6);
             this.btnBoleto.Name = "btnBoleto";
             this.btnBoleto.Size = new System.Drawing.Size(81, 23);
             this.btnBoleto.TabIndex = 0;
@@ -94,7 +97,7 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnLiquidar.BackColor = System.Drawing.Color.PaleGreen;
             this.btnLiquidar.FlatAppearance.BorderSize = 0;
             this.btnLiquidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLiquidar.Location = new System.Drawing.Point(445, 6);
+            this.btnLiquidar.Location = new System.Drawing.Point(435, 6);
             this.btnLiquidar.Name = "btnLiquidar";
             this.btnLiquidar.Size = new System.Drawing.Size(81, 23);
             this.btnLiquidar.TabIndex = 0;
@@ -108,7 +111,7 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnGerarTitulo.BackColor = System.Drawing.Color.PaleGreen;
             this.btnGerarTitulo.FlatAppearance.BorderSize = 0;
             this.btnGerarTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerarTitulo.Location = new System.Drawing.Point(621, 6);
+            this.btnGerarTitulo.Location = new System.Drawing.Point(611, 6);
             this.btnGerarTitulo.Name = "btnGerarTitulo";
             this.btnGerarTitulo.Size = new System.Drawing.Size(81, 23);
             this.btnGerarTitulo.TabIndex = 0;
@@ -118,28 +121,27 @@ namespace Financeiro.Titulos.Recebiveis
             this.btnGerarTitulo.UseVisualStyleBackColor = false;
             this.btnGerarTitulo.Click += new System.EventHandler(this.btnGerarTitulo_Click);
             // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnNovo.FlatAppearance.BorderSize = 0;
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Location = new System.Drawing.Point(709, 6);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(81, 23);
-            this.btnNovo.TabIndex = 0;
-            this.btnNovo.Tag = "7.2.1";
-            this.btnNovo.Text = "Novo Título";
-            this.btnNovo.UseVisualStyleBackColor = false;
-            // 
             // panelFiltros
             // 
+            this.panelFiltros.Controls.Add(this.chbExibeQuitados);
             this.panelFiltros.Controls.Add(this.label1);
             this.panelFiltros.Controls.Add(this.cbMesFiltro);
             this.panelFiltros.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFiltros.Location = new System.Drawing.Point(0, 0);
             this.panelFiltros.Name = "panelFiltros";
-            this.panelFiltros.Size = new System.Drawing.Size(800, 38);
+            this.panelFiltros.Size = new System.Drawing.Size(704, 38);
             this.panelFiltros.TabIndex = 1;
+            // 
+            // chbExibeQuitados
+            // 
+            this.chbExibeQuitados.AutoSize = true;
+            this.chbExibeQuitados.Location = new System.Drawing.Point(587, 10);
+            this.chbExibeQuitados.Name = "chbExibeQuitados";
+            this.chbExibeQuitados.Size = new System.Drawing.Size(105, 17);
+            this.chbExibeQuitados.TabIndex = 2;
+            this.chbExibeQuitados.Text = "Exibir Liquidados";
+            this.chbExibeQuitados.UseVisualStyleBackColor = true;
+            this.chbExibeQuitados.CheckedChanged += new System.EventHandler(this.chbExibeQuitados_CheckedChanged);
             // 
             // label1
             // 
@@ -164,14 +166,14 @@ namespace Financeiro.Titulos.Recebiveis
             this.dgvRecebiveis.AllowUserToAddRows = false;
             this.dgvRecebiveis.AllowUserToDeleteRows = false;
             this.dgvRecebiveis.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecebiveis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecebiveis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRecebiveis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecebiveis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecebiveis.GridColor = System.Drawing.Color.PaleGreen;
@@ -181,8 +183,9 @@ namespace Financeiro.Titulos.Recebiveis
             this.dgvRecebiveis.RowHeadersVisible = false;
             this.dgvRecebiveis.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvRecebiveis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecebiveis.Size = new System.Drawing.Size(800, 377);
+            this.dgvRecebiveis.Size = new System.Drawing.Size(704, 377);
             this.dgvRecebiveis.TabIndex = 0;
+            this.dgvRecebiveis.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRecebiveis_CellMouseClick);
             // 
             // panelContainer
             // 
@@ -190,24 +193,49 @@ namespace Financeiro.Titulos.Recebiveis
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 38);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(800, 377);
+            this.panelContainer.Size = new System.Drawing.Size(704, 377);
             this.panelContainer.TabIndex = 2;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.liquidarToolStripMenuItem,
+            this.exibirRecebidoToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(156, 48);
+            // 
+            // liquidarToolStripMenuItem
+            // 
+            this.liquidarToolStripMenuItem.Name = "liquidarToolStripMenuItem";
+            this.liquidarToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.liquidarToolStripMenuItem.Text = "Liquidar";
+            this.liquidarToolStripMenuItem.Click += new System.EventHandler(this.btnLiquidar_Click);
+            // 
+            // exibirRecebidoToolStripMenuItem
+            // 
+            this.exibirRecebidoToolStripMenuItem.Name = "exibirRecebidoToolStripMenuItem";
+            this.exibirRecebidoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exibirRecebidoToolStripMenuItem.Text = "Exibir Recebido";
+            this.exibirRecebidoToolStripMenuItem.Click += new System.EventHandler(this.exibirRecebidoToolStripMenuItem_Click);
             // 
             // TitulosRecebiveisListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(704, 450);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panelFiltros);
             this.Controls.Add(this.panelCommands);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TitulosRecebiveisListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Financeiro - Títulos Recebíveis";
             this.panelCommands.ResumeLayout(false);
             this.panelFiltros.ResumeLayout(false);
             this.panelFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecebiveis)).EndInit();
             this.panelContainer.ResumeLayout(false);
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -216,7 +244,6 @@ namespace Financeiro.Titulos.Recebiveis
 
         private System.Windows.Forms.Panel panelCommands;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnGerarTitulo;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btnLiquidar;
@@ -226,5 +253,9 @@ namespace Financeiro.Titulos.Recebiveis
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbMesFiltro;
+        private System.Windows.Forms.CheckBox chbExibeQuitados;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem liquidarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exibirRecebidoToolStripMenuItem;
     }
 }

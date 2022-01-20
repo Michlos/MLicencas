@@ -6,6 +6,7 @@ using DomainLayer.Usuarios;
 using Financeiro.Banco;
 using Financeiro.Banco.ContaBancaria;
 using Financeiro.Banco.LancamentoBancario;
+using Financeiro.Titulos.Recebiveis;
 
 using MLicencas.FormViews.Clientes;
 using MLicencas.FormViews.Contratos;
@@ -192,6 +193,13 @@ namespace MLicencas
             if(!lancamentoForm.IsDisposed)
                 lancamentoForm.Show();
 
+        }
+
+        private void aReceberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TitulosRecebiveisListForm titulosRecebiveisListForm = new TitulosRecebiveisListForm();
+            titulosRecebiveisListForm.MdiParent = this;
+            titulosRecebiveisListForm.Show();
         }
     }
 }

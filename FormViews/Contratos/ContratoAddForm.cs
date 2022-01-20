@@ -15,7 +15,6 @@ using InfraStructure.Repository.Incisos;
 using InfraStructure.Repository.Situacoes;
 using InfraStructure.Repository.Softwares;
 
-using MLicencas.UCViews.Contratos;
 
 using ServiceLayer.CommonServices;
 
@@ -70,6 +69,8 @@ namespace MLicencas.FormViews.Contratos
             LoadServices();
             InitializeComponent();
             this.contratoId = contratoId;
+            AplyCurrency(txbValor);
+            AplyCurrency(txbValorParcela);
         }
 
         /// <summary>
@@ -86,16 +87,13 @@ namespace MLicencas.FormViews.Contratos
             _incisosServices = new IncisosServices(new IncisoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
         }
 
-
-        private void btnAddClausula_Click(object sender, EventArgs e)
+        private void AplyCurrency(TextBox txt)
         {
-            ContratoClausulaUC Uc = new ContratoClausulaUC(contratoId, 0);
-            IncludeItemContratoForm itemContratoForm = new IncludeItemContratoForm(Uc);
-            itemContratoForm.ShowDialog();
-            LoadFormFields();
-            LoadDGVClausulas();
+            txt.Enter += AplyFloatCurrency.TirarMascara;
+            txt.Leave += AplyFloatCurrency.RetornarMarcarca;
+            txt.KeyPress += AplyFloatCurrency.AenpasValorNumerico;
         }
-
+       
 
         private void ContratoAddForm_Load(object sender, EventArgs e)
         {
@@ -107,13 +105,7 @@ namespace MLicencas.FormViews.Contratos
             LoadCBSoftware();
             LoadFormFields();
             LoadDGVClausulas();
-        }
-
-        private void LoadCBSoftware()
-        {
-            cbSoftware.DataSource = softListModel;
-            cbSoftware.DisplayMember = "Nome";
-            cbSoftware.SelectedIndex = -1;
+            dtVencimento.Value = DateTime.Now + TimeSpan.FromDays(30);
         }
 
         private void LoadModels()
@@ -122,26 +114,44 @@ namespace MLicencas.FormViews.Contratos
             statusListModel = _statusServices.GetAll();
             softListModel = _softwaresServices.GetAll();
         }
-
-        private void LoadCbCliente()
-        {
-            cbCliente.DataSource = cliListModel;
-            cbCliente.DisplayMember = "NomeFantasia";
-            cbCliente.SelectedItem = cliListModel.Where(id => id.Id == clienteId).FirstOrDefault();
-        }
-
         private int LoadFormSelectCli()
         {
             SelectClientForm selectClient = new SelectClientForm();
             selectClient.ShowDialog();
             return selectClient.clienteId;
         }
-
+        private void LoadCbCliente()
+        {
+            cbCliente.DataSource = cliListModel;
+            cbCliente.DisplayMember = "NomeFantasia";
+            cbCliente.SelectedItem = cliListModel.Where(id => id.Id == clienteId).FirstOrDefault();
+        }
         private void LoadCBStatus()
         {
             cbStatus.DataSource = statusListModel;
             cbStatus.DisplayMember = "Descricao";
             cbStatus.SelectedIndex = 0;
+        }
+        private void LoadCBSoftware()
+        {
+            cbSoftware.DataSource = softListModel;
+            cbSoftware.DisplayMember = "Nome";
+            cbSoftware.SelectedIndex = -1;
+        }
+
+
+
+
+        private void txbParcelas_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txbValor.Text) && !string.IsNullOrEmpty(txbParcelas.Text))
+            {
+
+                double valor = double.Parse(txbValor.Text.Replace("R$", "").Trim());
+                int parcelas = int.Parse(txbParcelas.Text);
+                double valorParcela = valor / parcelas;
+                txbValorParcela.Text = valorParcela.ToString("C2");
+            }
         }
 
 
@@ -153,9 +163,9 @@ namespace MLicencas.FormViews.Contratos
             contratoModel.Termo = txbTermo.Text;
             contratoModel.DataRegistro = DateTime.Parse(dtRegistro.Text);
             contratoModel.DataVencimento = DateTime.Parse(dtVencimento.Text);
-            contratoModel.Valor = double.Parse(mtxbValor.Text);
+            contratoModel.Valor = double.Parse(txbValor.Text.Replace("R$", "").Trim());
             contratoModel.Parcelas = int.Parse(txbParcelas.Text);
-            contratoModel.ValorParcela = int.Parse(mtxbValorParcela.Text);
+            contratoModel.ValorParcela = double.Parse(txbValorParcela.Text.Replace("R$", "").Trim());
             contratoModel.Prorrogacoes = 0;
             contratoModel.ClienteId = (cbCliente.SelectedItem as IClienteModel).Id;
             contratoModel.SoftwareId = (cbSoftware.SelectedItem as ISoftwareModel).Id;
@@ -185,7 +195,21 @@ namespace MLicencas.FormViews.Contratos
                 throw new Exception(e.Message, e.InnerException);
             }
         }
+        private void UpdateContrato()
+        {
+            try
+            {
+                _contratosServices.Edit(contratoModel);
+                MessageBox.Show("Contrato atualizado com sucesso", this.Text);
+            }
+            catch (Exception e)
+            {
 
+                throw new Exception(e.Message, e.InnerException);
+            }
+        }
+
+        
         private void LoadFormFields()
         {
             if (contratoId != 0)
@@ -199,9 +223,9 @@ namespace MLicencas.FormViews.Contratos
                 cbCliente.SelectedItem = cliListModel.FirstOrDefault(id => id.Id == contratoModel.ClienteId);
                 cbSoftware.SelectedItem = softListModel.FirstOrDefault(id => id.Id == contratoModel.SoftwareId);
                 cbStatus.SelectedItem = statusListModel.Where(id => id.Id == contratoModel.SituacaoId);
-                mtxbValor.Text = contratoModel.Valor.ToString();
+                txbValor.Text = contratoModel.Valor.ToString("C2");
                 txbParcelas.Text = contratoModel.Parcelas.ToString();
-                mtxbValorParcela.Text = contratoModel.ValorParcela.ToString();
+                txbValorParcela.Text = contratoModel.ValorParcela.ToString("C2");
 
             }
 
@@ -256,7 +280,7 @@ namespace MLicencas.FormViews.Contratos
             dgvIncisos.Columns["Id"].Visible = false;
             dgvIncisos.Columns["Numero"].Width = 60;
             dgvIncisos.Columns["Numero"].HeaderText = "Num.";
-            dgvIncisos.Columns["Termo"].Width = 650;
+            dgvIncisos.Columns["Termo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvIncisos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgvIncisos.RowTemplate.Height = 60;
 
@@ -308,25 +332,12 @@ namespace MLicencas.FormViews.Contratos
             dgvClausulas.Columns["Id"].Visible = false;
             dgvClausulas.Columns["Clausula"].Width = 250; //CLÁUSULA PRIMEIRA... DADA PELO INDEX
             dgvClausulas.Columns["Clausula"].HeaderText = "Cláusula";
-            dgvClausulas.Columns["Titulo"].Width = 460; //DO OBJETO... OBIRGAÇÕES DO CONTRATANTE...
+            dgvClausulas.Columns["Titulo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; //DO OBJETO... OBIRGAÇÕES DO CONTRATANTE...
             dgvClausulas.Columns["Titulo"].HeaderText = "Título";
 
 
         }
 
-        private void UpdateContrato()
-        {
-            try
-            {
-                _contratosServices.Edit(contratoModel);
-                MessageBox.Show("Contrato atualizado com sucesso", this.Text);
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception(e.Message, e.InnerException);
-            }
-        }
 
         private void dgvClausulas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -339,24 +350,6 @@ namespace MLicencas.FormViews.Contratos
 
         }
 
-        private void btnAddInciso_Click(object sender, EventArgs e)
-        {
-            ContratoIncisoUC UcIn = new ContratoIncisoUC(clausulaModel.Id, 0);
-            IncludeItemContratoForm itemContratoForm = new IncludeItemContratoForm(UcIn);
-            itemContratoForm.ShowDialog();
-            LoadFormFields();
-            LoadDGVIncisos(clausulaModel.Id);
-        }
-
-        private void editarClausulaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int clausulaId = int.Parse(dgvClausulas.CurrentRow.Cells[0].Value.ToString());
-            ContratoClausulaUC UcClau = new ContratoClausulaUC(contratoId, clausulaId);
-            IncludeItemContratoForm itemContratoForm = new IncludeItemContratoForm(UcClau);
-            itemContratoForm.ShowDialog();
-            LoadFormFields();
-            LoadDGVClausulas();
-        }
 
         private void dgvClausulas_MouseClick(object sender, MouseEventArgs e)
         {
@@ -365,7 +358,21 @@ namespace MLicencas.FormViews.Contratos
                 clausulaContextMenu.Show(MousePosition);
             }
         }
-
+        private void btnAddClausula_Click(object sender, EventArgs e)
+        {
+            ClausulaAddForm clausulaAddForm = new ClausulaAddForm(contratoId, 0);
+            clausulaAddForm.ShowDialog();
+            LoadFormFields();
+            LoadDGVClausulas();
+        }
+        private void editarClausulaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int clausulaId = int.Parse(dgvClausulas.CurrentRow.Cells[0].Value.ToString());
+            ClausulaAddForm clausulaAddForm = new ClausulaAddForm(contratoId, clausulaId);
+            clausulaAddForm.ShowDialog();
+            LoadFormFields();
+            LoadDGVClausulas();
+        }
         private void removerClausulaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int clausulaId = int.Parse(dgvClausulas.CurrentRow.Cells[0].Value.ToString());
@@ -395,6 +402,7 @@ namespace MLicencas.FormViews.Contratos
             }
         }
 
+
         private void dgvIncisos_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -402,17 +410,21 @@ namespace MLicencas.FormViews.Contratos
                 incisoContextMenu.Show(MousePosition);
             }
         }
-
-        private void editarIncisoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnAddInciso_Click(object sender, EventArgs e)
         {
-            int incisoId = int.Parse(dgvIncisos.CurrentRow.Cells[0].Value.ToString());
-            ContratoIncisoUC UcIn = new ContratoIncisoUC(clausulaModel.Id, incisoId);
-            IncludeItemContratoForm itemContratoForm = new IncludeItemContratoForm(UcIn);
-            itemContratoForm.ShowDialog();
+            IncisoAddForm incisoAddForm = new IncisoAddForm(clausulaModel.Id, 0);
+            incisoAddForm.ShowDialog();
             LoadFormFields();
             LoadDGVIncisos(clausulaModel.Id);
         }
-
+        private void editarIncisoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int incisoId = int.Parse(dgvIncisos.CurrentRow.Cells[0].Value.ToString());
+            IncisoAddForm incisoAddForm = new IncisoAddForm(clausulaModel.Id, incisoId);
+            incisoAddForm.ShowDialog();
+            LoadFormFields();
+            LoadDGVIncisos(clausulaModel.Id);
+        }
         private void removerIncisoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int incisoId = int.Parse(dgvIncisos.CurrentRow.Cells[0].Value.ToString());
@@ -439,12 +451,6 @@ namespace MLicencas.FormViews.Contratos
             this.Close();
         }
 
-        private void txbParcelas_Leave(object sender, EventArgs e)
-        {
-            int valor = int.Parse(mtxbValor.Text);
-            int parcelas = int.Parse(txbParcelas.Text);
-            int valorParcela = valor / parcelas;
-            mtxbValorParcela.Text = valorParcela.ToString();
-        }
+       
     }
 }

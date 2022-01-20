@@ -159,12 +159,13 @@ namespace Financeiro.Banco.LancamentoBancario
 
         private void CalculaSaldo()
         {
-            double saldoConta = lancamentoListModel.Where(tipo => tipo.TipoLancamentoId ==
-                                    tipoLancamentoListModel.FirstOrDefault(t => t.Tipo == 'C').Id)
-                                    .Sum(saldo => saldo.Valor);
-            saldoConta -= lancamentoListModel.Where(tipo => tipo.TipoLancamentoId ==
-                                 tipoLancamentoListModel.FirstOrDefault(t => t.Tipo == 'D').Id)
-                                    .Sum(saldo => saldo.Valor);
+            double saldoConta = contaModel.SaldoAtual;
+            //saldoConta += lancamentoListModel.Where(tipo => tipo.TipoLancamentoId ==
+            //                        tipoLancamentoListModel.FirstOrDefault(t => t.Tipo == 'C').Id)
+            //                        .Sum(saldo => saldo.Valor);
+            //saldoConta -= lancamentoListModel.Where(tipo => tipo.TipoLancamentoId ==
+            //                     tipoLancamentoListModel.FirstOrDefault(t => t.Tipo == 'D').Id)
+            //                        .Sum(saldo => saldo.Valor);
             txbSaldo.Text = saldoConta.ToString("C2");
             if (saldoConta < 0)
             {

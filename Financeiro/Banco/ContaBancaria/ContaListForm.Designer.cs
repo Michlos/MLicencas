@@ -59,6 +59,7 @@ namespace Financeiro.Banco.ContaBancaria
             this.dgvContas.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvContas.Location = new System.Drawing.Point(12, 12);
             this.dgvContas.Name = "dgvContas";
+            this.dgvContas.ReadOnly = true;
             this.dgvContas.RowHeadersVisible = false;
             this.dgvContas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -79,6 +80,7 @@ namespace Financeiro.Banco.ContaBancaria
             this.btnNew.TabIndex = 23;
             this.btnNew.Text = "Adicionar Conta";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.adicionarContaToolStripMenuItem_Click);
             // 
             // btnClose
             // 

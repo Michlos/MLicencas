@@ -93,6 +93,16 @@ namespace MLicencas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconFilter20x20 {
+            get {
+                object obj = ResourceManager.GetObject("IconFilter20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconSave20x20 {
             get {
                 object obj = ResourceManager.GetObject("iconSave20x20", resourceCulture);

@@ -97,6 +97,18 @@
     <Compile Include="FormViews\Clientes\Endereco\EndCliAddForm.Designer.cs">
       <DependentUpon>EndCliAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViews\Clientes\SelectClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Clientes\SelectClienteForm.Designer.cs">
+      <DependentUpon>SelectClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViews\Contratos\ClausulaAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViews\Contratos\ClausulaAddForm.Designer.cs">
+      <DependentUpon>ClausulaAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormViews\Contratos\ContratoAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +121,11 @@
     <Compile Include="FormViews\Contratos\ContratosListForm.Designer.cs">
       <DependentUpon>ContratosListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormViews\Contratos\IncludeItemContratoForm.cs">
+    <Compile Include="FormViews\Contratos\IncisoAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormViews\Contratos\IncludeItemContratoForm.Designer.cs">
-      <DependentUpon>IncludeItemContratoForm.cs</DependentUpon>
+    <Compile Include="FormViews\Contratos\IncisoAddForm.Designer.cs">
+      <DependentUpon>IncisoAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormViews\Contratos\SelectClientForm.cs">
       <SubType>Form</SubType>
@@ -225,18 +237,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCViews\Contratos\ContratoIncisoUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCViews\Contratos\ContratoIncisoUC.Designer.cs">
-      <DependentUpon>ContratoIncisoUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCViews\Contratos\ContratoClausulaUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCViews\Contratos\ContratoClausulaUC.Designer.cs">
-      <DependentUpon>ContratoClausulaUC.cs</DependentUpon>
-    </Compile>
     <Compile Include="UCViews\Usuarios\GruposListUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -279,14 +279,20 @@
     <EmbeddedResource Include="FormViews\Clientes\Endereco\EndCliAddForm.resx">
       <DependentUpon>EndCliAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Clientes\SelectClienteForm.resx">
+      <DependentUpon>SelectClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViews\Contratos\ClausulaAddForm.resx">
+      <DependentUpon>ClausulaAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Contratos\ContratoAddForm.resx">
       <DependentUpon>ContratoAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Contratos\ContratosListForm.resx">
       <DependentUpon>ContratosListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormViews\Contratos\IncludeItemContratoForm.resx">
-      <DependentUpon>IncludeItemContratoForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormViews\Contratos\IncisoAddForm.resx">
+      <DependentUpon>IncisoAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViews\Contratos\SelectClientForm.resx">
       <DependentUpon>SelectClientForm.cs</DependentUpon>
@@ -352,12 +358,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UCViews\Contratos\ContratoIncisoUC.resx">
-      <DependentUpon>ContratoIncisoUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCViews\Contratos\ContratoClausulaUC.resx">
-      <DependentUpon>ContratoClausulaUC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UCViews\Usuarios\GruposListUC.resx">
       <DependentUpon>GruposListUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +435,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconSave50x50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconFilter20x20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

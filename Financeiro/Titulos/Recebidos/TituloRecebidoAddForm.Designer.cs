@@ -52,7 +52,7 @@ namespace Financeiro.Titulos.Recebidos
             this.panelCommands.Controls.Add(this.btnCancel);
             this.panelCommands.Controls.Add(this.btnSave);
             this.panelCommands.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCommands.Location = new System.Drawing.Point(0, 192);
+            this.panelCommands.Location = new System.Drawing.Point(0, 161);
             this.panelCommands.Name = "panelCommands";
             this.panelCommands.Size = new System.Drawing.Size(271, 37);
             this.panelCommands.TabIndex = 0;
@@ -188,7 +188,7 @@ namespace Financeiro.Titulos.Recebidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 229);
+            this.ClientSize = new System.Drawing.Size(271, 198);
             this.Controls.Add(this.dtpDataRecebimento);
             this.Controls.Add(this.cbDestino);
             this.Controls.Add(this.label4);

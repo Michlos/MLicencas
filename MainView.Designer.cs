@@ -44,6 +44,7 @@ namespace MLicencas
             this.gestaoDeLicencasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoBancáriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lancamentosBancariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeBancosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeBoletosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,9 @@ namespace MLicencas
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.statusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lancamentosBancariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.titulosAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recebidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -177,7 +180,8 @@ namespace MLicencas
             // 
             this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestãoBancáriaToolStripMenuItem,
-            this.gestãoDeBoletosToolStripMenuItem});
+            this.gestãoDeBoletosToolStripMenuItem,
+            this.titulosAReceberToolStripMenuItem});
             this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
             this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.financeiroToolStripMenuItem.Text = "Financeiro";
@@ -191,6 +195,13 @@ namespace MLicencas
             this.gestãoBancáriaToolStripMenuItem.Name = "gestãoBancáriaToolStripMenuItem";
             this.gestãoBancáriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestãoBancáriaToolStripMenuItem.Text = "Gestão Bancária";
+            // 
+            // lancamentosBancariosToolStripMenuItem
+            // 
+            this.lancamentosBancariosToolStripMenuItem.Name = "lancamentosBancariosToolStripMenuItem";
+            this.lancamentosBancariosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.lancamentosBancariosToolStripMenuItem.Text = "Lançamentos Bancários";
+            this.lancamentosBancariosToolStripMenuItem.Click += new System.EventHandler(this.lancamentosBancariosToolStripMenuItem_Click);
             // 
             // listaDeBancosToolStripMenuItem
             // 
@@ -288,12 +299,27 @@ namespace MLicencas
             this.statusUsuario.Size = new System.Drawing.Size(99, 17);
             this.statusUsuario.Text = "NomeUsuarioTXT";
             // 
-            // lancamentosBancariosToolStripMenuItem
+            // titulosAReceberToolStripMenuItem
             // 
-            this.lancamentosBancariosToolStripMenuItem.Name = "lancamentosBancariosToolStripMenuItem";
-            this.lancamentosBancariosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.lancamentosBancariosToolStripMenuItem.Text = "Lançamentos Bancários";
-            this.lancamentosBancariosToolStripMenuItem.Click += new System.EventHandler(this.lancamentosBancariosToolStripMenuItem_Click);
+            this.titulosAReceberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aReceberToolStripMenuItem,
+            this.recebidosToolStripMenuItem});
+            this.titulosAReceberToolStripMenuItem.Name = "titulosAReceberToolStripMenuItem";
+            this.titulosAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.titulosAReceberToolStripMenuItem.Text = "Títulos a Receber";
+            // 
+            // aReceberToolStripMenuItem
+            // 
+            this.aReceberToolStripMenuItem.Name = "aReceberToolStripMenuItem";
+            this.aReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aReceberToolStripMenuItem.Text = "A Receber";
+            this.aReceberToolStripMenuItem.Click += new System.EventHandler(this.aReceberToolStripMenuItem_Click);
+            // 
+            // recebidosToolStripMenuItem
+            // 
+            this.recebidosToolStripMenuItem.Name = "recebidosToolStripMenuItem";
+            this.recebidosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recebidosToolStripMenuItem.Text = "Recebidos";
             // 
             // MainView
             // 
@@ -349,6 +375,9 @@ namespace MLicencas
         private System.Windows.Forms.ToolStripMenuItem gestãoDeBoletosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeContasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lancamentosBancariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem titulosAReceberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aReceberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recebidosToolStripMenuItem;
     }
 }
 

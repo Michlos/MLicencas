@@ -9,17 +9,12 @@ using ServicesLayer.Clausulas;
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MLicencas.UCViews.Contratos
+namespace MLicencas.FormViews.Contratos
 {
-    public partial class ContratoClausulaUC : UserControl
+    public partial class ClausulaAddForm : Form
     {
         private readonly int contratoId, clausulaId;
         private QueryStringServices _queryString;
@@ -27,19 +22,36 @@ namespace MLicencas.UCViews.Contratos
 
         private IClausulaModel clauModel;
         private IEnumerable<IClausulaModel> clausulaListModel = new List<IClausulaModel>();
-
-        public ContratoClausulaUC()
-        {
-
-        }
-
-        public ContratoClausulaUC(int contratoId, int clausulaId)
+        public ClausulaAddForm(int contratoId, int clausulaId)
         {
             LoadServices();
             InitializeComponent();
             this.contratoId = contratoId;
             this.clausulaId = clausulaId;
             LoadModels();
+            LoadFormFields();
+        }
+
+        private void LoadFormFields()
+        {
+            if (clausulaId != 0)
+            {
+                this.clauModel = new ClausulaModel();
+                clauModel = _clausulasServices.GetById(clausulaId);
+                txbTitulo.Text = this.clauModel.Titulo;
+                txbNumero.Text = this.clauModel.Numero.ToString();
+            }
+            else
+            {
+                if (clausulaListModel.Any())
+                {
+                    txbNumero.Text = (clausulaListModel.Last().Numero + 1).ToString();
+                }
+                else
+                {
+                    txbNumero.Text = "1";
+                }
+            }
         }
 
         private void LoadModels()
@@ -71,19 +83,24 @@ namespace MLicencas.UCViews.Contratos
             }
         }
 
-
         private void AddClausula()
         {
             try
             {
                 this.clauModel = _clausulasServices.Add(clauModel);
                 MessageBox.Show("Cláusula Adicionada com sucesso.");
+                this.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, Application.ProductName);
                 throw new Exception();
             }
+        }
+
+        private void txbNumero_Enter(object sender, EventArgs e)
+        {
+            MessageBox.Show($"O Número \"{txbNumero.Text}\" foi sugerido conforme\n a lista de clausulas existentes.\nTenha cautela ao alterá-lo.");
         }
 
         private void UpdateClausula()
@@ -92,45 +109,13 @@ namespace MLicencas.UCViews.Contratos
             {
                 _clausulasServices.Edit(clauModel);
                 MessageBox.Show("Cláusula Atualizada com sucesso.");
-                
+                this.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, Application.ProductName);
                 throw new Exception();
             }
-        }
-        private void ContratoClausulaUC_Load(object sender, EventArgs e)
-        {
-            LoadFormFields();
-        }
-
-        private void txbNumero_Enter(object sender, EventArgs e)
-        {
-            MessageBox.Show($"O Número \"{txbNumero.Text}\" foi sugerido conforme\n a lista de clausulas existentes.\nTenha cautela ao alterá-lo.");
-        }
-
-        private void LoadFormFields()
-        {
-            if (clausulaId != 0)
-            {
-                this.clauModel = new ClausulaModel();
-                clauModel = _clausulasServices.GetById(clausulaId);
-                txbTitulo.Text = this.clauModel.Titulo;
-                txbNumero.Text = this.clauModel.Numero.ToString();
-            }
-            else
-            {
-                if (clausulaListModel.Any())
-                {
-                    txbNumero.Text = (clausulaListModel.Last().Numero + 1).ToString();
-                }
-                else
-                {
-                    txbNumero.Text = "1";
-                }
-            }
-
         }
     }
 }

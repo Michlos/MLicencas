@@ -1,6 +1,8 @@
 ﻿using DomainLayer.Clientes.Contratos;
 using DomainLayer.Financeiro.Recebiveis;
 
+using Financeiro.Titulos.Recebidos;
+
 using InfraStructure;
 using InfraStructure.Repository.Clientes;
 using InfraStructure.Repository.Contratos;
@@ -64,7 +66,7 @@ namespace Financeiro.Titulos.Recebiveis
             dgvRecebiveis.Columns["Id"].Width = 50;
             dgvRecebiveis.Columns["Id"].HeaderText = "Registro";
             dgvRecebiveis.Columns["ClienteId"].Visible = false;
-            dgvRecebiveis.Columns["Cliente"].Width = 200;
+            dgvRecebiveis.Columns["Cliente"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvRecebiveis.Columns["Vencimento"].Width = 80;
             dgvRecebiveis.Columns["Parcela"].Width = 50;
             dgvRecebiveis.Columns["Valor"].Width = 100;
@@ -245,7 +247,42 @@ namespace Financeiro.Titulos.Recebiveis
 
         private void btnLiquidar_Click(object sender, EventArgs e)
         {
-            //GERAR A CAXAI DE DIÁLOGO DE DESTINO DE RECEBIMENTO, VALOR RECEBIDO, DATA RECEBIMENTO.
+            //GERAR DIÁLOGO DE DESTINO DE RECEBIMENTO, VALOR RECEBIDO, DATA RECEBIMENTO.
+            if (dgvRecebiveis.CurrentRow != null)
+            {
+                int idTitulo = int.Parse(dgvRecebiveis.CurrentRow.Cells[0].Value.ToString());
+                TituloRecebidoAddForm tituloRecebidoAddForm = new TituloRecebidoAddForm(idTitulo);
+                tituloRecebidoAddForm.ShowDialog();
+                LoadModels();
+                LoadDGVTitulos();
+            }
+
+        }
+
+        private void chbExibeQuitados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbExibeQuitados.Checked)
+            {
+                titulosListModel = _titulosRecebiveisServices.GetAll();
+                titulosListModel = titulosListModel.Where(dataVenc => dataVenc.DataVencimento.Month <= cbMesFiltro.SelectedIndex + 1); //checar o mes que vem
+            }
+            else
+            {
+                LoadModels();
+            }
+        }
+
+        private void exibirRecebidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvRecebiveis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuStrip.Show(MousePosition);
+            }
 
         }
     }

@@ -12,9 +12,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace MLicencas.UCViews.Contratos
+namespace MLicencas.FormViews.Contratos
 {
-    public partial class ContratoIncisoUC : UserControl
+    public partial class IncisoAddForm : Form
     {
         private readonly int clausulaId, incisoId;
         private QueryStringServices _queryString;
@@ -23,31 +23,24 @@ namespace MLicencas.UCViews.Contratos
         private IIncisoModel incisoModel;
         private IEnumerable<IIncisoModel> incisoListModel = new List<IIncisoModel>();
 
-        public ContratoIncisoUC()
-        {
-
-        }
-
-        public ContratoIncisoUC(int clausulaId, int incisoId)
+        public IncisoAddForm(int clausulaId, int incisoId)
         {
             LoadServices();
             InitializeComponent();
             this.clausulaId = clausulaId;
             this.incisoId = incisoId;
             LoadModels();
+            LoadFormFields();
         }
-
-        private void LoadModels()
-        {
-            incisoListModel = _incisosServices.GetAllByClausula(clausulaId);
-        }
-
         private void LoadServices()
         {
             _queryString = new QueryStringServices(new QueryString());
             _incisosServices = new IncisosServices(new IncisoRepository(_queryString.GetQueryApp()), new ModelDataAnnotationCheck());
         }
-
+        private void LoadModels()
+        {
+            incisoListModel = _incisosServices.GetAllByClausula(clausulaId);
+        }
         private void picbSave_Click(object sender, EventArgs e)
         {
             incisoModel = new IncisoModel();
@@ -66,6 +59,20 @@ namespace MLicencas.UCViews.Contratos
             }
         }
 
+        private void UpdateInciso()
+        {
+            try
+            {
+                _incisosServices.Edit(incisoModel);
+                MessageBox.Show("Termo Atualizado com sucesso.");
+                this.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, Application.ProductName);
+                throw new Exception();
+            }
+        }
 
         private void AddInciso()
         {
@@ -73,30 +80,13 @@ namespace MLicencas.UCViews.Contratos
             {
                 this.incisoModel = _incisosServices.Add(incisoModel);
                 MessageBox.Show("Termo Adicionado com sucesso.");
+                this.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, Application.ProductName);
                 throw new Exception();
             }
-        }
-
-        private void UpdateInciso()
-        {
-            try
-            {
-                _incisosServices.Edit(incisoModel);
-                MessageBox.Show("Termo Atualizado com sucesso.");
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, Application.ProductName);
-                throw new Exception();
-            }
-        }
-        private void ContratoClausulaUC_Load(object sender, EventArgs e)
-        {
-            LoadFormFields();
         }
 
         private void LoadFormFields()

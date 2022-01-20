@@ -33,11 +33,8 @@ namespace MLicencas.FormViews.Contratos
             this.pnlBottomMenu = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnGerarLicenca = new System.Windows.Forms.Button();
-            this.btnSaveContrato = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.txbParcelas = new System.Windows.Forms.TextBox();
-            this.mtxbValorParcela = new System.Windows.Forms.MaskedTextBox();
-            this.mtxbValor = new System.Windows.Forms.MaskedTextBox();
             this.cbSoftware = new System.Windows.Forms.ComboBox();
             this.cbCliente = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -69,6 +66,12 @@ namespace MLicencas.FormViews.Contratos
             this.novoIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removerIncisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txbValor = new System.Windows.Forms.TextBox();
+            this.txbValorParcela = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnSaveContrato = new System.Windows.Forms.Button();
             this.pnlBottomMenu.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlContainer.SuspendLayout();
@@ -88,7 +91,7 @@ namespace MLicencas.FormViews.Contratos
             this.pnlBottomMenu.Location = new System.Drawing.Point(0, 474);
             this.pnlBottomMenu.Name = "pnlBottomMenu";
             this.pnlBottomMenu.Size = new System.Drawing.Size(753, 44);
-            this.pnlBottomMenu.TabIndex = 0;
+            this.pnlBottomMenu.TabIndex = 1;
             // 
             // btnClose
             // 
@@ -115,33 +118,14 @@ namespace MLicencas.FormViews.Contratos
             this.btnGerarLicenca.Location = new System.Drawing.Point(327, 5);
             this.btnGerarLicenca.Name = "btnGerarLicenca";
             this.btnGerarLicenca.Size = new System.Drawing.Size(87, 29);
-            this.btnGerarLicenca.TabIndex = 0;
+            this.btnGerarLicenca.TabIndex = 1;
             this.btnGerarLicenca.Text = "Gerar Licença";
             this.btnGerarLicenca.UseVisualStyleBackColor = false;
             this.btnGerarLicenca.Click += new System.EventHandler(this.btnSaveContrato_Click);
             // 
-            // btnSaveContrato
-            // 
-            this.btnSaveContrato.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveContrato.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnSaveContrato.FlatAppearance.BorderSize = 0;
-            this.btnSaveContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveContrato.Image = global::MLicencas.Properties.Resources.iconSave20x20;
-            this.btnSaveContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveContrato.Location = new System.Drawing.Point(654, 5);
-            this.btnSaveContrato.Name = "btnSaveContrato";
-            this.btnSaveContrato.Size = new System.Drawing.Size(87, 29);
-            this.btnSaveContrato.TabIndex = 0;
-            this.btnSaveContrato.Text = "Salvar";
-            this.btnSaveContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveContrato.UseVisualStyleBackColor = false;
-            this.btnSaveContrato.Click += new System.EventHandler(this.btnSaveContrato_Click);
-            // 
             // pnlHeader
             // 
             this.pnlHeader.Controls.Add(this.txbParcelas);
-            this.pnlHeader.Controls.Add(this.mtxbValorParcela);
-            this.pnlHeader.Controls.Add(this.mtxbValor);
             this.pnlHeader.Controls.Add(this.cbSoftware);
             this.pnlHeader.Controls.Add(this.cbCliente);
             this.pnlHeader.Controls.Add(this.cbStatus);
@@ -155,6 +139,9 @@ namespace MLicencas.FormViews.Contratos
             this.pnlHeader.Controls.Add(this.label6);
             this.pnlHeader.Controls.Add(this.label1);
             this.pnlHeader.Controls.Add(this.txbTermo);
+            this.pnlHeader.Controls.Add(this.txbValorParcela);
+            this.pnlHeader.Controls.Add(this.txbValor);
+            this.pnlHeader.Controls.Add(this.textBox3);
             this.pnlHeader.Controls.Add(this.txbNome);
             this.pnlHeader.Controls.Add(this.txbId);
             this.pnlHeader.Controls.Add(this.label4);
@@ -165,60 +152,48 @@ namespace MLicencas.FormViews.Contratos
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(753, 155);
-            this.pnlHeader.TabIndex = 3;
+            this.pnlHeader.Size = new System.Drawing.Size(753, 153);
+            this.pnlHeader.TabIndex = 0;
             // 
             // txbParcelas
             // 
             this.txbParcelas.Location = new System.Drawing.Point(550, 29);
             this.txbParcelas.Name = "txbParcelas";
             this.txbParcelas.Size = new System.Drawing.Size(32, 20);
-            this.txbParcelas.TabIndex = 4;
+            this.txbParcelas.TabIndex = 6;
             this.txbParcelas.Leave += new System.EventHandler(this.txbParcelas_Leave);
-            // 
-            // mtxbValorParcela
-            // 
-            this.mtxbValorParcela.Location = new System.Drawing.Point(662, 29);
-            this.mtxbValorParcela.Mask = "00000,00";
-            this.mtxbValorParcela.Name = "mtxbValorParcela";
-            this.mtxbValorParcela.Size = new System.Drawing.Size(79, 20);
-            this.mtxbValorParcela.TabIndex = 4;
-            this.mtxbValorParcela.TabStop = false;
-            this.mtxbValorParcela.ValidatingType = typeof(int);
-            // 
-            // mtxbValor
-            // 
-            this.mtxbValor.Location = new System.Drawing.Point(410, 29);
-            this.mtxbValor.Mask = "00000,00";
-            this.mtxbValor.Name = "mtxbValor";
-            this.mtxbValor.Size = new System.Drawing.Size(79, 20);
-            this.mtxbValor.TabIndex = 3;
-            this.mtxbValor.ValidatingType = typeof(int);
             // 
             // cbSoftware
             // 
             this.cbSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSoftware.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbSoftware.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbSoftware.FormattingEnabled = true;
             this.cbSoftware.Location = new System.Drawing.Point(349, 55);
             this.cbSoftware.Name = "cbSoftware";
             this.cbSoftware.Size = new System.Drawing.Size(140, 21);
-            this.cbSoftware.TabIndex = 6;
+            this.cbSoftware.TabIndex = 9;
             // 
             // cbCliente
             // 
+            this.cbCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(48, 55);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Size = new System.Drawing.Size(226, 21);
-            this.cbCliente.TabIndex = 5;
+            this.cbCliente.TabIndex = 8;
+            this.cbCliente.TabStop = false;
             // 
             // cbStatus
             // 
+            this.cbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(252, 3);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(72, 21);
-            this.cbStatus.TabIndex = 3;
+            this.cbStatus.TabIndex = 1;
             this.cbStatus.TabStop = false;
             // 
             // dtVencimento
@@ -229,7 +204,7 @@ namespace MLicencas.FormViews.Contratos
             this.dtVencimento.MinDate = new System.DateTime(2021, 12, 18, 0, 0, 0, 0);
             this.dtVencimento.Name = "dtVencimento";
             this.dtVencimento.Size = new System.Drawing.Size(85, 20);
-            this.dtVencimento.TabIndex = 1;
+            this.dtVencimento.TabIndex = 3;
             // 
             // dtRegistro
             // 
@@ -239,7 +214,8 @@ namespace MLicencas.FormViews.Contratos
             this.dtRegistro.MinDate = new System.DateTime(2021, 12, 18, 0, 0, 0, 0);
             this.dtRegistro.Name = "dtRegistro";
             this.dtRegistro.Size = new System.Drawing.Size(85, 20);
-            this.dtRegistro.TabIndex = 0;
+            this.dtRegistro.TabIndex = 2;
+            this.dtRegistro.TabStop = false;
             // 
             // label3
             // 
@@ -315,17 +291,19 @@ namespace MLicencas.FormViews.Contratos
             this.txbTermo.Name = "txbTermo";
             this.txbTermo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txbTermo.Size = new System.Drawing.Size(693, 61);
-            this.txbTermo.TabIndex = 7;
+            this.txbTermo.TabIndex = 10;
+            this.txbTermo.TabStop = false;
             this.txbTermo.Text = "Decidem as partes, na melhor forma de direito, celebrar o presente CONTRATO DE PR" +
     "ESTAÇÃO DE SERVIÇOS, que reger-se-á mediante as cláusulas e condições adiante es" +
     "tipuladas.";
             // 
             // txbNome
             // 
+            this.txbNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txbNome.Location = new System.Drawing.Point(48, 29);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(276, 20);
-            this.txbNome.TabIndex = 2;
+            this.txbNome.TabIndex = 4;
             // 
             // txbId
             // 
@@ -380,10 +358,11 @@ namespace MLicencas.FormViews.Contratos
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContainer.AutoScroll = true;
             this.pnlContainer.Controls.Add(this.dgvClausulas);
+            this.pnlContainer.Controls.Add(this.label12);
             this.pnlContainer.Location = new System.Drawing.Point(0, 155);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(753, 151);
-            this.pnlContainer.TabIndex = 4;
+            this.pnlContainer.TabIndex = 2;
             // 
             // dgvClausulas
             // 
@@ -399,7 +378,7 @@ namespace MLicencas.FormViews.Contratos
             this.dgvClausulas.RowHeadersVisible = false;
             this.dgvClausulas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvClausulas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClausulas.Size = new System.Drawing.Size(729, 123);
+            this.dgvClausulas.Size = new System.Drawing.Size(729, 103);
             this.dgvClausulas.TabIndex = 0;
             this.dgvClausulas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClausulas_CellClick);
             this.dgvClausulas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvClausulas_MouseClick);
@@ -410,10 +389,11 @@ namespace MLicencas.FormViews.Contratos
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlRighMenu.Controls.Add(this.dgvIncisos);
-            this.pnlRighMenu.Location = new System.Drawing.Point(0, 300);
+            this.pnlRighMenu.Controls.Add(this.label13);
+            this.pnlRighMenu.Location = new System.Drawing.Point(0, 280);
             this.pnlRighMenu.Name = "pnlRighMenu";
-            this.pnlRighMenu.Size = new System.Drawing.Size(753, 173);
-            this.pnlRighMenu.TabIndex = 1;
+            this.pnlRighMenu.Size = new System.Drawing.Size(753, 193);
+            this.pnlRighMenu.TabIndex = 3;
             // 
             // dgvIncisos
             // 
@@ -425,13 +405,13 @@ namespace MLicencas.FormViews.Contratos
             this.dgvIncisos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvIncisos.BackgroundColor = System.Drawing.Color.White;
             this.dgvIncisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIncisos.Location = new System.Drawing.Point(11, 12);
+            this.dgvIncisos.Location = new System.Drawing.Point(11, 20);
             this.dgvIncisos.Name = "dgvIncisos";
             this.dgvIncisos.ReadOnly = true;
             this.dgvIncisos.RowHeadersVisible = false;
             this.dgvIncisos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvIncisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncisos.Size = new System.Drawing.Size(730, 154);
+            this.dgvIncisos.Size = new System.Drawing.Size(730, 166);
             this.dgvIncisos.TabIndex = 0;
             this.dgvIncisos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvIncisos_MouseClick);
             // 
@@ -472,28 +452,88 @@ namespace MLicencas.FormViews.Contratos
             this.editarIncisoToolStripMenuItem,
             this.removerIncisoToolStripMenuItem});
             this.incisoContextMenu.Name = "incisoContextMenu";
-            this.incisoContextMenu.Size = new System.Drawing.Size(122, 70);
+            this.incisoContextMenu.Size = new System.Drawing.Size(181, 92);
             // 
             // novoIncisoToolStripMenuItem
             // 
             this.novoIncisoToolStripMenuItem.Name = "novoIncisoToolStripMenuItem";
-            this.novoIncisoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.novoIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoIncisoToolStripMenuItem.Text = "Novo";
             this.novoIncisoToolStripMenuItem.Click += new System.EventHandler(this.btnAddInciso_Click);
             // 
             // editarIncisoToolStripMenuItem
             // 
             this.editarIncisoToolStripMenuItem.Name = "editarIncisoToolStripMenuItem";
-            this.editarIncisoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.editarIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarIncisoToolStripMenuItem.Text = "Editar";
             this.editarIncisoToolStripMenuItem.Click += new System.EventHandler(this.editarIncisoToolStripMenuItem_Click);
             // 
             // removerIncisoToolStripMenuItem
             // 
             this.removerIncisoToolStripMenuItem.Name = "removerIncisoToolStripMenuItem";
-            this.removerIncisoToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removerIncisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removerIncisoToolStripMenuItem.Text = "Remover";
             this.removerIncisoToolStripMenuItem.Click += new System.EventHandler(this.removerIncisoToolStripMenuItem_Click);
+            // 
+            // txbValor
+            // 
+            this.txbValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txbValor.Location = new System.Drawing.Point(409, 29);
+            this.txbValor.Name = "txbValor";
+            this.txbValor.Size = new System.Drawing.Size(80, 20);
+            this.txbValor.TabIndex = 5;
+            // 
+            // txbValorParcela
+            // 
+            this.txbValorParcela.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txbValorParcela.Location = new System.Drawing.Point(661, 29);
+            this.txbValorParcela.Name = "txbValorParcela";
+            this.txbValorParcela.Size = new System.Drawing.Size(80, 20);
+            this.txbValorParcela.TabIndex = 7;
+            this.txbValorParcela.TabStop = false;
+            // 
+            // textBox3
+            // 
+            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox3.Location = new System.Drawing.Point(661, 29);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(80, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 1);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(112, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Cláusulas - Cabeçalho";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 4);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Termos";
+            // 
+            // btnSaveContrato
+            // 
+            this.btnSaveContrato.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveContrato.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnSaveContrato.FlatAppearance.BorderSize = 0;
+            this.btnSaveContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveContrato.Image = global::MLicencas.Properties.Resources.iconSave20x20;
+            this.btnSaveContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveContrato.Location = new System.Drawing.Point(654, 5);
+            this.btnSaveContrato.Name = "btnSaveContrato";
+            this.btnSaveContrato.Size = new System.Drawing.Size(87, 29);
+            this.btnSaveContrato.TabIndex = 0;
+            this.btnSaveContrato.Text = "Salvar";
+            this.btnSaveContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveContrato.UseVisualStyleBackColor = false;
+            this.btnSaveContrato.Click += new System.EventHandler(this.btnSaveContrato_Click);
             // 
             // ContratoAddForm
             // 
@@ -512,8 +552,10 @@ namespace MLicencas.FormViews.Contratos
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlContainer.ResumeLayout(false);
+            this.pnlContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClausulas)).EndInit();
             this.pnlRighMenu.ResumeLayout(false);
+            this.pnlRighMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncisos)).EndInit();
             this.clausulaContextMenu.ResumeLayout(false);
             this.incisoContextMenu.ResumeLayout(false);
@@ -557,10 +599,13 @@ namespace MLicencas.FormViews.Contratos
         private System.Windows.Forms.Button btnGerarLicenca;
         public System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txbParcelas;
-        private System.Windows.Forms.MaskedTextBox mtxbValorParcela;
-        private System.Windows.Forms.MaskedTextBox mtxbValor;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txbValorParcela;
+        private System.Windows.Forms.TextBox txbValor;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

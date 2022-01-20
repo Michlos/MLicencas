@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace CommonComponents
 {
     /// <summary>
-    /// Método(TextBox textBox)
+    /// private void Método(TextBox txt)
     /// {
     ///     txt.Enter += AplyFloatCurrency.TirarMascara;
     ///     txt.Leave += AplyFloatCurrency.RetornarMarcarca;
